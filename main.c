@@ -756,22 +756,11 @@ UT_TEST(ft_lstmap)
 #endif
 
 #ifdef EXTRA_YYANG
-#define TEST_FT_MEMDUP
-#define TEST_FT_ISBLANK
-
-UT_TEST(ft_strrev)
-{
-	char	buf1[] = "123456";
-	char	buf2[] = "12345";
-	char	buf3[] = "1";
-	char	buf4[] = "";
-
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf1), "654321"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf2), "54321"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf3), "1"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf4), ""), 0);
-}
-
+#define TEST_ft_memdup
+#define TEST_ft_isblank
+#define TEST_ft_strrev
+#define TEST_ft_strtrimc
+#endif
 /*
 UT_TEST(ft_ptrswap)
 {
@@ -832,18 +821,9 @@ UT_TEST(ft_strlcpy)
 }
 */
 
-UT_TEST(ft_strtrimc)
-{
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("*****AAA*****BBB*****", '*'), "AAA*****BBB"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("**********", '*'), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("", '*'), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("abc", '*'), "abc"), 0);
-}
-
-#endif
 
 #ifdef EXTRA_JUSCHAEF
-#define TEST_FT_ISBLANK
+#define TEST_ft_isblank
 
 UT_TEST(ft_putnendl)
 {
@@ -953,10 +933,25 @@ UT_TEST(ft_strcapitalize)
 	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
 	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
 }
-
 #endif
 
-#ifdef TEST_FT_MEMDUP
+
+#ifdef TEST_ft_strrev
+UT_TEST(ft_strrev)
+{
+	char	buf1[] = "123456";
+	char	buf2[] = "12345";
+	char	buf3[] = "1";
+	char	buf4[] = "";
+
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf1), "654321"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf2), "54321"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf3), "1"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf4), ""), 0);
+}
+#endif
+
+#ifdef TEST_ft_memdup
 UT_TEST(ft_memdup)
 {
 	char	*c;
@@ -968,7 +963,7 @@ UT_TEST(ft_memdup)
 }
 #endif
 
-#ifdef TEST_FT_ISBLANK
+#ifdef TEST_ft_isblank
 UT_TEST(ft_isblank)
 {
 	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
@@ -979,6 +974,16 @@ UT_TEST(ft_isblank)
 	UT_ASSERT_EQ(ft_isblank('p'), isblank('p'));
 	UT_ASSERT_EQ(ft_isblank('/'), isblank('/'));
 	UT_ASSERT_EQ(ft_isblank('&'), isblank('&'));
+}
+#endif
+
+#ifdef TEST_ft_strtrimc
+UT_TEST(ft_strtrimc)
+{
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("*****AAA*****BBB*****", '*'), "AAA*****BBB"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("**********", '*'), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("", '*'), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("abc", '*'), "abc"), 0);
 }
 #endif
 
@@ -1049,8 +1054,6 @@ int	main(void)
 	UT_ADD_TEST(ft_lstmap);
 #endif
 #ifdef	EXTRA_YYANG
-	UT_ADD_TEST(ft_strrev);
-	UT_ADD_TEST(ft_strtrimc);
 
 /*
 	UT_ADD_TEST(ft_ptrswap);
@@ -1072,12 +1075,20 @@ int	main(void)
 */
 #endif
 
-#ifdef TEST_FT_ISBLANK
-UT_ADD_TEST(ft_isblank);
+#ifdef TEST_ft_isblank
+	UT_ADD_TEST(ft_isblank);
 #endif
 
-#ifdef TEST_FT_MEMDUP
-UT_ADD_TEST(ft_memdup);
+#ifdef TEST_ft_memdup
+	UT_ADD_TEST(ft_memdup);
+#endif
+
+#ifdef TEST_ft_strrev
+	UT_ADD_TEST(ft_strrev);
+#endif
+
+#ifdef TEST_ft_strtrimc
+	UT_ADD_TEST(ft_strtrimc);
 #endif
 
 	UT_RUN_ALL_TESTS();

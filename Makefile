@@ -7,13 +7,13 @@ LDFLAGS = -L./.. -lft
 SOURCE = main.c unit_test.c
 OBJ = $(SOURCE:.c=.o)
 BUILD = main.build.c
+# @echo "Available commands:"
+# @echo "   $$ make test_part1"
+# @echo "   $$ make test_part2"
+# @echo "   $$ make test_bonus"
+# @echo "   $$ make test_extra"
 
-all :
-	@echo "Available commands:"
-	@echo "   $$ make test_part1"
-	@echo "   $$ make test_part2"
-	@echo "   $$ make test_bonus"
-	@echo "   $$ make test_extra"
+all: $(NAME)
 
 $(NAME): $(OBJ) make_libft
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
@@ -27,7 +27,7 @@ clean:
 fclean: clean
 	rm -rf $(NAME) $(BUILD)
 
-test: test_unit suite_qperez suite_moulinator
+test: re test_bonus suite_qperez suite_moulinator
 
 test_unit: re
 	./unit_test

@@ -27,7 +27,7 @@ clean:
 fclean: clean
 	rm -rf $(NAME) $(BUILD)
 
-test: re test_bonus suite_qperez suite_moulinator
+test: make_libft re test_bonus suite_qperez suite_moulinator
 
 test_unit: re
 	./unit_test
@@ -67,4 +67,4 @@ test_bonus:
 re: fclean all
 
 make_libft:
-	make -C ../
+	make re -C ../

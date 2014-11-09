@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <malloc/malloc.h>
 #include <ctype.h>
+#include <math.h>
 
 /* Uncomment this if you have the functions */
 
@@ -916,6 +917,63 @@ UT_TEST(ft_ptrswap)
 	UT_ASSERT_EQ(test_swap_int_2, 24);
 }
 
+UT_TEST(ft_swap)
+{
+	int test_swap1 = 24;
+	int test_swap2 = 42;
+	ft_swap(&test_swap1, &test_swap2);
+	UT_ASSERT_EQ(test_swap1, 42);
+	UT_ASSERT_EQ(test_swap2, 24);
+}
+
+UT_TEST(ft_sqrt)
+{
+	UT_ASSERT_EQ(ft_sqrt(25), 5);
+	UT_ASSERT_EQ(ft_sqrt(100), 10);
+	UT_ASSERT_EQ(ft_sqrt(18), 0);
+	UT_ASSERT_EQ(ft_sqrt(0), 0);
+}
+
+UT_TEST(ft_factorial)
+{
+	UT_ASSERT_EQ(ft_factorial(3), 27);
+	UT_ASSERT_EQ(ft_factorial(5), 3125);
+	UT_ASSERT_EQ(ft_factorial(8), 16777216);
+	UT_ASSERT_EQ(ft_factorial(11), 285311670611);
+	UT_ASSERT_EQ(ft_factorial(0), 1);
+}
+
+UT_TEST(ft_power)
+{
+	UT_ASSERT_EQ(ft_power(2, 3), pow(2, 3));
+	UT_ASSERT_EQ(ft_power(10, 9), pow(10, 9));
+	UT_ASSERT_EQ(ft_power(50, 0), pow(50, 0));
+	UT_ASSERT_EQ(ft_power(0, 10), pow(0, 10));
+	UT_ASSERT_EQ(ft_power(25, 13), pow(25,13));
+}
+UT_TEST(ft_sort_int_table)
+{
+	int test_ft_sort[7] = {42,4,98,9,12,68,21};
+
+	ft_sort_int_table(test_ft_sort, 7);
+	UT_ASSERT_EQ(test_ft_sort[0], 4);
+	UT_ASSERT_EQ(test_ft_sort[1], 9);
+	UT_ASSERT_EQ(test_ft_sort[2], 12);
+	UT_ASSERT_EQ(test_ft_sort[3], 21);
+	UT_ASSERT_EQ(test_ft_sort[4], 42);
+	UT_ASSERT_EQ(test_ft_sort[5], 68);
+	UT_ASSERT_EQ(test_ft_sort[6], 98);
+}
+
+UT_TEST(ft_strcapitalize)
+{
+	char test_ft_strcapitalize[19] = "bonjour les filles\0";
+	char *test_strcapitalize;
+
+	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
+	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
+}
+
 #endif
 
 int	main(void)
@@ -1000,13 +1058,13 @@ int	main(void)
 	UT_ADD_TEST(ft_putnendl);
 	UT_ADD_TEST(ft_putnstr);
 	UT_ADD_TEST(ft_ptrswap);
-/*
 	UT_ADD_TEST(ft_swap);
 	UT_ADD_TEST(ft_sqrt);
 	UT_ADD_TEST(ft_factorial);
 	UT_ADD_TEST(ft_power);
-	UT_ADD_TEST(ft_sort_integer_table);
+	UT_ADD_TEST(ft_sort_int_table);
 	UT_ADD_TEST(ft_strcapitalize);
+/*
 */
 
 #endif

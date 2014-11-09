@@ -757,6 +757,7 @@ UT_TEST(ft_lstmap)
 
 #ifdef EXTRA_YYANG
 #define TEST_FT_MEMDUP
+#define TEST_FT_ISBLANK
 
 UT_TEST(ft_strrev)
 {
@@ -842,18 +843,7 @@ UT_TEST(ft_strtrimc)
 #endif
 
 #ifdef EXTRA_JUSCHAEF
-
-UT_TEST(ft_isblank)
-{
-	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
-	UT_ASSERT_EQ(ft_isblank(' '), isblank(' '));
-	UT_ASSERT_EQ(ft_isblank('\t'), isblank('\t'));
-	UT_ASSERT_EQ(ft_isblank('\v'), isblank('\v'));
-	UT_ASSERT_EQ(ft_isblank('8'), isblank('8'));
-	UT_ASSERT_EQ(ft_isblank('p'), isblank('p'));
-	UT_ASSERT_EQ(ft_isblank('/'), isblank('/'));
-	UT_ASSERT_EQ(ft_isblank('&'), isblank('&'));
-}
+#define TEST_FT_ISBLANK
 
 UT_TEST(ft_putnendl)
 {
@@ -978,6 +968,20 @@ UT_TEST(ft_memdup)
 }
 #endif
 
+#ifdef TEST_FT_ISBLANK
+UT_TEST(ft_isblank)
+{
+	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
+	UT_ASSERT_EQ(ft_isblank(' '), isblank(' '));
+	UT_ASSERT_EQ(ft_isblank('\t'), isblank('\t'));
+	UT_ASSERT_EQ(ft_isblank('\v'), isblank('\v'));
+	UT_ASSERT_EQ(ft_isblank('8'), isblank('8'));
+	UT_ASSERT_EQ(ft_isblank('p'), isblank('p'));
+	UT_ASSERT_EQ(ft_isblank('/'), isblank('/'));
+	UT_ASSERT_EQ(ft_isblank('&'), isblank('&'));
+}
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -1055,8 +1059,6 @@ int	main(void)
 */
 #endif
 #ifdef EXTRA_JUSCHAEF
-
-	UT_ADD_TEST(ft_isblank);
 	UT_ADD_TEST(ft_putnendl);
 	UT_ADD_TEST(ft_putnstr);
 	UT_ADD_TEST(ft_ptrswap);
@@ -1068,6 +1070,10 @@ int	main(void)
 	UT_ADD_TEST(ft_strcapitalize);
 /*
 */
+#endif
+
+#ifdef TEST_FT_ISBLANK
+UT_ADD_TEST(ft_isblank);
 #endif
 
 #ifdef TEST_FT_MEMDUP

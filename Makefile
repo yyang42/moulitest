@@ -26,6 +26,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME) $(BUILD)
+	rm -rf testsuite_moulinator/*.o testsuite_moulinator/libft.so
 
 test: re test_bonus suite_qperez suite_moulinator
 

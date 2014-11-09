@@ -756,22 +756,12 @@ UT_TEST(ft_lstmap)
 #endif
 
 #ifdef EXTRA_YYANG
-#define TEST_FT_MEMDUP
-#define TEST_FT_ISBLANK
-
-UT_TEST(ft_strrev)
-{
-	char	buf1[] = "123456";
-	char	buf2[] = "12345";
-	char	buf3[] = "1";
-	char	buf4[] = "";
-
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf1), "654321"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf2), "54321"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf3), "1"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strrev(buf4), ""), 0);
-}
-
+#define TEST_ft_memdup
+#define TEST_ft_isblank
+#define TEST_ft_strrev
+#define TEST_ft_strtrimc
+/*#define TEST_ft_swap*/
+#endif
 /*
 UT_TEST(ft_ptrswap)
 {
@@ -792,29 +782,6 @@ UT_TEST(ft_ptrswap)
 	UT_ASSERT(*ptr_b == 'a');
 }
 
-UT_TEST(ft_memswap)
-{
-	char	was_a = 'a';
-	char	was_b = 'b';
-	int		was_1 = 1;
-	int		was_2 = 2;
-	char	was_toto[] = "toto";
-	char	was_tata[] = "tata";
-
-	ft_memswap(&was_a, &was_b, sizeof(char));
-	UT_ASSERT(was_a == 'b');
-	UT_ASSERT(was_b == 'a');
-	ft_memswap(&was_1, &was_2, sizeof(int));
-	UT_ASSERT(was_1 == 2);
-	UT_ASSERT(was_2 == 1);
-	ft_memswap(&was_1, &was_2, 0);
-	UT_ASSERT(was_1 == 2);
-	UT_ASSERT(was_2 == 1);
-	ft_memswap(was_toto, was_tata, sizeof(char) * 2);
-	UT_ASSERT_EQ(strcmp(was_toto, "tato"), 0);
-	UT_ASSERT_EQ(strcmp(was_tata, "tota"), 0);
-}
-
 UT_TEST(ft_strlcpy)
 {
 	char	buf[10];
@@ -832,19 +799,14 @@ UT_TEST(ft_strlcpy)
 }
 */
 
-UT_TEST(ft_strtrimc)
-{
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("*****AAA*****BBB*****", '*'), "AAA*****BBB"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("**********", '*'), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("", '*'), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strtrimc("abc", '*'), "abc"), 0);
-}
-
-#endif
 
 #ifdef EXTRA_JUSCHAEF
-#define TEST_FT_ISBLANK
-#define TEST_FT_ISSPACE
+#define TEST_ft_isspace
+#define TEST_ft_replace_char
+#define TEST_ft_isblank
+#define TEST_ft_swap
+#define TEST_ft_memswap
+
 UT_TEST(ft_putnendl)
 {
 	int		out;
@@ -883,27 +845,39 @@ UT_TEST(ft_putnstr)
 	UT_ASSERT_EQ(strcmp(buf, "Bonj"), 0);
 }
 
-UT_TEST(ft_ptrswap)
-{
-	char test_swap_str_1[20] = "coucou les filles";
-	char test_swap_str_2[20] = "bonjour jambon po";
+UT_TEST(ft_memswap)
+{     /* Two contributor for this test */
+	char	was_a = 'a';
+	char	was_b = 'b';
+	int		was_1 = 1;
+	int		was_2 = 2;
+	char	was_toto[] = "toto";
+	char	was_tata[] = "tata";
+
+	char test_swap_str_1[] = "coucou les filles";
+	char test_swap_str_2[] = "bonjour jambon po";
 	int test_swap_int_1 = 24;
 	int test_swap_int_2 = 42;
-	ft_ptrswap(&test_swap_str_1, &test_swap_str_2, ft_strlen(test_swap_str_2));
-	ft_ptrswap(&test_swap_int_1, &test_swap_int_2, 2);
+
+	ft_memswap(&was_a, &was_b, sizeof(char));
+	UT_ASSERT(was_a == 'b');
+	UT_ASSERT(was_b == 'a');
+	ft_memswap(&was_1, &was_2, sizeof(int));
+	UT_ASSERT(was_1 == 2);
+	UT_ASSERT(was_2 == 1);
+	ft_memswap(&was_1, &was_2, 0);
+	UT_ASSERT(was_1 == 2);
+	UT_ASSERT(was_2 == 1);
+	ft_memswap(was_toto, was_tata, sizeof(char) * 2);
+	UT_ASSERT_EQ(strcmp(was_toto, "tato"), 0);
+	UT_ASSERT_EQ(strcmp(was_tata, "tota"), 0);
+
+	ft_memswap(&test_swap_str_1, &test_swap_str_2, ft_strlen(test_swap_str_2));
+	ft_memswap(&test_swap_int_1, &test_swap_int_2, 2);
 	UT_ASSERT_EQ(strcmp(test_swap_str_1, "bonjour jambon po"), 0);
 	UT_ASSERT_EQ(strcmp(test_swap_str_2, "coucou les filles"), 0);
 	UT_ASSERT_EQ(test_swap_int_1, 42);
 	UT_ASSERT_EQ(test_swap_int_2, 24);
-}
-
-UT_TEST(ft_swap)
-{
-	int test_swap1 = 24;
-	int test_swap2 = 42;
-	ft_swap(&test_swap1, &test_swap2);
-	UT_ASSERT_EQ(test_swap1, 42);
-	UT_ASSERT_EQ(test_swap2, 24);
 }
 
 UT_TEST(ft_sqrt)
@@ -953,10 +927,36 @@ UT_TEST(ft_strcapitalize)
 	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
 	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
 }
-
 #endif
 
-#ifdef TEST_FT_MEMDUP
+
+#ifdef TEST_ft_swap
+UT_TEST(ft_swap)
+{
+	int test_swap1 = 24;
+	int test_swap2 = 42;
+	ft_swap(&test_swap1, &test_swap2);
+	UT_ASSERT_EQ(test_swap1, 42);
+	UT_ASSERT_EQ(test_swap2, 24);
+}
+#endif
+
+#ifdef TEST_ft_strrev
+UT_TEST(ft_strrev)
+{
+	char	buf1[] = "123456";
+	char	buf2[] = "12345";
+	char	buf3[] = "1";
+	char	buf4[] = "";
+
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf1), "654321"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf2), "54321"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf3), "1"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strrev(buf4), ""), 0);
+}
+#endif
+
+#ifdef TEST_ft_memdup
 UT_TEST(ft_memdup)
 {
 	char	*c;
@@ -968,7 +968,7 @@ UT_TEST(ft_memdup)
 }
 #endif
 
-#ifdef TEST_FT_ISBLANK
+#ifdef TEST_ft_isblank
 UT_TEST(ft_isblank)
 {
 	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
@@ -982,7 +982,7 @@ UT_TEST(ft_isblank)
 }
 #endif
 
-#ifdef TEST_FT_ISSPACE
+#ifdef TEST_ft_isspace
 UT_TEST(ft_isspace)
 {
 	UT_ASSERT_EQ(ft_isspace('\n'), isspace('\n'));
@@ -991,7 +991,29 @@ UT_TEST(ft_isspace)
 	UT_ASSERT_EQ(ft_isspace('\v'), isspace('\v'));
 	UT_ASSERT_EQ(ft_isspace('p'), isspace('p'));
 	UT_ASSERT_EQ(ft_isspace('9'), isspace('9'));
-	
+}
+#endif
+#ifdef TEST_ft_strtrimc
+UT_TEST(ft_strtrimc)
+{
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("*****AAA*****BBB*****", '*'), "AAA*****BBB"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("**********", '*'), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("", '*'), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strtrimc("abc", '*'), "abc"), 0);
+
+}
+#endif
+
+#ifdef TEST_ft_replace_char
+UT_TEST(ft_replace_char)
+{
+	char test_change[] = "Coucou les filles";
+	char *return_test_change;
+
+	return_test_change = (char *)malloc(strlen(test_change) + 1);
+
+	return_test_change = ft_replace_char(test_change, 'o', 'r');
+	UT_ASSERT_EQ(strcmp(return_test_change, "Crucru les filles"), 0);
 }
 #endif
 
@@ -1061,21 +1083,10 @@ int	main(void)
 	UT_ADD_TEST(ft_lstiter);
 	UT_ADD_TEST(ft_lstmap);
 #endif
-#ifdef	EXTRA_YYANG
-	UT_ADD_TEST(ft_strrev);
-	UT_ADD_TEST(ft_strtrimc);
 
-/*
-	UT_ADD_TEST(ft_ptrswap);
-	UT_ADD_TEST(ft_memswap);
-	UT_ADD_TEST(ft_strlcpy);
-*/
-#endif
 #ifdef EXTRA_JUSCHAEF
 	UT_ADD_TEST(ft_putnendl);
 	UT_ADD_TEST(ft_putnstr);
-	UT_ADD_TEST(ft_ptrswap);
-	UT_ADD_TEST(ft_swap);
 	UT_ADD_TEST(ft_sqrt);
 	UT_ADD_TEST(ft_factorial);
 	UT_ADD_TEST(ft_power);
@@ -1085,15 +1096,38 @@ int	main(void)
 */
 #endif
 
-#ifdef TEST_FT_ISSPACE
-UT_ADD_TEST(ft_isspace);
-#endif
-#ifdef TEST_FT_ISBLANK
-UT_ADD_TEST(ft_isblank);
+#ifdef TEST_ft_replace_char
+UT_ADD_TEST(ft_replace_char);
 #endif
 
-#ifdef TEST_FT_MEMDUP
-UT_ADD_TEST(ft_memdup);
+#ifdef TEST_ft_isspace
+UT_ADD_TEST(ft_isspace);
+#endif
+
+
+#ifdef TEST_ft_memswap
+	UT_ADD_TEST(ft_memswap);
+#endif
+
+#ifdef TEST_ft_swap
+	UT_ADD_TEST(ft_swap);
+#endif
+
+#ifdef TEST_ft_isblank
+	UT_ADD_TEST(ft_isblank);
+#endif
+
+#ifdef TEST_ft_memdup
+	UT_ADD_TEST(ft_memdup);
+
+#endif
+
+#ifdef TEST_ft_strrev
+	UT_ADD_TEST(ft_strrev);
+#endif
+
+#ifdef TEST_ft_strtrimc
+	UT_ADD_TEST(ft_strtrimc);
 #endif
 
 	UT_RUN_ALL_TESTS();

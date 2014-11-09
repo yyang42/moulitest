@@ -756,17 +756,8 @@ UT_TEST(ft_lstmap)
 #endif
 
 #ifdef EXTRA_YYANG
-/*
-UT_TEST(ft_memdup)
-{
-	char	*c;
+#define TEST_FT_MEMDUP
 
-	c = "AbC";
-	UT_ASSERT_EQ(strcmp(ft_memdup("aaaaa", 6), "aaaaa"), 0);
-	UT_ASSERT_EQ(strcmp(ft_memdup("", 1), ""), 0);
-	UT_ASSERT_NEQ(c, ft_memdup(c, 4));
-}
-*/
 UT_TEST(ft_strrev)
 {
 	char	buf1[] = "123456";
@@ -850,20 +841,7 @@ UT_TEST(ft_strtrimc)
 
 #endif
 
-
 #ifdef EXTRA_JUSCHAEF
-
-UT_TEST(ft_isblank)
-{
-	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
-	UT_ASSERT_EQ(ft_isblank(' '), isblank(' '));
-	UT_ASSERT_EQ(ft_isblank('\t'), isblank('\t'));
-	UT_ASSERT_EQ(ft_isblank('\v'), isblank('\v'));
-	UT_ASSERT_EQ(ft_isblank('8'), isblank('8'));
-	UT_ASSERT_EQ(ft_isblank('p'), isblank('p'));
-	UT_ASSERT_EQ(ft_isblank('/'), isblank('/'));
-	UT_ASSERT_EQ(ft_isblank('&'), isblank('&'));
-}
 
 UT_TEST(ft_putnendl)
 {
@@ -976,6 +954,18 @@ UT_TEST(ft_strcapitalize)
 
 #endif
 
+#ifdef TEST_FT_MEMDUP
+UT_TEST(ft_memdup)
+{
+	char	*c;
+
+	c = "AbC";
+	UT_ASSERT_EQ(strcmp(ft_memdup("aaaaa", 6), "aaaaa"), 0);
+	UT_ASSERT_EQ(strcmp(ft_memdup("", 1), ""), 0);
+	UT_ASSERT_NEQ(c, ft_memdup(c, 4));
+}
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -1045,8 +1035,8 @@ int	main(void)
 #ifdef	EXTRA_YYANG
 	UT_ADD_TEST(ft_strrev);
 	UT_ADD_TEST(ft_strtrimc);
+
 /*
-	UT_ADD_TEST(ft_memdup);
 	UT_ADD_TEST(ft_ptrswap);
 	UT_ADD_TEST(ft_memswap);
 	UT_ADD_TEST(ft_strlcpy);
@@ -1066,8 +1056,12 @@ int	main(void)
 	UT_ADD_TEST(ft_strcapitalize);
 /*
 */
-
 #endif
+
+#ifdef TEST_FT_MEMDUP
+UT_ADD_TEST(ft_memdup);
+#endif
+
 	UT_RUN_ALL_TESTS();
 	return (0);
 }

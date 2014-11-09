@@ -41,7 +41,7 @@ suite_moulinator:
 	make re -C ./testsuite_moulinator
 
 test_custom:
-	make -C ../
+	make re -C ../
 	$(CC) $(CFLAGS) $(LDFLAGS) main.build.c unit_test.c -o $(NAME)
 	./unit_test
 

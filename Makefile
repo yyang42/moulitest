@@ -50,6 +50,11 @@ test_yyang:
 	cat main.c >> main.build.c
 	make test_custom
 
+test_juschaef:
+	echo "#define EXTRA_JUSCHAEF\n#define PART1\n#define PART2\n#define BONUS\n" > main.build.c
+	cat main.c >> main.build.c
+	make test_custom
+
 test_part1:
 	echo "#define PART1\n" > main.build.c
 	cat main.c >> main.build.c

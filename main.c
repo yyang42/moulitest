@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <malloc/malloc.h>
+#include <ctype.h>
 
 /* Uncomment this if you have the functions */
 
@@ -203,6 +204,7 @@ UT_TEST(ft_strstr)
 {
 	char	buf[] = "Ceci n'est pas une pipe.";
 
+	ft_strstr(NULL, NULL);
 	UT_ASSERT_EQ(strstr(buf, "une"), ft_strstr(buf, "une"));
 	UT_ASSERT_EQ(strstr(buf, "C"), ft_strstr(buf, "C"));
 	UT_ASSERT_EQ(strstr(buf, "."), ft_strstr(buf, "."));
@@ -847,6 +849,75 @@ UT_TEST(ft_strtrimc)
 
 #endif
 
+
+#ifdef EXTRA_JUSCHAEF
+
+UT_TEST(ft_isblank)
+{
+	UT_ASSERT_EQ(ft_isblank('\n'), isblank('\n'));
+	UT_ASSERT_EQ(ft_isblank(' '), isblank(' '));
+	UT_ASSERT_EQ(ft_isblank('\t'), isblank('\t'));
+	UT_ASSERT_EQ(ft_isblank('\v'), isblank('\v'));
+	UT_ASSERT_EQ(ft_isblank('8'), isblank('8'));
+	UT_ASSERT_EQ(ft_isblank('p'), isblank('p'));
+	UT_ASSERT_EQ(ft_isblank('/'), isblank('/'));
+	UT_ASSERT_EQ(ft_isblank('&'), isblank('&'));
+}
+
+UT_TEST(ft_putnendl)
+{
+	int		out;
+	int		p[2];
+	char	buf[5];
+
+	out = dup(1);
+	pipe(p);
+	dup2(p[1], 1);
+	ft_putnendl("Bonjour", 4);
+	dup2(out, 1);
+	read(p[0], buf, 5);
+	buf[5] = 0;
+	close(p[0]);
+	close(p[1]);
+	close(out);
+	UT_ASSERT_EQ(strcmp(buf, "Bonj\n"), 0);
+}
+
+UT_TEST(ft_putnstr)
+{
+	int		out;
+	int		p[2];
+	char	buf[5];
+
+	out = dup(1);
+	pipe(p);
+	dup2(p[1], 1);
+	ft_putnstr("Bonjour", 4);
+	dup2(out, 1);
+	read(p[0], buf, 4);
+	buf[4] = 0;
+	close(p[0]);
+	close(p[1]);
+	close(out);
+	UT_ASSERT_EQ(strcmp(buf, "Bonj"), 0);
+}
+
+UT_TEST(ft_ptrswap)
+{
+	char test_swap_str_1[20] = "coucou les filles";
+	char test_swap_str_2[20] = "bonjour jambon po";
+	int test_swap_int_1 = 24;
+	int test_swap_int_2 = 42;
+	ft_ptrswap(&test_swap_str_1, &test_swap_str_2, ft_strlen(test_swap_str_2));
+	ft_ptrswap(&test_swap_int_1, &test_swap_int_2, 2);
+	UT_ASSERT_EQ(strcmp(test_swap_str_1, "bonjour jambon po"), 0);
+	UT_ASSERT_EQ(strcmp(test_swap_str_2, "coucou les filles"), 0);
+	UT_ASSERT_EQ(test_swap_int_1, 42);
+	UT_ASSERT_EQ(test_swap_int_2, 24);
+}
+
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -922,6 +993,22 @@ int	main(void)
 	UT_ADD_TEST(ft_memswap);
 	UT_ADD_TEST(ft_strlcpy);
 */
+#endif
+#ifdef EXTRA_JUSCHAEF
+
+	UT_ADD_TEST(ft_isblank);
+	UT_ADD_TEST(ft_putnendl);
+	UT_ADD_TEST(ft_putnstr);
+	UT_ADD_TEST(ft_ptrswap);
+/*
+	UT_ADD_TEST(ft_swap);
+	UT_ADD_TEST(ft_sqrt);
+	UT_ADD_TEST(ft_factorial);
+	UT_ADD_TEST(ft_power);
+	UT_ADD_TEST(ft_sort_integer_table);
+	UT_ADD_TEST(ft_strcapitalize);
+*/
+
 #endif
 	UT_RUN_ALL_TESTS();
 	return (0);

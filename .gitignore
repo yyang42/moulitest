@@ -1,2 +1,4 @@
 main.build.c
 unit_test
+*.o
+*.so

@@ -844,7 +844,7 @@ UT_TEST(ft_strtrimc)
 
 #ifdef EXTRA_JUSCHAEF
 #define TEST_FT_ISBLANK
-
+#define TEST_FT_ISSPACE
 UT_TEST(ft_putnendl)
 {
 	int		out;
@@ -982,6 +982,19 @@ UT_TEST(ft_isblank)
 }
 #endif
 
+#ifdef TEST_FT_ISSPACE
+UT_TEST(ft_isspace)
+{
+	UT_ASSERT_EQ(ft_isspace('\n'), isspace('\n'));
+	UT_ASSERT_EQ(ft_isspace('\t'), isspace('\t'));
+	UT_ASSERT_EQ(ft_isspace(' '), isspace(' '));
+	UT_ASSERT_EQ(ft_isspace('\v'), isspace('\v'));
+	UT_ASSERT_EQ(ft_isspace('p'), isspace('p'));
+	UT_ASSERT_EQ(ft_isspace('9'), isspace('9'));
+	
+}
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -1072,6 +1085,9 @@ int	main(void)
 */
 #endif
 
+#ifdef TEST_FT_ISSPACE
+UT_ADD_TEST(ft_isspace);
+#endif
 #ifdef TEST_FT_ISBLANK
 UT_ADD_TEST(ft_isblank);
 #endif

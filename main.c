@@ -835,6 +835,8 @@ UT_TEST(ft_strlcpy)
 
 
 #ifdef EXTRA_JUSCHAEF
+#define TEST_ft_isspace
+#define TEST_ft_replace_char
 #define TEST_ft_isblank
 #define TEST_ft_swap
 #define TEST_ft_memswap
@@ -878,13 +880,18 @@ UT_TEST(ft_putnstr)
 }
 
 UT_TEST(ft_memswap)
-{
+{     /* Two contributor for this test */
 	char	was_a = 'a';
 	char	was_b = 'b';
 	int		was_1 = 1;
 	int		was_2 = 2;
 	char	was_toto[] = "toto";
 	char	was_tata[] = "tata";
+
+	char test_swap_str_1[] = "coucou les filles";
+	char test_swap_str_2[] = "bonjour jambon po";
+	int test_swap_int_1 = 24;
+	int test_swap_int_2 = 42;
 
 	ft_memswap(&was_a, &was_b, sizeof(char));
 	UT_ASSERT(was_a == 'b');
@@ -899,10 +906,6 @@ UT_TEST(ft_memswap)
 	UT_ASSERT_EQ(strcmp(was_toto, "tato"), 0);
 	UT_ASSERT_EQ(strcmp(was_tata, "tota"), 0);
 
-	char test_swap_str_1[20] = "coucou les filles";
-	char test_swap_str_2[20] = "bonjour jambon po";
-	int test_swap_int_1 = 24;
-	int test_swap_int_2 = 42;
 	ft_memswap(&test_swap_str_1, &test_swap_str_2, ft_strlen(test_swap_str_2));
 	ft_memswap(&test_swap_int_1, &test_swap_int_2, 2);
 	UT_ASSERT_EQ(strcmp(test_swap_str_1, "bonjour jambon po"), 0);
@@ -1013,6 +1016,17 @@ UT_TEST(ft_isblank)
 }
 #endif
 
+#ifdef TEST_ft_isspace
+UT_TEST(ft_isspace)
+{
+	UT_ASSERT_EQ(ft_isspace('\n'), isspace('\n'));
+	UT_ASSERT_EQ(ft_isspace('\t'), isspace('\t'));
+	UT_ASSERT_EQ(ft_isspace(' '), isspace(' '));
+	UT_ASSERT_EQ(ft_isspace('\v'), isspace('\v'));
+	UT_ASSERT_EQ(ft_isspace('p'), isspace('p'));
+	UT_ASSERT_EQ(ft_isspace('9'), isspace('9'));
+}
+#endif
 #ifdef TEST_ft_strtrimc
 UT_TEST(ft_strtrimc)
 {
@@ -1020,6 +1034,20 @@ UT_TEST(ft_strtrimc)
 	UT_ASSERT_EQ(strcmp(ft_strtrimc("**********", '*'), ""), 0);
 	UT_ASSERT_EQ(strcmp(ft_strtrimc("", '*'), ""), 0);
 	UT_ASSERT_EQ(strcmp(ft_strtrimc("abc", '*'), "abc"), 0);
+
+}
+#endif
+
+#ifdef TEST_ft_replace_char
+UT_TEST(ft_replace_char)
+{
+	char test_change[] = "Coucou les filles";
+	char *return_test_change;
+
+	return_test_change = (char *)malloc(strlen(test_change) + 1);
+
+	return_test_change = ft_replace_char(test_change, 'o', 'r');
+	UT_ASSERT_EQ(strcmp(return_test_change, "Crucru les filles"), 0);
 }
 #endif
 
@@ -1102,6 +1130,15 @@ int	main(void)
 */
 #endif
 
+#ifdef TEST_ft_replace_char
+UT_ADD_TEST(ft_replace_char);
+#endif
+
+#ifdef TEST_ft_isspace
+UT_ADD_TEST(ft_isspace);
+#endif
+
+
 #ifdef TEST_ft_memswap
 	UT_ADD_TEST(ft_memswap);
 #endif
@@ -1116,6 +1153,7 @@ int	main(void)
 
 #ifdef TEST_ft_memdup
 	UT_ADD_TEST(ft_memdup);
+
 #endif
 
 #ifdef TEST_ft_strrev

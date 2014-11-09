@@ -45,12 +45,22 @@ test_custom:
 	./unit_test
 
 test_yyang:
-	echo "#define EXTRA_YYANG\n" > main.build.c
+	echo "#define EXTRA_YYANG\n#define PART1\n#define PART2\n#define BONUS\n" > main.build.c
 	cat main.c >> main.build.c
 	make test_custom
 
 test_part1:
 	echo "#define PART1\n" > main.build.c
+	cat main.c >> main.build.c
+	make test_custom
+
+test_part2:
+	echo "#define PART1\n#define PART2" > main.build.c
+	cat main.c >> main.build.c
+	make test_custom
+
+test_bonus:
+	echo "#define PART1\n#define PART2\n#define BONUS\n" > main.build.c
 	cat main.c >> main.build.c
 	make test_custom
 

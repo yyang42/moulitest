@@ -6,25 +6,14 @@
 #include <unistd.h>
 #include <malloc/malloc.h>
 
-/* Uncomment this if you don't have
-** Part 2 
-*/
+/* Uncomment this if you have the functions */
 
-/* #define NO_PART_2 */
-
-/*
-** Same for bonus :
-*/
-
-/*
-** #define NO_BONUS 
-*/
-
-/*
-** If you want to try making fuctions /after/ the bonuses :
-*/
-
+/* #define PART1 */
+/* #define PART2 */
+/* #define BONUS */
 /* #define EXTRA_YYANG */
+
+#ifdef PART1
 
 UT_TEST(ft_memset)
 {
@@ -294,6 +283,9 @@ UT_TEST(ft_isalnum)
 	UT_ASSERT_NEQ(ft_isalnum('6'), 0);
 	UT_ASSERT_NEQ(ft_isalnum('Z'), 0);
 	UT_ASSERT_EQ(ft_isalnum('5' + 0x100), 0);
+	UT_ASSERT_EQ(ft_isalnum('5' + 0x100), 0);
+	UT_ASSERT_EQ(ft_isalnum('5' + 0x100), 0);
+	UT_ASSERT_EQ(ft_isalnum('5' + 0x100), 0);
 }
 
 UT_TEST(ft_isascii)
@@ -327,8 +319,10 @@ UT_TEST(ft_tolower)
 	UT_ASSERT_EQ(ft_tolower('e'), 'e');
 }
 
-#ifndef NO_PART_2
-	
+#endif
+
+#ifdef PART2
+
 UT_TEST(ft_memalloc)
 {
 	void	*mem1, *mem2;
@@ -644,7 +638,7 @@ UT_TEST(ft_putnbr_fd)
 
 #endif
 
-#ifndef NO_BONUS
+#ifdef BONUS
 
 UT_TEST(ft_lstnew)
 {
@@ -855,6 +849,7 @@ UT_TEST(ft_strtrimc)
 
 int	main(void)
 {
+#ifdef PART1
 	UT_ADD_TEST(ft_memset);
 	UT_ADD_TEST(ft_bzero);
 	UT_ADD_TEST(ft_memcpy);
@@ -883,7 +878,8 @@ int	main(void)
 	UT_ADD_TEST(ft_isprint);
 	UT_ADD_TEST(ft_toupper);
 	UT_ADD_TEST(ft_tolower);
-#ifndef NO_PART_2
+#endif
+#ifdef PART2
 	UT_ADD_TEST(ft_memalloc);
 	UT_ADD_TEST(ft_memdel);
 	UT_ADD_TEST(ft_strnew);
@@ -909,7 +905,7 @@ int	main(void)
 	UT_ADD_TEST(ft_putendl_fd);
 	UT_ADD_TEST(ft_putnbr_fd);
 #endif
-#ifndef	NO_BONUS
+#ifdef	BONUS
 	UT_ADD_TEST(ft_lstnew);
 	UT_ADD_TEST(ft_lstdelone);
 	UT_ADD_TEST(ft_lstdel);

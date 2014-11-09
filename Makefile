@@ -1,4 +1,4 @@
-.PHONY: all, clean, fclean, re
+.PHONY: help, all, clean, fclean, re, test, suite_moulinator, suite_qperez
 
 NAME = unit_test
 CC = gcc
@@ -8,8 +8,12 @@ SOURCE = main.c unit_test.c
 OBJ = $(SOURCE:.c=.o)
 BUILD = main.build.c
 
-all : $(NAME)
-
+all :
+	@echo "Available commands:"
+	@echo "   $$ make test_part1"
+	@echo "   $$ make test_part2"
+	@echo "   $$ make test_bonus"
+	@echo "   $$ make test_extra"
 
 $(NAME): $(OBJ) make_libft
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
@@ -23,17 +27,17 @@ clean:
 fclean: clean
 	rm -rf $(NAME) $(BUILD)
 
-test: test_unit test_qperez test_moulinator
+test: test_unit suite_qperez suite_moulinator
 
 test_unit: re
 	./unit_test
 
-test_qperez:
+suite_qperez:
 	rm -f ./a.out
-	gcc test_qperez.c ../*.c -I../ && ./a.out
+	gcc testsuite_qperez/main.c ../*.c -I../ && ./a.out
 
-test_moulinator:
-	make re -C ../unit_test_moulinator
+suite_moulinator:
+	make re -C ./testsuite_moulinator
 
 test_custom:
 	make -C ../
@@ -41,7 +45,13 @@ test_custom:
 	./unit_test
 
 test_yyang:
-	echo "#define EXTRA_YYANG\n" | cat - main.c > main.build.c
+	echo "#define EXTRA_YYANG\n" > main.build.c
+	cat main.c >> main.build.c
+	make test_custom
+
+test_part1:
+	echo "#define PART1\n" > main.build.c
+	cat main.c >> main.build.c
 	make test_custom
 
 re: fclean all

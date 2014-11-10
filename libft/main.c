@@ -796,7 +796,11 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_strrev
 #define TEST_ft_strtrimc
 #define TEST_ft_strcapitalize
-/*#define TEST_ft_swap*/
+#define TEST_ft_islower
+#define TEST_ft_isupper
+#define TEST_ft_ispunct
+#define TEST_ft_abs
+#define TEST_ft_isspace
 #endif
 /*
 UT_TEST(ft_ptrswap)

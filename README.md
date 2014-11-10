@@ -11,6 +11,8 @@ This repository contains tests of several projects done at 42.
 	LIBFT_PATH = ~/path_to_my_libft_folder
 	PROJECT2 = ~/path_to_my_project2_folder
 
+As new tests will be available, there will be new variables in this example and you will have to update your config file with path of your new projects.
+
 Usage
 -----
 To launch a test use inside this repository:

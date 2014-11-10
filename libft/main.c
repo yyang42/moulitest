@@ -791,7 +791,15 @@ UT_TEST(ft_lstmap)
 
 #endif
 
+
+#ifdef EXTRA_MVO
+#define TEST_ft_strcapitalize
+#define TEST_ft_strupcase
+#define TEST_ft_strlowcase
+#endif
+
 #ifdef EXTRA_YYANG
+#define TEST_ft_memdup
 #define TEST_ft_memdup
 #define TEST_ft_isblank
 #define TEST_ft_strrev
@@ -807,6 +815,7 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_strlowcase
 /*#define TEST_ft_memswap*/
 #endif
+
 /*
 UT_TEST(ft_ptrswap)
 {

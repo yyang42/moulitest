@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
+#    By: juschaef <juschaef@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/10/29 17:36:12 by mvaude            #+#    #+#              #
-#    Updated: 2014/11/10 15:43:53 by yyang            ###   ########.fr        #
+#    Updated: 2014/11/10 17:54:47 by juschaef         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Moulinette
-RENDU_PATH = ./../../../libft
+RENDU_PATH = $(shell awk -F "=" '/LIBFT_PATH/ {print $$2}' ../../config)
 
 all: $(NAME)
 

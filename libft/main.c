@@ -804,6 +804,7 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_isspace
 #define TEST_ft_factorial
 #define TEST_ft_strupcase
+#define TEST_ft_strlowcase
 /*#define TEST_ft_memswap*/
 #endif
 /*
@@ -1090,7 +1091,7 @@ UT_TEST(ft_islower)
 }
 #endif
 
-#ifdef TEST_ft_upper
+#ifdef TEST_ft_isupper
 UT_TEST(ft_isupper)
 {
 	UT_ASSERT_EQ(ft_isupper('t'), isupper('t'));
@@ -1145,6 +1146,19 @@ UT_TEST(ft_strupcase)
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("AAA")), "AAA"), 0);
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("ZZZ")), "ZZZ"), 0);
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aBcDeé9123'47289")), "ABCDEé9123'47289"), 0);
+}
+#endif
+
+#ifdef TEST_ft_strlowcase
+UT_TEST(ft_strlowcase)
+{
+	ft_strlowcase(NULL);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("")), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("aaa")), "aaa"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("zzz")), "zzz"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("AAA")), "aaa"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("ZZZ")), "zzz"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("aBcDeé9123'47289")), "abcdeé9123'47289"), 0);
 }
 #endif
 
@@ -1264,7 +1278,7 @@ UT_ADD_TEST(ft_isspace);
 #endif
 
 #ifdef TEST_ft_isupper
-	UT_ADD_TEST(ft_islower);
+	UT_ADD_TEST(ft_isupper);
 #endif
 
 #ifdef TEST_ft_ispunct
@@ -1285,6 +1299,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_strupcase
 	UT_ADD_TEST(ft_strupcase);
+#endif
+
+#ifdef TEST_ft_strlowcase
+	UT_ADD_TEST(ft_strlowcase);
 #endif
 
 	UT_RUN_ALL_TESTS();

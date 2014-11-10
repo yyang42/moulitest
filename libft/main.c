@@ -852,6 +852,7 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_ispunct
 #define TEST_ft_abs
 #define TEST_ft_factorial
+#define TEST_ft_strcapitalize
 
 UT_TEST(ft_putnendl)
 {
@@ -967,7 +968,6 @@ UT_TEST(ft_factorial)
 	UT_ASSERT_EQ(ft_factorial(5), 120);
 	UT_ASSERT_EQ(ft_factorial(8), 40320);
 	UT_ASSERT_EQ(ft_factorial(20), 2432902008176640000);
-	/*UT_ASSERT_EQ(ft_factorial(11), 2853116706116545644654);*/
 }
 
 #endif
@@ -1203,10 +1203,8 @@ int	main(void)
 	UT_ADD_TEST(ft_putnendl);
 	UT_ADD_TEST(ft_putnstr);
 	UT_ADD_TEST(ft_sqrt);
-	UT_ADD_TEST(ft_factorial);
 	UT_ADD_TEST(ft_power);
 	UT_ADD_TEST(ft_sort_int_table);
-	UT_ADD_TEST(ft_strcapitalize);
 /*
 */
 #endif

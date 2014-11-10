@@ -801,6 +801,7 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_ispunct
 #define TEST_ft_abs
 #define TEST_ft_isspace
+#define TEST_ft_factorial
 #endif
 /*
 UT_TEST(ft_ptrswap)
@@ -850,6 +851,7 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_isupper
 #define TEST_ft_ispunct
 #define TEST_ft_abs
+#define TEST_ft_factorial
 
 UT_TEST(ft_putnendl)
 {
@@ -932,15 +934,6 @@ UT_TEST(ft_sqrt)
 	UT_ASSERT_EQ(ft_sqrt(0), 0);
 }
 
-UT_TEST(ft_factorial)
-{
-	UT_ASSERT_EQ(ft_factorial(3), 27);
-	UT_ASSERT_EQ(ft_factorial(5), 3125);
-	UT_ASSERT_EQ(ft_factorial(8), 16777216);
-	UT_ASSERT_EQ(ft_factorial(11), 285311670611);
-	UT_ASSERT_EQ(ft_factorial(0), 1);
-}
-
 UT_TEST(ft_power)
 {
 	UT_ASSERT_EQ(ft_power(2, 3), pow(2, 3));
@@ -964,6 +957,20 @@ UT_TEST(ft_sort_int_table)
 }
 #endif
 
+
+#ifdef TEST_ft_factorial
+UT_TEST(ft_factorial)
+{
+	UT_ASSERT_EQ(ft_factorial(0), 1);
+	UT_ASSERT_EQ(ft_factorial(1), 1);
+	UT_ASSERT_EQ(ft_factorial(3), 6);
+	UT_ASSERT_EQ(ft_factorial(5), 120);
+	UT_ASSERT_EQ(ft_factorial(8), 40320);
+	UT_ASSERT_EQ(ft_factorial(20), 2432902008176640000);
+	/*UT_ASSERT_EQ(ft_factorial(11), 2853116706116545644654);*/
+}
+
+#endif
 
 #ifdef TEST_ft_strcapitalize
 UT_TEST(ft_strcapitalize)
@@ -1256,6 +1263,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_strcapitalize
 	UT_ADD_TEST(ft_strcapitalize);
+#endif
+
+#ifdef TEST_ft_factorial
+	UT_ADD_TEST(ft_factorial);
 #endif
 
 	UT_RUN_ALL_TESTS();

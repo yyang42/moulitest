@@ -842,6 +842,10 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_isblank
 #define TEST_ft_swap
 #define TEST_ft_memswap
+#define TEST_ft_islower
+#define TEST_ft_isupper
+#define TEST_ft_ispunct
+#define TEST_ft_abs
 
 UT_TEST(ft_putnendl)
 {
@@ -1055,6 +1059,68 @@ UT_TEST(ft_replace_char)
 }
 #endif
 
+#ifdef TEST_ft_islower
+UT_TEST(ft_islower)
+{
+	UT_ASSERT_EQ(ft_islower('t'), islower('t'));
+	UT_ASSERT_EQ(ft_islower(';'), islower(';'));
+	UT_ASSERT_EQ(ft_islower(' '), islower(' '));
+	UT_ASSERT_EQ(ft_islower('@'), islower('@'));
+	UT_ASSERT_EQ(ft_islower('%'), islower('%'));
+	UT_ASSERT_EQ(ft_islower('\n'), islower('\n'));
+	UT_ASSERT_EQ(ft_islower(12), islower(12));
+	UT_ASSERT_EQ(ft_islower('N'), islower('N'));
+	UT_ASSERT_EQ(ft_islower('P'), islower('P'));
+	UT_ASSERT_EQ(ft_islower('o'), islower('o'));
+	UT_ASSERT_EQ(ft_islower('1'), islower('1'));
+}
+#endif
+
+#ifdef TEST_ft_upper
+UT_TEST(ft_isupper)
+{
+	UT_ASSERT_EQ(ft_isupper('t'), isupper('t'));
+	UT_ASSERT_EQ(ft_isupper(';'), isupper(';'));
+	UT_ASSERT_EQ(ft_isupper(' '), isupper(' '));
+	UT_ASSERT_EQ(ft_isupper('@'), isupper('@'));
+	UT_ASSERT_EQ(ft_isupper('%'), isupper('%'));
+	UT_ASSERT_EQ(ft_isupper('\n'), isupper('\n'));
+	UT_ASSERT_EQ(ft_isupper(12), isupper(12));
+	UT_ASSERT_EQ(ft_isupper('N'), isupper('N'));
+	UT_ASSERT_EQ(ft_isupper('P'), isupper('P'));
+	UT_ASSERT_EQ(ft_isupper('o'), isupper('o'));
+	UT_ASSERT_EQ(ft_isupper('1'), isupper('1'));
+}
+#endif
+
+#ifdef TEST_ft_ispunct
+UT_TEST(ft_ispunct)
+{
+	UT_ASSERT_EQ(ft_ispunct('t'), ispunct('t'));
+	UT_ASSERT_EQ(ft_ispunct(';'), ispunct(';'));
+	UT_ASSERT_EQ(ft_ispunct(' '), ispunct(' '));
+	UT_ASSERT_EQ(ft_ispunct('@'), ispunct('@'));
+	UT_ASSERT_EQ(ft_ispunct('%'), ispunct('%'));
+	UT_ASSERT_EQ(ft_ispunct('\n'), ispunct('\n'));
+	UT_ASSERT_EQ(ft_ispunct(12), ispunct(12));
+	UT_ASSERT_EQ(ft_ispunct('N'), ispunct('N'));
+	UT_ASSERT_EQ(ft_ispunct('P'), ispunct('P'));
+	UT_ASSERT_EQ(ft_ispunct('o'), ispunct('o'));
+	UT_ASSERT_EQ(ft_ispunct('1'), ispunct('1'));
+}
+#endif
+
+#ifdef TEST_ft_abs
+UT_TEST(ft_abs)
+{
+	UT_ASSERT_EQ(ft_abs(12), abs(12));
+	UT_ASSERT_EQ(ft_abs(-12), abs(-12));
+	UT_ASSERT_EQ(ft_abs(28), abs(28));
+	UT_ASSERT_EQ(ft_abs(0), abs(0));
+
+}
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -1166,6 +1232,22 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_strtrimc
 	UT_ADD_TEST(ft_strtrimc);
+#endif
+
+#ifdef TEST_ft_islower
+	UT_ADD_TEST(ft_islower);
+#endif
+
+#ifdef TEST_ft_isupper
+	UT_ADD_TEST(ft_islower);
+#endif
+
+#ifdef TEST_ft_ispunct
+	UT_ADD_TEST(ft_ispunct);
+#endif
+
+#ifdef TEST_ft_abs
+	UT_ADD_TEST(ft_abs);
 #endif
 
 #ifdef TEST_ft_strcapitalize

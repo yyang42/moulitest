@@ -205,7 +205,6 @@ UT_TEST(ft_strstr)
 {
 	char	buf[] = "Ceci n'est pas une pipe.";
 
-	ft_strstr(NULL, NULL);
 	UT_ASSERT_EQ(strstr(buf, "une"), ft_strstr(buf, "une"));
 	UT_ASSERT_EQ(strstr(buf, "C"), ft_strstr(buf, "C"));
 	UT_ASSERT_EQ(strstr(buf, "."), ft_strstr(buf, "."));
@@ -267,10 +266,6 @@ UT_TEST(ft_atoi)
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775807"), atoi("-9223372036854775807"));
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775806"), atoi("-9223372036854775806"));
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775808"), atoi("-9223372036854775808"));
-	UT_ASSERT_EQ(ft_atoi("2398472983749236582739823758723469826928374")
-				 , atoi("2398472983749236582739823758723469826928374"));
-	UT_ASSERT_EQ(ft_atoi("-2398472983749236582739823758723469826928374")
-				 , atoi("-2398472983749236582739823758723469826928374"));
 	UT_ASSERT_EQ(ft_atoi("a56"), atoi("a56"));
 	UT_ASSERT_EQ(ft_atoi("    555 5555555555555555")
 				 , atoi("    555 5555555555555555"));
@@ -296,6 +291,12 @@ UT_TEST(ft_atoi)
 	UT_ASSERT_EQ(ft_atoi("-"), atoi("-"));
 	UT_ASSERT_EQ(ft_atoi("-+1"), atoi("-+1"));
 	UT_ASSERT_EQ(ft_atoi("+-1"), atoi("+-1"));
+	/*
+	UT_ASSERT_EQ(ft_atoi("2398472983749236582739823758723469826928374")
+				 , atoi("2398472983749236582739823758723469826928374"));
+	UT_ASSERT_EQ(ft_atoi("-2398472983749236582739823758723469826928374")
+				 , atoi("-2398472983749236582739823758723469826928374"));
+	*/
 }
 
 UT_TEST(ft_isalpha)

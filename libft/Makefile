@@ -1,9 +1,10 @@
 .PHONY: help, all, clean, fclean, re, test, suite_moulinator, suite_qperez
 
 NAME = unit_test
+RENDU_PATH = ./../../libft
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic -I./..
-LDFLAGS = -L./.. -lft
+CFLAGS = -Wall -Werror -Wextra -pedantic -I$(RENDU_PATH)
+LDFLAGS = -L$(RENDU_PATH) -lft
 SOURCE = main.c unit_test.c
 OBJ = $(SOURCE:.c=.o)
 BUILD = main.build.c
@@ -35,13 +36,12 @@ test_unit: re
 
 suite_qperez:
 	rm -f ./a.out
-	gcc testsuite_qperez/main.c ../*.c -I../ && ./a.out
+	gcc testsuite_qperez/main.c $(RENDU_PATH)/*.c -I$(RENDU_PATH) && ./a.out
 
 suite_moulinator:
 	make re -C ./testsuite_moulinator
 
-test_custom:
-	make re -C ../
+test_custom: make_libft
 	$(CC) $(CFLAGS) $(LDFLAGS) main.build.c unit_test.c -o $(NAME)
 	./unit_test
 
@@ -73,4 +73,4 @@ test_bonus:
 re: fclean all
 
 make_libft:
-	make re -C ../
+	make re -C $(RENDU_PATH)

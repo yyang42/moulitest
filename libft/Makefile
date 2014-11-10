@@ -2,22 +2,18 @@
 
 NAME = unit_test
 RENDU_PATH = $(shell awk -F "=" '/LIBFT_PATH/ {print $$2}' ../config)
+FRAMEWORK_PATH = ../_testframework
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic -I$(RENDU_PATH)
+CFLAGS = -Wall -Werror -Wextra -pedantic -I$(RENDU_PATH) -I$(FRAMEWORK_PATH)
 LDFLAGS = -L$(RENDU_PATH) -lft
-SOURCE = main.c unit_test.c
-OBJ = $(SOURCE:.c=.o)
+SOURCE = main.c $(FRAMEWORK_PATH)/testframework.c
+OBJ = main.o testframework.o
 BUILD = main.build.c
-# @echo "Available commands:"
-# @echo "   $$ make test_part1"
-# @echo "   $$ make test_part2"
-# @echo "   $$ make test_bonus"
-# @echo "   $$ make test_extra"
 
 all: $(NAME)
 
-$(NAME): $(OBJ) make_libft
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
+$(NAME): make_libft
+	$(CC) $(CFLAGS) $(LDFLAGS) $(SOURCE) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -32,7 +28,7 @@ fclean: clean
 test: make_libft re test_bonus suite_qperez suite_moulinator
 
 test_unit: re
-	./unit_test
+	./$(NAME)
 
 suite_qperez:
 	rm -f ./a.out
@@ -42,8 +38,8 @@ suite_moulinator:
 	make re -C ./testsuite_moulinator
 
 test_custom: make_libft
-	$(CC) $(CFLAGS) $(LDFLAGS) main.build.c unit_test.c -o $(NAME)
-	./unit_test
+	$(CC) $(CFLAGS) $(LDFLAGS) main.build.c ../_testframework/testframework.c -o $(NAME)
+	./$(NAME)
 
 test_yyang:
 	echo "#define EXTRA_YYANG\n#define PART1\n#define PART2\n#define BONUS\n" > main.build.c

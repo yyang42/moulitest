@@ -960,12 +960,11 @@ UT_TEST(ft_sort_int_table)
 #ifdef TEST_ft_strcapitalize
 UT_TEST(ft_strcapitalize)
 {
-	char test_ft_strcapitalize[19] = "bonjour les filles\0";
-	char *test_strcapitalize;
-
 	ft_strcapitalize(NULL);
-	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
-	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strcapitalize(strdup("bonjour les filles")), "Bonjour Les Filles"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strcapitalize(strdup("hello")), "Hello"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strcapitalize(strdup("hello2world")), "Hello2world"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strcapitalize(strdup("   je mange des pommes.  ")), "   Je Mange Des Pommes.  "), 0);
 }
 #endif
 

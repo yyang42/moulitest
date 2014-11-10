@@ -795,6 +795,7 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_isblank
 #define TEST_ft_strrev
 #define TEST_ft_strtrimc
+#define TEST_ft_strcapitalize
 /*#define TEST_ft_swap*/
 #endif
 /*
@@ -953,17 +954,20 @@ UT_TEST(ft_sort_int_table)
 	UT_ASSERT_EQ(test_ft_sort[5], 68);
 	UT_ASSERT_EQ(test_ft_sort[6], 98);
 }
+#endif
 
+
+#ifdef TEST_ft_strcapitalize
 UT_TEST(ft_strcapitalize)
 {
 	char test_ft_strcapitalize[19] = "bonjour les filles\0";
 	char *test_strcapitalize;
 
+	ft_strcapitalize(NULL);
 	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
 	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
 }
 #endif
-
 
 #ifdef TEST_ft_swap
 UT_TEST(ft_swap)
@@ -1163,6 +1167,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_strtrimc
 	UT_ADD_TEST(ft_strtrimc);
+#endif
+
+#ifdef TEST_ft_strcapitalize
+	UT_ADD_TEST(ft_strcapitalize);
 #endif
 
 	UT_RUN_ALL_TESTS();

@@ -1,0 +1,4 @@
+# Make a copy of this file and name it "config"
+# Do not delete "config.template"
+
+LIBFT_PATH = YOUR_SOURCE_FILES_FOLDER

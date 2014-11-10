@@ -1,7 +1,7 @@
 .PHONY: help, all, clean, fclean, re, test, suite_moulinator, suite_qperez
 
 NAME = unit_test
-RENDU_PATH = ./../../libft
+RENDU_PATH = $(shell awk -F "=" '/LIBFT_PATH/ {print $$2}' ../config)
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic -I$(RENDU_PATH)
 LDFLAGS = -L$(RENDU_PATH) -lft

@@ -1,19 +1,7 @@
 # Install
-1. Put the moulitest repository on the same level as your project ("rendu") folders.
-2. Your project folder should have the same name as the test folder. ex. libft
-
-Example folder structure:
--------------------------
-
-	projects
-	│   libft # project folder
-	│   project2
-	│   project3
-	│
-	└───moulitest
-	    │   libft # test folder
-	    │   project2
-	    │   project3
+1. Clone this repository wherever you want.
+2. Make a **copy** of the "config.template" file and name it "config" (Do not delete "config.template")
+3. Replace the "config" project paths with your own.
 
 # Usage
 - To launch tests, use:

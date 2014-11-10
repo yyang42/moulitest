@@ -94,6 +94,7 @@ UT_TEST(ft_memcmp)
 	UT_ASSERT_EQ(ft_memcmp(t, t, 5), 0);
 	UT_ASSERT_NEQ(ft_memcmp(t, "abcab", 5) ,0);
 	UT_ASSERT(ft_memcmp("aaa", "aab", 4) < 0);
+	UT_ASSERT_EQ(ft_memcmp("aab", "aac", 2), 0);
 	UT_ASSERT_EQ(ft_memcmp("aww", "bpp", 0), 0);
 	UT_ASSERT(ft_memcmp("\200", "\0", 1) > 0);
 }
@@ -802,6 +803,8 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_abs
 #define TEST_ft_isspace
 #define TEST_ft_factorial
+#define TEST_ft_strupcase
+/*#define TEST_ft_memswap*/
 #endif
 /*
 UT_TEST(ft_ptrswap)
@@ -1132,6 +1135,19 @@ UT_TEST(ft_abs)
 }
 #endif
 
+#ifdef TEST_ft_strupcase
+UT_TEST(ft_strupcase)
+{
+	ft_strupcase(NULL);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("")), ""), 0);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aaa")), "AAA"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("zzz")), "ZZZ"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("AAA")), "AAA"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("ZZZ")), "ZZZ"), 0);
+	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aBcDeé9123'47289")), "ABCDEé9123'47289"), 0);
+}
+#endif
+
 int	main(void)
 {
 #ifdef PART1
@@ -1219,7 +1235,6 @@ UT_ADD_TEST(ft_replace_char);
 UT_ADD_TEST(ft_isspace);
 #endif
 
-
 #ifdef TEST_ft_memswap
 	UT_ADD_TEST(ft_memswap);
 #endif
@@ -1234,7 +1249,6 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_memdup
 	UT_ADD_TEST(ft_memdup);
-
 #endif
 
 #ifdef TEST_ft_strrev
@@ -1267,6 +1281,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_factorial
 	UT_ADD_TEST(ft_factorial);
+#endif
+
+#ifdef TEST_ft_strupcase
+	UT_ADD_TEST(ft_strupcase);
 #endif
 
 	UT_RUN_ALL_TESTS();

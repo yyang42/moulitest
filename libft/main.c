@@ -205,7 +205,6 @@ UT_TEST(ft_strstr)
 {
 	char	buf[] = "Ceci n'est pas une pipe.";
 
-	ft_strstr(NULL, NULL);
 	UT_ASSERT_EQ(strstr(buf, "une"), ft_strstr(buf, "une"));
 	UT_ASSERT_EQ(strstr(buf, "C"), ft_strstr(buf, "C"));
 	UT_ASSERT_EQ(strstr(buf, "."), ft_strstr(buf, "."));
@@ -267,10 +266,6 @@ UT_TEST(ft_atoi)
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775807"), atoi("-9223372036854775807"));
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775806"), atoi("-9223372036854775806"));
 	UT_ASSERT_EQ(ft_atoi("-9223372036854775808"), atoi("-9223372036854775808"));
-	UT_ASSERT_EQ(ft_atoi("2398472983749236582739823758723469826928374")
-				 , atoi("2398472983749236582739823758723469826928374"));
-	UT_ASSERT_EQ(ft_atoi("-2398472983749236582739823758723469826928374")
-				 , atoi("-2398472983749236582739823758723469826928374"));
 	UT_ASSERT_EQ(ft_atoi("a56"), atoi("a56"));
 	UT_ASSERT_EQ(ft_atoi("    555 5555555555555555")
 				 , atoi("    555 5555555555555555"));
@@ -296,6 +291,12 @@ UT_TEST(ft_atoi)
 	UT_ASSERT_EQ(ft_atoi("-"), atoi("-"));
 	UT_ASSERT_EQ(ft_atoi("-+1"), atoi("-+1"));
 	UT_ASSERT_EQ(ft_atoi("+-1"), atoi("+-1"));
+	/*
+	UT_ASSERT_EQ(ft_atoi("2398472983749236582739823758723469826928374")
+				 , atoi("2398472983749236582739823758723469826928374"));
+	UT_ASSERT_EQ(ft_atoi("-2398472983749236582739823758723469826928374")
+				 , atoi("-2398472983749236582739823758723469826928374"));
+	*/
 }
 
 UT_TEST(ft_isalpha)
@@ -794,6 +795,7 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_isblank
 #define TEST_ft_strrev
 #define TEST_ft_strtrimc
+#define TEST_ft_strcapitalize
 /*#define TEST_ft_swap*/
 #endif
 /*
@@ -956,17 +958,20 @@ UT_TEST(ft_sort_int_table)
 	UT_ASSERT_EQ(test_ft_sort[5], 68);
 	UT_ASSERT_EQ(test_ft_sort[6], 98);
 }
+#endif
 
+
+#ifdef TEST_ft_strcapitalize
 UT_TEST(ft_strcapitalize)
 {
 	char test_ft_strcapitalize[19] = "bonjour les filles\0";
 	char *test_strcapitalize;
 
+	ft_strcapitalize(NULL);
 	test_strcapitalize = ft_strcapitalize(test_ft_strcapitalize);
 	UT_ASSERT_EQ(strcmp(test_strcapitalize, "Bonjour Les Filles\0"), 0);
 }
 #endif
-
 
 #ifdef TEST_ft_swap
 UT_TEST(ft_swap)
@@ -1245,6 +1250,11 @@ UT_ADD_TEST(ft_isspace);
 #ifdef TEST_ft_abs
 	UT_ADD_TEST(ft_abs);
 #endif
+
+#ifdef TEST_ft_strcapitalize
+	UT_ADD_TEST(ft_strcapitalize);
+#endif
+
 	UT_RUN_ALL_TESTS();
 	return (0);
 }

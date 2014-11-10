@@ -11,8 +11,9 @@ This repository contains tests of several projects done at 42.
 	LIBFT_PATH = ~/path_to_my_libft_folder
 	PROJECT2 = ~/path_to_my_project2_folder
 
-# Usage
-- To launch a test this command inside a test folder:
+Usage
+-----
+To launch a test this command inside a test folder:
 
 	$ cd libft # example
 	$ make test

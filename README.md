@@ -18,7 +18,9 @@ Example folder structure:
 
 	$ make test
 
-See available commands in the Makefile
+Check Makefile of each project test to discover other commands.
+
+# Credit
 
 Those tests are mainly based on the work done by Maxime Bacoux "mbacoux" / "Nax" and
 

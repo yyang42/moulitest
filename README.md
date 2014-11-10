@@ -13,10 +13,9 @@ This repository contains tests of several projects done at 42.
 
 Usage
 -----
-To launch a test this command inside a test folder:
+To launch a test use inside this repository:
 
-	$ cd libft # example
-	$ make test
+	$ make -C libft test # Example with libft.
 
 Check Makefile of each project test to discover other commands.
 

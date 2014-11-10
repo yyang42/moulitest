@@ -1,7 +1,9 @@
 # Install
 1. Put the moulitest repository on the same level as your project ("rendu") folders.
 2. Your project folder should have the same name as the test folder. ex. libft
+
 Example folder structure:
+-------------------------
 
 	projects
 	│   libft # project folder

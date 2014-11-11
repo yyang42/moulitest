@@ -13,7 +13,7 @@ This repository contains tests of several projects done at 42.
 
 Usage
 -----
-	$ cd libft
+	$ cd libft_tests
 	$ ./test -h # Usage help
 
 # Credit

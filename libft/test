@@ -1,5 +1,7 @@
 source ../config.sh
 export FRAMEWORK_PATH=../_testframework
+RENDU_PATH=$LIBFT_PATH
+eval RENDU_PATH=$RENDU_PATH
 
 function usage()
 {
@@ -54,7 +56,6 @@ done
 
 fn_setVariables () {
 	NAME=moulitest
-	RENDU_PATH=$LIBFT_PATH
 	CC="gcc"
 	CFLAGS="-Wall -Werror -Wextra -pedantic -I$RENDU_PATH -I$FRAMEWORK_PATH"
 	LDFLAGS="-L$RENDU_PATH -lft"
@@ -68,7 +69,7 @@ fn_compileProject () {
 fn_testProject () {
 	echo "$PREFIX" > main.build.c
 	cat main.c >> main.build.c
-	$CC $CFLAGS $LDFLAGS main.build.c ../_testframework/testframework.c -o $NAME
+	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../_testframework/testframework.c -o $NAME
 	./$NAME
 }
 

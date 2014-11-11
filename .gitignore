@@ -2,6 +2,7 @@ main.build.c
 unit_test
 *.o
 *.so
+libft/moulitest
 
 # USER LOCAL FILES
 config

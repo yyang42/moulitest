@@ -1,5 +1,5 @@
 #include <testframework.h>
-#include <libft.h>
+#include "libft.h"
 #include <string.h>
 #include <strings.h>
 #include <stdlib.h>
@@ -833,24 +833,7 @@ UT_TEST(ft_lstmap)
 #endif
 
 
-#ifdef EXTRA_JUSCHAEF
-#define TEST_ft_isspace
-#define TEST_ft_replace_char
-#define TEST_ft_isblank
-#define TEST_ft_swap
-#define TEST_ft_memswap
-#define TEST_ft_islower
-#define TEST_ft_isupper
-#define TEST_ft_ispunct
-#define TEST_ft_abs
-#define TEST_ft_factorial
-#define TEST_ft_strcapitalize
-#define TEST_ft_rotone
-#define TEST_ft_nrot
-#define TEST_ft_printable_rotone
-#define TEST_ft_strupcase
-#define TEST_ft_strlowcase
-
+#ifdef TEST_ft_JUSCHAEF
 UT_TEST(ft_putnendl)
 {
 	int		out;
@@ -1276,14 +1259,12 @@ int	main(void)
 	UT_ADD_TEST(ft_lstmap);
 #endif
 
-#ifdef EXTRA_JUSCHAEF
+#ifdef TEST_ft_JUSCHAEF
 	UT_ADD_TEST(ft_putnendl);
 	UT_ADD_TEST(ft_putnstr);
 	UT_ADD_TEST(ft_sqrt);
 	UT_ADD_TEST(ft_power);
 	UT_ADD_TEST(ft_sort_int_table);
-/*
-*/
 #endif
 
 #ifdef TEST_ft_replace_char

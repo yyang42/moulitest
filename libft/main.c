@@ -866,6 +866,8 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_abs
 #define TEST_ft_factorial
 #define TEST_ft_strcapitalize
+#define TEST_ft_rotone
+#define TEST_ft_nrot
 
 UT_TEST(ft_putnendl)
 {
@@ -1171,6 +1173,28 @@ UT_TEST(ft_strlowcase)
 }
 #endif
 
+#ifdef TEST_ft_rotone
+UT_TEST(ft_rotone)
+{
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("a")), "b"), 0);
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("A")), "B"), 0);
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("z")), "a"), 0);
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("Z")), "A"), 0);
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("6")), "6"), 0);
+	UT_ASSERT_EQ(strcmp(ft_rotone(strdup("[")), "["), 0);
+}
+#endif
+
+#ifdef TEST_ft_nrot
+UT_TEST(ft_nrot)
+{
+	UT_ASSERT_EQ(strcmp(ft_nrot(strdup("a"), 1), "b"), 0);
+	UT_ASSERT_EQ(strcmp(ft_nrot(strdup("A"), 5), "F"), 0);
+	UT_ASSERT_EQ(strcmp(ft_nrot(strdup("A"), 22), "W"), 0);
+}
+#endif
+
+
 int	main(void)
 {
 #ifdef PART1
@@ -1310,6 +1334,14 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_strlowcase
 	UT_ADD_TEST(ft_strlowcase);
+#endif
+
+#ifdef TEST_ft_rotone
+	UT_ADD_TEST(ft_rotone);
+#endif
+
+#ifdef TEST_ft_nrot
+	UT_ADD_TEST(ft_nrot);
 #endif
 
 	UT_RUN_ALL_TESTS();

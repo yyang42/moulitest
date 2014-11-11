@@ -1,0 +1,12 @@
+# Make a copy of this file and name it "config"
+# DO NOT DELETE "config.template"
+
+export LIBFT_PATH="PATH_TO_YOUR_PROJECT_FOLDER"
+
+# Indicate the extra functions you have implemented
+################################################################################
+
+# export LIBFT_EXTRA_TESTS="ft_memdup,ft_isblank,ft_strrev,ft_strtrimc,\
+			ft_strcapitalize,ft_islower,ft_isupper,ft_ispunct,ft_abs,\
+			ft_isspace,ft_factorial,ft_strupcase,ft_strlowcase,ft_swap,\
+			ft_memswap,ft_ptrswa"

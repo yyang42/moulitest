@@ -1,0 +1,92 @@
+source ../config.sh
+
+function usage()
+{
+    echo "Usage:"
+    echo "    ./test part1"
+    echo "    ./test part2            # Also run part1"
+    echo "    ./test bonus            # Also run part1 and part2"
+    echo "    ./test extra            # Also run part1, part2 and bonus"
+    echo ""
+    echo "Options:"
+    echo "    -h --help"
+    echo ""
+}
+
+if [ -z "$1" ]; then
+    usage
+fi
+
+while [ "$1" != "" ]; do
+    PARAM=`echo $1 | awk -F= '{print $1}'`
+    VALUE=`echo $1 | awk -F= '{print $2}'`
+    case $PARAM in
+        -h | --help)
+            usage
+            exit
+            ;;
+        --test)
+            ENVIRONMENT=$VALUE
+            ;;
+        part1)
+            TESTSUITE=part1
+            ;;
+        part2)
+            TESTSUITE=part2
+            ;;
+        bonus)
+            TESTSUITE=bonus
+            ;;
+        extra)
+            TESTSUITE=extra
+            ;;
+        *)
+            echo "ERROR: unknown parameter \"$PARAM\""
+            usage
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+
+fn_setVariables () {
+	NAME=moulitest
+	RENDU_PATH=$LIBFT_PATH
+	CC="gcc"
+	CFLAGS="-Wall -Werror -Wextra -pedantic -I$RENDU_PATH -I$FRAMEWORK_PATH"
+	LDFLAGS="-L$RENDU_PATH -lft"
+}
+fn_setVariables
+
+fn_compileProject () {
+	make re -C $RENDU_PATH
+}
+
+fn_testProject () {
+	echo "$PREFIX" > main.build.c
+	cat main.c >> main.build.c
+	$CC $CFLAGS $LDFLAGS main.build.c ../_testframework/testframework.c -o $NAME
+	./$NAME
+}
+
+fn_runTestSuite () {
+	if [ "$TESTSUITE" = "part1" ]; then
+		PREFIX="#define PART1\n"
+	elif [ "$TESTSUITE" = "part2" ]; then
+		PREFIX="#define PART1\n#define PART2"
+	elif [ "$TESTSUITE" = "bonus" ]; then
+		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
+	elif [ "$TESTSUITE" = "extra" ]; then
+		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
+		for job in $(echo $LIBFT_EXTRA_TESTS | tr "," " "); do
+		    PREFIX="$PREFIX#define TEST_$job\n"
+		done
+	fi
+	fn_compileProject
+	fn_testProject
+}
+
+if [ ! -z "$TESTSUITE" ]; then
+	fn_runTestSuite
+fi

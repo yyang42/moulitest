@@ -832,24 +832,6 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_ptrswap
 #endif
 
-/*
-UT_TEST(ft_strlcpy)
-{
-	char	buf[10];
-	size_t	output;
-
-	output = ft_strlcpy(buf, "1234567890", 10);
-	UT_ASSERT_EQ(strcmp(buf, "123456789"), 0);
-	UT_ASSERT_EQ(output, 10);
-	output = ft_strlcpy(buf, "12345", 10);
-	UT_ASSERT_EQ(strcmp(buf, "12345"), 0);
-	UT_ASSERT_EQ(output, 5);
-	output = ft_strlcpy(buf, "1234567890", 0);
-	UT_ASSERT_EQ(strcmp(buf, "12345"), 0);
-	UT_ASSERT_EQ(output, 10);
-}
-*/
-
 
 #ifdef EXTRA_JUSCHAEF
 #define TEST_ft_isspace

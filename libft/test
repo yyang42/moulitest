@@ -7,7 +7,7 @@ function usage()
     echo "    ./test part2            # Also run part1"
     echo "    ./test bonus            # Also run part1 and part2"
     echo "    ./test extra            # Also run part1, part2 and bonus" 
-    echo "                            # (You need to set extra test in config.sh)
+    echo "                            # (You need to set extra test in config.sh)"
     echo ""
     echo "Options:"
     echo "    -h --help"

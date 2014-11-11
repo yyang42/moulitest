@@ -868,6 +868,7 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_strcapitalize
 #define TEST_ft_rotone
 #define TEST_ft_nrot
+#define TEST_ft_printable_rotone
 
 UT_TEST(ft_putnendl)
 {
@@ -1194,6 +1195,16 @@ UT_TEST(ft_nrot)
 }
 #endif
 
+#ifdef TEST_ft_printable_rotone
+UT_TEST(ft_printable_rotone)
+{
+	UT_ASSERT_EQ(strcmp(ft_printable_rotone(strdup("a")), "b"), 0);
+	UT_ASSERT_EQ(strcmp(ft_printable_rotone(strdup("z")), "{"), 0);
+	UT_ASSERT_EQ(strcmp(ft_printable_rotone(strdup("~")), " "), 0);
+	UT_ASSERT_EQ(strcmp(ft_printable_rotone(strdup("7")), "8"), 0);
+}
+#endif
+
 
 int	main(void)
 {
@@ -1342,6 +1353,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_nrot
 	UT_ADD_TEST(ft_nrot);
+#endif
+
+#ifdef TEST_ft_printable_rotone
+	UT_ADD_TEST(ft_printable_rotone);
 #endif
 
 	UT_RUN_ALL_TESTS();

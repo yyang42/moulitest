@@ -3,7 +3,7 @@ This repository contains tests of several projects done at 42.
 # Install
 1. Clone this repository wherever you want.
 2. Make a **copy** of the "config.sh.template" file and name it "config.sh" (Do not delete "config.sh.template")
-3. Replace the "config" project paths with your own.
+3. Replace the necessary values in config.sh.
 
 "config" file example
 ---------------------

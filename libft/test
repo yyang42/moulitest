@@ -1,4 +1,5 @@
 source ../config.sh
+export FRAMEWORK_PATH=../_testframework
 
 function usage()
 {

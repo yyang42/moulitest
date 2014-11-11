@@ -237,6 +237,13 @@ UT_TEST(ft_strnstr)
 
 UT_TEST(ft_strcmp)
 {
+	/* No need to test for NULL value
+	**
+	** ft_strcmp(NULL, NULL)
+	**
+	** The standard strcmp function return this error:
+	** error: null argument where non-null required
+	*/
 	UT_ASSERT_EQ(ft_strcmp("abc", "abc"), 0);
 	UT_ASSERT(ft_strcmp("abc", "abd") < 0);
 	UT_ASSERT(ft_strcmp("\200", "\0") > 0);
@@ -800,7 +807,6 @@ UT_TEST(ft_lstmap)
 
 #ifdef EXTRA_YYANG
 #define TEST_ft_memdup
-#define TEST_ft_memdup
 #define TEST_ft_isblank
 #define TEST_ft_strrev
 #define TEST_ft_strtrimc
@@ -813,29 +819,12 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_factorial
 #define TEST_ft_strupcase
 #define TEST_ft_strlowcase
-/*#define TEST_ft_memswap*/
+#define TEST_ft_swap
+#define TEST_ft_memswap
+#define TEST_ft_ptrswap
 #endif
 
 /*
-UT_TEST(ft_ptrswap)
-{
-	int		was_1 = 1;
-	int		was_2 = 2;
-	char	was_a = 'a';
-	char	was_b = 'b';
-	int		*ptr_1 = &was_1;
-	int		*ptr_2 = &was_2;
-	char	*ptr_a = &was_a;
-	char	*ptr_b = &was_b;
-
-	ft_ptrswap(&ptr_1, &ptr_2);
-	ft_ptrswap(&ptr_a, &ptr_b);
-	UT_ASSERT(*ptr_1 == 2);
-	UT_ASSERT(*ptr_2 == 1);
-	UT_ASSERT(*ptr_a == 'b');
-	UT_ASSERT(*ptr_b == 'a');
-}
-
 UT_TEST(ft_strlcpy)
 {
 	char	buf[10];
@@ -908,6 +897,39 @@ UT_TEST(ft_putnstr)
 	UT_ASSERT_EQ(strcmp(buf, "Bonj"), 0);
 }
 
+UT_TEST(ft_sqrt)
+{
+	UT_ASSERT_EQ(ft_sqrt(25), 5);
+	UT_ASSERT_EQ(ft_sqrt(100), 10);
+	UT_ASSERT_EQ(ft_sqrt(18), 0);
+	UT_ASSERT_EQ(ft_sqrt(0), 0);
+}
+
+UT_TEST(ft_power)
+{
+	UT_ASSERT_EQ(ft_power(2, 3), pow(2, 3));
+	UT_ASSERT_EQ(ft_power(10, 9), pow(10, 9));
+	UT_ASSERT_EQ(ft_power(50, 0), pow(50, 0));
+	UT_ASSERT_EQ(ft_power(0, 10), pow(0, 10));
+	UT_ASSERT_EQ(ft_power(25, 13), pow(25,13));
+}
+UT_TEST(ft_sort_int_table)
+{
+	int test_ft_sort[7] = {42,4,98,9,12,68,21};
+
+	ft_sort_int_table(test_ft_sort, 7);
+	UT_ASSERT_EQ(test_ft_sort[0], 4);
+	UT_ASSERT_EQ(test_ft_sort[1], 9);
+	UT_ASSERT_EQ(test_ft_sort[2], 12);
+	UT_ASSERT_EQ(test_ft_sort[3], 21);
+	UT_ASSERT_EQ(test_ft_sort[4], 42);
+	UT_ASSERT_EQ(test_ft_sort[5], 68);
+	UT_ASSERT_EQ(test_ft_sort[6], 98);
+}
+#endif
+
+
+#ifdef TEST_ft_memswap
 UT_TEST(ft_memswap)
 {     /* Two contributor for this test */
 	char	was_a = 'a';
@@ -942,38 +964,7 @@ UT_TEST(ft_memswap)
 	UT_ASSERT_EQ(test_swap_int_1, 42);
 	UT_ASSERT_EQ(test_swap_int_2, 24);
 }
-
-UT_TEST(ft_sqrt)
-{
-	UT_ASSERT_EQ(ft_sqrt(25), 5);
-	UT_ASSERT_EQ(ft_sqrt(100), 10);
-	UT_ASSERT_EQ(ft_sqrt(18), 0);
-	UT_ASSERT_EQ(ft_sqrt(0), 0);
-}
-
-UT_TEST(ft_power)
-{
-	UT_ASSERT_EQ(ft_power(2, 3), pow(2, 3));
-	UT_ASSERT_EQ(ft_power(10, 9), pow(10, 9));
-	UT_ASSERT_EQ(ft_power(50, 0), pow(50, 0));
-	UT_ASSERT_EQ(ft_power(0, 10), pow(0, 10));
-	UT_ASSERT_EQ(ft_power(25, 13), pow(25,13));
-}
-UT_TEST(ft_sort_int_table)
-{
-	int test_ft_sort[7] = {42,4,98,9,12,68,21};
-
-	ft_sort_int_table(test_ft_sort, 7);
-	UT_ASSERT_EQ(test_ft_sort[0], 4);
-	UT_ASSERT_EQ(test_ft_sort[1], 9);
-	UT_ASSERT_EQ(test_ft_sort[2], 12);
-	UT_ASSERT_EQ(test_ft_sort[3], 21);
-	UT_ASSERT_EQ(test_ft_sort[4], 42);
-	UT_ASSERT_EQ(test_ft_sort[5], 68);
-	UT_ASSERT_EQ(test_ft_sort[6], 98);
-}
 #endif
-
 
 #ifdef TEST_ft_factorial
 UT_TEST(ft_factorial)
@@ -985,7 +976,6 @@ UT_TEST(ft_factorial)
 	UT_ASSERT_EQ(ft_factorial(8), 40320);
 	UT_ASSERT_EQ(ft_factorial(20), 2432902008176640000);
 }
-
 #endif
 
 #ifdef TEST_ft_strcapitalize
@@ -1205,6 +1195,27 @@ UT_TEST(ft_printable_rotone)
 }
 #endif
 
+#ifdef TEST_ft_ptrswap
+UT_TEST(ft_ptrswap)
+{
+	int		was_1 = 1;
+	int		was_2 = 2;
+	char	was_a = 'a';
+	char	was_b = 'b';
+	int		*ptr_1 = &was_1;
+	int		*ptr_2 = &was_2;
+	char	*ptr_a = &was_a;
+	char	*ptr_b = &was_b;
+
+	ft_ptrswap(&ptr_1, &ptr_2);
+	ft_ptrswap(&ptr_a, &ptr_b);
+	UT_ASSERT(*ptr_1 == 2);
+	UT_ASSERT(*ptr_2 == 1);
+	UT_ASSERT(*ptr_a == 'b');
+	UT_ASSERT(*ptr_b == 'a');
+}
+#endif
+
 
 int	main(void)
 {
@@ -1357,6 +1368,10 @@ UT_ADD_TEST(ft_isspace);
 
 #ifdef TEST_ft_printable_rotone
 	UT_ADD_TEST(ft_printable_rotone);
+#endif
+
+#ifdef TEST_ft_ptrswap
+	UT_ADD_TEST(ft_ptrswap);
 #endif
 
 	UT_RUN_ALL_TESTS();

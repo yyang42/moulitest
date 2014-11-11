@@ -720,6 +720,7 @@ UT_TEST(ft_lstdelone)
 	ft_lstdelone(&list, del_test);
 	UT_ASSERT_EQ(list, NULL);
 	UT_ASSERT_EQ(____diddel, 1);
+	ft_lstdelone(NULL, NULL);
 }
 
 UT_TEST(ft_lstdel)
@@ -738,6 +739,7 @@ UT_TEST(ft_lstdel)
 	ft_lstdel(&list, del_test);
 	UT_ASSERT_EQ(list, NULL);
 	UT_ASSERT_EQ(____diddel, 2);
+	ft_lstdel(NULL, NULL);
 }
 
 UT_TEST(ft_lstadd)
@@ -752,6 +754,7 @@ UT_TEST(ft_lstadd)
 	ft_lstadd(&list2, list);
 	UT_ASSERT_EQ(list, list2);
 	UT_ASSERT_NEQ(list->next, NULL);
+	ft_lstadd(NULL, NULL);
 }
 
 void	lstiter_test(t_list *ppp)
@@ -803,6 +806,11 @@ UT_TEST(ft_lstmap)
 #define TEST_ft_strcapitalize
 #define TEST_ft_strupcase
 #define TEST_ft_strlowcase
+#endif
+
+#ifdef EXTRA_GBARRAUL
+#define TEST_ft_islower
+#define TEST_ft_strrev
 #endif
 
 #ifdef EXTRA_YYANG

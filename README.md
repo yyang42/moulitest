@@ -19,6 +19,10 @@ To launch a test use inside this repository:
 
 	$ make -C libft test # Example with libft.
 
+	or
+
+	$ make -C project_name test
+
 Check Makefile of each project test to discover other commands.
 
 # Credit

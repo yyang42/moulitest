@@ -1,3 +1,4 @@
+set -e
 source ../config.sh
 export FRAMEWORK_PATH=../testframework
 RENDU_PATH=$LIBFT_PATH
@@ -81,8 +82,8 @@ fn_compileProject () {
 fntestProject () {
 	echo "$PREFIX" > main.build.c
 	cat main.c >> main.build.c
-	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../testframework/testframework.c -o $NAME
-	./$NAME
+	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../testframework/testframework.c
+	./a.out
 }
 
 fn_runMoulinator () {

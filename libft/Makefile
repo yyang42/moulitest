@@ -56,6 +56,11 @@ test_mvo:
 	cat main.c >> main.build.c
 	make test_custom
 
+test_gbarraul:
+	echo "#define EXTRA_GBARRAUL\n#define PART1\n#define PART2\n#define BONUS\n" > main.build.c
+	cat main.c >> main.build.c
+	make test_custom
+
 test_part1:
 	echo "#define PART1\n" > main.build.c
 	cat main.c >> main.build.c

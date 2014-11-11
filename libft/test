@@ -9,8 +9,11 @@ function usage()
     echo "    ./test part1"
     echo "    ./test part2            # Also run part1"
     echo "    ./test bonus            # Also run part1 and part2"
+    echo "    ./test qperez"
+    echo "    ./test moulinator"
     echo "    ./test extra            # Also run part1, part2 and bonus" 
-    echo "                            # (You need to set extra test in config.sh)"
+    echo "                              (You need to set extra test in config.sh)"
+    echo "    ./test all              # Include bonus, qperez and moulinator" 
     echo ""
     echo "Options:"
     echo "    -h --help"
@@ -41,6 +44,15 @@ while [ "$1" != "" ]; do
         bonus)
             TESTSUITE=bonus
             ;;
+        all)
+            TESTSUITE=all
+            ;;
+        qperez)
+            TESTSUITE=qperez
+            ;;
+        moulinator)
+            TESTSUITE=moulinator
+            ;;
         extra)
             TESTSUITE=extra
             ;;
@@ -67,10 +79,28 @@ fn_compileProject () {
 }
 
 fn_testProject () {
-	echo "$PREFIX" > main.build.c
-	cat main.c >> main.build.c
-	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../_testframework/testframework.c -o $NAME
-	./$NAME
+    echo "$PREFIX" > main.build.c
+    cat main.c >> main.build.c
+    $CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../_testframework/testframework.c -o $NAME
+    ./$NAME
+}
+
+fn_runMoulinator () {
+    echo "===================================================================="
+    echo "Run moulinator test suite..."
+    echo "===================================================================="
+    cd testsuite_moulinator
+    gcc -fPIC -Wall -Werror -Wextra -c $RENDU_PATH/*.c
+    gcc -fPIC -Werror -Wall -Wextra -shared -o libft.so *.o
+    ./Mouli-nator
+    cd ..
+}
+
+fn_runQperez () {
+    echo "===================================================================="
+    echo "Run qperez test suite..."
+    echo "===================================================================="
+    gcc testsuite_qperez/main.c $RENDU_PATH/*.c -I$RENDU_PATH && ./a.out
 }
 
 fn_runTestSuite () {
@@ -78,16 +108,26 @@ fn_runTestSuite () {
 		PREFIX="#define PART1\n"
 	elif [ "$TESTSUITE" = "part2" ]; then
 		PREFIX="#define PART1\n#define PART2"
-	elif [ "$TESTSUITE" = "bonus" ]; then
-		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
-	elif [ "$TESTSUITE" = "extra" ]; then
-		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
-		for job in $(echo $LIBFT_EXTRA_TESTS | tr "," " "); do
-		    PREFIX="$PREFIX#define TEST_$job\n"
-		done
-	fi
+    elif [ "$TESTSUITE" = "bonus" ]; then
+        PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
+    elif [ "$TESTSUITE" = "moulinator" ]; then
+        fn_runMoulinator
+    elif [ "$TESTSUITE" = "qperez" ]; then
+        fn_runQperez
+    elif [ "$TESTSUITE" = "extra" ] || [ "$TESTSUITE" = "all" ]; then
+        PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
+        for job in $(echo $LIBFT_EXTRA_TESTS | tr "," " "); do
+            PREFIX="$PREFIX#define TEST_$job\n"
+        done
+    fi
+
 	fn_compileProject
 	fn_testProject
+
+    if [ "$TESTSUITE" = "all" ]; then
+        fn_runMoulinator
+        fn_runQperez
+    fi
 }
 
 if [ ! -z "$TESTSUITE" ]; then

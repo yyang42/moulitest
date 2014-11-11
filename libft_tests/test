@@ -1,5 +1,5 @@
 source ../config.sh
-export FRAMEWORK_PATH=../_testframework
+export FRAMEWORK_PATH=../testframework
 RENDU_PATH=$LIBFT_PATH
 eval RENDU_PATH=$RENDU_PATH
 
@@ -78,10 +78,10 @@ fn_compileProject () {
 	make re -C $RENDU_PATH
 }
 
-fn_testProject () {
+fntestProject () {
 	echo "$PREFIX" > main.build.c
 	cat main.c >> main.build.c
-	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../_testframework/testframework.c -o $NAME
+	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../testframework/testframework.c -o $NAME
 	./$NAME
 }
 
@@ -123,7 +123,7 @@ fn_runTestSuite () {
 		fn_runQperez
 	else
 		fn_compileProject
-		fn_testProject
+		fntestProject
 	fi
 
 	if [ "$TESTSUITE" = "all" ]; then

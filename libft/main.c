@@ -869,6 +869,8 @@ UT_TEST(ft_strlcpy)
 #define TEST_ft_rotone
 #define TEST_ft_nrot
 #define TEST_ft_printable_rotone
+#define TEST_ft_strupcase
+#define TEST_ft_strlowcase
 
 UT_TEST(ft_putnendl)
 {

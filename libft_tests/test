@@ -1,166 +1,117 @@
-set -e
-source ../config.sh
-export FRAMEWORK_PATH=../testframework
-RENDU_PATH=$LIBFT_PATH
-eval RENDU_PATH=$RENDU_PATH
+#!/usr/bin/python
+import argparse, sys, os, fnmatch, re, json
+from subprocess import call
 
-function usage()
-{
-	echo "Usage:"
-	echo "    ./test part1"
-	echo "    ./test part2            # Also run part1"
-	echo "    ./test bonus            # Also run part1 and part2"
-	echo "    ./test qperez"
-	echo "    ./test moulinator"
-	echo "    ./test extra            # Also run part1, part2 and bonus" 
-	echo "                              (You need to set extra test in config.sh)"
-	echo "    ./test all              # Include bonus, qperez and moulinator" 
-	echo ""
-	echo "Options:"
-	echo "    -h --help"
-	echo ""
-}
+config = json.loads(open('../config.json').read())
 
-if [ -z "$1" ]; then
-	usage
-fi
+RENDU_PATH = os.path.expanduser(config['libft']['rendu_path'])
+TEST_FOLDER_PATH = 'tests'
+TEST_FILE_SUFFIX = '.spec.c'
+BUILD_MAIN = "main.build.c"
+FRAMEWORK_PATH = "../testframework"
+FRAMEWORK_SOURCE = FRAMEWORK_PATH + "/testframework.c"
 
-while [ "$1" != "" ]; do
-	PARAM=`echo $1 | awk -F= '{print $1}'`
-	VALUE=`echo $1 | awk -F= '{print $2}'`
-	case $PARAM in
-		-h | --help)
-			usage
-			exit
-			;;
-		--test)
-			ENVIRONMENT=$VALUE
-			;;
-		part1)
-			TESTSUITE=part1
-			;;
-		part2)
-			TESTSUITE=part2
-			;;
-		bonus)
-			TESTSUITE=bonus
-			;;
-		all)
-			TESTSUITE=all
-			;;
-		qperez)
-			TESTSUITE=qperez
-			;;
-		moulinator)
-			TESTSUITE=moulinator
-			;;
-		extra)
-			TESTSUITE=extra
-			;;
-		*)
-			echo "ERROR: unknown parameter \"$PARAM\""
-			usage
-			exit 1
-			;;
-	esac
-	shift
-done
+def print_usage():
+	print "Usage:"
+	print "    ./test part1"
+	print "    ./test part2            # Also run part1"
+	print "    ./test bonus            # Also run part1 and part2"
+	# print "    ./test qperez"
+	# print "    ./test moulinator"
+	print "    ./test extra            # Also run part1, part2 and bonus" 
+	print "                              (You need to set extra test in config.sh)"
+	# print "    ./test all              # Include bonus, qperez and moulinator" 
+	print ""
+	print "Options:"
+	print "    -h --help"
+	print ""
 
+def get_filenames():
+	matches = []
+	for root, dirnames, filenames in os.walk('tests'):
+	  for filename in fnmatch.filter(filenames, '*.spec.c'):
+	      matches.append(os.path.join(root, filename))
+	pattern = '(ft_.*).spec.c'
+	pattern_obj = re.compile(pattern)
+	filenames = [re.sub(r".*\/(ft_.*).spec.c", r"\1", path) for path in matches]
+	return filenames
 
-fn_setVariables () {
-	NAME=moulitest
-	CC="gcc"
-	CFLAGS="-Wall -Werror -Wextra -pedantic -I$RENDU_PATH -I$FRAMEWORK_PATH"
-	LDFLAGS="-L$RENDU_PATH -lft"
-	BUILD_MAIN=main.build.c
-}
-fn_setVariables
+def build_test_def(filenames):
+	output = ""
+	for name in filenames:
+		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
+		content = open(path, "r").read()
+		output += '''
+#ifdef TEST_{name}
+UT_TEST({name})
+{{
+{content}
+}}
+#endif
+'''.format(name=name, content=content)
+	return output;
 
-fn_compileProject () {
-	make re -C $RENDU_PATH
-}
+def build_test_main_def(filenames):
+	output = ""
+	for name in filenames:
+		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
+		content = open(path, "r").read()
+		output += '''
+#ifdef TEST_{name}
+	UT_ADD_TEST({name});
+#endif
+'''.format(name=name)
+	return output;
 
-lf=$'\n';
-fntestProject () {
-	# echo "$PREFIX" > $BUILD_MAIN
-	# cat main.c >> $BUILD_MAIN
-	TEST_DEF=""
-	TEST_MAIN_DEF=""
-	for file in ./tests/*.spec.c
-	do
-		basename="$(basename "$file")"
-		fnName=$(sed 's/\..*//g' <<< $basename)
-		fnFileContent=$(sed -e ':a' -e 'N' -e '$!ba' -e "s/\n/<NL>/g" $file)
-		TEST_DEF="\
-$TEST_DEF<NL>\
-#ifdef TEST_$fnName<NL>\
-UT_TEST($fnName)<NL>\
-{<NL>\
-$fnFileContent<NL>\
-}<NL>\
-#endif<NL>"
-		TEST_MAIN_DEF="\
-$TEST_MAIN_DEF<NL>\
-#ifdef TEST_$fnName<NL>\
-	UT_ADD_TEST($fnName);<NL>\
-#endif<NL>"
-	done
-	> $BUILD_MAIN
-	echo "$PREFIX" >> $BUILD_MAIN
-	sed -e "s/<MAIN_TEST_BLOCK>/$TEST_MAIN_DEF/g" -e "s/<TEST_DEF_BLOCK>/$TEST_DEF/g" -e "s/<NL>/\\$lf/g" main.c >> $BUILD_MAIN
-	$CC $CFLAGS $RENDU_PATH/libft.a  $BUILD_MAIN ../testframework/testframework.c
-	# rm $BUILD_MAIN
-	./a.out
-	rm ./a.out
-}
+def get_main_content():
+	filenames = get_filenames()
+	test_def_content = build_test_def(filenames)
+	test_main_def_content = build_test_main_def(filenames)
+	original_file = open("main.c", "r").read()
+	main_build_content = (original_file
+								.replace("<TEST_DEF_BLOCK>", test_def_content)
+								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))
+	return main_build_content
 
-fn_runMoulinator () {
-	echo "===================================================================="
-	echo "Run moulinator test suite..."
-	echo "===================================================================="
-	cd testsuite_moulinator
-	gcc -fPIC -Wall -Werror -Wextra -c $RENDU_PATH/*.c
-	gcc -fPIC -Werror -Wall -Wextra -shared -o libft.so *.o
-	./Mouli-nator
-	cd ..
-}
+def build_extra():
+	output = ""
+	for fn_name in config['libft']['extra_tests']:
+		output += "#define TEST_{}\n".format(fn_name)
+	return output
 
-fn_runQperez () {
-	echo "===================================================================="
-	echo "Run qperez test suite..."
-	echo "===================================================================="
-	gcc testsuite_qperez/main.c $RENDU_PATH/*.c -I$RENDU_PATH && ./a.out
-}
+def build_prefix(testsuite):
+	part1_def = "#define PART1\n"
+	part2_def = "#define PART2\n"
+	bonus_def = "#define BONUS\n"
+	prefix = ""
+	if testsuite == 'part1':
+		prefix = part1_def
+	elif testsuite == 'part2':
+		prefix = part1_def + part2_def
+	elif testsuite == 'bonus':
+		prefix = part1_def + part2_def + bonus_def
+	elif testsuite == 'extra':
+		prefix = build_extra() + part1_def + part2_def + bonus_def
+	return prefix
 
-fn_runTestSuite () {
-	if [ "$TESTSUITE" = "part1" ]; then
-		PREFIX="#define PART1\n"
-	elif [ "$TESTSUITE" = "part2" ]; then
-		PREFIX="#define PART1\n#define PART2"
-	elif [ "$TESTSUITE" = "bonus" ]; then
-		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
-	elif [ "$TESTSUITE" = "extra" ] || [ "$TESTSUITE" = "all" ]; then
-		PREFIX="#define PART1\n#define PART2\n#define BONUS\n"
-		for job in $(echo $LIBFT_EXTRA_TESTS | tr "," " "); do
-			PREFIX="$PREFIX#define TEST_$job\n"
-		done
-	fi
+def create_main_build(testsuite):
+	main_content = get_main_content()
+	main_content = build_prefix(testsuite) + main_content
+	open("main.build.c", "w").write(main_content)
 
-	if [ "$TESTSUITE" = "moulinator" ]; then
-		fn_runMoulinator
-	elif [ "$TESTSUITE" = "qperez" ]; then
-		fn_runQperez
-	else
-		fn_compileProject
-		fntestProject
-	fi
+def build_source():
+	call(["make", "re", "-C", RENDU_PATH])
 
-	if [ "$TESTSUITE" = "all" ]; then
-		fn_runMoulinator
-		fn_runQperez
-	fi
-}
+def run_test():
+	build_source()
+	call(["gcc", "-Wall", "-Werror", "-Wextra", "-pedantic", "-I"+FRAMEWORK_PATH,
+		"-I"+RENDU_PATH,
+		RENDU_PATH+"/libft.a", BUILD_MAIN, FRAMEWORK_SOURCE])
+	call(["./a.out"])
 
-if [ ! -z "$TESTSUITE" ]; then
-	fn_runTestSuite
-fi
+if len(sys.argv) == 1:
+	print_usage()
+else:
+	testsuite = sys.argv[1]
+	create_main_build(testsuite)
+	run_test()

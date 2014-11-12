@@ -1,9 +1,9 @@
 #!/usr/bin/python
 import argparse, sys, os, fnmatch, re, json
-from subprocess import call
+from glob import glob
+from subprocess import call, Popen
 
 config = json.loads(open('../config.json').read())
-
 RENDU_PATH = os.path.expanduser(config['libft']['rendu_path'])
 TEST_FOLDER_PATH = 'tests'
 TEST_FILE_SUFFIX = '.spec.c'
@@ -16,11 +16,11 @@ def print_usage():
 	print "    ./test part1"
 	print "    ./test part2            # Also run part1"
 	print "    ./test bonus            # Also run part1 and part2"
-	# print "    ./test qperez"
-	# print "    ./test moulinator"
+	print "    ./test qperez"
+	print "    ./test moulinator"
 	print "    ./test extra            # Also run part1, part2 and bonus" 
 	print "                              (You need to set extra test in config.sh)"
-	# print "    ./test all              # Include bonus, qperez and moulinator" 
+	print "    ./test all              # Include bonus, qperez and moulinator" 
 	print ""
 	print "Options:"
 	print "    -h --help"
@@ -102,16 +102,43 @@ def create_main_build(testsuite):
 def build_source():
 	call(["make", "re", "-C", RENDU_PATH])
 
-def run_test():
+def run_moulitest(arg):
+	create_main_build(arg)
 	build_source()
 	call(["gcc", "-Wall", "-Werror", "-Wextra", "-pedantic", "-I"+FRAMEWORK_PATH,
 		"-I"+RENDU_PATH,
 		RENDU_PATH+"/libft.a", BUILD_MAIN, FRAMEWORK_SOURCE])
 	call(["./a.out"])
 
+def run_qperez_testsuite():
+	call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
+	call(["./a.out"])
+
+def run_moulinator_testsuite():
+	TEST_SUITE_PATH = "testsuite_moulinator"
+	call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
+	call(["./a.out"])
+	Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-c"]+glob(RENDU_PATH+"/*.c"),
+		cwd=TEST_SUITE_PATH)
+
+	Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*self.o"),
+		cwd=TEST_SUITE_PATH)
+	call(["./Mouli-nator"],
+		cwd=TEST_SUITE_PATH)
+
 if len(sys.argv) == 1:
 	print_usage()
 else:
-	testsuite = sys.argv[1]
-	create_main_build(testsuite)
-	run_test()
+	arg = sys.argv[1]
+	if arg == '-h' or arg == '--help':
+		print_usage()
+	elif arg == 'qperez':
+		run_qperez_testsuite()
+	elif arg == 'moulinator':
+		run_moulinator_testsuite()
+	elif arg == 'all':
+		run_moulitest("bonus")
+		run_qperez_testsuite()
+		run_moulinator_testsuite()
+	else:
+		run_moulitest(arg)

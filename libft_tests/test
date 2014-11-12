@@ -72,6 +72,7 @@ fn_setVariables () {
 	CC="gcc"
 	CFLAGS="-Wall -Werror -Wextra -pedantic -I$RENDU_PATH -I$FRAMEWORK_PATH"
 	LDFLAGS="-L$RENDU_PATH -lft"
+	BUILD_MAIN=main.build.c
 }
 fn_setVariables
 
@@ -79,11 +80,41 @@ fn_compileProject () {
 	make re -C $RENDU_PATH
 }
 
+lf=$'\n';
 fntestProject () {
-	echo "$PREFIX" > main.build.c
-	cat main.c >> main.build.c
-	$CC $CFLAGS $RENDU_PATH/libft.a  main.build.c ../testframework/testframework.c
+	# echo "$PREFIX" > $BUILD_MAIN
+	# cat main.c >> $BUILD_MAIN
+	TEST_DEF=""
+	TEST_MAIN_DEF=""
+	for file in ./tests/*.spec.c
+	do
+		sed -e ':a' -e 'N' -e '$!ba' -e "s/\n/<NL>/g" $file >> tmp
+		basename="$(basename "$file")"
+		fnName=$(sed 's/\..*//g' <<< $basename)
+		fnFileContent=$(sed -e ':a' -e 'N' -e '$!ba' -e "s/\n/<NL>/g" $file)
+		# echo $fnFileContent
+
+		TEST_DEF="\
+$TEST_DEF<NL>\
+#ifdef TEST_$fnName<NL>\
+UT_TEST($fnName)<NL>\
+{<NL>\
+$fnFileContent<NL>\
+}<NL>\
+#endif<NL>"
+		TEST_MAIN_DEF="\
+$TEST_MAIN_DEF<NL>\
+#ifdef TEST_$fnName<NL>\
+	UT_ADD_TEST($fnName);<NL>\
+#endif<NL>"
+	done
+	> $BUILD_MAIN
+	echo "$PREFIX" >> $BUILD_MAIN
+	sed -e "s/<MAIN_TEST_BLOCK>/$TEST_MAIN_DEF/g" -e "s/<TEST_DEF_BLOCK>/$TEST_DEF/g" -e "s/<NL>/\\$lf/g" main.c >> $BUILD_MAIN
+	$CC $CFLAGS $RENDU_PATH/libft.a  $BUILD_MAIN ../testframework/testframework.c
+	rm $BUILD_MAIN
 	./a.out
+	rm ./a.out
 }
 
 fn_runMoulinator () {

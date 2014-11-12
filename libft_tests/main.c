@@ -8,13 +8,6 @@
 #include <ctype.h>
 #include <math.h>
 
-/* Uncomment this if you have the functions */
-
-/* #define PART1 */
-/* #define PART2 */
-/* #define BONUS */
-/* #define EXTRA_YYANG */
-
 #ifdef PART1
 
 UT_TEST(ft_memset)
@@ -801,39 +794,7 @@ UT_TEST(ft_lstmap)
 
 #endif
 
-
-#ifdef EXTRA_MVO
-#define TEST_ft_strcapitalize
-#define TEST_ft_strupcase
-#define TEST_ft_strlowcase
-#endif
-
-#ifdef EXTRA_GBARRAUL
-#define TEST_ft_islower
-#define TEST_ft_strrev
-#endif
-
-#ifdef EXTRA_YYANG
-#define TEST_ft_memdup
-#define TEST_ft_isblank
-#define TEST_ft_strrev
-#define TEST_ft_strtrimc
-#define TEST_ft_strcapitalize
-#define TEST_ft_islower
-#define TEST_ft_isupper
-#define TEST_ft_ispunct
-#define TEST_ft_abs
-#define TEST_ft_isspace
-#define TEST_ft_factorial
-#define TEST_ft_strupcase
-#define TEST_ft_strlowcase
-#define TEST_ft_swap
-#define TEST_ft_memswap
-#define TEST_ft_ptrswap
-#endif
-
-
-#ifdef TEST_ft_JUSCHAEF
+#ifdef TEST_ft_putnendl
 UT_TEST(ft_putnendl)
 {
 	int		out;
@@ -852,7 +813,9 @@ UT_TEST(ft_putnendl)
 	close(out);
 	UT_ASSERT_EQ(strcmp(buf, "Bonj\n"), 0);
 }
+#endif
 
+#ifdef TEST_ft_putnstr
 UT_TEST(ft_putnstr)
 {
 	int		out;
@@ -871,7 +834,9 @@ UT_TEST(ft_putnstr)
 	close(out);
 	UT_ASSERT_EQ(strcmp(buf, "Bonj"), 0);
 }
+#endif
 
+#ifdef TEST_ft_sqrt
 UT_TEST(ft_sqrt)
 {
 	UT_ASSERT_EQ(ft_sqrt(25), 5);
@@ -879,7 +844,9 @@ UT_TEST(ft_sqrt)
 	UT_ASSERT_EQ(ft_sqrt(18), 0);
 	UT_ASSERT_EQ(ft_sqrt(0), 0);
 }
+#endif
 
+#ifdef TEST_ft_power
 UT_TEST(ft_power)
 {
 	UT_ASSERT_EQ(ft_power(2, 3), pow(2, 3));
@@ -888,6 +855,9 @@ UT_TEST(ft_power)
 	UT_ASSERT_EQ(ft_power(0, 10), pow(0, 10));
 	UT_ASSERT_EQ(ft_power(25, 13), pow(25,13));
 }
+#endif
+
+#ifdef TEST_ft_sort_int_table
 UT_TEST(ft_sort_int_table)
 {
 	int test_ft_sort[7] = {42,4,98,9,12,68,21};
@@ -902,7 +872,6 @@ UT_TEST(ft_sort_int_table)
 	UT_ASSERT_EQ(test_ft_sort[6], 98);
 }
 #endif
-
 
 #ifdef TEST_ft_memswap
 UT_TEST(ft_memswap)
@@ -1113,32 +1082,6 @@ UT_TEST(ft_abs)
 }
 #endif
 
-#ifdef TEST_ft_strupcase
-UT_TEST(ft_strupcase)
-{
-	ft_strupcase(NULL);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("")), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aaa")), "AAA"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("zzz")), "ZZZ"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("AAA")), "AAA"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("ZZZ")), "ZZZ"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aBcDeé9123'47289")), "ABCDEé9123'47289"), 0);
-}
-#endif
-
-#ifdef TEST_ft_strlowcase
-UT_TEST(ft_strlowcase)
-{
-	ft_strlowcase(NULL);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("")), ""), 0);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("aaa")), "aaa"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("zzz")), "zzz"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("AAA")), "aaa"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("ZZZ")), "zzz"), 0);
-	UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("aBcDeé9123'47289")), "abcdeé9123'47289"), 0);
-}
-#endif
-
 #ifdef TEST_ft_rotone
 UT_TEST(ft_rotone)
 {
@@ -1191,9 +1134,11 @@ UT_TEST(ft_ptrswap)
 }
 #endif
 
+<TEST_DEF_BLOCK>
 
 int	main(void)
 {
+
 #ifdef PART1
 	UT_ADD_TEST(ft_memset);
 	UT_ADD_TEST(ft_bzero);
@@ -1267,6 +1212,8 @@ int	main(void)
 	UT_ADD_TEST(ft_sort_int_table);
 #endif
 
+<MAIN_TEST_BLOCK>
+/*
 #ifdef TEST_ft_replace_char
 UT_ADD_TEST(ft_replace_char);
 #endif
@@ -1346,7 +1293,7 @@ UT_ADD_TEST(ft_isspace);
 #ifdef TEST_ft_ptrswap
 	UT_ADD_TEST(ft_ptrswap);
 #endif
-
+*/
 	UT_RUN_ALL_TESTS();
 	return (0);
 }

@@ -1,0 +1,11 @@
+UT_ASSERT_EQ(ft_isupper('t'), isupper('t'));
+UT_ASSERT_EQ(ft_isupper(';'), isupper(';'));
+UT_ASSERT_EQ(ft_isupper(' '), isupper(' '));
+UT_ASSERT_EQ(ft_isupper('@'), isupper('@'));
+UT_ASSERT_EQ(ft_isupper('%'), isupper('%'));
+UT_ASSERT_EQ(ft_isupper('\n'), isupper('\n'));
+UT_ASSERT_EQ(ft_isupper(12), isupper(12));
+UT_ASSERT_EQ(ft_isupper('N'), isupper('N'));
+UT_ASSERT_EQ(ft_isupper('P'), isupper('P'));
+UT_ASSERT_EQ(ft_isupper('o'), isupper('o'));
+UT_ASSERT_EQ(ft_isupper('1'), isupper('1'));

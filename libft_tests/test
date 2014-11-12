@@ -88,12 +88,9 @@ fntestProject () {
 	TEST_MAIN_DEF=""
 	for file in ./tests/*.spec.c
 	do
-		sed -e ':a' -e 'N' -e '$!ba' -e "s/\n/<NL>/g" $file >> tmp
 		basename="$(basename "$file")"
 		fnName=$(sed 's/\..*//g' <<< $basename)
 		fnFileContent=$(sed -e ':a' -e 'N' -e '$!ba' -e "s/\n/<NL>/g" $file)
-		# echo $fnFileContent
-
 		TEST_DEF="\
 $TEST_DEF<NL>\
 #ifdef TEST_$fnName<NL>\
@@ -112,7 +109,7 @@ $TEST_MAIN_DEF<NL>\
 	echo "$PREFIX" >> $BUILD_MAIN
 	sed -e "s/<MAIN_TEST_BLOCK>/$TEST_MAIN_DEF/g" -e "s/<TEST_DEF_BLOCK>/$TEST_DEF/g" -e "s/<NL>/\\$lf/g" main.c >> $BUILD_MAIN
 	$CC $CFLAGS $RENDU_PATH/libft.a  $BUILD_MAIN ../testframework/testframework.c
-	rm $BUILD_MAIN
+	# rm $BUILD_MAIN
 	./a.out
 	rm ./a.out
 }

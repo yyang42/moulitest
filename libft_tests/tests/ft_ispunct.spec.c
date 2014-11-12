@@ -1,0 +1,11 @@
+UT_ASSERT_EQ(ft_ispunct('t'), ispunct('t'));
+UT_ASSERT_EQ(ft_ispunct(';'), ispunct(';'));
+UT_ASSERT_EQ(ft_ispunct(' '), ispunct(' '));
+UT_ASSERT_EQ(ft_ispunct('@'), ispunct('@'));
+UT_ASSERT_EQ(ft_ispunct('%'), ispunct('%'));
+UT_ASSERT_EQ(ft_ispunct('\n'), ispunct('\n'));
+UT_ASSERT_EQ(ft_ispunct(12), ispunct(12));
+UT_ASSERT_EQ(ft_ispunct('N'), ispunct('N'));
+UT_ASSERT_EQ(ft_ispunct('P'), ispunct('P'));
+UT_ASSERT_EQ(ft_ispunct('o'), ispunct('o'));
+UT_ASSERT_EQ(ft_ispunct('1'), ispunct('1'));

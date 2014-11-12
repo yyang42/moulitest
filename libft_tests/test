@@ -104,7 +104,10 @@ def build_source():
 
 def run_moulitest(arg):
 	OUT_FILE = "./a.out"
-	os.remove(OUT_FILE)
+	try:
+		os.remove(OUT_FILE)
+	except OSError:
+		pass
 	create_main_build(arg)
 	build_source()
 	error_no = call(["gcc", "-Wall", "-Werror", "-Wextra", "-pedantic", "-I"+FRAMEWORK_PATH,
@@ -120,7 +123,10 @@ def run_qperez_testsuite():
 
 def run_moulinator_testsuite():
 	TEST_SUITE_PATH = "testsuite_moulinator"
-	os.remove("./a.out")
+	try:
+		os.remove("./a.out")
+	except OSError:
+		pass
 	error_no = call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
 	if error_no == 0:
 		error_no = call(["./a.out"])

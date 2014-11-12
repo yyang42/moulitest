@@ -1,20 +1,16 @@
 This repository contains tests of several projects done at 42.
 
-# Install
-1. Clone this repository wherever you want.
-2. Make a **copy** of the "config.sh.template" file and name it "config.sh" (Do not delete "config.sh.template")
-3. Replace the necessary values in config.sh.
+Install
+-------
 
-"config" file example
----------------------
-
-	LIBFT_PATH = ~/path_to_my_libft_folder
-	PROJECT2 = ~/path_to_my_project2_folder
+	$ cp config.json.template config.json
+	# Edit config.json and replace with your own values
 
 Usage
 -----
+
 	$ cd libft_tests
-	$ ./test -h # Usage help
+	$ ./test --help
 
 # Credit
 

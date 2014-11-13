@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <get_next_line.h>
+#include <stdio.h>
 
 <TEST_DEF_BLOCK>
 

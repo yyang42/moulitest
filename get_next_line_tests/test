@@ -94,7 +94,7 @@ def run_moulitest():
 
 if len(sys.argv) == 1:
 	run_moulitest()
-	print '''/!\ Make sure to test with BUFFER_SIZE = 6 and other values to test remaning buffer string /!\\'''
+	print '''/!\ Make sure to test with BUFFER_SIZE = 6 / 8385531 / 8385532 and other values to test remaning buffer string /!\\'''
 else:
 	arg = sys.argv[1]
 	if arg == '-h' or arg == '--help':

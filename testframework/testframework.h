@@ -6,7 +6,7 @@
 
 # define UT_TEST(name)		void ut_test_ ## name(int *param)
 # define UT_ASSERT(cond)	if(!(cond)) { ut_last_err = #cond; *param = 1; return;}
-# define UT_RUN_TEST(t_,i_)	printf("%s%-20s", "[\033[33mUT\033[0m] Testing ", t_->name); t_->test(i_); if(*(i_)) \
+# define UT_RUN_TEST(t_,i_)	printf("%s%-30s", "[\033[33mUT\033[0m] ", t_->name); t_->test(i_); if(*(i_)) \
 							{ printf("[\033[31;1mFAIL\033[0m]\t\033[31;1m( %s )\033[0m\n", ut_last_err); _test_fails++; } \
 							else { puts("[\033[32;1mOk !\033[0m]");}
 # define UT_SEGV(test_)		puts("[\033[34;1mSEGV\033[0m]");

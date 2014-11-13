@@ -58,7 +58,7 @@ int			ut_run_all_tests_(void)
 	{
 		return (0);
 	}
-	puts("[ \033[36;1m------STARTING ALL UNIT TESTS------\033[0m ]");
+	puts("[ \033[36;1m-------STARTING ALL UNIT TESTS-------\033[0m ]");
 	tmp = ut_tests;
 	while (tmp)
 	{
@@ -76,7 +76,6 @@ int			ut_run_all_tests_(void)
 		tmp = tmp->next;
 	}
 	printf("\033[37;1mEnd of test : %d out of %d test passed.\033[0m\n", count - _test_fails, count);
-	puts("[ \033[36;1m---------END OF UNIT TESTS---------\033[0m ]");
+	puts("[ \033[36;1m----------END OF UNIT TESTS----------\033[0m ]");
 	return (_test_fails);
 }
-

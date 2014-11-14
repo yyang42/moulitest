@@ -161,4 +161,4 @@ else:
 		run_qperez_testsuite()
 		run_moulinator_testsuite()
 	else:
-		print_usage(arg)
+		run_moulitest(arg)

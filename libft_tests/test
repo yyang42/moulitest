@@ -141,7 +141,7 @@ def run_moulinator_testsuite():
 	# if error_no == 0:
 	error_no = Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-c"]+glob(RENDU_PATH+"/*.c"),
 		cwd=TEST_SUITE_PATH)
-	Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*self.o"),
+	Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*.o"),
 		cwd=TEST_SUITE_PATH)
 	call(["./Mouli-nator"],
 		cwd=TEST_SUITE_PATH)

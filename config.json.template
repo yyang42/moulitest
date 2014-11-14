@@ -21,6 +21,6 @@
         ]
     },
     "get_next_line": {
-        "rendu_path": "~/path/to/your/project/folder",
+        "rendu_path": "~/path/to/your/project/folder"
     }
 }

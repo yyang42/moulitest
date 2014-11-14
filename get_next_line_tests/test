@@ -84,7 +84,7 @@ def remove_a_out():
 def run_moulitest():
 	remove_a_out()
 	create_main_build()
-	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-pedantic", "-I"+FRAMEWORK_PATH,
+	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
 		"-I"+RENDU_PATH, "-I"+RENDU_INCLUDE_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
 		]+glob(RENDU_PATH+"/libft/*.c")
 	print " ".join(cmd_list)

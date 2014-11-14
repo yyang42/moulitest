@@ -1,8 +1,3 @@
-/*
-** Test with
-**		BUFFER_SIZE = 6
-** to test the remaning string condition
-*/
 char *line;
 int		out;
 int		p[2];

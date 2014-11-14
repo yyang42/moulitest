@@ -13,8 +13,8 @@ Install
 
 	# WARNING: Trailing commas are not allowed in json files at the end of a list.
 	# e.g
-		["aaa", "bbb"] GOOD
-		["aaa", "bbb",] BAD
+	#	["aaa", "bbb"] GOOD
+	#	["aaa", "bbb",] BAD
 
 Usage
 -----

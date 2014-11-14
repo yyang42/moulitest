@@ -1,6 +1,6 @@
 {
     "libft": {
-        "rendu_path": "~/42/projects/libft/rendu",
+        "rendu_path": "~/path/to/your/project/folder",
         "extra_tests": [
             "ft_memdup",
             "ft_isblank",
@@ -19,5 +19,8 @@
             "ft_memswap",
             "ft_ptrswap"
         ]
+    },
+    "get_next_line": {
+        "rendu_path": "~/path/to/your/project/folder",
     }
 }

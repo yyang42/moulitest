@@ -1,5 +1,7 @@
-This repository contains tests of several projects done at 42.
-At the moment, the available tests are: libft, get_next_line
+This repository contains tests of several projects done at 42. At the moment, the available tests are:
+
+- libft (58 functions and 25+ other generic functions)
+- get_next_line (with handling of multiples file descriptors)
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 

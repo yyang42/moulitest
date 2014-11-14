@@ -26,6 +26,11 @@ def print_usage():
 	print "    -h --help"
 	print ""
 
+def print_header(testsuite_name):
+	print "="*70
+	print "Testing " + testsuite_name
+	print "="*70
+
 def get_filenames():
 	matches = []
 	for root, dirnames, filenames in os.walk('tests'):
@@ -117,30 +122,28 @@ def run_moulitest(arg):
 		call([OUT_FILE])
 
 def run_qperez_testsuite():
+	print_header("qperez")
 	error_no = call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
 	if error_no == 0:
 		call(["./a.out"])
 
 def run_moulinator_testsuite():
+	print_header("moulinator")
 	TEST_SUITE_PATH = "testsuite_moulinator"
 	try:
 		os.remove("./a.out")
 	except OSError:
 		pass
-	error_no = call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
-	if error_no == 0:
-		error_no = call(["./a.out"])
+	# error_no = call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
+	# if error_no == 0:
+	# 	error_no = call(["./a.out"])
 
-	if error_no == 0:
-		error_no = Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-c"]+glob(RENDU_PATH+"/*.c"),
+	# if error_no == 0:
+	error_no = Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-c"]+glob(RENDU_PATH+"/*.c"),
 		cwd=TEST_SUITE_PATH)
-
-	if error_no == 0:
-		error_no = Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*self.o"),
+	Popen(["gcc", "-fPIC", "-Wall", "-Werror", "-Wextra", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*self.o"),
 		cwd=TEST_SUITE_PATH)
-
-	if error_no == 0:
-		error_no = call(["./Mouli-nator"],
+	call(["./Mouli-nator"],
 		cwd=TEST_SUITE_PATH)
 
 if len(sys.argv) == 1:
@@ -158,4 +161,4 @@ else:
 		run_qperez_testsuite()
 		run_moulinator_testsuite()
 	else:
-		run_moulitest(arg)
+		print_usage(arg)

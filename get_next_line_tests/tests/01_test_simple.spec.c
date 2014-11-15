@@ -9,6 +9,7 @@ pipe(p);
 fd = 1;
 dup2(p[1], fd);
 write(fd, "\naaa\nbbb\n", 12);
+close(p[1]);
 dup2(out, fd);
 get_next_line(p[0], &line);
 UT_ASSERT_EQ(strcmp(line, ""), 0);

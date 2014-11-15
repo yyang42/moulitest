@@ -87,7 +87,7 @@ def run_moulitest():
 	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
 		"-I"+RENDU_PATH, "-I"+RENDU_INCLUDE_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
 		]+glob(RENDU_PATH+"/libft/*.c")
-	print " ".join(cmd_list)
+	# print " ".join(cmd_list)
 	error_no = call(cmd_list)
 	if error_no == 0:
 		call([OUT_FILE])

@@ -2,7 +2,6 @@ char *line;
 int		out;
 int		p[2];
 
-line = malloc(99999);
 out = dup(1);
 pipe(p);
 dup2(p[1], 1);

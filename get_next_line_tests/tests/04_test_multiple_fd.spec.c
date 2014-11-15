@@ -1,4 +1,4 @@
-char 	*line0 =  malloc(99999);
+char 	*line0;
 int		p0[2];
 int		fd0 = 0;
 int		out0 = dup(fd0);
@@ -7,7 +7,7 @@ dup2(p0[1], fd0);
 write(fd0, "aaa\nbbb\n", 12);
 dup2(out0, fd0);
 
-char 	*line_fd1 = malloc(99999);
+char 	*line_fd1;
 int		p_fd1[2];
 int		fd1 = 1;
 int		out_fd1 = dup(fd1);
@@ -16,7 +16,7 @@ dup2(p_fd1[1], fd1);
 write(fd1, "111\n222\n", 12);
 dup2(out_fd1, fd1);
 
-char 	*line_fd2 = malloc(99999);
+char 	*line_fd2;
 int		p_fd2[2];
 int		fd2 = 2;
 int		out_fd2 = dup(fd2);
@@ -25,7 +25,7 @@ dup2(p_fd2[1], fd2);
 write(fd2, "www\nzzz\n", 12);
 dup2(out_fd2, fd2);
 
-char 	*line_fd3 = malloc(99999);
+char 	*line_fd3;
 int		p_fd3[2];
 int		fd3 = 3;
 int		out_fd3 = dup(fd3);

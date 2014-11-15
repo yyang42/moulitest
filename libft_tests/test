@@ -115,7 +115,7 @@ def run_moulitest(arg):
 		pass
 	create_main_build(arg)
 	build_source()
-	error_no = call(["gcc", "-Wall", "-Werror", "-Wextra", "-pedantic", "-I"+FRAMEWORK_PATH,
+	error_no = call(["gcc", "-I"+FRAMEWORK_PATH,
 		"-I"+RENDU_PATH,
 		RENDU_PATH+"/libft.a", BUILD_MAIN, FRAMEWORK_SOURCE])
 	if error_no == 0:

@@ -1,5 +1,8 @@
 char	b1[10], b2[10];
 
+bzero(NULL, 0);
+ft_bzero(NULL, 0);
+
 bzero(b1, 10);
 ft_bzero(b2, 10);
 UT_ASSERT_EQ(memcmp(b1, b2, 10), 0);

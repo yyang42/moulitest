@@ -1,7 +1,10 @@
-char	buf[6];
+char	buf1[6], buf2[6];
 
-bzero(buf, 6);
-ft_strcpy(buf, "abcde");
-UT_ASSERT_EQ(strcmp(buf, "abcde"), 0);
-ft_strcpy(buf, "abc");
-UT_ASSERT_EQ(strcmp(buf, "abc"), 0);
+bzero(buf1, 6);
+bzero(buf2, 6);
+
+UT_ASSERT_EQ(strcmp(ft_strcpy(buf1, "abcde"), strcpy(buf1, "abcde")), 0);
+UT_ASSERT_EQ(strcmp(ft_strcpy(buf1, "abc"), strcpy(buf1, "abc")), 0);
+
+strcpy(NULL, NULL);
+ft_strcpy(NULL, NULL);

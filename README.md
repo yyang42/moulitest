@@ -28,7 +28,7 @@ Usage Get Next Line
 	$ cd get_next_line_tests
 	$ ./test --help
 
-Do not use file descriptor 1 for debugging. Use the file descriptor 2 instead. Example:
+Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use the file descriptor 2 instead. Example:
 
 	write(2, "abc", 3);
 

@@ -24,15 +24,17 @@ Usage:
 	./test all              # Include bonus, qperez and moulinator"
 
 Correction:
-	./test detect_forbidden_fn
+	./test check_forbidden_fn
 	./test check_norm
+	./test check_all		# check_forbidden_fn + check_norm
+
 Options:
 	-h --help
 '''
 
 def print_header(testsuite_name):
 	print "="*70
-	print "Testing " + testsuite_name
+	print testsuite_name
 	print "="*70
 
 def get_filenames():
@@ -150,9 +152,11 @@ def run_moulinator_testsuite():
 	call(["./Mouli-nator"],
 		cwd=TEST_SUITE_PATH)
 
-def detect_forbidden_fn():
+def check_forbidden_fn():
+	print_header("check_forbidden_fn")
 	acc = []
 	for path in (glob(RENDU_PATH+"/*.h") + glob(RENDU_PATH+"/*.c")):
+		print path
 		with open(path) as f:
 			content = f.readlines()
 			for key, line in enumerate(content):
@@ -169,6 +173,7 @@ def detect_forbidden_fn():
 					print "{match: <12}: {path} (line {line})".format(match=match, path=path.split("/")[-1], line=key+1)
 
 def check_norm():
+	print_header("check_norm")
 	call(["norminette"] + glob(RENDU_PATH+"/*.c") + glob(RENDU_PATH+"/*.h"))
 
 if len(sys.argv) == 1:
@@ -187,9 +192,12 @@ else:
 		run_moulinator_testsuite()
 	elif arg in ["part1", "part2", "bonus", "extra"]:
 		run_moulitest(arg)
-	elif arg == "detect_forbidden_fn":
-		detect_forbidden_fn()
+	elif arg == "check_forbidden_fn":
+		check_forbidden_fn()
 	elif arg == "check_norm":
+		check_norm()
+	elif arg == "check_all":
+		check_forbidden_fn()
 		check_norm()
 	else:
 		print_usage()

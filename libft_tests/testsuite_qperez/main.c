@@ -1617,7 +1617,6 @@ int				uf_test_memchr(void)
 			D_ERROR
 		if (memchr(itab, i, sizeof(itab)) != ft_memchr(itab, i, sizeof(itab)))
 			D_ERROR
-		printf("%s\n", ltab);
 		if (memchr(ltab, i, sizeof(ltab)) != ft_memchr(ltab, i, sizeof(ltab)))
 			D_ERROR
 		++i;

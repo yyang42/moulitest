@@ -84,18 +84,19 @@ def remove_a_out():
 def run_moulitest():
 	remove_a_out()
 	create_main_build()
-	libft_a_file = ""
 	libft_exists = os.path.isdir(LIBFT_PATH)
 	if (libft_exists):
 		make_cmd = ["make", "-C", LIBFT_PATH, "re"]
-		call(make_cmd)
-
-	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
-		"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
-		libft_a_file]
-
-	if (libft_exists):
-		cmd_list = cmd_list + [LIBFT_PATH+"/libft.a", "-I"+LIBFT_PATH]
+		print " ".join(make_cmd)
+		cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
+			"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
+			LIBFT_PATH+"/libft.a", "-I"+LIBFT_PATH]
+		print " ".join(cmd_list)
+	else:
+		cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
+			"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c"]
+		call(cmd_list)
+		print " ".join(cmd_list)
 
 	error_no = call(cmd_list)
 	if error_no == 0:

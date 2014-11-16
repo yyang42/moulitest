@@ -185,7 +185,7 @@ else:
 		run_moulitest("bonus")
 		run_qperez_testsuite()
 		run_moulinator_testsuite()
-	elif arg in ["part1", "part2", "bonus"]:
+	elif arg in ["part1", "part2", "bonus", "extra"]:
 		run_moulitest(arg)
 	elif arg == "detect_forbidden_fn":
 		detect_forbidden_fn()

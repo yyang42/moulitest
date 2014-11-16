@@ -11,9 +11,11 @@ ft_bzero(b1, 0);
 UT_ASSERT_EQ(b1[0], 1);
 
 
-UT_ASSERT_WARN(0 == 1);
-UT_ASSERT_WARN(0 == 1);
-UT_ASSERT_WARN(0 == 1);
-UT_ASSERT_WARN(0 == 1);
-UT_ASSERT_WARN(0 == 1);
-UT_ASSERT_WARN(0 == 1);
+// UT_ASSERT(1 == 1);
+// UT_ASSERT(0 == 1);
+int a = 1;
+int b = 2;
+UT_ASSERT((a == b) || (a == b));
+// UT_ASSERT_OP(0 == 1);
+// UT_ASSERT(1 == 1);
+// UT_ASSERT(1 == 0);

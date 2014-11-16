@@ -20,7 +20,7 @@
 								}
 # define UT_ADD_TEST(name)		ut_add_test_(&ut_test_ ## name, #name)
 # define UT_RUN_ALL_TESTS()		ut_run_all_tests_()
-# define UT_ASSERT_OPTIONAL(cond)	if(!(cond)) { ut_last_err = #cond; *param = 2; }
+# define UT_ASSERT_OP(cond)	if(!(cond)) { ut_last_err = #cond; *param = 2; }
 
 /*
  *  Bonus

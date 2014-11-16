@@ -5,6 +5,7 @@
 ut_test_list_t	*ut_tests = 0;
 jmp_buf			ut_env;
 char			*ut_last_err;
+char			ut_test_symbol[100000];
 
 void				ut_sigsegv_(int u)
 {
@@ -20,6 +21,7 @@ ut_test_list_t		*ut_create_list_(ut_test f, char *n)
 	tmp->next = 0;
 	tmp->test = f;
 	tmp->name = n;
+	tmp->is_fail = 0;
 	return (tmp);
 }
 

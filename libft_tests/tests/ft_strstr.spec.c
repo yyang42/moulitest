@@ -8,3 +8,4 @@ UT_ASSERT_EQ(strstr(buf, ""), ft_strstr(buf, ""));
 UT_ASSERT_EQ(strstr(buf, "aaaaa"), ft_strstr(buf, "aaaaa"));
 UT_ASSERT_EQ(strstr(buf2, "ozaraboze"), ft_strstr(buf2, "ozaraboze"));
 UT_ASSERT_EQ(ft_strstr(buf, "BWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"), NULL);
+UT_ASSERT(strstr("", "") == ft_strstr("", ""));

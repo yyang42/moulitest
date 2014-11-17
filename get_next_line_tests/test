@@ -6,6 +6,7 @@ from subprocess import call, Popen
 config = json.loads(open('../config.json').read())
 RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
 LIBFT_PATH = RENDU_PATH + '/libft'
+LIBFT_INCLUDES = LIBFT_PATH + '/includes'
 TEST_FOLDER_PATH = 'tests'
 TEST_FILE_SUFFIX = '.spec.c'
 BUILD_MAIN = "main.build.c"
@@ -86,7 +87,7 @@ def run_moulitest():
 	create_main_build()
 	libft_exists = os.path.isdir(LIBFT_PATH)
 	if (libft_exists):
-		make_cmd = ["make", "-C", LIBFT_PATH, "re"]
+		make_cmd = ["make", "-C", LIBFT_PATH, "-I", LIBFT_INCLUDES, "re"]
 		print " ".join(make_cmd)
 		cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
 			"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",

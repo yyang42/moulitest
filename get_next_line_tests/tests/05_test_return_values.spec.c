@@ -1,3 +1,5 @@
+/* Thank you bwyyoung for pointing out the problem.
+ */
 char 	*line;
 int		out;
 int		p[2];

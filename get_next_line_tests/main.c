@@ -8,6 +8,10 @@
 #include <math.h>
 #include <get_next_line.h>
 #include <stdio.h>
+#include <fcntl.h>
+#include <regex.h>
+
+<DEF_BLOCK>
 
 <TEST_DEF_BLOCK>
 

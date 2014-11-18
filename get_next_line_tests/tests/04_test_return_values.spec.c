@@ -22,5 +22,5 @@ UT_ASSERT_EQ(strcmp(line, "aaaaaaaaaaaaaa"), 0);
 
 /* get_next_line should return NULL when there is nothing to read. */
 gnl_ret = get_next_line(p[0], &line);
-UT_ASSERT(line == NULL);
+UT_ASSERT(line == NULL || *line == '\0');
 UT_ASSERT_EQ(gnl_ret, 0);

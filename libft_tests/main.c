@@ -112,6 +112,7 @@ t_list	*lstmap_test(t_list *list)
 
 	l2 = malloc(sizeof(t_list));
 	bzero(l2, sizeof(t_list));
+	l2->content = malloc(list->content_size * 2);
 	l2->content_size = list->content_size * 2;
 	return (l2);
 }

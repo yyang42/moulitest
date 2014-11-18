@@ -18,13 +18,11 @@ dup2(out, fd);
 /* Read abc and new line */
 gnl_ret = get_next_line(p[0], &line);
 UT_ASSERT_EQ(gnl_ret, 1);
-UT_ASSERT(line != NULL);
 UT_ASSERT_EQ(strcmp(line, "abc"), 0);
 
 /* Read new line */
 gnl_ret = get_next_line(p[0], &line);
 UT_ASSERT_EQ(gnl_ret, 1);
-UT_ASSERT(line != NULL);
 UT_ASSERT_EQ(strcmp(line, ""), 0);
 
 /* Read again, but meet EOF */

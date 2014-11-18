@@ -8,3 +8,6 @@ libft/moulitest
 config
 config.sh
 config.json
+
+# compiled files
+test_gnl

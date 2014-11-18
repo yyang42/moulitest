@@ -11,10 +11,9 @@ Install
 	$ cp config.json.template config.json
 	# ==> EDIT config.json and replace with your OWN VALUES <==
 
-	# WARNING: Trailing commas are not allowed in json files at the end of a list.
-	# e.g
-	#	["aaa", "bbb"] GOOD
-	#	["aaa", "bbb",] BAD
+	# WARNING: Unnecessary trailing commas are not allowed in .json files.
+	# e.g.      ["aaa", "bbb"]  GOOD
+	#           ["aaa", "bbb",] BAD
 
 Usage Libft
 -----

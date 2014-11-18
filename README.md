@@ -31,6 +31,8 @@ Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use
 
 	write(2, "abc", 3);
 
+WARNING: If the test stops in the middle, it certainly means that the test is waiting an input from your get_next_line function but nothing is returned.
+
 Credit
 ------
 

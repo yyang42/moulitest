@@ -20,4 +20,4 @@ while ((read = getline(&line, &len, file)) != -1) {
 	}
 }
 
-UT_ASSERT_EQ(static_files_count, 1);
+UT_ASSERT(static_files_count <= 1);

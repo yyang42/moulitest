@@ -1,0 +1,101 @@
+#!/usr/bin/python
+import argparse, sys, os, fnmatch, re, json
+from glob import glob
+from subprocess import call, Popen
+
+config = json.loads(open('../config.json').read())
+RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
+RENDU_INCLUDE_PATH = RENDU_PATH + '/libft/includes'
+TEST_FOLDER_PATH = 'tests'
+TEST_FILE_SUFFIX = '.spec.c'
+BUILD_MAIN = "main.build.c"
+FRAMEWORK_PATH = "../testframework"
+FRAMEWORK_SOURCE = FRAMEWORK_PATH + "/testframework.c"
+OUT_FILE = "./a.out"
+
+def print_usage():
+	print "Usage:"
+	print "    ./test"
+	print ""
+	print "Options:"
+	print "    -h --help"
+	print ""
+
+def get_filenames():
+	matches = []
+	for root, dirnames, filenames in os.walk('tests'):
+	  for filename in fnmatch.filter(filenames, '*.spec.c'):
+	      matches.append(os.path.join(root, filename))
+	pattern = '(.*).spec.c'
+	pattern_obj = re.compile(pattern)
+	filenames = [re.sub(r".*\/(.*).spec.c", r"\1", path) for path in matches]
+	return filenames
+
+def build_test_def(filenames):
+	output = ""
+	for name in filenames:
+		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
+		content = open(path, "r").read()
+		output += '''
+UT_TEST({name})
+{{
+{content}
+}}
+'''.format(name=name, content=content)
+	return output;
+
+def build_test_main_def(filenames):
+	output = ""
+	for name in filenames:
+		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
+		content = open(path, "r").read()
+		output += '''
+UT_ADD_TEST({name});
+'''.format(name=name)
+	return output;
+
+def get_main_content():
+	filenames = get_filenames()
+	test_def_content = build_test_def(filenames)
+	test_main_def_content = build_test_main_def(filenames)
+	original_file = open("main.c", "r").read()
+	main_build_content = (original_file
+								.replace("<TEST_DEF_BLOCK>", test_def_content)
+								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))
+	return main_build_content
+
+def build_extra():
+	output = ""
+	for fn_name in config['libft']['extra_tests']:
+		output += "#define TEST_{}\n".format(fn_name)
+	return output
+
+
+def create_main_build():
+	main_content = get_main_content()
+	open("main.build.c", "w").write(main_content)
+
+def remove_a_out():
+	try:
+		os.remove(OUT_FILE)
+	except OSError:
+		pass
+
+def run_moulitest():
+	remove_a_out()
+	create_main_build()
+	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
+		"-I"+RENDU_PATH, "-I"+RENDU_INCLUDE_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
+		]+glob(RENDU_PATH+"/libft/*.c")
+	# print " ".join(cmd_list)
+	error_no = call(cmd_list)
+	if error_no == 0:
+		call([OUT_FILE])
+
+if len(sys.argv) == 1:
+	run_moulitest()
+	print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
+else:
+	arg = sys.argv[1]
+	if arg == '-h' or arg == '--help':
+		print_usage()

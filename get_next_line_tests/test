@@ -107,9 +107,10 @@ def run_moulitest():
 		print_exec_cmd("./test_gnl")
 
 	else:
-		print_exec_cmd("gcc -Wall -Wextra -Werror -c {path}/get_next_line.c".format(path=RENDU_PATH))
-		print_exec_cmd("gcc -Wall -Wextra -Werror -c {path}/main.c".format(path=RENDU_PATH))
-		print_exec_cmd("gcc -o test_gnl get_next_line.o main.o")
+		print "here"
+		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path} -I {FRAMEWORK_PATH} -c {path}/get_next_line.c {FRAMEWORK_SOURCE} {BUILD_MAIN}".format(
+			path=RENDU_PATH, FRAMEWORK_PATH=FRAMEWORK_PATH, FRAMEWORK_SOURCE=FRAMEWORK_SOURCE, BUILD_MAIN=BUILD_MAIN))
+		print_exec_cmd("gcc -o test_gnl get_next_line.o testframework.o main.build.o".format(path=RENDU_PATH))
 		print_exec_cmd("./test_gnl")
 
 	# 	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,

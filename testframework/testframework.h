@@ -15,7 +15,8 @@
 # define UT_TEST(name)			void ut_test_ ## name(int *param)
 # define UT_ASSERT_W(cond)		is_warning = 1; UT_ASSERT_EXEC(cond)
 # define UT_ASSERT(cond)		is_warning = 0; UT_ASSERT_EXEC(cond)
-# define UT_ASSERT_EXEC(cond)	if(!(cond)) { \
+# define UT_ASSERT_EXEC(cond)	ut_last_cond = #cond; \
+								if(!(cond)) { \
 									if (!ut_last_err) \
 									{ \
 										ut_last_err = #cond; \
@@ -31,7 +32,7 @@
 								} \
 								is_warning = 0;
 # define UT_SEGV(test_)			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
-								printf("\t1st err: %s\n", ut_last_err); \
+								printf(" ERROR: %s\n", ut_last_cond); \
 								*ut_test_symbol = '\0';
 
 # define UT_ADD_TEST(name)		ut_add_test_(&ut_test_ ## name, #name)
@@ -58,6 +59,7 @@ typedef struct				ut_test_list_s
 extern ut_test_list_t		*ut_tests;
 extern int					is_warning;
 extern char					*ut_last_err;
+extern char					*ut_last_cond;
 extern char					ut_test_symbol[100000];
 
 void						ut_sigsegv_(int);

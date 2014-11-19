@@ -5,6 +5,7 @@
 ut_test_list_t	*ut_tests = 0;
 jmp_buf			ut_env;
 char			*ut_last_err;
+char			*ut_last_cond;
 int				is_warning;
 char			ut_test_symbol[100000];
 
@@ -70,7 +71,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	printf("[%s%s"C_CLEAR"] ", color, res_msg);
 	printf("%s", ut_test_symbol);
 	if (ut_last_err)
-		printf("\t1st err: %s", ut_last_err);
+		printf(" ERROR: %s", ut_last_err);
 	printf("\n");
 	*ut_test_symbol = '\0';
 	ut_last_err = NULL;

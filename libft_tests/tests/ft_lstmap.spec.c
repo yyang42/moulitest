@@ -15,4 +15,7 @@ UT_ASSERT_EQ(map->content_size, 42);
 UT_ASSERT_EQ(map->next->content_size, 200);
 
 /* NE PAS TENIR COMPTE
-bzero((list2 = malloc(sizeof(t_list))), sizeof(t_list)); list2->content_size = 10; map = ft_lstmap(list2, lstmap_test); UT_ASSERT_EQ(map->content_size, 0); */
+
+bzero((list2 = malloc(sizeof(t_list))), sizeof(t_list)); list2->content_size = 10; map = ft_lstmap(list2, lstmap_test); UT_ASSERT_EQ(map->content_size, 0);
+
+*/

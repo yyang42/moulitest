@@ -12,4 +12,6 @@ list->next->content = (&ft) + 1;
 ft_lstdel(&list, del_test);
 UT_ASSERT_EQ(list, NULL);
 UT_ASSERT_EQ(____diddel, 2);
+
+/* test edge cases */
 ft_lstdel(NULL, NULL);

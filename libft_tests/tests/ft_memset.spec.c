@@ -7,3 +7,10 @@ UT_ASSERT_EQ(memcmp(b1, b2, 100), 0);
 b1[0] = 1;
 ft_memset(b1, 0, 0);
 UT_ASSERT_EQ(b1[0], 1);
+
+UT_ASSERT(memcmp(memset(strdup("abcd"), 'A', 5), ft_memset(strdup("abcd"), 'A', 5), 5) == 0);
+
+/* test edge cases */
+UT_ASSERT(memset(0, 0, 0) == ft_memset(0, 0, 0));
+UT_ASSERT(memset(0, 'A', 0) == ft_memset(0, 'A', 0));
+UT_ASSERT(memcmp(memset(strdup("abcd"), 0, 0), ft_memset(strdup("abcd"), 0, 0), 5) == 0);

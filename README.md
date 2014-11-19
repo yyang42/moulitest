@@ -1,9 +1,18 @@
-This repository contains tests of several projects done at 42. At the moment, the available tests are:
+# Moulitest
+
+This repository contains tests of several projects done at 42. Please use the tests with caution and check the tests source code.
+
+Correction: A failed test doesn't necessarily mean that the tested code is wrong. The test suite doesn't correct for you, **you are the corrector**.
+
+At the moment, the available tests are:
 
 - libft (58 functions and 25+ other generic functions)
 - get_next_line (with handling of multiples file descriptors)
+- ft_ls comming soon ...
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
+
+![Sample](http://i.imgur.com/443xC3D.png)
 
 Install
 -------

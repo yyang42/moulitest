@@ -2,8 +2,11 @@ This repository contains tests of several projects done at 42. At the moment, th
 
 - libft (58 functions and 25+ other generic functions)
 - get_next_line (with handling of multiples file descriptors)
+- ft_ls comming soon ...
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
+
+![Sample](http://i.imgur.com/443xC3D.png)
 
 Install
 -------

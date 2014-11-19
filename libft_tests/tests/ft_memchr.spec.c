@@ -1,11 +1,3 @@
-UT_ASSERT(memchr(NULL, 0, 0) == ft_memchr(NULL, 0, 0));
-
-memchr(NULL, 0, 10);
-ft_memchr(NULL, 0, 10);
-
-memchr(NULL, -10, 10);
-ft_memchr(NULL, -10, 10);
-
 UT_ASSERT_EQ(ft_memchr("abcdef", 'a', 5), memchr("abcdef", 'a', 5));
 UT_ASSERT_EQ(ft_memchr("abcdef", 'c', 5), memchr("abcdef", 'c', 5));
 UT_ASSERT_EQ(ft_memchr("abcdef", '\0', 7), memchr("abcdef", '\0', 7));
@@ -41,3 +33,11 @@ while (i < 300)
 	}
 	++i;
 }
+
+UT_ASSERT(memchr(NULL, 0, 0) == ft_memchr(NULL, 0, 0));
+
+memchr(NULL, 0, 10);
+ft_memchr(NULL, 0, 10);
+
+memchr(NULL, -10, 10);
+ft_memchr(NULL, -10, 10);

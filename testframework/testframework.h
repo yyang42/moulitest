@@ -13,13 +13,15 @@
 									strcat(ut_test_symbol, "\033[32;1m.\033[0m"); \
 								}
 
-# define UT_SEGV(test_)			puts("[\033[34;1mSEGV\033[0m]");
+# define UT_SEGV(test_)			printf("[\033[31;1mFAIL\033[0m] %s\033[34;1mSEGV\033[0m", ut_test_symbol); \
+								printf("\t1st err: %s\n", ut_last_err); \
+								*ut_test_symbol = '\0';
 # define UT_RUN_TEST(t_,i_)		printf("%s%-30s", "[\033[33mUT\033[0m] ", t_->name); \
 								t_->test(i_); \
 								if(*(i_) == 1) { \
 									printf("[\033[31;1mFAIL\033[0m] "); _test_fails++; \
 									printf("%s", ut_test_symbol); \
-									printf("\t\033[31;1m( %s )\033[0m\n", ut_last_err); \
+									printf("\t1st error: \033[31;1m( %s )\033[0m\n", ut_last_err); \
 								} \
 								else { \
 									printf("[\033[32;1mOk !\033[0m] "); \

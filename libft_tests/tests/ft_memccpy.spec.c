@@ -9,3 +9,7 @@ UT_ASSERT_EQ(ft_memccpy(buf2, buf1, 'k', 5), 0);
 UT_ASSERT_EQ(ft_memccpy(buf2, buf1, 0, 0), memccpy(buf2, buf1, 0, 0));
 UT_ASSERT_EQ(ft_memccpy(buf2, buf1, 0, sizeof(buf1)), memccpy(buf2, buf1, 0, sizeof(buf1)));
 UT_ASSERT_EQ(ft_memccpy(buf2, buf1, 'C', 10), buf2 + 1);
+
+char dest[] = "abcdefghijklmnopqrstuvwxyz";
+UT_ASSERT_EQ(ft_memccpy(dest, strdup("test\200string"), '\200', 12),
+	memccpy(dest, strdup("test\200string"), '\200', 12));

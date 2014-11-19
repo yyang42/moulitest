@@ -5,6 +5,7 @@
 ut_test_list_t	*ut_tests = 0;
 jmp_buf			ut_env;
 char			*ut_last_err;
+int				is_warning;
 char			ut_test_symbol[100000];
 
 void				ut_sigsegv_(int u)
@@ -44,6 +45,36 @@ void			ut_add_test_(ut_test f, char *n)
 	}
 }
 
+
+void	ut_print_result_line(char *test_name, char *res_level, char *dots, char *message)
+{
+	printf("%s%s%s%s", test_name, res_level, dots, message);
+}
+
+void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
+{
+	char *color;
+	char *res_msg;
+
+	printf("%s%-30s", "["C_YELLOW"UT"C_CLEAR"] ", t_->name);
+	t_->test(i_);
+	if(*(i_) == 1) {
+		color = C_RED;
+		res_msg = "FAIL";
+	}
+	else {
+		color = C_GREEN;
+		res_msg = "Ok !";
+	}
+	printf("[%s%s"C_CLEAR"] ", color, res_msg);
+	printf("%s", ut_test_symbol);
+	if (ut_last_err)
+		printf("\t1st err: %s", ut_last_err);
+	printf("\n");
+	*ut_test_symbol = '\0';
+	ut_last_err = NULL;
+}
+
 int			ut_run_all_tests_(void)
 {
 	int		_test_fails;
@@ -60,7 +91,7 @@ int			ut_run_all_tests_(void)
 	{
 		return (0);
 	}
-	puts("[ \033[36;1m-------STARTING ALL UNIT TESTS-------\033[0m ]");
+	puts("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
 	tmp = ut_tests;
 	while (tmp)
 	{
@@ -72,12 +103,12 @@ int			ut_run_all_tests_(void)
 		}
 		else
 		{
-			UT_RUN_TEST(tmp, &ret);
+			ut_run_test(tmp, &ret, &_test_fails);
 		}
 		count++;
 		tmp = tmp->next;
 	}
-	printf("\033[37;1mEnd of test : %d out of %d test passed.\033[0m\n", count - _test_fails, count);
-	puts("[ \033[36;1m----------END OF UNIT TESTS----------\033[0m ]");
+	printf(C_WHITE"End of test : %d out of %d test passed."C_CLEAR"\n", count - _test_fails, count);
+	puts("[ "C_CYAN"----------END OF UNIT TESTS----------"C_CLEAR" ]");
 	return (_test_fails);
 }

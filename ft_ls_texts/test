@@ -4,7 +4,7 @@ from glob import glob
 from subprocess import call, Popen
 
 config = json.loads(open('../config.json').read())
-RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
+RENDU_PATH = os.path.expanduser(config['ft_ls']['rendu_path'])
 RENDU_INCLUDE_PATH = RENDU_PATH + '/libft/includes'
 TEST_FOLDER_PATH = 'tests'
 TEST_FILE_SUFFIX = '.spec.c'

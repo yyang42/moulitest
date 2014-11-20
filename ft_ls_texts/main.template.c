@@ -8,9 +8,12 @@
 #include <math.h>
 #include <stdio.h>
 
+#define MAX_CMD_SIZE 10000
+
 <DEF_BLOCK>
 
-#define FT_LS_PATH RENDU_PATH"/ft_ls"
+char	ft_ls_path[MAX_CMD_SIZE] = RENDU_PATH"/ft_ls";
+char	ls_path[MAX_CMD_SIZE] = "/bin/ls";
 
 char	*get_cmd_out(const char *cmd)
 {
@@ -29,8 +32,29 @@ char	*get_cmd_out(const char *cmd)
 		strcat(out, path);
 	}
 	pclose(fp);
-	printf("%s", out);
+	return (out);
+}
 
+char	*ls(const char *options)
+{
+	char cmd[MAX_CMD_SIZE];
+
+	bzero(cmd, MAX_CMD_SIZE);
+	strcat(cmd, ls_path);
+	strcat(cmd, " ");
+	strcat(cmd, options);
+	return get_cmd_out(cmd);
+}
+
+char	*ft_ls(const char *options)
+{
+	char cmd[MAX_CMD_SIZE];
+
+	bzero(cmd, MAX_CMD_SIZE);
+	strcat(cmd, ft_ls_path);
+	strcat(cmd, " ");
+	strcat(cmd, options);
+	return get_cmd_out(cmd);
 }
 
 <TEST_DEF_BLOCK>

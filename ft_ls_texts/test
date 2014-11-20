@@ -58,7 +58,7 @@ def get_main_content():
 	filenames = get_filenames()
 	test_def_content = build_test_def(filenames)
 	test_main_def_content = build_test_main_def(filenames)
-	original_file = open("main.c", "r").read()
+	original_file = open("main.template.c", "r").read()
 	define_block = '''#define RENDU_PATH "{rendu_path}"'''.format(rendu_path=RENDU_PATH)
 	main_build_content = (original_file
 								.replace("<DEF_BLOCK>", define_block)

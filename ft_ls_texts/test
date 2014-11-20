@@ -11,7 +11,7 @@ TEST_FILE_SUFFIX = '.spec.c'
 BUILD_MAIN = "main.build.c"
 FRAMEWORK_PATH = "../testframework"
 FRAMEWORK_SOURCE = FRAMEWORK_PATH + "/testframework.c"
-OUT_FILE = "./a.out"
+EXEC_TEST_FILE = "./a.out"
 
 def print_usage():
 	print "Usage:"
@@ -59,7 +59,9 @@ def get_main_content():
 	test_def_content = build_test_def(filenames)
 	test_main_def_content = build_test_main_def(filenames)
 	original_file = open("main.c", "r").read()
+	define_block = '''#define RENDU_PATH "{rendu_path}"'''.format(rendu_path=RENDU_PATH)
 	main_build_content = (original_file
+								.replace("<DEF_BLOCK>", define_block)
 								.replace("<TEST_DEF_BLOCK>", test_def_content)
 								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))
 	return main_build_content
@@ -77,24 +79,20 @@ def create_main_build():
 
 def remove_a_out():
 	try:
-		os.remove(OUT_FILE)
+		os.remove(EXEC_TEST_FILE)
 	except OSError:
 		pass
 
 def run_moulitest():
 	remove_a_out()
 	create_main_build()
-	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
-		"-I"+RENDU_PATH, "-I"+RENDU_INCLUDE_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c",
-		]+glob(RENDU_PATH+"/libft/*.c")
-	# print " ".join(cmd_list)
-	error_no = call(cmd_list)
+	error_no = call(["make", "-C", RENDU_PATH, "re"])
+	error_no = call(["gcc", "-I"+FRAMEWORK_PATH, BUILD_MAIN, FRAMEWORK_SOURCE])
 	if error_no == 0:
-		call([OUT_FILE])
+		call([EXEC_TEST_FILE])
 
 if len(sys.argv) == 1:
 	run_moulitest()
-	print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
 else:
 	arg = sys.argv[1]
 	if arg == '-h' or arg == '--help':

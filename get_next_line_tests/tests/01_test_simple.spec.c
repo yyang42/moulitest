@@ -8,13 +8,14 @@ out = dup(fd);
 pipe(p);
 
 dup2(p[1], fd);
-write(fd, "\naaa\nbbb\n", 9);
+write(fd, "aaa\nbbb\nccc\nddd\n", 16);
 dup2(out, fd);
 close(p[1]);
-get_next_line(p[0], &line);
-UT_ASSERT_EQ(strcmp(line, ""), 0);
 get_next_line(p[0], &line);
 UT_ASSERT_EQ(strcmp(line, "aaa"), 0);
 get_next_line(p[0], &line);
 UT_ASSERT_EQ(strcmp(line, "bbb"), 0);
 get_next_line(p[0], &line);
+UT_ASSERT_EQ(strcmp(line, "ccc"), 0);
+get_next_line(p[0], &line);
+UT_ASSERT_EQ(strcmp(line, "ddd"), 0);

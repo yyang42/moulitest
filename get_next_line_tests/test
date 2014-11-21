@@ -1,7 +1,9 @@
 #!/usr/bin/python
-import argparse, sys, os, fnmatch, re, json
-from glob import glob
-from subprocess import call, Popen
+import sys
+import os
+import fnmatch
+import re
+import json
 
 config = json.loads(open('../config.json').read())
 RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
@@ -43,7 +45,7 @@ UT_TEST({name})
 {content}
 }}
 '''.format(name=name, content=content)
-	return output;
+	return output
 
 def build_test_main_def(filenames):
 	output = ""
@@ -53,7 +55,7 @@ def build_test_main_def(filenames):
 		output += '''
 UT_ADD_TEST({name});
 '''.format(name=name)
-	return output;
+	return output
 
 def get_main_content():
 	filenames = get_filenames()
@@ -96,7 +98,7 @@ def run_moulitest():
 	create_main_build()
 	libft_exists = os.path.isdir(LIBFT_PATH)
 	clean_files()
-	if (libft_exists):
+	if libft_exists:
 		print_exec_cmd("make -C {}/libft/ fclean".format(RENDU_PATH))
 		print_exec_cmd("make -C {}/libft/".format(RENDU_PATH))
 		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path}/libft/includes/ -c {path}/get_next_line.c".format(path=RENDU_PATH))

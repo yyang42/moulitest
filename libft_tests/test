@@ -1,5 +1,9 @@
 #!/usr/bin/python
-import argparse, sys, os, fnmatch, re, json
+import sys
+import os
+import fnmatch
+import re
+import json
 from glob import glob
 from subprocess import call, Popen
 
@@ -60,7 +64,7 @@ UT_TEST({name})
 }}
 #endif
 '''.format(name=name, content=content)
-	return output;
+	return output
 
 def build_test_main_def(filenames):
 	output = ""
@@ -72,7 +76,7 @@ def build_test_main_def(filenames):
 	UT_ADD_TEST({name});
 #endif
 '''.format(name=name)
-	return output;
+	return output
 
 def get_main_content():
 	filenames = get_filenames()

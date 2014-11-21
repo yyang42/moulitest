@@ -3,7 +3,7 @@ int		out;
 int		p[2];
 int		fd;
 
-fd = 11;
+fd = 1;
 out = dup(fd);
 pipe(p);
 

@@ -55,7 +55,7 @@ def build_test_def(filenames):
 	output = ""
 	for name in filenames:
 		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path, "r").read()
+		content = open(path).read()
 		output += '''
 #ifdef TEST_{name}
 UT_TEST({name})
@@ -70,7 +70,7 @@ def build_test_main_def(filenames):
 	output = ""
 	for name in filenames:
 		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path, "r").read()
+		content = open(path).read()
 		output += '''
 #ifdef TEST_{name}
 	UT_ADD_TEST({name});
@@ -82,7 +82,7 @@ def get_main_content():
 	filenames = get_filenames()
 	test_def_content = build_test_def(filenames)
 	test_main_def_content = build_test_main_def(filenames)
-	original_file = open("main.c", "r").read()
+	original_file = open("main.c").read()
 	main_build_content = (original_file
 								.replace("<TEST_DEF_BLOCK>", test_def_content)
 								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))

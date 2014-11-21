@@ -70,7 +70,7 @@ def build_test_main_def(filenames):
 	output = ""
 	for name in filenames:
 		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path, "r").read()
+		content = open(path).read()
 		output += '''
 #ifdef TEST_{name}
 	UT_ADD_TEST({name});

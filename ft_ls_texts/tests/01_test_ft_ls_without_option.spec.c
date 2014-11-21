@@ -8,7 +8,7 @@ UT_ASSERT(strcmp(ft_ls("."), "") == 0);
 UT_ASSERT(strcmp(ls("-1"), ft_ls(".")) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file{001..1000}");
+sandbox_cmd("touch file{01..10}");
 UT_ASSERT(strcmp(ls("-1"), ft_ls(".")) == 0);
 
 reset_sandbox();

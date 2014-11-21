@@ -1,6 +1,6 @@
 # Moulitest
 
-This repository contains tests of several projects done at 42. Please use the tests with caution and check the tests source code.
+This repository contains tests for several projects done at 42. Please use the tests with caution and check the tests source code.
 
 Correction: A failed test doesn't necessarily mean that the tested code is wrong. The test suite doesn't correct for you, **you are the corrector**.
 
@@ -24,14 +24,15 @@ Install
 	# e.g.      ["aaa", "bbb"]  GOOD
 	#           ["aaa", "bbb",] BAD
 
-Usage Libft
+Usage
 -----
+
+####Libft
 
 	$ cd libft_tests
 	$ ./test --help
 	
-Usage Get Next Line
------
+####Get Next Line
 
 	$ cd get_next_line_tests
 	$ ./test --help
@@ -40,9 +41,9 @@ Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use
 
 	write(2, "abc", 3);
 
-WARNING: If the test stops in the middle, it certainly means that the test is waiting an input from your get_next_line function but nothing is returned.
+**WARNING:** If the test stops in the middle, it certainly means that the test is waiting for an input from your get_next_line function but nothing is returned.
 
-Credit
+Credits
 ------
 
 The test framework and many libft tests are based on the work done by Maxime Bacoux (mbacoux)

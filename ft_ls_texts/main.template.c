@@ -52,11 +52,8 @@ char	*sandbox_cmd(const char *cmd)
 
 void	reset_sandbox()
 {
-	get_cmd_out("mkdir -p "SANDBOX_PATH);
-	if (SANDBOX_PATH == "/tmp/ft_ls_sandbox")
-	{
-		get_cmd_out("rm -rf "SANDBOX_PATH"/*");
-	}
+	get_cmd_out("rm -rf /tmp/ft_ls_sandbox");
+	get_cmd_out("mkdir /tmp/ft_ls_sandbox ");
 }
 
 char	*ls(const char *options)

@@ -1,10 +1,17 @@
+char *cmd = "-1a";
+
 reset_sandbox();
 sandbox_cmd("mkdir .a a");
-UT_ASSERT(strcmp(ls("-1a"), ft_ls("-a")) == 0);
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+reset_sandbox();
+sandbox_cmd("mkdir .hiddendir{1..10} dir{1..10} && touch .hiddenfile{1..10} file{1..10}");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+/*
 printf("\n=====  ls  ========\n");
-printf("%s", ls("-1a | cat -e"));
+printf("%s", ls("-1a"));
 printf("===== ft ls =======\n");
-printf("%s", ft_ls("-a | cat -e"));
+printf("%s", ft_ls("-a"));
 printf("==================\n");
+*/

@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 #define MAX_CMD_SIZE 10000
-#define SANDBOX_PATH "/tmp/ft_ls_sandbox"
+#define SANDBOX_PATH "./ft_ls_sandbox"
 
 <DEF_BLOCK>
 
@@ -52,8 +52,8 @@ char	*sandbox_cmd(const char *cmd)
 
 void	reset_sandbox()
 {
-	get_cmd_out("rm -rf /tmp/ft_ls_sandbox");
-	get_cmd_out("mkdir /tmp/ft_ls_sandbox ");
+	get_cmd_out("rm -rf ./ft_ls_sandbox");
+	get_cmd_out("mkdir ./ft_ls_sandbox ");
 }
 
 char	*ls(const char *options)

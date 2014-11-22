@@ -12,6 +12,18 @@ reset_sandbox();
 sandbox_cmd("mkdir -p .a .b .c && mkdir -p a b c ");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+reset_sandbox();
+sandbox_cmd("mkdir .dirA && mkdir .dirA/dirB && touch .dirA/dirB/file");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+reset_sandbox();
+sandbox_cmd("mkdir .dir1A .dir1B && mkdir .dir1A/dir2A && touch .dir1A/dir2A/file3");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+reset_sandbox();
+sandbox_cmd("mkdir .dir1A .dir1B && mkdir .dir1A/dir2{A,B} && touch .dir1A/dir2A/file3A");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 // printf("\n===================\n");
 // printf("%s", ls(cmd));
 // printf("\n===================\n");

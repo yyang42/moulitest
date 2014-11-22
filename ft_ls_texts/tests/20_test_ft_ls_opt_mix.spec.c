@@ -7,6 +7,21 @@ sandbox_cmd("touch .hdir1/file{1..5} .hdir1/.hfile{1..5}");
 sandbox_cmd("touch .hdir1/file{1..5} .hdir1/.hfile{1..5}");
 sandbox_cmd("touch a && ln -s a symlink");
 
+
+
+/*
+
+cmd = "-1aR";
+reset_sandbox();
+sandbox_cmd("mkdir .dir1A .dir1B && mkdir .dir1A/dir2{A,B} && touch .dir1A/dir2A/file3A");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+*/
+
+
+
+
+
 // printf("\n=====  ls  ========\n");
 // printf("%s", ls(cmd));
 // printf("===== ft ls =======\n");

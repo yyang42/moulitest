@@ -1,5 +1,8 @@
 # Moulitest
 
+[![Issue Stats](http://issuestats.com/github/yyang42/moulitest/badge/pr)](http://issuestats.com/github/yyang42/moulitest)
+[![Issue Stats](http://issuestats.com/github/yyang42/moulitest/badge/issue)](http://issuestats.com/github/yyang42/moulitest)
+
 This repository contains tests for several projects done at 42. Please use the tests with caution and check the tests source code.
 
 Correction: A failed test doesn't necessarily mean that the tested code is wrong. The test suite doesn't correct for you, **you are the corrector**.
@@ -15,7 +18,7 @@ Feedbacks and pull requests are welcome. You can also raise issues on github dir
 ![Sample](http://i.imgur.com/443xC3D.png)
 
 Install
--------
+---
 
 	$ cp config.json.template config.json
 	# ==> EDIT config.json and replace with your OWN VALUES <==
@@ -25,7 +28,7 @@ Install
 	#           ["aaa", "bbb",] BAD
 
 Usage
------
+---
 
 ####Libft
 
@@ -44,7 +47,7 @@ Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use
 **WARNING:** If the test stops in the middle, it certainly means that the test is waiting for an input from your get_next_line function but nothing is returned.
 
 Credits
-------
+---
 
 The test framework and many libft tests are based on the work done by Maxime Bacoux (mbacoux)
 Here is the original repository: https://github.com/Nax/libft-test

@@ -1,12 +1,22 @@
-char	test1[] = "abcdef";
-char	test2[] = "abcdef";
+char	testA1[] = "abcdef";
+char	testA2[] = "abcdef";
 
-ft_memmove(test1 + 1, test1, 5);
-ft_memmove(test1 + 1, test1, 0);
-ft_memmove(test2 + 1, test2, 5);
-ft_memmove(test2 + 1, test2, 0);
-UT_ASSERT_EQ(strcmp(test1, "aabcde"), 0);
-UT_ASSERT_EQ(strcmp(test1, test2), 0);
+ft_memmove(testA1 + 1, testA1, 5);
+ft_memmove(testA1 + 1, testA1, 0);
+memmove(testA2 + 1, testA2, 5);
+memmove(testA2 + 1, testA2, 0);
+UT_ASSERT_EQ(strcmp(testA1, "aabcde"), 0);
+UT_ASSERT_EQ(strcmp(testA1, testA2), 0);
+
+char	testB1[] = "abcdef";
+char	testB2[] = "abcdef";
+
+ft_memmove(testB1, testB1 + 1, 5);
+ft_memmove(testB1, testB1 + 1, 0);
+memmove(testB2, testB2 + 1, 5);
+memmove(testB2, testB2 + 1, 0);
+UT_ASSERT_EQ(strcmp(testB1, "bcdeff"), 0);
+UT_ASSERT_EQ(strcmp(testB1, testB2), 0);
 
 /* test edge cases */
 char	test[] = "aaa";

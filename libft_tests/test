@@ -21,20 +21,17 @@ Usage:
 	./test part1
 	./test part2            # Also run part1
 	./test bonus            # Also run part1 and part2
-	./test qperez
-	./test moulinator
-	./test extra            # Also run part1, part2 and bonus"
-							  (You need to set extra test in config.sh)
-	./test all              # Include bonus, qperez and moulinator"
+	./test extra            # Also run part1, part2 and bonus" (You need to set extra tests in config.json)
 
 Correction:
 	./test check_forbidden_fn
-	./test check_norm
-	./test check_all		# check_forbidden_fn + check_norm
 
 Options:
 	-h --help
 '''
+	# ./test qperez
+	# ./test moulinator
+	# ./test all              # Include bonus, qperez and moulinator"
 
 def print_header(testsuite_name):
 	print "="*70
@@ -133,7 +130,8 @@ def run_moulitest(arg):
 
 def run_qperez_testsuite():
 	print_header("qperez")
-	error_no = call(["gcc", "testsuite_qperez/main.c"]+glob(RENDU_PATH+"/*.c")+["-I"+RENDU_PATH])
+	build_source()
+	error_no = call(["gcc", "-I", RENDU_PATH, "testsuite_qperez/main.c", RENDU_PATH+"/libft.a"])
 	if error_no == 0:
 		call(["./a.out"])
 
@@ -149,9 +147,10 @@ def run_moulinator_testsuite():
 	# 	error_no = call(["./a.out"])
 
 	# if error_no == 0:
-	Popen(["gcc", "-c"]+glob(RENDU_PATH+"/*.c"),
-		cwd=TEST_SUITE_PATH)
-	Popen(["gcc", "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*.o"),
+	# Popen(["gcc", "-I", RENDU_PATH, "-c"]+glob(RENDU_PATH+"/*.c"),
+	# 	cwd=TEST_SUITE_PATH)
+	build_source()
+	Popen(["gcc", "-I", RENDU_PATH, "-shared", "-o", "libft.so"]+glob(RENDU_PATH+"/*.o"),
 		cwd=TEST_SUITE_PATH)
 	call(["./Mouli-nator"],
 		cwd=TEST_SUITE_PATH)

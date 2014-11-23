@@ -1,5 +1,6 @@
-// char *cmd;
+char *cmd;
 
+cmd = "";
 // reset_sandbox();
 // sandbox_cmd("mkdir dir{1..5} .hdir{1..5}");
 // sandbox_cmd("touch dir1/file{1..5} dir1/.hfile{1..5}");

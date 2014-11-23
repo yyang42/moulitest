@@ -15,6 +15,21 @@ reset_sandbox();
 sandbox_cmd("mkdir mydir{1..7} && touch mydir{1..7}/file{1..11}");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+cmd = "-1 mydir";
+reset_sandbox();
+sandbox_cmd("mkdir mydir && touch mydir/a");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+cmd = "-l ./mydir";
+reset_sandbox();
+sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+cmd = "./mydir";
+reset_sandbox();
+sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 /*
 printf("\n=====  ls  ========\n");
 printf("%s", ls("-1 mydir{1..7} | cat -e"));

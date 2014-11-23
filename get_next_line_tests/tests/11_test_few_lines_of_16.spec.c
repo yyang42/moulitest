@@ -2,6 +2,7 @@ char 	*line;
 int		out;
 int		p[2];
 int		fd;
+int		ret;
 
 out = dup(1);
 pipe(p);
@@ -31,5 +32,5 @@ get_next_line(p[0], &line);
 UT_ASSERT_EQ(strcmp(line, "cdefghijklmnopqr"), 0);
 get_next_line(p[0], &line);
 UT_ASSERT_EQ(strcmp(line, "stuvwxzabcdefghi"), 0);
-get_next_line(p[0], &line);
-UT_ASSERT_EQ(strcmp(line, ""), 0);
+ret = get_next_line(p[0], &line);
+UT_ASSERT(ret == 0);

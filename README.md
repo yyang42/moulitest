@@ -34,17 +34,22 @@ Usage
 
 	$ cd libft_tests
 	$ ./test --help
-	
+
 ####Get Next Line
 
 	$ cd get_next_line_tests
-	$ ./test --help
+	$ ./test
 
 Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use the file descriptor 2 instead. Example:
 
 	write(2, "abc", 3);
 
 **WARNING:** If the test stops in the middle, it certainly means that the test is waiting for an input from your get_next_line function but nothing is returned.
+
+####Ft ls
+
+	$ cd ft_ls_tests
+	$ ./test
 
 Credits
 ---

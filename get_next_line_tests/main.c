@@ -17,27 +17,6 @@
 
 #define FT_LS_PATH RENDU_PATH"/ft_ls"
 
-char	*get_cmd_out(const char *cmd)
-{
-
-	FILE *fp;
-	char path[1035];
-	char *out;
-
-	out = malloc(0);
-
-	fp = popen(cmd, "r");
-
-	/* Read the output a line at a time - output it. */
-	while (fgets(path, sizeof(path)-1, fp) != NULL) {
-		out = realloc(out, strlen(out) + strlen(path) + 1);
-		strcat(out, path);
-	}
-	pclose(fp);
-	printf("%s", out);
-
-}
-
 <TEST_DEF_BLOCK>
 
 int	main(void)

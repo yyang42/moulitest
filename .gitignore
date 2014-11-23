@@ -11,3 +11,6 @@ config.json
 
 # compiled files
 test_gnl
+
+# IDE
+.idea

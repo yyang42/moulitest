@@ -15,7 +15,7 @@ At the moment, the available tests are:
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 
-![Sample](http://i.imgur.com/443xC3D.png)
+![Sample](http://i.imgur.com/3p0Xg7Z.png)
 
 Install
 ---

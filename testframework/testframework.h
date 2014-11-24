@@ -33,7 +33,8 @@
 								is_warning = 0;
 # define UT_SEGV(test_)			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
 								printf(" ERROR: %s\n", ut_last_cond); \
-								*ut_test_symbol = '\0';
+								*ut_test_symbol = '\0'; \
+								ut_last_cond = '\0'
 
 # define UT_ADD_TEST(name)		ut_add_test_(&ut_test_ ## name, #name)
 # define UT_RUN_ALL_TESTS()		ut_run_all_tests_()

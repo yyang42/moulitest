@@ -1,5 +1,9 @@
-char	*str;
+char	*src;
+char	*dst;
 
-str = "abcde";
-str = ft_strmap(str, map_test);
-UT_ASSERT_EQ(strcmp(str, "bcdef"), 0);
+src = strdup("abcde");
+dst = ft_strmap(src, map_test);
+
+free(src); src = NULL;
+
+UT_ASSERT_EQ(strcmp(dst, "bcdef"), 0);

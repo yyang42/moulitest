@@ -14,3 +14,5 @@ UT_ASSERT_EQ(tt[1], NULL);
 
 tt = ft_strsplit("", '*');
 UT_ASSERT(tt &&  tt[0] == NULL);
+
+ft_strsplit(NULL, 0);

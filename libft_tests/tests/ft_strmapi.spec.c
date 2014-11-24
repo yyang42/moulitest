@@ -1,5 +1,9 @@
-char	*str;
+char	*src;
+char	*dst;
 
-str = "abcde";
-str = ft_strmapi(str, mapi_test);
-UT_ASSERT_EQ(strcmp(str, "acegi"), 0);
+src = strdup("abcde");
+dst = ft_strmapi(src, mapi_test);
+
+free(src); src = NULL;
+
+UT_ASSERT_EQ(strcmp(dst, "acegi"), 0);

@@ -32,22 +32,10 @@ Usage
 
 ####Libft
 
-Ajouter cette configuration à votre config.json
-
-	"libft": { "rendu_path": "~/path/to/your/project/folder" }
-
-Ensuite:
-
 	$ cd libft_tests
 	$ ./test --help
 
 ####Get Next Line
-
-Ajouter cette configuration à votre config.json
-
-	"get_next_line": { "rendu_path": "~/path/to/your/project/folder" }
-
-Ensuite:
 
 	$ cd get_next_line_tests
 	$ ./test
@@ -59,12 +47,6 @@ Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use
 **WARNING:** If the tests stop in the middle, it could mean that your get_next_line is waiting for an input from the file descriptor but nothing is coming.
 
 ####Ft ls
-
-Ajouter cette configuration à votre config.json
-
-	"ft_ls": { "rendu_path": "~/path/to/your/project/folder" }
-
-Ensuite:
 
 	$ cd ft_ls_tests
 	$ ./test

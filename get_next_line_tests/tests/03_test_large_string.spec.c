@@ -2,11 +2,11 @@ char 	*line;
 int		out;
 int		p[2];
 char 	*str;
-// int		len = 50;
+int		len = 50;
 
 str = (char *)malloc(1000 * 1000);
 *str = '\0';
-// while (len--)
+while (len--)
 	strcat(str, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in leo dignissim, gravida leo id, imperdiet urna. Aliquam magna nunc, maximus quis eleifend et, scelerisque non dolor. Suspendisse augue augue, tempus");
 out = dup(1);
 pipe(p);

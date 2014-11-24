@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <stdio.h>
+#include <regex.h>
 
 #define MAX_CMD_SIZE 10000
 #define SANDBOX_PATH "./sandbox"

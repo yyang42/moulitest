@@ -43,8 +43,6 @@ def get_filenames():
 	for root, dirnames, filenames in os.walk('tests'):
 	  for filename in fnmatch.filter(filenames, '*.spec.c'):
 		  matches.append(os.path.join(root, filename))
-	pattern = '(ft_.*).spec.c'
-	pattern_obj = re.compile(pattern)
 	filenames = [re.sub(r".*\/(ft_.*).spec.c", r"\1", path) for path in matches]
 	return filenames
 
@@ -66,8 +64,6 @@ UT_TEST({name})
 def build_test_main_def(filenames):
 	output = ""
 	for name in filenames:
-		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path).read()
 		output += '''
 #ifdef TEST_{name}
 	UT_ADD_TEST({name});
@@ -157,7 +153,6 @@ def run_moulinator_testsuite():
 
 def check_forbidden_fn():
 	print_header("check_forbidden_fn")
-	acc = []
 	for path in (glob(RENDU_PATH+"/*.h") + glob(RENDU_PATH+"/*.c")):
 		print path
 		with open(path) as f:

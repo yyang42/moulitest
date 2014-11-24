@@ -12,7 +12,7 @@
     "get_next_line": {
         "rendu_path": "~/path/to/your/project/folder"
     },
-    "libft": {
+    "ft_ls": {
         "rendu_path": "~/path/to/your/project/folder"
     }
 }

@@ -11,7 +11,7 @@ At the moment, the available tests are:
 
 - libft (58 functions and 25+ other generic functions)
 - get_next_line (with handling of multiples file descriptors)
-- ft_ls comming soon ...
+- ft_ls
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 
@@ -34,17 +34,22 @@ Usage
 
 	$ cd libft_tests
 	$ ./test --help
-	
+
 ####Get Next Line
 
 	$ cd get_next_line_tests
-	$ ./test --help
+	$ ./test
 
 Do not use file descriptor 1 for debugging to avoid conflict with the tests. Use the file descriptor 2 instead. Example:
 
 	write(2, "abc", 3);
 
-**WARNING:** If the test stops in the middle, it certainly means that the test is waiting for an input from your get_next_line function but nothing is returned.
+**WARNING:** If the tests stop in the middle, it could mean that your get_next_line is waiting for an input from the file descriptor but nothing is coming.
+
+####Ft ls
+
+	$ cd ft_ls_tests
+	$ ./test
 
 Credits
 ---

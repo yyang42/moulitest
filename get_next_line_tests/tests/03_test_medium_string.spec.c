@@ -16,4 +16,4 @@ write(1, str, strlen(str));
 close(p[1]);
 dup2(out, 1);
 get_next_line(p[0], &line);
-UT_ASSERT(line && str && (strcmp(line, str) == 0));
+UT_ASSERT(strequ(line, str));

@@ -1,6 +1,7 @@
 #include <testframework.h>
 #include <stdlib.h>
 #include <setjmp.h>
+#include <string.h>
 
 ut_test_list_t	*ut_tests = 0;
 jmp_buf			ut_env;
@@ -75,6 +76,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	printf("\n");
 	*ut_test_symbol = '\0';
 	ut_last_err = NULL;
+	ut_last_cond = '\0';
 }
 
 int			ut_run_all_tests_(void)
@@ -113,4 +115,9 @@ int			ut_run_all_tests_(void)
 	printf(C_WHITE"End of test : %d out of %d test passed."C_CLEAR"\n", count - _test_fails, count);
 	puts("[ "C_CYAN"----------END OF UNIT TESTS----------"C_CLEAR" ]");
 	return (_test_fails);
+}
+
+int	strequ(const char *s1, const char *s2)
+{
+	return (s1 && s2 && strcmp(s1, s2) == 0);
 }

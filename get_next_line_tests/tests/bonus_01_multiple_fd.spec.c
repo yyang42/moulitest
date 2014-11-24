@@ -35,25 +35,25 @@ write(fd3, "888\n999\n", 12);
 dup2(out_fd3, fd3);
 
 get_next_line(p0[0], &line0);
-UT_ASSERT_EQ(strcmp(line0, "aaa"), 0);
+UT_ASSERT(strequ(line0, "aaa"));
 
 get_next_line(p_fd1[0], &line_fd1);
-UT_ASSERT_EQ(strcmp(line_fd1, "111"), 0);
+UT_ASSERT(strequ(line_fd1, "111"));
 
 get_next_line(p_fd2[0], &line_fd2);
-UT_ASSERT_EQ(strcmp(line_fd2, "www"), 0);
+UT_ASSERT(strequ(line_fd2, "www"));
 
 get_next_line(p_fd3[0], &line_fd3);
-UT_ASSERT_EQ(strcmp(line_fd3, "888"), 0);
+UT_ASSERT(strequ(line_fd3, "888"));
 
 get_next_line(p0[0], &line0);
-UT_ASSERT_EQ(strcmp(line0, "bbb"), 0);
+UT_ASSERT(strequ(line0, "bbb"));
 
 get_next_line(p_fd1[0], &line_fd1);
-UT_ASSERT_EQ(strcmp(line_fd1, "222"), 0);
+UT_ASSERT(strequ(line_fd1, "222"));
 
 get_next_line(p_fd2[0], &line_fd2);
-UT_ASSERT_EQ(strcmp(line_fd2, "zzz"), 0);
+UT_ASSERT(strequ(line_fd2, "zzz"));
 
 get_next_line(p_fd3[0], &line_fd3);
-UT_ASSERT_EQ(strcmp(line_fd3, "999"), 0);
+UT_ASSERT(strequ(line_fd3, "999"));

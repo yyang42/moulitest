@@ -32,9 +32,11 @@
 								} \
 								is_warning = 0;
 # define UT_SEGV(test_)			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
-								printf(" ERROR: %s\n", ut_last_cond); \
+								if (ut_last_cond) \
+									printf(" ERROR: %s", ut_last_cond); \
+								printf("\n"); \
 								*ut_test_symbol = '\0'; \
-								ut_last_cond = '\0'
+								ut_last_cond = '\0';
 
 # define UT_ADD_TEST(name)		ut_add_test_(&ut_test_ ## name, #name)
 # define UT_RUN_ALL_TESTS()		ut_run_all_tests_()
@@ -44,6 +46,7 @@
  */
 
 # define UT_ASSERT_EQ(a, b)		UT_ASSERT((a) == (b))
+# define UT_ASSERT_EQ_STR(a, b)	UT_ASSERT(a && b && strcmp(a, b))
 # define UT_ASSERT_NEQ(a, b)	UT_ASSERT((a) != (b))
 
 typedef	void (*ut_test)(int *);
@@ -67,5 +70,5 @@ void						ut_sigsegv_(int);
 ut_test_list_t				*ut_create_list_(ut_test, char *);
 void						ut_add_test_(ut_test, char *);
 int							ut_run_all_tests_(void);
-
+int							strequ(const char *s1, const char *s2);
 #endif /* !UNIT_TEST_H */

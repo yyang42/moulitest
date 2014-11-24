@@ -17,20 +17,20 @@ dup2(out, fd);
 
 /* Read abc and new line */
 gnl_ret = get_next_line(p[0], &line);
-UT_ASSERT_EQ(gnl_ret, 1);
-UT_ASSERT_EQ(strcmp(line, "abc"), 0);
+UT_ASSERT(gnl_ret == 1);
+UT_ASSERT(strequ(line, "abc"));
 
 /* Read new line */
 gnl_ret = get_next_line(p[0], &line);
-UT_ASSERT_EQ(gnl_ret, 1);
+UT_ASSERT(gnl_ret == 1);
 UT_ASSERT(line == NULL || *line == '\0');
 
 /* Read again, but meet EOF */
 gnl_ret = get_next_line(p[0], &line);
-UT_ASSERT_EQ(gnl_ret, 0);
+UT_ASSERT(gnl_ret == 0);
 UT_ASSERT(line == NULL || *line == '\0');
 
 /* Let's do it once again */
 gnl_ret = get_next_line(p[0], &line);
-UT_ASSERT_EQ(gnl_ret, 0);
+UT_ASSERT(gnl_ret == 0);
 UT_ASSERT(line == NULL || *line == '\0');

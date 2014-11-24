@@ -12,4 +12,4 @@ write(fd, "abcd", 4);
 close(p[1]);
 dup2(out, fd);
 get_next_line(p[0], &line);
-UT_ASSERT_EQ(strcmp(line, "abcd"), 0);
+UT_ASSERT(strequ(line, "abcd"));

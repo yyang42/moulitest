@@ -1,4 +1,4 @@
-system("openssl rand -out 21.txt -base64 $((2**(42/2) * 3/4))");
+system("openssl rand -base64 $((2**18 * 3/4)) | tr -d '\n' | tr -d '\r' > 21.txt");
 
 char *line;
 int fd;

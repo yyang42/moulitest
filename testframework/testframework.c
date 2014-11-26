@@ -63,7 +63,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	if(*(i_) == 1) {
 		color = C_RED;
 		res_msg = "FAIL";
-		_test_fails++;
+		(*_test_fails)++;
 	}
 	else {
 		color = C_GREEN;

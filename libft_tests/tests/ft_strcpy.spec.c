@@ -6,5 +6,5 @@ bzero(buf2, 6);
 UT_ASSERT_EQ(strcmp(ft_strcpy(buf1, "abcde"), strcpy(buf1, "abcde")), 0);
 UT_ASSERT_EQ(strcmp(ft_strcpy(buf1, "abc"), strcpy(buf1, "abc")), 0);
 
-strcpy(NULL, NULL);
-ft_strcpy(NULL, NULL);
+// strcpy(NULL, NULL);
+// ft_strcpy(NULL, NULL);

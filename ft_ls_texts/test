@@ -88,7 +88,7 @@ def run_moulitest():
 	create_main_build()
 	error_no = call(["make", "-C", RENDU_PATH, "re"])
 	if error_no == 0:
-		error_no = call(["gcc", "-I"+FRAMEWORK_PATH, BUILD_MAIN, FRAMEWORK_SOURCE])
+		error_no = call(["gcc", "-g", "-I"+FRAMEWORK_PATH, BUILD_MAIN, FRAMEWORK_SOURCE])
 	if error_no == 0:
 		call([EXEC_TEST_FILE])
 

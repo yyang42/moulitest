@@ -122,7 +122,7 @@ def run_moulitest():
 
 if len(sys.argv) == 1:
 	run_moulitest()
-	print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
+	# print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
 else:
 	arg = sys.argv[1]
 	if arg == '-h' or arg == '--help':

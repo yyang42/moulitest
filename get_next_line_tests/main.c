@@ -13,8 +13,6 @@
 
 <DEF_BLOCK>
 
-<DEF_BLOCK>
-
 #define FT_LS_PATH RENDU_PATH"/ft_ls"
 
 <TEST_DEF_BLOCK>

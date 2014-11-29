@@ -1,4 +1,4 @@
-char *cmd = "-aR";
+char *cmd = "-1aR";
 
 reset_sandbox();
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);

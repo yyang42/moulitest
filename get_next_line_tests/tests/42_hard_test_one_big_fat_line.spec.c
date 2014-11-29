@@ -1,5 +1,6 @@
 system("mkdir -p sandbox");
 system("openssl rand -base64 $((2**15 * 3/4)) | tr -d '\n' | tr -d '\r' > sandbox/one_big_fat_line.txt");
+system("echo '\n' >> sandbox/one_big_fat_line.txt");
 
 char *line;
 int fd;

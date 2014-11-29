@@ -18,4 +18,4 @@ close(p[1]);
 dup2(out, 1);
 gnl_ret = get_next_line(p[0], &line);
 UT_ASSERT(strequ(line, str));
-UT_ASSERT(gnl_ret == 0);
+UT_ASSERT(gnl_ret == 0 || gnl_ret == 1);

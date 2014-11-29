@@ -68,8 +68,7 @@ char	*ls(const char *options)
 	strcat(cmd, ls_path);
 	strcat(cmd, " ");
 	strcat(cmd, options);
-	if(debug)
-		strcat(cmd, " 1>&2");
+	strcat(cmd, " 2>&1");
 	return get_cmd_out(cmd);
 }
 
@@ -83,8 +82,7 @@ char	*ft_ls(const char *options)
 	strcat(cmd, ft_ls_path);
 	strcat(cmd, " ");
 	strcat(cmd, options);
-	if(debug)
-		strcat(cmd, " 1>&2");
+	strcat(cmd, " 2>&1");
 	return get_cmd_out(cmd);
 }
 

@@ -11,9 +11,13 @@ UT_ASSERT(strlen(ft_ls_err(cmd)) > 0);
 reset_sandbox();
 
 cmd = "-Z_this_option_does_not_exist";
+UT_ASSERT(strlen(ft_ls_err(cmd)) > 0);
+
+cmd = "-la--t";
 // printf("\n===================\n");
-// printf("%s", ls_err(cmd));
+// printf("{%s}", ls_err(cmd));
 // printf("\n===================\n");
-// printf("%s", ft_ls_err(cmd));
+// printf("{%s}", ft_ls_err(cmd));
 // printf("\n===================\n");
+
 UT_ASSERT(strlen(ft_ls_err(cmd)) > 0);

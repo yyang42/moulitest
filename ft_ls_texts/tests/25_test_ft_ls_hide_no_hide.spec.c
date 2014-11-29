@@ -1,6 +1,6 @@
 char *cmd;
 
-cmd = "-1lR";
+cmd = "-lR";
 
 reset_sandbox();
 

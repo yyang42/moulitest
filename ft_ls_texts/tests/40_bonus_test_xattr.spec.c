@@ -1,4 +1,4 @@
-char *cmd = "-1l";
+char *cmd = "-l";
 
 reset_sandbox();
 sandbox_cmd("touch file && xattr -w theAnswerIs42 whatever_you_want file");

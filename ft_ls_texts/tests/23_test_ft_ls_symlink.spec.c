@@ -1,7 +1,7 @@
 reset_sandbox();
 sandbox_cmd("mkdir mydir && ln -s mydir symdir && touch mydir/file{1..5}");
 
-UT_ASSERT(strcmp(ls("-1l symdir"), ft_ls("-1l symdir")) == 0);
+UT_ASSERT(strcmp(ls("-l symdir"), ft_ls("-l symdir")) == 0);
 
 UT_ASSERT(strcmp(ls("-1 symdir"), ft_ls("-1 symdir")) == 0);
 

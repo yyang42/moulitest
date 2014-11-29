@@ -1,7 +1,5 @@
 reset_sandbox();
 char *cmd;
-char *ls_out = (char *)malloc(1000000);
-char *ft_ls_out = (char *)malloc(1000000);
 
 UT_ASSERT(strcmp(ls("-1 /dev"), ft_ls("-1 /dev")) == 0);
 

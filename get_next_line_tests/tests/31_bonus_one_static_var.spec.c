@@ -11,7 +11,7 @@ strcpy(path, RENDU_PATH);
 strcat(path, "/get_next_line.c");
 file = fopen(path, "r");
 
-regcomp(&regex, "static .*;", 0);
+regcomp(&regex, "static[ \t].*;", 0);
 
 while ((read = getline(&line, &len, file)) != -1) {
 	reti = regexec(&regex, line, 0, NULL, 0);

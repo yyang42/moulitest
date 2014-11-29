@@ -1,6 +1,19 @@
-// reset_sandbox();
+char *cmd;
+reset_sandbox();
 
-// ls("-1 /etc");
-// ft_ls("-1 /etc");
 
-// // UT_ASSERT(strcmp(ls("-1 /etc"), ft_ls("-1 /etc")) == 0);
+cmd = "-l /etc";
+// printf("\n========== ls ==========\n");
+// printf(ls(cmd));
+// printf("========= ft_ls ========\n");
+// printf(ft_ls(cmd));
+// printf("========================\n");
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+// cmd = "-1 /etc";
+// printf("\n========== ls ==========\n");
+// printf(ls(cmd));
+// printf("========= ft_ls ========\n");
+// printf(ft_ls(cmd));
+// printf("========================\n");
+// UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);

@@ -1,5 +1,12 @@
 reset_sandbox();
 sandbox_cmd("mkdir mydir && ln -s mydir symdir && touch mydir/file{1..5}");
+
+// printf("\n===================\n");
+// printf("%s", ls("-1l symdir"));
+// printf("\n===================\n");
+// printf("%s", ft_ls("-1l symdir"));
+// printf("\n===================\n");
+
 UT_ASSERT(strcmp(ls("-1l symdir"), ft_ls("-1l symdir")) == 0);
 
 /* This test never match because the ls and ft_ls are launched differently

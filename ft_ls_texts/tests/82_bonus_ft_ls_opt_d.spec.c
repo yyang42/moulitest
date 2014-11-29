@@ -25,21 +25,15 @@ reset_sandbox();
 sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-printf("\n=====  ls  ========\n");
-printf("%s", ls(cmd));
-printf("===== ft ls =======\n");
-printf("%s", ft_ls(cmd));
-printf("==================\n");
-
 cmd = "-d ./mydir";
 reset_sandbox();
 sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-
+/*
 printf("\n=====  ls  ========\n");
 printf("%s", ls(cmd));
 printf("===== ft ls =======\n");
 printf("%s", ft_ls(cmd));
 printf("==================\n");
-
+*/

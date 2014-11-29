@@ -53,6 +53,7 @@ char	*sandbox_cmd(const char *cmd)
 
 void	reset_sandbox()
 {
+	get_cmd_out("chmod -R 777 ./");
 	get_cmd_out("rm -rf ./sandbox");
 	get_cmd_out("mkdir ./sandbox ");
 }
@@ -84,6 +85,34 @@ char	*ft_ls(const char *options)
 	strcat(cmd, options);
 	if(debug)
 		strcat(cmd, " 1>&2");
+	return get_cmd_out(cmd);
+}
+
+char	*ls_err(const char *options)
+{
+	char cmd[MAX_CMD_SIZE];
+
+	bzero(cmd, MAX_CMD_SIZE);
+	strcat(cmd, "cd "SANDBOX_PATH);
+	strcat(cmd, " && ");
+	strcat(cmd, ls_path);
+	strcat(cmd, " ");
+	strcat(cmd, options);
+	strcat(cmd, " 3>&2 2>&1 1>&3");
+	return get_cmd_out(cmd);
+}
+
+char	*ft_ls_err(const char *options)
+{
+	char cmd[MAX_CMD_SIZE];
+
+	bzero(cmd, MAX_CMD_SIZE);
+	strcat(cmd, "cd "SANDBOX_PATH);
+	strcat(cmd, " && ");
+	strcat(cmd, ft_ls_path);
+	strcat(cmd, " ");
+	strcat(cmd, options);
+	strcat(cmd, " 3>&2 2>&1 1>&3");
 	return get_cmd_out(cmd);
 }
 

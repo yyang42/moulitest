@@ -1,73 +1,64 @@
 char *cmd = "-l";
 
-reset_sandbox();
-sandbox_cmd("touch file1 && chmod 0777 file1");
+sandbox_cmd("mkdir  dir1 && chmod 0777 dir1");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file2 && chmod 1777 file2");
+sandbox_cmd("mkdir  dir2 && chmod 1777 dir2");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file3 && chmod 2777 file3");
+sandbox_cmd("mkdir  dir3 && chmod 2777 dir3");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file4 && chmod 3777 file4");
+sandbox_cmd("mkdir  dir4 && chmod 3777 dir4");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file5 && chmod 4777 file5");
+sandbox_cmd("mkdir  dir5 && chmod 4777 dir5");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file6 && chmod 5777 file6");
+sandbox_cmd("mkdir  dir6 && chmod 5777 dir6");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file7 && chmod 6777 file7");
+sandbox_cmd("mkdir  dir7 && chmod 6777 dir7");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file8 && chmod 7777 file8");
+sandbox_cmd("mkdir  dir8 && chmod 7777 dir8");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file9 && chmod 0000 file9");
+sandbox_cmd("mkdir  dir9 && chmod 0000 dir9");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file10 && chmod 1000 file10");
+sandbox_cmd("mkdir  dir10 && chmod 1000 dir10");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file11 && chmod 2000 file11");
+sandbox_cmd("mkdir  dir11 && chmod 2000 dir11");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file12 && chmod 3000 file12");
+sandbox_cmd("mkdir  dir12 && chmod 3000 dir12");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file13 && chmod 4000 file13");
+sandbox_cmd("mkdir  dir13 && chmod 4000 dir13");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file14 && chmod 5000 file14");
+sandbox_cmd("mkdir  dir14 && chmod 5000 dir14");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file15 && chmod 6000 file15");
+sandbox_cmd("mkdir  dir15 && chmod 6000 dir15");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
-sandbox_cmd("touch file16 && chmod 7000 file16");
+sandbox_cmd("mkdir  dir16 && chmod 7000 dir16");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
-/*
-printf("\n=====  ls  ========\n");
-printf("%s", ls(cmd));
-printf("===== ft ls =======\n");
-printf("%s", ft_ls(cmd));
-printf("==================\n");
-*/

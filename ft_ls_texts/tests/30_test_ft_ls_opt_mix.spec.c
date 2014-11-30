@@ -10,10 +10,12 @@ sandbox_cmd("touch a && ln -s a symlink");
 
 cmd = "-lR .";
 
-// printf("\n===================\n");
-// printf("%s", ls(cmd));
-// printf("\n===================\n");
-// printf("%s", ft_ls(cmd));
-// printf("\n===================\n");
-
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+/*
+printf("\n=====  ls  ========\n");
+printf("%s", ls(cmd));
+printf("===== ft ls =======\n");
+printf("%s", ft_ls(cmd));
+printf("==================\n");
+*/

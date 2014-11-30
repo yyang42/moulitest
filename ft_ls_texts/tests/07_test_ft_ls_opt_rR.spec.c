@@ -12,8 +12,10 @@ reset_sandbox();
 sandbox_cmd("mkdir -p .a .b .c && mkdir -p a b c ");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-// printf("\n===================\n");
-// printf("%s", ls(cmd));
-// printf("\n===================\n");
-// printf("%s", ft_ls(cmd));
-// printf("\n===================\n");
+/*
+printf("\n=====  ls  ========\n");
+printf("%s", ls(cmd));
+printf("===== ft ls =======\n");
+printf("%s", ft_ls(cmd));
+printf("==================\n");
+*/

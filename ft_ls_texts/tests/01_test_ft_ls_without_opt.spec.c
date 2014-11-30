@@ -22,8 +22,11 @@ reset_sandbox();
 sandbox_cmd("touch aaa");
 UT_ASSERT(strcmp(ls("-1 aaa"), ft_ls("-1 aaa")) == 0);
 
-// printf("\n=====  ls  ========\n");
-// printf("%s", ls("-1 | cat -e"));
-// printf("===== ft ls =======\n");
-// printf("%s", ft_ls(". | cat -e"));
-// printf("==================\n");
+
+/*
+printf("\n=====  ls  ========\n");
+printf("%s", ls(cmd));
+printf("===== ft ls =======\n");
+printf("%s", ft_ls(cmd));
+printf("==================\n");
+*/

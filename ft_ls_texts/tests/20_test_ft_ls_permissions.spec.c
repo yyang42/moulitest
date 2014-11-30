@@ -70,5 +70,4 @@ printf("%s", ls(cmd));
 printf("===== ft ls =======\n");
 printf("%s", ft_ls(cmd));
 printf("==================\n");
-
 */

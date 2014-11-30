@@ -1,17 +1,12 @@
 char *cmd;
 
-cmd = "-lA";
 reset_sandbox();
-sandbox_cmd("mkdir .hdir dir && touch .hfile file ");
+sandbox_cmd("touch file");
 
-UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-cmd = "-lA";
-UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
-cmd = "-lAa";
+cmd = "-l1";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-laA";
+cmd = "-1l";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 /*

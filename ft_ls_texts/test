@@ -26,8 +26,6 @@ def get_filenames():
 	for root, dirnames, filenames in os.walk('tests'):
 	  for filename in fnmatch.filter(filenames, '*.spec.c'):
 	      matches.append(os.path.join(root, filename))
-	pattern = '(.*).spec.c'
-	pattern_obj = re.compile(pattern)
 	filenames = [re.sub(r".*\/(.*).spec.c", r"\1", path) for path in matches]
 	return filenames
 
@@ -42,17 +40,15 @@ UT_TEST({name})
 {content}
 }}
 '''.format(name=name, content=content)
-	return output;
+	return output
 
 def build_test_main_def(filenames):
 	output = ""
 	for name in filenames:
-		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path, "r").read()
 		output += '''
 UT_ADD_TEST({name});
 '''.format(name=name)
-	return output;
+	return output
 
 def get_main_content():
 	filenames = get_filenames()

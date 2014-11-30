@@ -1,38 +1,38 @@
 reset_sandbox();
 char *cmd;
 
-cmd = "-lUc /usr/share";
+cmd = "-lUc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-lcu /usr/share";
+cmd = "-lcu /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-luc /usr/share";
+cmd = "-luc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-lcU /usr/share";
+cmd = "-lcU /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-1tUc /usr/share";
+cmd = "-1tUc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-1tcu /usr/share";
+cmd = "-1tcu /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-1tuc /usr/share";
+cmd = "-1tuc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-1tcU /usr/share";
+cmd = "-1tcU /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-tlUc /usr/share";
+cmd = "-tlUc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-tlcu /usr/share";
+cmd = "-tlcu /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-tluc /usr/share";
+cmd = "-tluc /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-tlcU /usr/share";
+cmd = "-tlcU /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);

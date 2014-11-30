@@ -1,14 +1,10 @@
-reset_sandbox();
 char *cmd;
 
-cmd = "-lU /usr/bin";
+cmd = "-lU /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-lUr /usr/bin";
-UT_ASSERT(strcmp(ls("-l /usr"), ft_ls("-l /usr")) == 0);
+cmd = "-1tU /usr";
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-cmd = "-tu1 /usr/bin";
-UT_ASSERT(strcmp(ls("-t /usr"), ft_ls("-t /usr")) == 0);
-
-cmd = "-turl /usr/bin";
+cmd = "-1tlU /usr";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);

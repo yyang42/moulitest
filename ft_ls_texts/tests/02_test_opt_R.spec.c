@@ -13,6 +13,17 @@ sandbox_cmd("mkdir -p .a .b .c && mkdir -p a b c ");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 reset_sandbox();
+sandbox_cmd("mkdir a b c");
+sandbox_cmd("chmod 000 b");
+
+cmd = "-1R 2>&1 | grep -v denied";
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+cmd = "-1R 2>&1 | grep denied | wc -l | tr -d ' ' | tr -d '\n'";
+UT_ASSERT(strcmp(ft_ls(cmd), "1") == 0);
+
+cmd = "-1R";
+reset_sandbox();
 sandbox_cmd("mkdir .dirA && mkdir .dirA/dirB && touch .dirA/dirB/file");
 UT_ASSERT_W(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 

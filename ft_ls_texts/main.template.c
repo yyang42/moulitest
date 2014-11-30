@@ -50,27 +50,11 @@ char	*sandbox_cmd(const char *cmd)
 		strcat(full_cmd, " 1>&2");
 	return get_cmd_out(full_cmd);
 }
-/*
-void	reset_sandbox()
-{
-	struct stat s;
 
-	get_cmd_out("chmod -R 777 ./");
-	get_cmd_out("rm -rf ./sandbox");
-	if (stat("./sandbox", &s) == 0)
-	{
-		reset_sandbox();
-		return ;
-	}
-	get_cmd_out("mkdir ./sandbox ");
-}
-*/
 void	reset_sandbox()
 {
 	get_cmd_out("chmod -R 777 ./");
-	usleep(50);
 	get_cmd_out("rm -rf ./sandbox");
-	usleep(50);
 	get_cmd_out("mkdir ./sandbox ");
 }
 

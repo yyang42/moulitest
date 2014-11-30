@@ -2,13 +2,18 @@ char *cmd = "-1tu";
 char *rcmd = "-1tur";
 char *lcmd = "-1lu";
 char *lscmd = "-1tlu";
+char *mix_cmd1 = "-tSu";
+char *mix_cmd2 = "-utS";
 
 reset_sandbox();
 sandbox_cmd("touch a b c d e && touch -at 201212101830.55 c");
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 UT_ASSERT(strcmp(ls(rcmd), ft_ls(rcmd)) == 0);
 UT_ASSERT(strcmp(ls(lcmd), ft_ls(lcmd)) == 0);
 UT_ASSERT(strcmp(ls(lscmd), ft_ls(lscmd)) == 0);
+UT_ASSERT(strcmp(ls(mix_cmd1), ft_ls(mix_cmd1)) == 0);
+UT_ASSERT(strcmp(ls(mix_cmd2), ft_ls(mix_cmd2)) == 0);
 
 reset_sandbox();
 sandbox_cmd("touch -at 201312101830.55 a && touch -at 201212101830.55 b && touch -at 201412101830.55 c");

@@ -11,6 +11,12 @@ UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 cmd = "-1St";
 UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+cmd = "-1Sr";
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+cmd = "-1rS";
+UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 /*
 printf("\n=====  ls  ========\n");
 printf("%s", ls(cmd));

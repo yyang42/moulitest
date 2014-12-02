@@ -96,7 +96,7 @@ char	*ls_err(const char *options)
 	strcat(cmd, ls_path);
 	strcat(cmd, " ");
 	strcat(cmd, options);
-	strcat(cmd, " 3>&2 2>&1 1>&3");
+	strcat(cmd, " 2>&1 1>/dev/null");
 	return get_cmd_out(cmd);
 }
 
@@ -110,7 +110,7 @@ char	*ft_ls_err(const char *options)
 	strcat(cmd, ft_ls_path);
 	strcat(cmd, " ");
 	strcat(cmd, options);
-	strcat(cmd, " 3>&2 2>&1 1>&3");
+	strcat(cmd, " 2>&1 1>/dev/null");
 	return get_cmd_out(cmd);
 }
 

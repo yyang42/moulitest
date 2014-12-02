@@ -8,8 +8,8 @@ RENDU_PATH = $(shell grep FT_LS_PATH ../config.ini | cut -d '=' -f 2)
 PROTOTYPES = $(shell ls -1 testsv2 | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.c/UT_TEST\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
-all: project
-	@./a.out
+all: $(NAME)
+	@./$(NAME)
 
 project:
 	@make -C $(RENDU_PATH)

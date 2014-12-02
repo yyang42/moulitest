@@ -2,9 +2,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <project.h>
 
 #define MAX_CMD_SIZE 10000
 #define SANDBOX_PATH "./sandbox"
+
+int		debug = 0;
+
+char	ft_ls_path[MAX_CMD_SIZE] = RENDU_PATH"/ft_ls";
+char	ls_path[MAX_CMD_SIZE] = "/bin/ls";
 
 char	*get_cmd_out(const char *cmd)
 {

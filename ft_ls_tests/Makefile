@@ -1,4 +1,4 @@
-NAME = ft_ls_tests
+NAME = ft_ls_test
 INCLUDES = -I . -I ../testframework
 FLAGS = -Werror -Wall -Wextra
 SOURCE = ../testframework/*.c ./testsv2/*.c main_v2.c utils.c
@@ -8,17 +8,20 @@ RENDU_PATH = $(shell grep FT_LS_PATH ../config.ini | cut -d '=' -f 2)
 PROTOTYPES = $(shell ls -1 testsv2 | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.c/UT_TEST\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
-all: $(NAME)
-	@make -C $(RENDU_PATH) re
+all: project
 	@./a.out
 
-$(NAME):
-	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE)
+project:
+	@make -C $(RENDU_PATH)
+
+$(NAME): project
+	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -o $(NAME)
 
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@make -C $(RENDU_PATH) fclean
+	@rm -f $(NAME)
 
 re: fclean all

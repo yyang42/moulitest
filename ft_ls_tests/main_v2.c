@@ -10,7 +10,7 @@
 #include <regex.h>
 #include <project.h>
 
-PROTOS
+PROTOTYPES
 
 int	main(void)
 {

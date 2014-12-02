@@ -3,6 +3,7 @@
 
 # include <stdio.h>
 # include <signal.h>
+# include <string.h>
 
 # define C_CLEAR "\033[0m"
 # define C_YELLOW "\033[33m"

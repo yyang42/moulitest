@@ -26,4 +26,4 @@ fclean: clean
 	make -C $(RENDU_PATH) fclean
 	rm -f $(NAME)
 
-re: fclean all
+re: clean fclean all project

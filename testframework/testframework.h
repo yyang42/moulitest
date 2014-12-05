@@ -40,7 +40,6 @@
 								ut_last_cond = '\0';
 
 # define UT_ADD_TEST(name)		ut_add_test_(&ut_test_ ## name, #name)
-# define UT_RUN_ALL_TESTS()		ut_run_all_tests_()
 
 /*
  *  Bonus
@@ -70,6 +69,6 @@ extern char					ut_test_symbol[100000];
 void						ut_sigsegv_(int);
 ut_test_list_t				*ut_create_list_(ut_test, char *);
 void						ut_add_test_(ut_test, char *);
-int							ut_run_all_tests_(void);
+int							ut_run_all_tests(void);
 int							strequ(const char *s1, const char *s2);
 #endif /* !UNIT_TEST_H */

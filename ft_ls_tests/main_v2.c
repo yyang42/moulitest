@@ -15,6 +15,6 @@ PROTOTYPES
 int	main(void)
 {
 	ADD_TESTS
-	UT_RUN_ALL_TESTS();
+	ut_run_all_tests();
 	return (0);
 }

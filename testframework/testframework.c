@@ -79,7 +79,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	ut_last_cond = '\0';
 }
 
-int			ut_run_all_tests_(void)
+int			ut_run_all_tests()
 {
 	int		_test_fails;
 	int		count;

@@ -9,19 +9,20 @@ PROTOTYPES = $(shell ls -1 testsv2 | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
 all: $(NAME)
-	@./$(NAME)
+	./$(NAME)
 
 project:
-	@make -C $(RENDU_PATH)
+	make re -k -C $(RENDU_PATH)
 
 $(NAME): project
-	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -o $(NAME)
+	make -k -C $(RENDU_PATH)
+	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -o $(NAME)
 
 clean:
-	@rm -f $(OBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
-	@make -C $(RENDU_PATH) fclean
-	@rm -f $(NAME)
+	make -C $(RENDU_PATH) fclean
+	rm -f $(NAME)
 
 re: fclean all

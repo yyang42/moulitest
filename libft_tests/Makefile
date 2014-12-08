@@ -6,7 +6,6 @@ RENDU_PATH = $(shell grep LIBFT_PATH ../config.ini | cut -d '=' -f 2)
 PROTOTYPES = $(shell ls -1 part1 part2 bonus extra | grep -v ':' | sed -E "s/(.*)\.spec\.c/UT_TEST\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 INCLUDES = -I$(RENDU_PATH) -I ../testframework -I.
-PARTS = -DPART1
 PARTS_DIRS = part1
 
 all:
@@ -16,19 +15,20 @@ all:
 	@echo "\nCorrection:\n\tmake check_forbidden_fn\n"
 
 part2_def:
-	$(eval PARTS += -DPART2)
+	$(eval PARTS_DIRS += part2)
 	$(eval SOURCE += ./part2/*.c)
 
 part2: part2_def part1
 
 bonus_def: part2_def
-	$(eval PARTS += -DBONUS)
+	$(eval PARTS = -DBONUS)
+	$(eval PARTS_DIRS += bonus)
 	$(eval SOURCE += ./bonus/*.c)
 
 bonus: bonus_def part1
 
 extra_def: bonus_def
-	$(eval PARTS += -DEXTRA)
+	$(eval PARTS_DIRS += extra)
 	$(eval SOURCE += ./extra/*.c)
 
 extra: extra_def part1

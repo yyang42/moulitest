@@ -1,9 +1,14 @@
-char	*src;
-char	*dst;
+#include "project.h"
 
-src = strdup("abcde");
-dst = ft_strmap(src, map_test);
+UT_TEST(ft_strmap)
+{
+	char	*src;
+	char	*dst;
 
-free(src); src = NULL;
+	src = strdup("abcde");
+	dst = ft_strmap(src, map_test);
 
-UT_ASSERT_EQ(strcmp(dst, "bcdef"), 0);
+	free(src); src = NULL;
+
+	UT_ASSERT_EQ(strcmp(dst, "bcdef"), 0);
+}

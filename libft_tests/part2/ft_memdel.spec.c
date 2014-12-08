@@ -1,11 +1,16 @@
-void	*mem;
+#include "project.h"
 
-mem = malloc(2000);
-ft_memdel(&mem);
-UT_ASSERT_W(mem == NULL);
+UT_TEST(ft_memdel)
+{
+	void	*mem;
 
-/* test edge cases */
-void	*mem2;
-mem2 = NULL;
-// ft_memdel(NULL);
-// ft_memdel(&mem2);
+	mem = malloc(2000);
+	ft_memdel(&mem);
+	UT_ASSERT_W(mem == NULL);
+
+	/* test edge cases */
+	// void	*mem2;
+	// mem2 = NULL;
+	// ft_memdel(NULL);
+	// ft_memdel(&mem2);
+}

@@ -36,7 +36,7 @@ extra: extra_def part1
 project:
 	@make -C $(RENDU_PATH)
 
-part1: project
+part1: fclean project
 	$(eval ADD_TESTS = $(shell ls -1 $(PARTS_DIRS) | grep -v ':' | grep -e "$(tests)" | sed -E 's/(.*)\.spec\.c/ut_add_test\(\&ut_test_\1, \\\"\1\\\"\);/'))
 	$(eval DEFINES += -DADD_TESTS="$(ADD_TESTS)")
 	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(PARTS) -lft -L$(RENDU_PATH) $(SOURCE) -o $(NAME)
@@ -49,4 +49,6 @@ fclean: clean
 	@make -C $(RENDU_PATH) fclean
 	@rm -f $(NAME)
 
-re: clean fclean all project part1 part2 part2_def bonus bonus_def extra extra_def
+re: fclean part1
+
+.PHONY: clean fclean all project part1 part2 part2_def bonus bonus_def extra extra_def

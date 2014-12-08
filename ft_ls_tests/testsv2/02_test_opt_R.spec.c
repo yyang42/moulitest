@@ -26,19 +26,6 @@ UT_TEST(02_test_opt_R)
 	cmd = "-1R 2>&1 | grep denied | wc -l | tr -d ' ' | tr -d '\n'";
 	UT_ASSERT(strcmp(ft_ls(cmd), "1") == 0);
 
-	cmd = "-1R";
-	reset_sandbox();
-	sandbox_cmd("mkdir .dirA && mkdir .dirA/dirB && touch .dirA/dirB/file");
-	UT_ASSERT_W(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
-	reset_sandbox();
-	sandbox_cmd("mkdir .dir1A .dir1B && mkdir .dir1A/dir2A && touch .dir1A/dir2A/file3");
-	UT_ASSERT_W(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
-	reset_sandbox();
-	sandbox_cmd("mkdir .dir1A .dir1B && mkdir .dir1A/dir2{A,B} && touch .dir1A/dir2A/file3A");
-	UT_ASSERT_W(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
 	/*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));

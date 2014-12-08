@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(24_test_no_groupname)
+UT_TEST(24_test_multiple_files)
 {
 
 
@@ -8,7 +8,13 @@ UT_TEST(24_test_no_groupname)
 	char *cmd;
 
 	reset_sandbox();
-	cmd = "-l /usr/share/doc";
+	cmd = "-1 . .";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+	reset_sandbox();
+	sandbox_cmd("touch a b C D");
+	cmd = "-1 ./ .";
+
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	/*

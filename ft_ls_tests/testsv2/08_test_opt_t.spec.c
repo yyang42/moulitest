@@ -39,6 +39,14 @@ UT_TEST(08_test_opt_t)
 	sandbox_cmd("touch -t 300012101830.55 c");
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+
+	cmd = "-1lt";
+	reset_sandbox();
+
+	sandbox_cmd("touch -t 201312101830.55 B");
+	sandbox_cmd("touch -t 201312101830.55 a");
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 	/*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));

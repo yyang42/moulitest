@@ -19,9 +19,16 @@ UT_TEST(09_test_opt_l)
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	reset_sandbox();
-	sandbox_cmd("touch a b c && ln a a_ln && ln -s b b_lns && mkdir bonjour");
-	sandbox_cmd("ln a abcdefghtmlfjsldjfoiaufjlksdjflaslf4654656545lfjsdlfjasi");
-
+	sandbox_cmd("touch .a");
+	sandbox_cmd("dd bs=2 count=14450 if=/dev/random of=.a  >/dev/null 2>&1");
+	sandbox_cmd("ln -s .a b");
+/*
+	printf("\n=====  ls  ========\n");
+	printf("%s", ls(cmd));
+	printf("===== ft ls =======\n");
+	printf("%s", ft_ls(cmd));
+	printf("==================\n");
+*/
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	/*

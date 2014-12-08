@@ -1,2 +1,3 @@
-FT_LS_PATH = "/Volumes/Data/nfs/zfs-student-3/users/2014/yyang/Dropbox/projects_active/ft_ls/rendu"
-GET_NEXT_LINE_PATH = "~/Dropbox/projects_active/get_next_line/rendu"
+FT_LS_PATH = "/path/to/ft_ls"
+GET_NEXT_LINE_PATH = "/path/to/get_next_line"
+LIBFT_PATH = "/path/to/libft"

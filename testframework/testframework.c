@@ -28,21 +28,17 @@ ut_test_list_t		*ut_create_list_(ut_test f, char *n)
 	return (tmp);
 }
 
-void			ut_add_test_(ut_test f, char *n)
+void			ut_add_test(ut_test f, char *n)
 {
 	ut_test_list_t	*tmp;
 
 	if (!ut_tests)
-	{
 		ut_tests = ut_create_list_(f, n);
-	}
 	else
 	{
 		tmp = ut_tests;
 		while (tmp->next)
-		{
 			tmp = tmp->next;
-		}
 		tmp->next = ut_create_list_(f, n);
 	}
 }
@@ -79,7 +75,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	ut_last_cond = '\0';
 }
 
-int			ut_run_all_tests_(void)
+int			ut_run_all_tests()
 {
 	int		_test_fails;
 	int		count;

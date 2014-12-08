@@ -30,6 +30,7 @@ char	mapi_test(unsigned int i, char c)
 
 int		____diddel;
 
+#ifdef BONUS
 void	del_test(void *data, size_t i)
 {
 	(void)data;
@@ -52,3 +53,4 @@ t_list	*lstmap_test(t_list *list)
 	l2->content_size = list->content_size * 2;
 	return (l2);
 }
+#endif

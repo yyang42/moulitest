@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <signal.h>
 # include <string.h>
+# include <regex.h>
 
 # define C_CLEAR "\033[0m"
 # define C_YELLOW "\033[33m"
@@ -68,4 +69,6 @@ ut_test_list_t				*ut_create_list_(ut_test, char *);
 void						ut_add_test(ut_test, char *);
 int							ut_run_all_tests(void);
 int							strequ(const char *s1, const char *s2);
-#endif /* !UNIT_TEST_H */
+char						*re_replace(char *str, char *pattern, char *replacement);
+
+#endif

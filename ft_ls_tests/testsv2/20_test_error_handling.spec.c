@@ -68,6 +68,14 @@ UT_TEST(20_test_error_handling)
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
 	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
 
+
+	reset_sandbox();
+	sandbox_cmd("mkdir b");
+	cmd = "-1 a b";
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
+
 /*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls_err(cmd));

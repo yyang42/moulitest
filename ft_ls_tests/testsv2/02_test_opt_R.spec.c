@@ -32,6 +32,17 @@ UT_TEST(02_test_opt_R)
 	cmd = "-R A a";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+	reset_sandbox();
+	sandbox_cmd("mkdir A");
+	sandbox_cmd("touch A/file rootfile");
+	cmd = "-R A a rootfile";
+	printf("\n=====  ls  ========\n");
+	printf("%s", ls(cmd));
+	printf("===== ft ls =======\n");
+	printf("%s", ft_ls(cmd));
+	printf("==================\n");
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 	/*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));

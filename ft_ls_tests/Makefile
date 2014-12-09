@@ -17,7 +17,7 @@ project:
 
 $(NAME): project
 	make -k -C $(RENDU_PATH)
-	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -o $(NAME)
+	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)

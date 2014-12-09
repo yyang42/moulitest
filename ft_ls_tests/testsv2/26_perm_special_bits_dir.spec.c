@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(bonus_33_test_ACL_dir)
+UT_TEST(26_perm_special_bits_dir)
 {
 	char *cmd = "-l";
 

@@ -1,18 +1,6 @@
 #include <project.h>
 
-static char *strip_illegal_opt_err(char *str)
-{
-	str = re_replace(str, "^.*ls: ", "XXXXls: ");
-	str = re_replace(str, "usage: (ft_)?ls", "usage: XXXX");
-	str = re_replace(str, "\\[-[^]]+\\] ", "[XXXX] ");
-	return (str);
-}
 
-static char *strip_no_such_file_or_dir(char *str)
-{
-	str = re_replace(str, "[^\n]*ls: ", "XXXXls: ");
-	return (str);
-}
 
 UT_TEST(20_test_error_handling)
 {
@@ -86,6 +74,18 @@ UT_TEST(20_test_error_handling)
 	cmd = "-1 adir zdir aNotExist zNotExistB afile zfile asymdir zsymdir asymfile zsymfile";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
+
+	reset_sandbox();
+	sandbox_cmd("touch K j l");
+	cmd = "-r a c b l K j";
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// printf("\n=====  ls  ========\n");
+	// printf("%s", ls_out_str);
+	// printf("===== ft ls =======\n");
+	// printf("%s", ft_ls_out_str);
+	// printf("==================\n");
 	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
 
 /*

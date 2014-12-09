@@ -106,3 +106,17 @@ char	*ft_ls_err(const char *options)
 	strcat(cmd, " 2>&1 1>/dev/null");
 	return get_cmd_out(cmd);
 }
+
+char *strip_illegal_opt_err(char *str)
+{
+	str = re_replace(str, "^.*ls: ", "XXXXls: ");
+	str = re_replace(str, "usage: (ft_)?ls", "usage: XXXX");
+	str = re_replace(str, "\\[-[^]]+\\] ", "[XXXX] ");
+	return (str);
+}
+
+char *strip_no_such_file_or_dir(char *str)
+{
+	str = re_replace(str, "[^\n]*ls: ", "XXXXls: ");
+	return (str);
+}

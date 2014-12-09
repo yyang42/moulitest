@@ -26,6 +26,12 @@ UT_TEST(02_test_opt_R)
 	cmd = "-1R 2>&1 | grep denied | wc -l | tr -d ' ' | tr -d '\n'";
 	UT_ASSERT(strcmp(ft_ls(cmd), "1") == 0);
 
+	reset_sandbox();
+	sandbox_cmd("mkdir A");
+	sandbox_cmd("touch A/file");
+	cmd = "-R A a";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 	/*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));

@@ -76,6 +76,18 @@ UT_TEST(20_test_error_handling)
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
 	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
 
+	reset_sandbox();
+	sandbox_cmd("mkdir adir zdir");
+	sandbox_cmd("touch afile zfile");
+	sandbox_cmd("ln -s adir asymdir");
+	sandbox_cmd("ln -s adir zsymdir");
+	sandbox_cmd("ln -s afile asymfile");
+	sandbox_cmd("ln -s afile zsymfile");
+	cmd = "-1 adir zdir aNotExist zNotExistB afile zfile asymdir zsymdir asymfile zsymfile";
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
+
 /*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls_err(cmd));

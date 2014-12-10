@@ -6,6 +6,7 @@ Correction: A failed test doesn't necessarily mean that the tested code is wrong
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 
+<br /><br /><br />
 Quick Start
 ---
 Create the config file
@@ -24,7 +25,8 @@ Run tests
 Notes
 ---
 GNL
-	**WARNING:** If the tests stop in the middle, it could mean that your get_next_line is waiting for an input from the file descriptor but nothing is coming.
+
+* If the tests stop in the middle, it could mean that your get_next_line is waiting for an input from the file descriptor but nothing is coming.
 
 Credits
 ---

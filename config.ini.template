@@ -1,4 +1,4 @@
-FT_LS_PATH = "/path/to/ft_ls"
-GET_NEXT_LINE_PATH = "/path/to/get_next_line"
-LIBFT_PATH = "/path/to/libft"
-FT_PRINTF_PATH = "/path/to/printf"
+FT_LS_PATH = /path/to/ft_ls
+GET_NEXT_LINE_PATH = /path/to/get_next_line
+LIBFT_PATH = /path/to/libft
+FT_PRINTF_PATH = /path/to/printf

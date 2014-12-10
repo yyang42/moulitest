@@ -2,11 +2,12 @@
 
 <img align="right" height="260" src="http://i.imgur.com/3p0Xg7Z.png">
 
+This repository contains tests for several projects done at 42.
+
 Correction: A failed test doesn't necessarily mean that the tested code is wrong. As general rule, only use tests that you understand, so try to understand the tests before using them.
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 
-<br /><br /><br />
 Quick Start
 ---
 Create the config file

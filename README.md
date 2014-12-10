@@ -5,10 +5,8 @@
 This repository contains tests for several projects done at 42.
 
 Feedbacks, github issues and pull requests are welcome. You can also raise issues on github directly.
-<br /><br /><br /><br />
 
-Quick Start
----
+## Quick Start
 Create the config file
 
 	cp config.ini.template config.ini

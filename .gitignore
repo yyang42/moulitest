@@ -21,3 +21,5 @@ sandbox
 
 # exec
 ft_ls_tests/ft_ls_test*
+libft_tests/libft_test*
+get_next_line_tests/get_next_line_tests*

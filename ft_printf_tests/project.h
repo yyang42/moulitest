@@ -6,7 +6,7 @@
 /*   By: celegran <celegran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/10 04:42:32 by celegran         ###   ########.fr       */
+/*   Updated: 2014/12/10 06:37:49 by celegran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
+# include <limits.h>
 
 int		old_out;
 int		ret1;

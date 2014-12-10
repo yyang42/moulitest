@@ -1,8 +1,11 @@
 # Moulitest: Test your 42 projects
 
+<img align="right" height="260" src="http://i.imgur.com/3p0Xg7Z.png">
+
 This repository contains tests for several projects done at 42.
 
 Feedbacks, github issues and pull requests are welcome. You can also raise issues on github directly.
+<br /><br /><br />
 
 Quick Start
 ---

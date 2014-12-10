@@ -6,9 +6,13 @@
 #    By: celegran <celegran@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2014/12/08 14:37:26 by celegran         ###   ########.fr        #
+#    Updated: 2014/12/10 06:06:15 by celegran         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+tests ?= spec.c$$
+
+export tests
 
 help:
 	@echo "Usage :\n"
@@ -17,7 +21,8 @@ help:
 	@echo "\tmake libft_bonus    // Includes part2 and part1\n"
 	@echo "\tmake get_next_line"
 	@echo "\tmake gnl            // Alias for get_next_line\n"
-	@echo "\tmake ft_ls"
+	@echo "\tmake ft_ls\n"
+	@echo "\tmake ft_printf\n"
 
 libft_part1:
 	@make -C libft_tests part1
@@ -36,4 +41,7 @@ gnl: get_next_line
 ft_ls:
 	@make -C ft_ls_tests
 
-.PHONY: help libft_part1 libft_part2 libft_bonus get_next_line gnl ft_ls
+ft_printf:
+	@make -C ft_printf_tests
+
+.PHONY: help libft_part1 libft_part2 libft_bonus get_next_line gnl ft_ls ft_printf

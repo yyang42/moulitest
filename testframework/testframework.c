@@ -98,7 +98,12 @@ int			ut_run_all_tests()
 		ret = 0;
 		if (setjmp(ut_env))
 		{
-			UT_SEGV(tmp);
+			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
+			if (ut_last_cond)
+				printf(" ERROR: %s", ut_last_cond);
+			printf("\n");
+			*ut_test_symbol = '\0';
+			ut_last_cond = '\0';
 			_test_fails++;
 		}
 		else

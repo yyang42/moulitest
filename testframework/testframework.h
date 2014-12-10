@@ -33,15 +33,6 @@
 									strcat(ut_test_symbol, C_GREEN"."C_CLEAR); \
 								} \
 								is_warning = 0;
-# define UT_SEGV(test_)			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
-								if (ut_last_cond) \
-									printf(" ERROR: %s", ut_last_cond); \
-								printf("\n"); \
-								*ut_test_symbol = '\0'; \
-								ut_last_cond = '\0';
-/*
- *  Bonus
- */
 
 # define UT_ASSERT_EQ(a, b)		UT_ASSERT((a) == (b))
 # define UT_ASSERT_EQ_STR(a, b)	UT_ASSERT(a && b && strcmp(a, b))

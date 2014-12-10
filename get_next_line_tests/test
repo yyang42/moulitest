@@ -1,129 +1,129 @@
-#!/usr/bin/python
-import sys
-import os
-import fnmatch
-import re
-import json
+	# #!/usr/bin/python
+	# import sys
+	# import os
+	# import fnmatch
+	# import re
+	# import json
 
-config = json.loads(open('../config.json').read())
-RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
-LIBFT_PATH = RENDU_PATH + '/libft'
-LIBFT_INCLUDES = LIBFT_PATH + '/includes'
-TEST_FOLDER_PATH = 'tests'
-TEST_FILE_SUFFIX = '.spec.c'
-BUILD_MAIN = "main.build.c"
-FRAMEWORK_PATH = "../testframework"
-FRAMEWORK_SOURCE = FRAMEWORK_PATH + "/testframework.c"
-OUT_FILE = "./a.out"
+	# config = json.loads(open('../config.json').read())
+	# RENDU_PATH = os.path.expanduser(config['get_next_line']['rendu_path'])
+	# LIBFT_PATH = RENDU_PATH + '/libft'
+	# LIBFT_INCLUDES = LIBFT_PATH + '/includes'
+	# TEST_FOLDER_PATH = 'tests'
+	# TEST_FILE_SUFFIX = '.spec.c'
+	# BUILD_MAIN = "main.build.c"
+	# FRAMEWORK_PATH = "../testframework"
+	# FRAMEWORK_SOURCE = FRAMEWORK_PATH + "/testframework.c"
+	# OUT_FILE = "./a.out"
 
-def print_usage():
-	print "Usage:"
-	print "    ./test"
-	print ""
-	print "Options:"
-	print "    -h --help"
-	print ""
+	# def print_usage():
+	# 	print "Usage:"
+	# 	print "    ./test"
+	# 	print ""
+	# 	print "Options:"
+	# 	print "    -h --help"
+	# 	print ""
 
-def get_filenames():
-	matches = []
-	for root, dirnames, filenames in os.walk('tests'):
-	  for filename in fnmatch.filter(filenames, '*.spec.c'):
-	      matches.append(os.path.join(root, filename))
-	filenames = [re.sub(r".*\/(.*).spec.c", r"\1", path) for path in matches]
-	return filenames
+	# def get_filenames():
+	# 	matches = []
+	# 	for root, dirnames, filenames in os.walk('tests'):
+	# 	  for filename in fnmatch.filter(filenames, '*.spec.c'):
+	# 	      matches.append(os.path.join(root, filename))
+	# 	filenames = [re.sub(r".*\/(.*).spec.c", r"\1", path) for path in matches]
+	# 	return filenames
 
-def build_test_def(filenames):
-	output = ""
-	for name in filenames:
-		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
-		content = open(path, "r").read()
-		output += '''
-UT_TEST({name})
-{{
-{content}
-}}
-'''.format(name=name, content=content)
-	return output
+	# def build_test_def(filenames):
+	# 	output = ""
+	# 	for name in filenames:
+	# 		path = os.path.join(TEST_FOLDER_PATH, name+TEST_FILE_SUFFIX)
+	# 		content = open(path, "r").read()
+	# 		output += '''
+	# UT_TEST({name})
+	# {{
+	# {content}
+	# }}
+	# '''.format(name=name, content=content)
+	# 	return output
 
-def build_test_main_def(filenames):
-	output = ""
-	for name in filenames:
-		output += '''
-UT_ADD_TEST({name});
-'''.format(name=name)
-	return output
+	# def build_test_main_def(filenames):
+	# 	output = ""
+	# 	for name in filenames:
+	# 		output += '''
+	# UT_ADD_TEST({name});
+	# '''.format(name=name)
+	# 	return output
 
-def get_main_content():
-	filenames = get_filenames()
-	test_def_content = build_test_def(filenames)
-	test_main_def_content = build_test_main_def(filenames)
-	original_file = open("main.c", "r").read()
-	define_block = '''#define RENDU_PATH "{rendu_path}"'''.format(rendu_path=RENDU_PATH)
-	main_build_content = (original_file
-								.replace("<DEF_BLOCK>", define_block)
-								.replace("<TEST_DEF_BLOCK>", test_def_content)
-								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))
-	return main_build_content
+	# def get_main_content():
+	# 	filenames = get_filenames()
+	# 	test_def_content = build_test_def(filenames)
+	# 	test_main_def_content = build_test_main_def(filenames)
+	# 	original_file = open("main.c", "r").read()
+	# 	define_block = '''#define RENDU_PATH "{rendu_path}"'''.format(rendu_path=RENDU_PATH)
+	# 	main_build_content = (original_file
+	# 								.replace("<DEF_BLOCK>", define_block)
+	# 								.replace("<TEST_DEF_BLOCK>", test_def_content)
+	# 								.replace("<MAIN_TEST_BLOCK>", test_main_def_content))
+	# 	return main_build_content
 
-def build_extra():
-	output = ""
-	for fn_name in config['libft']['extra_tests']:
-		output += "#define TEST_{}\n".format(fn_name)
-	return output
+	# def build_extra():
+	# 	output = ""
+	# 	for fn_name in config['libft']['extra_tests']:
+	# 		output += "#define TEST_{}\n".format(fn_name)
+	# 	return output
 
 
-def create_main_build():
-	main_content = get_main_content()
-	open("main.build.c", "w").write(main_content)
+	# def create_main_build():
+	# 	main_content = get_main_content()
+	# 	open("main.build.c", "w").write(main_content)
 
-def remove_a_out():
-	try:
-		os.remove(OUT_FILE)
-	except OSError:
-		pass
+	# def remove_a_out():
+	# 	try:
+	# 		os.remove(OUT_FILE)
+	# 	except OSError:
+	# 		pass
 
-def print_exec_cmd(cmd):
-	print cmd
-	os.system(cmd)
+	# def print_exec_cmd(cmd):
+	# 	print cmd
+	# 	os.system(cmd)
 
-def clean_files():
-	print_exec_cmd("rm -f ./test_gnl *.o")
+	# def clean_files():
+	# 	print_exec_cmd("rm -f ./test_gnl *.o")
 
-def run_moulitest():
-	remove_a_out()
-	create_main_build()
-	libft_exists = os.path.isdir(LIBFT_PATH)
-	clean_files()
-	if libft_exists:
-		print_exec_cmd("make -C {}/libft/ fclean".format(RENDU_PATH))
-		print_exec_cmd("make -C {}/libft/".format(RENDU_PATH))
-		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path}/libft/includes/ -c {path}/get_next_line.c".format(path=RENDU_PATH))
-		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path} -I {path}/libft/includes/ -I {FRAMEWORK_PATH} -c {FRAMEWORK_SOURCE} {BUILD_MAIN}".format(
-			path=RENDU_PATH, FRAMEWORK_PATH=FRAMEWORK_PATH, FRAMEWORK_SOURCE=FRAMEWORK_SOURCE, BUILD_MAIN=BUILD_MAIN,
-		))
-		print_exec_cmd("gcc -o test_gnl get_next_line.o testframework.o main.build.o -L {path}/libft/ -lft".format(path=RENDU_PATH))
-		print_exec_cmd("./test_gnl")
+	# def run_moulitest():
+	# 	remove_a_out()
+	# 	create_main_build()
+	# 	libft_exists = os.path.isdir(LIBFT_PATH)
+	# 	clean_files()
+	# 	if libft_exists:
+	# 		print_exec_cmd("make -C {}/libft/ fclean".format(RENDU_PATH))
+	# 		print_exec_cmd("make -C {}/libft/".format(RENDU_PATH))
+	# 		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path}/libft/includes/ -c {path}/get_next_line.c".format(path=RENDU_PATH))
+	# 		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path} -I {path}/libft/includes/ -I {FRAMEWORK_PATH} -c {FRAMEWORK_SOURCE} {BUILD_MAIN}".format(
+	# 			path=RENDU_PATH, FRAMEWORK_PATH=FRAMEWORK_PATH, FRAMEWORK_SOURCE=FRAMEWORK_SOURCE, BUILD_MAIN=BUILD_MAIN,
+	# 		))
+	# 		print_exec_cmd("gcc -o test_gnl get_next_line.o testframework.o main.build.o -L {path}/libft/ -lft".format(path=RENDU_PATH))
+	# 		print_exec_cmd("./test_gnl")
 
-	else:
-		print "here"
-		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path} -I {FRAMEWORK_PATH} -c {path}/get_next_line.c {FRAMEWORK_SOURCE} {BUILD_MAIN}".format(
-			path=RENDU_PATH, FRAMEWORK_PATH=FRAMEWORK_PATH, FRAMEWORK_SOURCE=FRAMEWORK_SOURCE, BUILD_MAIN=BUILD_MAIN))
-		print_exec_cmd("gcc -o test_gnl get_next_line.o testframework.o main.build.o".format(path=RENDU_PATH))
-		print_exec_cmd("./test_gnl")
+	# 	else:
+	# 		print "here"
+	# 		print_exec_cmd("gcc -Wall -Wextra -Werror -I {path} -I {FRAMEWORK_PATH} -c {path}/get_next_line.c {FRAMEWORK_SOURCE} {BUILD_MAIN}".format(
+	# 			path=RENDU_PATH, FRAMEWORK_PATH=FRAMEWORK_PATH, FRAMEWORK_SOURCE=FRAMEWORK_SOURCE, BUILD_MAIN=BUILD_MAIN))
+	# 		print_exec_cmd("gcc -o test_gnl get_next_line.o testframework.o main.build.o".format(path=RENDU_PATH))
+	# 		print_exec_cmd("./test_gnl")
 
-	# 	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
-	# 		"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c"]
-	# 	call(cmd_list)
-	# 	print " ".join(cmd_list)
+	# 	# 	cmd_list = ["gcc", "-Wall", "-Werror", "-Wextra", "-I"+FRAMEWORK_PATH,
+	# 	# 		"-I"+RENDU_PATH, BUILD_MAIN, FRAMEWORK_SOURCE, RENDU_PATH+"/get_next_line.c"]
+	# 	# 	call(cmd_list)
+	# 	# 	print " ".join(cmd_list)
 
-	# # error_no = call(cmd_list)
-	# # if error_no == 0:
-	# # 	call([OUT_FILE])
+	# 	# # error_no = call(cmd_list)
+	# 	# # if error_no == 0:
+	# 	# # 	call([OUT_FILE])
 
-if len(sys.argv) == 1:
-	run_moulitest()
-	# print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
-else:
-	arg = sys.argv[1]
-	if arg == '-h' or arg == '--help':
-		print_usage()
+	# if len(sys.argv) == 1:
+	# 	run_moulitest()
+	# 	# print '''/!\ Make sure to test with BUFF_SIZE = 1 / 6 / 1000000'''
+	# else:
+	# 	arg = sys.argv[1]
+	# 	if arg == '-h' or arg == '--help':
+	# 		print_usage()

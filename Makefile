@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: celegran <celegran@student.42.fr>          +#+  +:+       +#+         #
+#    By: juschaef <juschaef@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2014/12/10 06:06:15 by celegran         ###   ########.fr        #
+#    Updated: 2014/12/10 20:06:12 by juschaef         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ libft_bonus:
 	@make -C libft_tests bonus
 
 get_next_line:
-	@make -C get_next_line_tests
+	@make re -C get_next_line_tests
 
 gnl: get_next_line
 

@@ -1,6 +1,6 @@
 # Moulitest
 
-This repository contains tests for several projects done at 42. Please use the tests with caution and check the tests source code.
+This repository contains tests for several projects done at 42.
 
 Correction: A failed test doesn't necessarily mean that the tested code is wrong. The test suite doesn't correct for you, **you are the corrector**. As general rule, only use tests that you understand.
 

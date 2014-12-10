@@ -6,7 +6,7 @@
 #    By: celegran <celegran@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2014/12/10 05:54:49 by celegran         ###   ########.fr        #
+#    Updated: 2014/12/10 06:06:15 by celegran         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ help:
 	@echo "\tmake libft_bonus    // Includes part2 and part1\n"
 	@echo "\tmake get_next_line"
 	@echo "\tmake gnl            // Alias for get_next_line\n"
-	@echo "\tmake ft_ls"
-	@echo "\tmake ft_printf"
+	@echo "\tmake ft_ls\n"
+	@echo "\tmake ft_printf\n"
 
 libft_part1:
 	@make -C libft_tests part1

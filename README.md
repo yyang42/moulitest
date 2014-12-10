@@ -8,6 +8,7 @@ Correction: A failed test doesn't necessarily mean that the tested code is wrong
 
 Feedbacks and pull requests are welcome. You can also raise issues on github directly.
 
+<br /><br />
 Quick Start
 ---
 Create the config file

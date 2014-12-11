@@ -29,13 +29,13 @@ UT_TEST(02_test_opt_R)
 	reset_sandbox();
 	sandbox_cmd("mkdir A");
 	sandbox_cmd("touch A/file");
-	cmd = "-R A a";
+	cmd = "-1R A a";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	reset_sandbox();
 	sandbox_cmd("mkdir A");
 	sandbox_cmd("touch A/file rootfile");
-	cmd = "-R A a rootfile";
+	cmd = "-1R A a rootfile";
 /*	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));
 	printf("===== ft ls =======\n");

@@ -29,7 +29,9 @@ Run tests
 ## Advanced use
 Run only some tests
 
-	make tests=<regexp>
+	make ft_ls tests=<regexp>
+	# e.g. To launch only the test 05 you can use
+	make ft_ls tests=^05
 
 Notes
 ---
@@ -42,4 +44,4 @@ Credits
 
 The test framework and many libft tests are based on the work done by Maxime Bacoux (mbacoux). 
 Here is the original repository: https://github.com/Nax/libft-test.  
-Thanks to Lefta (a.k.a. celegran) for his work, especially on the v2.
+Thanks to [lefta](https://github.com/lefta) (aka celegran) for his work, especially on the v2.

@@ -18,7 +18,8 @@ UT_TEST(41_hard_test_large_file)
 	    write(fd2, line, strlen(line));
 	    write(fd2, "\n", 1);
 	}
-	write(fd2, line, strlen(line));
+	if (line)
+		write(fd2, line, strlen(line));
 	close(fd);
 	close(fd2);
 

@@ -19,7 +19,8 @@ UT_TEST(42_hard_test_one_big_fat_line)
 	    write(fd2, line, strlen(line));
 	    write(fd2, "\n", 1);
 	}
-	write(fd2, line, strlen(line));
+	if (line)
+		write(fd2, line, strlen(line));
 	close(fd);
 	close(fd2);
 

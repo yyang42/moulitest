@@ -16,7 +16,8 @@ UT_TEST(40_hard_test_medium_string)
 	pipe(p);
 	dup2(p[1], 1);
 
-	write(1, str, strlen(str));
+	if (str)
+		write(1, str, strlen(str));
 	close(p[1]);
 	dup2(out, 1);
 	get_next_line(p[0], &line);

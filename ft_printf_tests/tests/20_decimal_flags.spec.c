@@ -1,6 +1,6 @@
 #include "project.h"
 
-UT_TEST(10_decimal_flags)
+UT_TEST(20_decimal_flags)
 {
 	UT_PRINTF_ASSERT("%ld\n", LONG_MAX);
 	UT_PRINTF_ASSERT("%lld\n", LLONG_MAX);

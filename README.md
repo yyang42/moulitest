@@ -9,7 +9,7 @@ Tested 42 projects:
 * libft
 * get_next_line
 * ft_ls
-* ft_printf (comming soon)
+* ft_printf (in progress)
 
 Feedbacks, github issues and pull requests are welcome.
 
@@ -25,7 +25,11 @@ Edit the config file
 Run tests
 	
 	make
-	
+
+## Advanced use
+Run only some tests
+
+	make tests=<regexp>
 
 Notes
 ---
@@ -38,3 +42,4 @@ Credits
 
 The test framework and many libft tests are based on the work done by Maxime Bacoux (mbacoux)
 Here is the original repository: https://github.com/Nax/libft-test
+Thanks to Lefta (a.k.a. celegran) for his work, especially on the v2.

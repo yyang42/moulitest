@@ -2,29 +2,27 @@
 
 UT_TEST(bonus_04_test_opt_c)
 {
-
-
 	reset_sandbox();
 	char *cmd;
 
-	cmd = "-tc /usr/share";
+	cmd = "-1tc /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tcr /usr/share";
+	cmd = "-1tcr /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-ltc /usr/share";
+	cmd = "-1ltc /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-lcr /usr/share";
+	cmd = "-1lcr /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-lUr /usr/share";
+	cmd = "-1lUr /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tu1 /usr/share";
+	cmd = "-1tu /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-turl /usr/share";
+	cmd = "-1turl /usr/share";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }

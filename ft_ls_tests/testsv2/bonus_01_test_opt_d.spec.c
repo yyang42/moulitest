@@ -29,7 +29,7 @@ UT_TEST(bonus_01_test_opt_d)
 	sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-d ./mydir";
+	cmd = "-1d ./mydir";
 	reset_sandbox();
 	sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);

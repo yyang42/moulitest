@@ -7,7 +7,7 @@ UT_TEST(bonus_09_test_opt_f)
 	reset_sandbox();
 	sandbox_cmd("touch a B");
 
-	cmd = "-f";
+	cmd = "-1f";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-fl";

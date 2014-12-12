@@ -39,7 +39,7 @@ UT_TEST(20_test_error_handling)
 	UT_ASSERT(strlen(ft_ls_err(cmd)) > 0);
 
 
-	cmd = "-AZWYX243";
+	cmd = "-lZWYX243";
 	ft_ls_out_str = strip_illegal_opt_err(ft_ls(cmd));
 	ls_out_str = strip_illegal_opt_err(ls(cmd));
 	UT_ASSERT_W(strequ(ls_out_str, ft_ls_out_str));
@@ -78,7 +78,7 @@ UT_TEST(20_test_error_handling)
 
 	reset_sandbox();
 	sandbox_cmd("touch K j l");
-	cmd = "-r a c b l K j";
+	cmd = "-1r a c b l K j";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
 	// printf("\n=====  ls  ========\n");

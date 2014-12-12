@@ -22,6 +22,13 @@ UT_TEST(21_test_symlink)
 	cmd = "-1 b";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+	reset_sandbox();
+	sandbox_cmd("mkdir a");
+	sandbox_cmd("ln -s a b");
+	sandbox_cmd("rm -rf a");
+	cmd = "-l b";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 	// reset_sandbox();
 	// sandbox_cmd("touch a");
 	// sandbox_cmd("ln -s a b");

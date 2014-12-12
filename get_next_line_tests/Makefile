@@ -10,11 +10,11 @@ PROTOTYPES = $(shell ls -1 tests | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.c/
 DEFINES = -D PROTOTYPES="$(PROTOTYPES)" -D ADD_TESTS="$(ADD_TESTS)" -D RENDU_PATH="\"$(RENDU_PATH)\""
 
 all: $(NAME)
-	@./$(NAME)
+	./$(NAME)
 
 $(NAME):
-	@make -k -C $(RENDU_PATH)/libft
-	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) $(RENDU_PATH)/libft/libft.a $(RENDU_PATH)/get_next_line.c -I $(RENDU_PATH) -I $(RENDU_PATH)/libft/includes -o $(NAME)
+	make -k -C $(RENDU_PATH)/libft
+	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) $(RENDU_PATH)/libft/libft.a $(RENDU_PATH)/get_next_line.c -I $(RENDU_PATH) -I $(RENDU_PATH)/libft/includes -o $(NAME)
 
 fclean:
 	make -C $(RENDU_PATH)/libft fclean

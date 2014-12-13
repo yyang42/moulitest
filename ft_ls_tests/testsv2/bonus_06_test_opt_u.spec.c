@@ -8,8 +8,8 @@ UT_TEST(bonus_06_test_opt_u)
 	char *rcmd = "-1tur";
 	char *lcmd = "-1lu";
 	char *lscmd = "-1tlu";
-	char *mix_cmd1 = "-tSu";
-	char *mix_cmd2 = "-utS";
+	char *mix_cmd1 = "-1tSu";
+	char *mix_cmd2 = "-1utS";
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c d e && touch -at 201212101830.55 c");

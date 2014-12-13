@@ -51,20 +51,6 @@ void	reset_sandbox()
 	get_cmd_out("mkdir ./sandbox ");
 }
 
-char	*ls(const char *options)
-{
-	char cmd[MAX_CMD_SIZE];
-
-	bzero(cmd, MAX_CMD_SIZE);
-	strcat(cmd, "cd "SANDBOX_PATH);
-	strcat(cmd, " && ");
-	strcat(cmd, ls_path);
-	strcat(cmd, " ");
-	strcat(cmd, options);
-	strcat(cmd, " 2>&1");
-	return get_cmd_out(cmd);
-}
-
 char	*ft_ls(const char *options)
 {
 	char cmd[MAX_CMD_SIZE];
@@ -78,6 +64,22 @@ char	*ft_ls(const char *options)
 	strcat(cmd, " 2>&1");
 	return get_cmd_out(cmd);
 }
+
+char	*ls(const char *options)
+{
+	char cmd[MAX_CMD_SIZE];
+
+	bzero(cmd, MAX_CMD_SIZE);
+	strcat(cmd, "cd "SANDBOX_PATH);
+	strcat(cmd, " && ");
+	strcat(cmd, ls_path);
+	strcat(cmd, " ");
+	strcat(cmd, options);
+	strcat(cmd, " 2>&1");
+
+	return get_cmd_out(cmd);
+}
+
 
 char	*ls_err(const char *options)
 {

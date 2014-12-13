@@ -5,39 +5,40 @@ UT_TEST(bonus_22_test_sort_comb)
 	reset_sandbox();
 	char *cmd;
 
-	cmd = "-lUc /usr";
+	cmd = "-lUc  ..";
+
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-lcu /usr";
+	cmd = "-lcu  ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-luc /usr";
+	cmd = "-luc  ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-lcU /usr";
+	cmd = "-lcU  ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-1tUc /usr";
+	cmd = "-1tUc ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-1tcu /usr";
+	cmd = "-1tcu ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-1tuc /usr";
+	cmd = "-1tuc ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-1tcU /usr";
+	cmd = "-1tcU ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tlUc /usr";
+	cmd = "-tlUc ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tlcu /usr";
+	cmd = "-tlcu ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tluc /usr";
+	cmd = "-tluc ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
-	cmd = "-tlcU /usr";
+	cmd = "-tlcU ..";
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }

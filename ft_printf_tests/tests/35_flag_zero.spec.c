@@ -12,4 +12,5 @@ UT_TEST(35_flag_zero)
 	UT_PRINTF_ASSERT("%05O\n", 042);
 	UT_PRINTF_ASSERT("%020s\n", "This is a string");
 	UT_PRINTF_ASSERT("%05c\n", 'c');
+	UT_PRINTF_ASSERT("%025p\n", &strlen);
 }

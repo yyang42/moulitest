@@ -10,4 +10,5 @@ UT_TEST(30_flag_space)
 	UT_PRINTF_ASSERT("% x\n", 42);
 	UT_PRINTF_ASSERT("% X\n", 42);
 	UT_PRINTF_ASSERT("% o\n", 42);
+	UT_PRINTF_ASSERT("% p\n", &strlen);
 }

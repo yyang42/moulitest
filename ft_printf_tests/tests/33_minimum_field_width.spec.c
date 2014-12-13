@@ -12,4 +12,5 @@ UT_TEST(33_minimum_field_width)
 	UT_PRINTF_ASSERT("%5O\n", 042);
 	UT_PRINTF_ASSERT("%20s\n", "This is a string");
 	UT_PRINTF_ASSERT("%5c\n", 'c');
+	UT_PRINTF_ASSERT("%25p\n", &strlen);
 }

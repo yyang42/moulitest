@@ -12,4 +12,5 @@ UT_TEST(51_field_width_and_space_flag)
 	UT_PRINTF_ASSERT("% 10O\n", 042);
 	UT_PRINTF_ASSERT("% 100s\n", "This is a string");
 	UT_PRINTF_ASSERT("% 10c\n", 'c');
+	UT_PRINTF_ASSERT("% 25p\n", &strlen);
 }

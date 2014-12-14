@@ -6,7 +6,7 @@
 /*   By: celegran <celegran@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/10 06:37:49 by celegran         ###   ########.fr       */
+/*   Updated: 2014/12/14 05:46:15 by celegran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <wchar.h>
 
 int		old_out;
 int		ret1;

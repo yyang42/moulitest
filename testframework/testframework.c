@@ -72,7 +72,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	printf("\n");
 	*ut_test_symbol = '\0';
 	ut_last_err = NULL;
-	ut_last_cond = '\0';
+	ut_last_cond = NULL;
 }
 
 void		ut_run_all_tests(void)
@@ -101,7 +101,7 @@ void		ut_run_all_tests(void)
 				printf(" ERROR: %s", ut_last_cond);
 			printf("\n");
 			*ut_test_symbol = '\0';
-			ut_last_cond = '\0';
+			ut_last_cond = NULL;
 			_test_fails++;
 		}
 		else

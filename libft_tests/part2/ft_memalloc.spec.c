@@ -10,6 +10,4 @@ UT_TEST(ft_memalloc)
 
 	UT_ASSERT(memcmp(mem1, mem2, 100) == 0);
 	UT_ASSERT(ft_memalloc((size_t)-1) == NULL);
-
-	UT_ASSERT_W(ft_memalloc(0) != NULL);
 }

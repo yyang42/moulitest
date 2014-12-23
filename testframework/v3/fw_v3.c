@@ -2,18 +2,14 @@
 #include <stdlib.h>
 #include <setjmp.h>
 #include <string.h>
+#include <mt.h>
 
 #define MAX_SUITES 1000
 #define MAX_TESTS_PER_SUITE 1000
 
 // suite
 ////////////////////////////////////////////////////////////////////////////////
-typedef struct				s_test
-{
-	char					*name;
-	int						is_success;
-	int						test_type;
-}							t_test;
+
 t_test						*test_create(char *name)
 {
 	t_test	*test;	
@@ -26,13 +22,7 @@ t_test						*test_create(char *name)
 
 // suite
 ////////////////////////////////////////////////////////////////////////////////
-typedef struct				s_suite
-{
-	char					*name;
-	t_test					**tests;
-	int						x_success_count;
-	int						x_warning_count;
-}							t_suite;
+
 t_suite						*suite_create(char *name);
 // void						suite_add_suite(t_suite suite);
 // int							suite_is_success(t_suite suite);
@@ -72,11 +62,6 @@ void			suite_print_tests(t_suite *suite)
 
 // moulitest
 ////////////////////////////////////////////////////////////////////////////////
-typedef struct	s_mt
-{
-	char		*name;
-	t_suite		**suites;
-}				t_mt;
 
 t_mt			*mt_create(char *name)
 {

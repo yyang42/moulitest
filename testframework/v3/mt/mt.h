@@ -1,20 +1,17 @@
-typedef struct				s_test
-{
-	char					*name;
-	int						is_success;
-	int						test_type;
-}							t_test;
 
-typedef struct				s_suite
-{
-	char					*name;
-	t_test					**tests;
-	int						x_success_count;
-	int						x_warning_count;
-}							t_suite;
+#ifndef MT_H
+# define MT_H
+# include <stdio.h>
+# include <suite.h>
 
 typedef struct				s_mt
 {
 	char					*name;
 	t_suite					**suites;
 }							t_mt;
+
+t_mt			*mt_create(char *name);
+void			mt_add_suite(t_mt *mt,  t_suite *suite);
+void			mt_print_suites(t_mt *mt);
+
+#endif

@@ -75,7 +75,7 @@ void	ut_run_test(ut_test_list_t *t_, int *i_, int *_test_fails)
 	ut_last_cond = '\0';
 }
 
-int			ut_run_all_tests()
+void		ut_run_all_tests(void)
 {
 	int		_test_fails;
 	int		count;
@@ -88,9 +88,7 @@ int			ut_run_all_tests()
 	_test_fails = 0;
 	count = 0;
 	if (!ut_tests)
-	{
-		return (0);
-	}
+		return ;
 	puts("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
 	tmp = ut_tests;
 	while (tmp)
@@ -98,7 +96,7 @@ int			ut_run_all_tests()
 		ret = 0;
 		if (setjmp(ut_env))
 		{
-			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol); \
+			printf("["C_RED"FAIL"C_CLEAR"] %s"C_BLUE"SEGV"C_CLEAR, ut_test_symbol);
 			if (ut_last_cond)
 				printf(" ERROR: %s", ut_last_cond);
 			printf("\n");
@@ -115,35 +113,25 @@ int			ut_run_all_tests()
 	}
 	printf(C_WHITE"End of test : %d out of %d test passed."C_CLEAR"\n", count - _test_fails, count);
 	puts("[ "C_CYAN"----------END OF UNIT TESTS----------"C_CLEAR" ]");
-	return (_test_fails);
 }
 
-int	strequ(const char *s1, const char *s2)
-{
-	return (s1 && s2 && strcmp(s1, s2) == 0);
-}
 
-char *re_replace(char *str, char *pattern, char *replacement)
+void	ut_assert_exec(int assert_res, char *assert_str, int *param)
 {
-	int ret = 0;
-	int cnt = 0;
-	int offset = 0;
-	char temp[1000000];
-	char *output;
-	bzero(temp, 1000000);
-	regex_t reg;
-	regmatch_t pm;
-	regcomp(&reg, pattern, REG_EXTENDED); /* REG_ICASE */
-	while(ret == 0) {
-		ret = regexec(&reg, str + offset, 1, &pm, 0);
-		if (ret != 0)
-			break;
-		strncat(temp, str + offset, pm.rm_so);
-		strcat(temp, replacement);
-		offset += pm.rm_eo;
-		cnt++;
+	ut_last_cond = assert_str;
+	if(!(assert_res)) {
+		if (!ut_last_err)
+		{
+			ut_last_err = ut_last_cond;
+			if (!is_warning)
+				*param = 1;
+		}
+		if (is_warning)
+			strcat(ut_test_symbol, C_YELLOW"X"C_CLEAR);
+		else
+			strcat(ut_test_symbol, C_RED"X"C_CLEAR);
+	} else {
+		strcat(ut_test_symbol, C_GREEN"."C_CLEAR);
 	}
-	strcat(temp, str + offset);
-	output = strdup(temp);
-	return (output);
+	is_warning = 0;
 }

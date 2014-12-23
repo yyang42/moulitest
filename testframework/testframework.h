@@ -17,22 +17,7 @@
 # define UT_TEST(name)			void ut_test_ ## name(int *param)
 # define UT_ASSERT_W(cond)		is_warning = 1; UT_ASSERT_EXEC(cond)
 # define UT_ASSERT(cond)		is_warning = 0; UT_ASSERT_EXEC(cond)
-# define UT_ASSERT_EXEC(cond)	ut_last_cond = #cond; \
-								if(!(cond)) { \
-									if (!ut_last_err) \
-									{ \
-										ut_last_err = #cond; \
-										if (!is_warning) \
-											*param = 1; \
-									} \
-									if (is_warning) \
-										strcat(ut_test_symbol, C_YELLOW"X"C_CLEAR); \
-									else \
-										strcat(ut_test_symbol, C_RED"X"C_CLEAR); \
-								} else { \
-									strcat(ut_test_symbol, C_GREEN"."C_CLEAR); \
-								} \
-								is_warning = 0;
+# define UT_ASSERT_EXEC(cond)	ut_assert_exec(cond, #cond, param)
 
 # define UT_ASSERT_EQ(a, b)		UT_ASSERT((a) == (b))
 # define UT_ASSERT_EQ_STR(a, b)	UT_ASSERT(a && b && strcmp(a, b))
@@ -46,7 +31,6 @@ typedef struct				ut_test_list_s
 	char					*name;
 	int						is_fail;
 	struct ut_test_list_s	*next;
-
 }							ut_test_list_t;
 
 extern ut_test_list_t		*ut_tests;
@@ -58,8 +42,9 @@ extern char					ut_test_symbol[100000];
 void						ut_sigsegv_(int);
 ut_test_list_t				*ut_create_list_(ut_test, char *);
 void						ut_add_test(ut_test, char *);
-int							ut_run_all_tests(void);
+void						ut_run_all_tests(void);
 int							strequ(const char *s1, const char *s2);
 char						*re_replace(char *str, char *pattern, char *replacement);
+void						ut_assert_exec(int assert_res, char *assert_str, int *param);
 
 #endif

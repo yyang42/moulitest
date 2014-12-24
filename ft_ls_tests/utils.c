@@ -18,7 +18,8 @@ char	*get_cmd_out(const char *cmd)
 	char buf[1035];
 	char *out;
 
-	out = malloc(0);
+	out = malloc(1);
+	*out = '\0';
 
 	fp = popen(cmd, "r");
 

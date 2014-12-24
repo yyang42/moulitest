@@ -6,11 +6,11 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/13 12:23:16 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/13 12:29:48 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/24 19:42:37 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <arr.h>
+#include <stddef.h>
 
 size_t	arr_size(void *arr)
 {

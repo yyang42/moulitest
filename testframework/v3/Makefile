@@ -1,5 +1,6 @@
-
-
+INCLUDES = -I mt -I suite -I test -I arr -I .
+SRCS = *.c **/*.c
+FLAGS = -Wall -Werror -Wextra
 all:
-	gcc *.c mt/*.c suite/*.c test/*.c -I mt -I suite -I test -I .
+	gcc $(FLAGS) $(SRCS) $(INCLUDES)
 	./a.out

@@ -1,6 +1,6 @@
 #include <mt.h>
 
-void			mt_print_suites(t_mt *mt)
+void			mt_execute(t_mt *mt)
 {
 	t_suite	**suites;
 

@@ -10,6 +10,5 @@ t_suite			*suite_create(char *name, t_suite_fn *fn)
 	suite->tests = (t_test **)malloc(sizeof(t_test) * MAX_TESTS_PER_SUITE);
 	suite->fn = fn;
 	suite->tests[0] = NULL;	// suite->name = strdup(name);
-	suite->fn(suite);
 	return (suite);
 }

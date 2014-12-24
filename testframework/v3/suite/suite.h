@@ -21,6 +21,6 @@ typedef struct				s_suite
 
 t_suite			*suite_create(char *name, t_suite_fn *fn);
 void			suite_add_test(t_suite *suite, t_test	*test);
-void			suite_print_tests(t_suite *suite);
+void			suite_exec(t_suite *suite);
 
 #endif

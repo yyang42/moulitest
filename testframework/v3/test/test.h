@@ -12,5 +12,6 @@ typedef struct				s_test
 }							t_test;
 
 t_test						*test_create(char *name, int is_success);
+void						test_print(t_test	*test);
 
 #endif

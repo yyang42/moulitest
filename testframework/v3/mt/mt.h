@@ -11,6 +11,6 @@ typedef struct				s_mt
 
 t_mt			*mt_create(void);
 void			mt_add_suite(t_mt *mt,  t_suite *suite);
-void			mt_execute(t_mt *mt);
+void			mt_exec(t_mt *mt);
 
 #endif

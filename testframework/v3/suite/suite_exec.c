@@ -11,6 +11,10 @@ static void		suite_print_prefix(t_suite *suite)
 
 static void		suite_print_suffix(t_suite *suite)
 {
+	if (suite_count_fails(suite))
+		fprintf(stdout, C_RED"[FAIL]"C_CLEAR);
+	else
+		fprintf(stdout, C_GREEN"[Ok !]"C_CLEAR);
 	fprintf(stdout, "\n");
 	(void)suite;
 }

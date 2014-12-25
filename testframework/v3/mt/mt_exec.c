@@ -2,16 +2,7 @@
 
 static void		mt_exec_suites(t_mt *mt)
 {
-	t_suite	**suites;
-
-	suites = mt->suites;
-	while(*suites)
-	{
-		fprintf(stdout, "-> %s : ", (*suites)->name);
-		suite_exec(*suites);
-		fprintf(stdout, "\n");
-		suites++;
-	}	
+	lst_iter(mt->suites, (void *)suite_exec);
 }
 
 static void		mt_print_header(t_mt *mt)

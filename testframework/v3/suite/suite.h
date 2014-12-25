@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <test.h>
+#include <lst.h>
 # define MAX_TESTS_PER_SUITE 1000
 
 typedef struct s_suite t_suite;
@@ -14,7 +15,7 @@ typedef struct				s_suite
 {
 	char					*name;
 	t_suite_fn				*fn;
-	t_test					**tests;
+	t_lst					*tests;
 	int						x_success_count;
 	int						x_warning_count;
 }							t_suite;

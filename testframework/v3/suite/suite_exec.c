@@ -1,22 +1,23 @@
 #include <suite.h>
+#include <test.h>
 #include <stdio.h>
+#include <lst.h>
 
-// static void			suite_add_tests(t_suite *suite)
-// {
-// 	t_test	**tests;
-// 	t_test 	*test;
+static void		suite_print_prefix(t_suite *suite)
+{
+	fprintf(stdout, "-> %s : ", suite->name);
+}
 
-// 	tests = suite->tests;
-// 	while(*tests)
-// 	{
-// 		test = *tests;
-// 		printf("%s", test->is_success ? "." : "X");
-// 		tests++;
-// 	}
-// }
+static void		suite_print_suffix(t_suite *suite)
+{
+	fprintf(stdout, "\n");
+	(void)suite;
+}
 
 void			suite_exec(t_suite *suite)
 {
+	suite_print_prefix(suite);
 	suite->fn(suite);
-	// suite_add_tests(suite);
+	lst_iter(suite->tests, (void *)test_exec);
+	suite_print_suffix(suite);
 }

@@ -1,4 +1,5 @@
 #include <test.h>
+#include <stdio.h>
 
 t_test						*test_create(char *name, t_test_fn *fn)
 {

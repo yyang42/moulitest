@@ -1,16 +1,16 @@
 #ifndef MT_H
 # define MT_H
+# define ffprintf(str) fflush(stdout); fprintf(stdout, str); fflush(stdout);
 # include <stdio.h>
 # include <suite.h>
 
 typedef struct				s_mt
 {
 	char					*name;
-	t_suite					**suites;
+	t_lst					*suites;
 }							t_mt;
 
 t_mt			*mt_create(void);
-void			mt_add_suite(t_mt *mt,  t_suite *suite);
 void			mt_exec(t_mt *mt);
 
 #endif

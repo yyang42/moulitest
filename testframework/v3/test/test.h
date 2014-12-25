@@ -15,6 +15,7 @@ typedef struct				s_test
 	t_test_fn				*fn;
 	int						is_fail;
 	int						test_type;
+	int						sig;
 }							t_test;
 
 t_test						*test_create(char *name, t_test_fn *fn);

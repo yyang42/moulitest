@@ -6,7 +6,10 @@ void	test_print(t_test	*test)
 {
 	char *symbol;
 
-	symbol = test->is_fail ? C_RED "X" C_CLEAR : C_GREEN "." C_CLEAR;
+	if (test->sig == SIGABRT)
+		symbol = C_RED "S" C_CLEAR;
+	else
+		symbol = C_GREEN "." C_CLEAR;
 	printf(symbol);
 	fflush(stdout);
 }

@@ -14,10 +14,31 @@ static void		suite_print_suffix(t_suite *suite)
 	(void)suite;
 }
 
+static void		suite_print_first_failure(t_suite *suite)
+{
+	t_lst_elem	*elem;
+	t_test		*test;
+
+	elem = suite->tests->elems;
+	while (elem)
+	{
+		test = elem->data;
+		if (test->is_fail)
+		{
+			fprintf(stdout, " %s: %s",
+				test->name,
+				test->last_assert_cond);
+			break ;
+		}
+		elem = elem->next;
+	}
+}
+
 void			suite_exec(t_suite *suite)
 {
 	suite_print_prefix(suite);
 	suite->fn(suite);
 	lst_iter(suite->tests, (void *)test_exec);
+	suite_print_first_failure(suite);
 	suite_print_suffix(suite);
 }

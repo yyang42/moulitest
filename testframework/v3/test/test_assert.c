@@ -2,11 +2,9 @@
 #include <stdio.h>
 #include <mt.h>
 
-void	test_assert(t_test	*test, int is_success)
+void	test_assert(t_test	*test, int cond_res)
 {
-	if (!is_success)
+	if (cond_res == 0)
 		abort();
-	// fprintf(stdout, "[%s]", name);
 	(void)test;
-	(void)is_success;
 }

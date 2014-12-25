@@ -3,6 +3,6 @@
 
 void	test_print(t_test	*test)
 {
-	printf("%s", test->is_success ? "." : "X");
+	printf("%s", test->is_fail ? "X" : ".");
 	fflush(stdout);
 }

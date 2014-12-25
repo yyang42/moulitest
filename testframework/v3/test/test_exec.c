@@ -21,15 +21,15 @@ static void sig_handler(int signum)
 
 static void	test_exec_do(t_test	*test)
 {
-	if (!setjmp( env_buffer ))
+	signal(SIGABRT, sig_handler);
+	if (setjmp(env_buffer))
 	{
-		signal(SIGABRT, sig_handler);
-		test->fn(test);
-		test->is_success = 1;
+		test->is_fail = 1;
 	}
 	else
 	{
-		test->is_success = 0;
+		test->fn(test);
+		test->is_fail = 0;
 	}
 }
 

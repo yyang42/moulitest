@@ -36,4 +36,6 @@ static void	test_exec_do(t_test	*test)
 void	test_exec(t_test	*test)
 {
 	test_exec_do(test);
+	test_print(test);
+  	usleep(100 * 1000);
 }

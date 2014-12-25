@@ -1,4 +1,4 @@
-#include <suite.h>
+#include <mt.h>
 #include <test.h>
 #include <stdio.h>
 #include <lst.h>
@@ -6,7 +6,17 @@
 
 static void		suite_print_prefix(t_suite *suite)
 {
-	printf("%s%-30s", "["C_YELLOW"UT"C_CLEAR"] ", suite->name);
+	char	*ut;
+	int		ut_len;
+
+	ut = "["C_YELLOW"UT"C_CLEAR"] ";
+	ut_len = 6;
+
+	printf("%s", ut);
+	printf("%s", suite->name);
+	printf(" %.*s  ", (MAIN_COL_WIDTH - ut_len - (int)strlen(suite->name)),
+		"________________________________________________");
+	// printf("%-*s", MAIN_COL_WIDTH - strlen(ut) - strlen(suite->name), ".");
 }
 
 static void		suite_print_suffix(t_suite *suite)

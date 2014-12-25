@@ -1,7 +1,7 @@
 NAME = get_next_line_tests
-INCLUDES = -I . -I ../testframework
+INCLUDES = -I . -I ../testframework/v2
 FLAGS = -Werror -Wall -Wextra
-SOURCE = ../testframework/*.c ./tests/*.c main.c
+SOURCE = ../testframework/v2/*.c ./tests/*.c main.c
 tests ?= spec.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
 		sed -E "s/(.*)\.spec\.c/ut_add_test\(\&ut_test_\1, \\\\\"\1\\\\\"\);/g")

@@ -1,11 +1,11 @@
 NAME = libft_test
 FLAGS = -Werror -Wall -Wextra
-SOURCE = ../testframework/*.c main.c ./part1/*.c utils.c
+SOURCE = ../testframework/v2/*.c main.c ./part1/*.c utils.c
 tests ?= spec.c$$
 RENDU_PATH = $(shell grep LIBFT_PATH ../config.ini | cut -d '=' -f 2)
 PROTOTYPES = $(shell ls -1 part1 part2 bonus extra | grep -v ':' | sed -E "s/(.*)\.spec\.c/UT_TEST\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DRENDU_PATH="\"$(RENDU_PATH)\""
-INCLUDES = -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I ../testframework -I.
+INCLUDES = -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I ../testframework/v2 -I.
 PARTS_DIRS = part1
 
 all:

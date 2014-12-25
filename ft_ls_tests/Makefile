@@ -1,7 +1,7 @@
 NAME = ft_ls_test
-INCLUDES = -I . -I ../testframework
+INCLUDES = -I . -I ../testframework/v2
 FLAGS = -Werror -Wall -Wextra
-SOURCE = ../testframework/{testframework,utils}.c ./tests/*.c main.c utils.c
+SOURCE = ../testframework/v2/{testframework,utils}.c ./tests/*.c main.c utils.c
 tests ?= spec.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
 		sed -E "s/(.*)\.spec\.c/ut_add_test\(\&ut_test_\1, \\\\\"\1\\\\\"\);/g")

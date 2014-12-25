@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 19:33:34 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/25 20:02:28 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/25 21:34:57 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_lst					*lst_map(t_lst *lst, void *(*f)(void *data));
 void					lst_iter(t_lst *lst, void (*f)(void *));
 void					lst_del_elem(t_lst *lst, t_lst_elem *elem);
 size_t					lst_count(t_lst *lst, void *(*f)(void *));
+t_lst_elem				*lst_find(t_lst *lst, void *(*f)(void *));
 
 void					lst__link(t_lst_elem *elem1, t_lst_elem *elem2);
 

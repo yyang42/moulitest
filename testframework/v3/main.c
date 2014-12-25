@@ -38,7 +38,7 @@ static void test_success(t_test *test)
 	(void)test;
 }
 
-void	suite_01(t_suite *suite)
+void	suite_01_first(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_fail_int);
@@ -51,7 +51,7 @@ void	suite_01(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_success);
 }
 
-void	suite_02(t_suite *suite)
+void	suite_02_second(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_success);
@@ -64,12 +64,22 @@ void	suite_02(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_fail_str);
 }
 
+
+void	suite_03_third_some_desc(t_suite *suite)
+{
+	setup(suite);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+}
+
 int main()
 {
 	t_mt	*mt = mt_create();
 
-	MT_ADD_SUITE(mt, suite_01);
-	MT_ADD_SUITE(mt, suite_02);
+	MT_ADD_SUITE(mt, suite_01_first);
+	MT_ADD_SUITE(mt, suite_02_second);
+	MT_ADD_SUITE(mt, suite_03_third_some_desc);
 
 	mt_exec(mt);
 	return(0);

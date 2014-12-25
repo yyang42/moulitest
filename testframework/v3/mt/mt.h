@@ -3,7 +3,7 @@
 # define ffprintf(str) fflush(stdout); fprintf(stdout, str); fflush(stdout);
 # include <stdio.h>
 # include <suite.h>
-# define MAIN_COL_WIDTH 36
+# define MAIN_COL_WIDTH 41
 
 typedef struct				s_mt
 {

@@ -11,6 +11,7 @@ typedef	void (t_test_fn)(t_test *);
 typedef struct				s_test
 {
 	char					*name;
+	char					*last_assert_cond;
 	t_test_fn				*fn;
 	int						is_success;
 	int						test_type;
@@ -19,5 +20,7 @@ typedef struct				s_test
 t_test						*test_create(char *name, t_test_fn *fn);
 void						test_print(t_test *test);
 void						test_exec(t_test *test);
+void						test_assert(t_test	*test, int is_success);
+void						test_assert_prep(t_test	*test, char *cond);
 
 #endif

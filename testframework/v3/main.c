@@ -2,9 +2,8 @@
 #include <string.h>
 #include <mt.h>
 #include <test.h>
-#include <assert.h>
 
-// #define assert(cond) suite_add_test(suite, test_create(#cond, cond))
+#define assert(cond) test_assert_prep(test, #cond); test_assert(test, cond)
 #define MT_ADD_SUITE(mt, suite_fn) lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
 #define SUITE_ADD_TEST(suite, test_fn) lst_push(suite->tests, test_create(#test_fn, test_fn))
 
@@ -26,7 +25,7 @@ static void test_01_usr(t_test *test)
 	// exec(cmd);
 	// assert(strcmp(cmd, "-l1") == 0);
 	// printf("%s\n", "test_01_usr");
-	assert(1);
+	assert(1 == 0);
 	(void)test;
 }
 

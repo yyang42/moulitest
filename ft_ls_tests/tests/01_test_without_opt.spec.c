@@ -41,13 +41,6 @@ UT_TEST(01_test_without_opt)
 	cmd = "-1 --";
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
-
-	// printf("\n=====  ls  ========\n");
-	// printf(ls(cmd));
-	// printf("===== ft_ls =======\n");
-	// printf(ft_ls(cmd));
-	// printf("==================\n");
-
 /*
 	printf("\n=====  ls  ========\n");
 	printf(ls(cmd));

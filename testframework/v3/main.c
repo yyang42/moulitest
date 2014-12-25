@@ -3,9 +3,7 @@
 #include <mt.h>
 #include <test.h>
 
-// #define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
-#define assert(cond) lst_push(test->asserts, assert_create(#cond)); \
-						assert_exec(lst_last(test->asserts)->data, cond)
+#define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
 #define MT_ADD_SUITE(mt, suite_fn) lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
 #define SUITE_ADD_TEST(suite, test_fn) lst_push(suite->tests, test_create(#test_fn, test_fn))
 

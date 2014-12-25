@@ -20,25 +20,23 @@ UT_TEST(01_test_without_opt)
 	cmd = "-1 -";
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
+	reset_sandbox();
+	sandbox_cmd("touch -");
+
 	cmd = "-1 -- -";
-	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
-	
-	cmd = "-1 --";
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
 	reset_sandbox();
-	sandbox_cmd("mkdir -");
+	sandbox_cmd("touch - -- ---");
 
-	cmd = "-1";
+	cmd = "-1 -- --";
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
-	cmd = "-1 -";
+	cmd = "-1 -- ---";
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
-	cmd = "-1 -- -";
-	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
-	
-	cmd = "-1 --";
+	cmd = "-1 -- .";
+
 	UT_ASSERT(strequ(ls(cmd), ft_ls(cmd)));
 
 /*

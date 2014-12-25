@@ -3,6 +3,8 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <mt_assert.h>
+#include <lst.h>
 
 typedef struct s_test t_test;
 
@@ -15,6 +17,7 @@ typedef struct				s_test
 	t_test_fn				*fn;
 	int						is_fail;
 	int						test_type;
+	t_lst					*asserts;
 }							t_test;
 
 t_test						*test_create(char *name, t_test_fn *fn);

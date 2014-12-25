@@ -86,7 +86,7 @@ static void	suite_03_third_some_desc(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_success);
 }
 
-static void	suite_04_third_segv(t_suite *suite)
+static void	suite_04_fourth_segv(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_success);
@@ -102,7 +102,7 @@ int main()
 	MT_ADD_SUITE(mt, suite_01_first);
 	MT_ADD_SUITE(mt, suite_02_second);
 	MT_ADD_SUITE(mt, suite_03_third_some_desc);
-	MT_ADD_SUITE(mt, suite_04_third_segv);
+	MT_ADD_SUITE(mt, suite_04_fourth_segv);
 
 	mt_exec(mt);
 	return(0);

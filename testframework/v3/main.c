@@ -2,6 +2,7 @@
 #include <string.h>
 #include <mt.h>
 #include <test.h>
+#include <signal.h>
 
 #define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
 #define MT_ADD_SUITE(mt, suite_fn) lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
@@ -32,13 +33,25 @@ static void test_fail_str(t_test *test)
 	(void)test;
 }
 
+static void test_fail_segfaul(t_test *test)
+{
+	assert(raise(SIGSEGV) == 0);
+	(void)test;
+}
+
+static void test_fail_buserror(t_test *test)
+{
+	assert(raise(SIGBUS) == 0);
+	(void)test;
+}
+
 static void test_success(t_test *test)
 {
 	assert(1);
 	(void)test;
 }
 
-void	suite_01_first(t_suite *suite)
+static void	suite_01_first(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_fail_int);
@@ -51,7 +64,7 @@ void	suite_01_first(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_success);
 }
 
-void	suite_02_second(t_suite *suite)
+static void	suite_02_second(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_success);
@@ -65,12 +78,21 @@ void	suite_02_second(t_suite *suite)
 }
 
 
-void	suite_03_third_some_desc(t_suite *suite)
+static void	suite_03_third_some_desc(t_suite *suite)
 {
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_success);
 	SUITE_ADD_TEST(suite, test_success);
 	SUITE_ADD_TEST(suite, test_success);
+}
+
+static void	suite_04_third_segv(t_suite *suite)
+{
+	setup(suite);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_fail_segfaul);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_fail_buserror);
 }
 
 int main()
@@ -80,6 +102,7 @@ int main()
 	MT_ADD_SUITE(mt, suite_01_first);
 	MT_ADD_SUITE(mt, suite_02_second);
 	MT_ADD_SUITE(mt, suite_03_third_some_desc);
+	MT_ADD_SUITE(mt, suite_04_third_segv);
 
 	mt_exec(mt);
 	return(0);

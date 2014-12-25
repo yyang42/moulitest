@@ -24,6 +24,8 @@ static void	test_exec_do(t_test	*test)
 	int sig;
 
 	signal(SIGABRT, sig_handler);
+	signal(SIGSEGV, sig_handler);
+	signal(SIGBUS, sig_handler);
 	if ((sig = setjmp(env_buffer)))
 	{
 		test->is_fail = 1;

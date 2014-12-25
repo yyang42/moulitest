@@ -2,10 +2,11 @@
 #include <test.h>
 #include <stdio.h>
 #include <lst.h>
+#include <color.h>
 
 static void		suite_print_prefix(t_suite *suite)
 {
-	fprintf(stdout, "-> %s : ", suite->name);
+	printf("%s%-30s", "["C_YELLOW"UT"C_CLEAR"] ", suite->name);
 }
 
 static void		suite_print_suffix(t_suite *suite)
@@ -25,7 +26,7 @@ static void		suite_print_first_failure(t_suite *suite)
 		test = elem->data;
 		if (test->is_fail)
 		{
-			fprintf(stdout, " %s: %s",
+			fprintf(stdout, C_RED" %s: %s"C_CLEAR,
 				test->name,
 				test->last_assert_cond);
 			break ;

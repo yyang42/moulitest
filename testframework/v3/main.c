@@ -43,12 +43,24 @@ void	suite_01(t_suite *suite)
 	setup(suite);
 	SUITE_ADD_TEST(suite, test_fail_int);
 	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
 	SUITE_ADD_TEST(suite, test_fail_str);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
 }
 
 void	suite_02(t_suite *suite)
 {
 	setup(suite);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_fail_str);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_success);
 	SUITE_ADD_TEST(suite, test_fail_str);
 }
 

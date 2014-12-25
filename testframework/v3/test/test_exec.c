@@ -37,5 +37,5 @@ void	test_exec(t_test	*test)
 {
 	test_exec_do(test);
 	test_print(test);
-  	usleep(500 * 1000);
+  	usleep(100 * 1000);
 }

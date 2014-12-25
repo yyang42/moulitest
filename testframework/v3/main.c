@@ -1,9 +1,11 @@
-#include <mt.h>
 #include <unistd.h>
 #include <string.h>
+#include <mt.h>
+#include <test.h>
 
-#define assert(cond) suite_add_test(suite, test_create(#cond, cond))
+// #define assert(cond) suite_add_test(suite, test_create(#cond, cond))
 #define MT_ADD_SUITE(mt, suite_fn) mt_add_suite(mt, suite_create(#suite_fn, suite_fn))
+#define SUITE_ADD_TEST(suite, test_fn) suite_add_test(suite, test_create(#test_fn, test_fn))
 
 // static test_01_abc(t_suite *suite)
 // {
@@ -18,29 +20,35 @@ static void setup(t_suite *suite)
 	(void)suite;
 }
 
-static void test_01_usr(t_suite *suite)
+static void test_01_usr(t_test *test)
 {
 	// exec(cmd);
-	assert(strcmp(cmd, "-l1") == 0);
+	// assert(strcmp(cmd, "-l1") == 0);
+	printf("%s\n", "test_01_usr");
+	(void)test;
 }
 
-static void test_02_usr(t_suite *suite)
+static void test_02_usr(t_test *test)
 {
 	// exec(cmd);
-	assert(1 == 1);
+	// assert(1 == 1);
+	printf("%s\n", "test_02_usr");
+	(void)test;
 }
-static void test_03_usr(t_suite *suite)
+static void test_03_usr(t_test *test)
 {
 	// exec(cmd);
-	assert(1 == 0);
+	// assert(1 == 0);
+	printf("%s\n", "test_03_usr");
+	(void)test;
 }
 
 void	suite_01_opt_l(t_suite *suite)
 {
 	setup(suite);
-	test_01_usr(suite);
-	test_02_usr(suite);
-	test_03_usr(suite);
+	SUITE_ADD_TEST(suite, test_01_usr);
+	SUITE_ADD_TEST(suite, test_02_usr);
+	SUITE_ADD_TEST(suite, test_03_usr);
 	// suite->test_str = "jack";
 }
 

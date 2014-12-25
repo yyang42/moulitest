@@ -4,14 +4,19 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct s_test t_test;
+
+typedef	void (t_test_fn)(t_test *);
+
 typedef struct				s_test
 {
 	char					*name;
+	t_test_fn				*fn;
 	int						is_success;
 	int						test_type;
 }							t_test;
 
-t_test						*test_create(char *name, int is_success);
+t_test						*test_create(char *name, t_test_fn *fn);
 void						test_print(t_test	*test);
 
 #endif

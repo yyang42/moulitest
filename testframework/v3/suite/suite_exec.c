@@ -16,7 +16,7 @@ static void		suite_print_prefix(t_suite *suite)
 	printf("%s", ut);
 	printf("%s", suite->name);
 	printf(" %.*s", (MAIN_COL_WIDTH - ut_len - (int)strlen(suite->name) - 8),
-		"________________________________________________");
+		"--------------------------------------------------");
 }
 
 static void		suite_print_first_failure(t_suite *suite)

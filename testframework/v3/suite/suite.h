@@ -23,7 +23,7 @@ typedef struct				s_suite
 t_suite			*suite_create(char *name, t_suite_fn *fn);
 void			suite_add_test(t_suite *suite, t_test	*test);
 void			suite_exec(t_suite *suite);
-size_t			suite_count_fails(t_suite *suite);
+size_t			suite_count_failed_tests(t_suite *suite);
 int				suite_filter_failed(t_suite	*suite);
 
 #endif

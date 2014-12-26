@@ -9,7 +9,7 @@ static void		suite_print_prefix(t_suite *suite)
 	char	*ut;
 	int		ut_len;
 
-	ut = "["C_YELLOW"UT"C_CLEAR"] ";
+	ut = "["C_YELLOW"MT"C_CLEAR"] ";
 	ut_len = 5;
 
 	printf("\r");
@@ -38,7 +38,7 @@ static void		suite_print_suite_summary(t_suite *suite)
 {
 	if (!lst_len(suite->tests))
 		fprintf(stdout, "[\?\?\?\?]");
-	else if (suite_count_fails(suite))
+	else if (suite_count_failed_tests(suite))
 		fprintf(stdout, C_RED"[FAIL]"C_CLEAR);
 	else
 		fprintf(stdout, C_GREEN"[Ok !]"C_CLEAR);

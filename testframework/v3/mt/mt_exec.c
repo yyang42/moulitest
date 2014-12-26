@@ -12,10 +12,10 @@ static void		mt_print_header(t_mt *mt)
 	puts("");
 	printf("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
 	printf(" Legend:");
-	printf(" ("C_GREEN"."C_CLEAR") ok");
-	printf(" / ("C_RED"A"C_CLEAR") assert");
-	printf(" / ("C_RED"S"C_CLEAR") segfault");
-	printf(" / ("C_RED"B"C_CLEAR") buserror");
+	printf(" ("C_GREEN"."C_CLEAR") Ok");
+	printf(" / ("C_RED"F"C_CLEAR") Fail");
+	printf(" / ("C_RED"S"C_CLEAR") Segfault");
+	printf(" / ("C_RED"B"C_CLEAR") Bus error");
 	puts("");
 	(void)mt;
 }

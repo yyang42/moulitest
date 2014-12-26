@@ -7,7 +7,7 @@ void	test_print(t_test	*test)
 	char *symbol;
 
 	if (test->sig == SIGABRT)
-		symbol = C_RED "A" C_CLEAR;
+		symbol = C_RED "F" C_CLEAR;
 	else if (test->sig == SIGSEGV)
 		symbol = C_RED "S" C_CLEAR;
 	else if (test->sig == SIGBUS)

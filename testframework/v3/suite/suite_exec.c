@@ -28,9 +28,11 @@ static void		suite_print_first_failure(t_suite *suite)
 	if (elem)
 	{
 		test = elem->data;
-		fprintf(stdout, C_RED" %s: %s"C_CLEAR,
+		fprintf(stdout, " %s: %s",
 			test->name,
 			test->last_assert_cond);
+		printf(" [%s]", test_get_failure_type(test));
+
 	}
 }
 

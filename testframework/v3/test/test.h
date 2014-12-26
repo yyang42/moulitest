@@ -24,5 +24,6 @@ void						test_exec(t_test *test);
 void						test_assert(t_test	*test, int is_fail);
 void						test_assert_prep(t_test	*test, char *cond);
 int							test_filter_failed(t_test *test);
+char						*test_get_failure_type(t_test *test);
 
 #endif

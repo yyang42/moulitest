@@ -7,7 +7,7 @@
 static void test_simple_printf(t_test *test)
 {
 	// printf("%s\n", ft_printf_to_str("abc"));;
-	assert(strcmp(ft_printf_to_str("aaa"), "aaa") == 0);
+	assert_printf("aaa");
 	(void)test;
 }
 

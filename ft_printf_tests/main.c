@@ -15,7 +15,6 @@ int main()
 	t_mt	*mt = mt_create();
 
 	ADD_TESTS
-	// MT_ADD_SUITE(mt, suite_00_no_modifier);
 
 	mt_exec(mt);
 	return(0);

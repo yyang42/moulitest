@@ -1,8 +1,8 @@
 NAME = ft_printf_test
 # INCLUDES = -I . -I ../testframework/v3/includes
-INCLUDES = -I ../testframework/v3/includes
+INCLUDES = -I ../testframework/v3/includes -I .
 FLAGS = 
-SOURCE = ../testframework/v3/mt_framework.a ./tests/*.specnew.c main.c
+SOURCE = ../testframework/v3/mt_framework.a ./tests/*.specnew.c main.c utils.c
 tests ?= specnew.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
 		sed -E "s/(.*)\.specnew\.c/MT_ADD_SUITE\(mt, suite_\1);/g")

@@ -3,31 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   project.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celegran <celegran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/14 05:46:15 by celegran         ###   ########.fr       */
+/*   Updated: 2014/12/26 17:09:39 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROJECT_H
 # define PROJECT_H
 
-# include <testframework.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <limits.h>
-# include <wchar.h>
-
-int		old_out;
-int		ret1;
-int		ret2;
-char	out1[1024];
-char	out2[1024];
-int		p[2];
-
-int		ft_printf(char *fmt, ...);
+char	*ft_printf_to_str(char *format, ...);
+char	*printf_to_str(char *format, ...);
 
 #define UT_PRINTF_ASSERT(string, ...)	fflush(stdout);						\
 										old_out = dup(1);					\

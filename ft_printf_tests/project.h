@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/26 17:40:33 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/26 17:42:03 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_printf(const char *format, ...);
 char	*ft_printf_to_str(char *format, ...);
 char	*printf_to_str(char *format, ...);
 
-#define	assert_printf(format, ...) assert(strcmp(ft_printf_to_str(#format, ## __VA_ARGS__), "aa") == 0)
+#define	assert_printf(format, ...) assert(strcmp(ft_printf_to_str(#format, ## __VA_ARGS__), printf_to_str(#format, ## __VA_ARGS__)) == 0)
 
 // #define UT_PRINTF_ASSERT(string, ...)
 

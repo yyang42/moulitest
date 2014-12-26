@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <project.h>
 
-char	*x_printf_to_str(int (*f)(const char *fmt, ...), const char *format, ...)
+char	*x_printf_to_str(int (*f)(const char *fmt, ...), void *format, ...)
 {
 	int		out;
 	int		p[2];

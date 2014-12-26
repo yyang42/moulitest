@@ -1,55 +1,41 @@
 #include <fw.h>
 #include <test.h>
 #include <suite.h>
+#include <stdarg.h>
 
-char cmd[1000];
-
-static void setup(t_suite *suite)
+static char	*ft_printf_to_str(char *format, ...)
 {
-	strcpy(cmd, "-l");
-	strcat(cmd, "1");
-	(void)suite;
+	int		out;
+	int		p[2];
+	char	*buf;
+    va_list args;
+
+	buf = malloc(100 * 1000);
+	out = dup(1);
+	pipe(p);
+	dup2(p[1], 1);
+
+    va_start(args, format);
+    ft_printf(format, args);
+    va_end(args);
+
+	dup2(out, 1);
+	read(p[0], buf, 100 * 1000);
+	buf[3] = 0;
+	close(p[0]);
+	close(p[1]);
+	close(out);
+	return (buf);
 }
 
-static void test_fail_int(t_test *test)
+static void test_simple_printf(t_test *test)
 {
-	assert(1 == 0);
-	(void)test;
-}
-
-static void test_fail_str(t_test *test)
-{
-	assert(strcmp("aaa", "bbb") == 0);
-	(void)test;
-}
-
-static void test_fail_segfaul(t_test *test)
-{
-	assert(raise(SIGSEGV) == 0);
-	(void)test;
-}
-
-static void test_fail_buserror(t_test *test)
-{
-	assert(raise(SIGBUS) == 0);
-	(void)test;
-}
-
-static void test_success(t_test *test)
-{
-	assert(1);
+	// printf("%s\n", ft_printf_to_str("abc"));;
+	assert(strcmp(ft_printf_to_str("aaa"), "aaa") == 0);
 	(void)test;
 }
 
 void	suite_00_no_modifier(t_suite *suite)
 {
-	setup(suite);
-	SUITE_ADD_TEST(suite, test_fail_int);
-	SUITE_ADD_TEST(suite, test_success);
-	SUITE_ADD_TEST(suite, test_success);
-	SUITE_ADD_TEST(suite, test_success);
-	SUITE_ADD_TEST(suite, test_fail_str);
-	SUITE_ADD_TEST(suite, test_success);
-	SUITE_ADD_TEST(suite, test_success);
-	SUITE_ADD_TEST(suite, test_success);
+	SUITE_ADD_TEST(suite, test_simple_printf);
 }

@@ -13,5 +13,6 @@ typedef struct				s_mt
 
 t_mt			*mt_create(void);
 void			mt_exec(t_mt *mt);
+size_t			mt_count_failed_suites(t_mt *mt);
 
 #endif

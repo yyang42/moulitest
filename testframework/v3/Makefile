@@ -1,6 +1,7 @@
 NAME = mt_framework.a
 INCLUDES = -I includes
-SRCS = main.c **/*.c
+# SRCS = main.c **/*.c
+SRCS = **/*.c
 FLAGS = -Wall -Werror -Wextra -g --std=c99
 
 all:

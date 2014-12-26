@@ -1,28 +1,29 @@
 NAME = ft_printf_test
-INCLUDES = -I . -I ../testframework/v2
+# INCLUDES = -I . -I ../testframework/v3/includes
+INCLUDES = -I ../testframework/v3/includes
 FLAGS = 
-SOURCE = ../testframework/v2/*.c ./tests/*.c main.c
-tests ?= spec.c$$
+SOURCE = ../testframework/v3/mt_framework.a ./tests/*.specnew.c main.c
+tests ?= specnew.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
-		sed -E "s/(.*)\.spec\.c/ut_add_test\(\&ut_test_\1, \\\\\"\1\\\\\"\);/g")
+		sed -E "s/(.*)\.specnew\.c/MT_ADD_SUITE\(mt, suite_\1, \\\\\"\1\\\\\"\);/g")
 RENDU_PATH = $(shell grep FT_PRINTF_PATH ../config.ini | cut -d '=' -f 2)
-PROTOTYPES = $(shell ls -1 tests | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.c/UT_TEST\(\1\);/g")
+PROTOTYPES = $(shell ls -1 tests | grep -e "$(tests)" | sed -E "s/(.*)\.specnew\.c/MT_ADD_PROTO\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
 all: $(NAME)
-	@./$(NAME)
+	./$(NAME)
 
 project:
-	@make re -k -C $(RENDU_PATH)
+	make re -k -C $(RENDU_PATH)
 
 $(NAME): project
-	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L $(RENDU_PATH) -o $(NAME)
+	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L $(RENDU_PATH) -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	@make -C $(RENDU_PATH) fclean
+	make -C $(RENDU_PATH) fclean
 	rm -f $(NAME)
 
 re: clean fclean all project

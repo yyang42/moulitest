@@ -15,6 +15,7 @@ all: $(NAME)
 
 project:
 	make re -k -C $(RENDU_PATH)
+	make re -k -C ../testframework/v3/
 
 $(NAME): project
 	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L $(RENDU_PATH) -o $(NAME)

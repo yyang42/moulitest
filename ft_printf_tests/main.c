@@ -8,11 +8,16 @@
 // # define MT_ADD_SUITE_PREF
 # define MT_ADD_PROTO(name)			void suite_ ## name(t_suite *suite)
 
+
+
 PROTOTYPES
 
 int main()
 {
 	t_mt	*mt = mt_create();
+
+	setbuf(stdout, NULL);
+
 
 	ADD_TESTS
 

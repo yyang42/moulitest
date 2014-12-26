@@ -15,5 +15,4 @@ void	test_print(t_test	*test)
 	else
 		symbol = C_GREEN "." C_CLEAR;
 	printf(symbol);
-	fflush(stdout);
 }

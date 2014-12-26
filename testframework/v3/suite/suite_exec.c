@@ -12,7 +12,8 @@ static void		suite_print_prefix(t_suite *suite)
 	ut = "["C_YELLOW"MT"C_CLEAR"] ";
 	ut_len = 5;
 
-	printf("\r");
+	// printf("\r");
+	printf("\n");
 	printf("%s", ut);
 	printf("%s", suite->name);
 	printf(" %.*s", (MAIN_COL_WIDTH - ut_len - (int)strlen(suite->name) - 8),

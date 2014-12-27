@@ -27,14 +27,22 @@ void	capture_stdout(t_cap_stdout *cap)
 	close(cap->out_pipe[1]);
 }
 
+static void capture_unblock_fd(int fd)
+{
+
+	int flags = fcntl(fd, F_GETFL, 0);
+	fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+
+}
+
 char	*capture_stdout_get_buffer(t_cap_stdout *cap)
 {
 	int ret;
 	fflush(stdout);
 
+	capture_unblock_fd(cap->out_pipe[0]);
 	ret = read(cap->out_pipe[0], cap->buffer, MAX_LEN); /* read from pipe into buffer */
 	cap->buffer[ret] = '\0';
-
 	return (cap->buffer);
 }
 

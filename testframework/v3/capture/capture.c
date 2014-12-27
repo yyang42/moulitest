@@ -2,18 +2,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <capture.h>
 
 #define BUF_SIZE 1024
 #define MAX_LEN 1024
-
-typedef struct s_cap_stdout
-{
-	int target_fd;
-	int saved_fd;
-	int out_pipe[2];
-	char buffer[10000];
-
-} t_cap_stdout;
 
 t_cap_stdout	*capture_stdout_create(int target_fd)
 {

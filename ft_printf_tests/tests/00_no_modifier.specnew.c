@@ -34,7 +34,7 @@ static void test_simple_printf01(t_test *test)
 
 static void test_simple_printf02(t_test *test)
 {
-	assert_printf("aaa", NULL);
+	assert_printf("a%sc", "b");
 }
 
 static void test_simple_printf03(t_test *test)

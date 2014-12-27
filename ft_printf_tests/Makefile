@@ -1,7 +1,7 @@
 NAME = ft_printf_test
 # INCLUDES = -I . -I ../testframework/v3/includes
 INCLUDES = -I ../testframework/v3/includes -I .
-FLAGS = 
+FLAGS = -Werror -Wextra -Wall
 SOURCE = ../testframework/v3/mt_framework.a ./tests/*.specnew.c main.c utils.c
 tests ?= specnew.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \

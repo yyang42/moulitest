@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 19:33:34 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/25 22:56:09 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/27 22:41:26 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct			s_lst
 
 t_lst					*lst_init(void);
 t_lst_elem				*lst_create_elem(t_lst *lst, void *data);
-void					lst_push(t_lst *lst, void *data);
+void					lst_push(t_lst *lst, t_lst_elem *newelem);
 void					lst_pop(t_lst *lst);
 size_t					lst_len(t_lst *lst);
 t_lst_elem				*lst_get(t_lst *lst, size_t index);

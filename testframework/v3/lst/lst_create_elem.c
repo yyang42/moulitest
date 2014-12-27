@@ -6,12 +6,13 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 10:18:33 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/12 16:51:19 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/27 22:41:01 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <lst.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 t_lst_elem	*lst_create_elem(t_lst *lst, void *data)
 {

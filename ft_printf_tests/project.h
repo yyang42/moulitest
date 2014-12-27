@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/27 16:48:55 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/27 19:55:20 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <fw.h>
 # include <capture.h>
+# include <unistd.h>
 
 int		ft_printf(const char *format, ...);
 char	*ft_printf_to_str(char *format, ...);
@@ -36,12 +37,12 @@ char *ft_printf_out;
   	ft_printf(arg1, __VA_ARGS__); \
 	ft_printf_out = strdup(capture_stdout_get_buffer(cap)); \
 	capture_stdout_destroy(cap); \
-	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	if (debug) \
 	{ \
 		printf("\nft_printf_out: %s\n", ft_printf_out); \
 		printf("printf_out:    %s\n", printf_out); \
 	} \
+	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	free(printf_out); \
 	free(ft_printf_out)
 
@@ -53,12 +54,12 @@ char *ft_printf_out;
   	ft_printf(arg1); \
 	ft_printf_out = strdup(capture_stdout_get_buffer(cap)); \
 	capture_stdout_destroy(cap); \
-	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	if (debug) \
 	{ \
 		printf("\nft_printf_out: %s\n", ft_printf_out); \
 		printf("printf_out:    %s\n", printf_out); \
 	} \
+	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	free(printf_out); \
 	free(ft_printf_out)
 

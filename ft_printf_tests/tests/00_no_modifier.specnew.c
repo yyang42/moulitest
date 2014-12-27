@@ -1,11 +1,4 @@
-#include <fw.h>
-#include <test.h>
-#include <suite.h>
-#include <stdarg.h>
 #include <project.h>
-#include <capture.h>
-#include <unistd.h>
-
 
 static void simple_string(t_test *test)
 {

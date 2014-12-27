@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/27 10:36:21 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/27 10:48:30 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ char *ft_printf_out;
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	free(printf_out); \
 	free(ft_printf_out)
+#define assert_printf_noarg(arg1) assert_printf(arg1, NULL)
 
 #endif

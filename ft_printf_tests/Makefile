@@ -18,7 +18,7 @@ project:
 	make re -k -C ../testframework/v3/
 
 $(NAME): project
-	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) /Volumes/Data/nfs/zfs-student-3/users/2014/yyang/hq/repos/projects/common/ft_printf/libftprintf.a -o $(NAME)
+	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L$(RENDU_PATH)  -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)

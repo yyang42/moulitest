@@ -2,9 +2,9 @@
 
 static void simple_convertion_s(t_test *test)
 {
-	debug_on();
+	// debug_on();
 	assert_printf("Hello %s.", "world");
-	debug_off();
+	// debug_off();
 }
 
 void	suite_04_simple_string(t_suite *suite)

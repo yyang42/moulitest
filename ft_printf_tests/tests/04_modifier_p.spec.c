@@ -2,16 +2,44 @@
 
 static void test_int_pointer(t_test *test)
 {
-	debug_on();
 	int i;
 
-	i = 5;
+	// debug_on();
 	assert_printf("%p", &i);
-	debug_off();
+	// debug_off();
+}
+
+
+static void test_unsigned_long_pointer(t_test *test)
+{
+	unsigned long l;
+
+	// debug_on();
+	assert_printf("%p", &l);
+	// debug_off();
+}
+
+static void test_str_pointer(t_test *test)
+{
+	char *str;
+
+	// debug_on();
+	assert_printf("%p", &str);
+	// debug_off();
+}
+
+static void test_function_pointer(t_test *test)
+{
+	// debug_on();
+	assert_printf("%p", &strlen);
+	// debug_off();
 }
 
 
 void	suite_04_modifier_p(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_int_pointer);
+	SUITE_ADD_TEST(suite, test_unsigned_long_pointer);
+	SUITE_ADD_TEST(suite, test_str_pointer);
+	SUITE_ADD_TEST(suite, test_function_pointer);
 }

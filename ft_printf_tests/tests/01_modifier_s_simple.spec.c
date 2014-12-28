@@ -7,7 +7,7 @@ static void simple_convertion_s(t_test *test)
 	// debug_off();
 }
 
-void	suite_01_simple_string(t_suite *suite)
+void	suite_01_modifier_s_simple(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_convertion_s);
 }

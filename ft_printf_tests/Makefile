@@ -2,12 +2,12 @@ NAME = ft_printf_test
 # INCLUDES = -I . -I ../testframework/v3/includes
 INCLUDES = -I ../testframework/v3/includes -I .
 FLAGS = -Werror -Wextra -Wall
-SOURCE = ../testframework/v3/mt_framework.a ./tests/*.specnew.c main.c utils.c
-tests ?= specnew.c$$
+SOURCE = ../testframework/v3/mt_framework.a ./tests/*.spec.c main.c utils.c
+tests ?= spec.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
-		sed -E "s/(.*)\.specnew\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
+		sed -E "s/(.*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
 RENDU_PATH = $(shell grep FT_PRINTF_PATH ../config.ini | cut -d '=' -f 2)
-PROTOTYPES = $(shell ls -1 tests | grep -e "$(tests)" | sed -E "s/(.*)\.specnew\.c/MT_ADD_PROTO\(\1\);/g")
+PROTOTYPES = $(shell ls -1 tests | grep -e "$(tests)" | sed -E "s/(.*)\.spec\.c/MT_ADD_PROTO\(\1\);/g")
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
 all: $(NAME)

@@ -1,7 +1,25 @@
-#include "project.h"
+#include <project.h>
 
-UT_TEST(00_no_modifier)
+static void simple_string(t_test *test)
 {
-	// Do not remove 42, as build will fail otherwise
-	UT_PRINTF_ASSERT("Simple chaine de test\n", 42);
+	assert_printf_noarg("This is a simple test.");
+}
+
+static void simple_string_with_newline(t_test *test)
+{
+	assert_printf_noarg("This is a simple test.\n");
+}
+
+static void simple_newline(t_test *test)
+{
+	char *str = "";
+
+	assert_printf_noarg(str);
+}
+
+void	suite_00_no_modifier(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
+	SUITE_ADD_TEST(suite, simple_string_with_newline);
+	SUITE_ADD_TEST(suite, simple_newline);
 }

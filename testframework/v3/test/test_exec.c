@@ -38,9 +38,12 @@ static void	test_exec_do(t_test	*test)
 	}
 }
 
-void	test_exec(t_test	*test)
+void	test_exec(t_lst_elem *elem)
 {
+	t_test	*test;
+
+	test = elem->data;
 	test_exec_do(test);
-	test_print(test);
+	test_print(elem);
   	// usleep(100 * 1000);
 }

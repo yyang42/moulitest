@@ -63,8 +63,11 @@ static void		suite_print_result(t_suite *suite)
 	suite_print_first_failure(suite);
 }
 
-void			suite_exec(t_suite *suite)
+void			suite_exec(t_lst_elem *elem)
 {
+	t_suite *suite;
+
+	suite = elem->data;
 	suite_print_result(suite);
 	suite->fn(suite);
 	lst_iter(suite->tests, (void *)test_exec);

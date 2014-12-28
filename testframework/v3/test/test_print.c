@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <color.h>
 
-void	test_print(t_test	*test)
+void	test_print(t_lst_elem *elem)
 {
 	char *symbol;
+	t_test	*test;
 
+	test = elem->data;
 	if (test->sig == SIGABRT)
 		symbol = C_RED "F" C_CLEAR;
 	else if (test->sig == SIGSEGV)

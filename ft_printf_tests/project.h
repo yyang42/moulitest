@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/27 19:55:20 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/28 10:46:20 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ char *ft_printf_out;
 	capture_stdout_destroy(cap); \
 	if (debug) \
 	{ \
-		printf("\nft_printf_out: %s\n", ft_printf_out); \
-		printf("printf_out:    %s\n", printf_out); \
+		printf("\n=====   printf_out  =====\n%s\n", printf_out); \
+		printf(  "===== ft_printf_out =====\n%s\n", ft_printf_out); \
+		printf(  "=========================\n"); \
 	} \
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	free(printf_out); \
@@ -56,8 +57,9 @@ char *ft_printf_out;
 	capture_stdout_destroy(cap); \
 	if (debug) \
 	{ \
-		printf("\nft_printf_out: %s\n", ft_printf_out); \
-		printf("printf_out:    %s\n", printf_out); \
+		printf("\n=====   printf_out  =====\n%s\n", printf_out); \
+		printf(  "===== ft_printf_out =====\n%s\n", ft_printf_out); \
+		printf(  "=========================\n"); \
 	} \
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	free(printf_out); \

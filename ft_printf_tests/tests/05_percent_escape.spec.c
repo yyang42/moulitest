@@ -1,5 +1,7 @@
 #include <project.h>
 
+#include <signal.h>
+
 static void test_percent_alone(t_test *test)
 {
 	// debug_on();

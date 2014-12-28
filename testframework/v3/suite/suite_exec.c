@@ -6,22 +6,25 @@
 
 static void		suite_print_prefix(t_suite *suite)
 {
-	char	*ut;
 	int		ut_len;
 	char	*file_suffix = ".spec.c";
+	char	suite_name[10 * 1000];
 
-	ut = "["C_YELLOW"MT"C_CLEAR"] ";
 	ut_len = 5;
 
 	printf("\r");
-	printf("%s", ut);
-	printf("%s%s", suite->name, file_suffix);
-	printf(" %.*s", (MAIN_COL_WIDTH
-		- ut_len
-		- (int)strlen(suite->name)
-		- (int)strlen(file_suffix)
-		- 8),
-		"---------------------------------------------------------------------");
+	printf("%s", "["C_YELLOW"MT"C_CLEAR"] ");
+	sprintf(suite_name, "%s%s %.*s",
+		suite->name,
+		file_suffix,
+		(MAIN_COL_WIDTH
+			- ut_len
+			- (int)strlen(suite->name)
+			- (int)strlen(file_suffix)
+			- 8),
+			"---------------------------------------------------------------------");
+
+	printf("%.*s", MAIN_COL_WIDTH - 12, suite_name);
 }
 
 static void		suite_print_first_failure(t_suite *suite)

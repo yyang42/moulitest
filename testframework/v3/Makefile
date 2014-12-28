@@ -15,3 +15,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+run: re
+	gcc $(NAME) main.c -I includes
+	./a.out

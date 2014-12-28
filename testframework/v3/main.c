@@ -1,10 +1,11 @@
 #include <unistd.h>
 #include <string.h>
+#include <fw.h>
 #include <mt.h>
 #include <test.h>
 #include <signal.h>
 
-#define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
+// #define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
 // #define MT_ADD_SUITE(mt, suite_fn) lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
 // #define SUITE_ADD_TEST(suite, test_fn) lst_push(suite->tests, test_create(#test_fn, test_fn))
 // #define MT_ADD_SUITE(mt, name, suite_fn) lst_push(mt->suites, lst_create_elem(mt->suites, suite_create(#name, suite_fn)))
@@ -101,10 +102,10 @@ int main()
 {
 	t_mt	*mt = mt_create();
 
-	MT_ADD_SUITE(mt, suite_01_first);
-	MT_ADD_SUITE(mt, suite_02_second);
-	MT_ADD_SUITE(mt, suite_03_third_some_desc);
-	MT_ADD_SUITE(mt, suite_04_fourth_segv);
+	MT_ADD_SUITE(mt, 01_first, suite_01_first);
+	MT_ADD_SUITE(mt, 02_second, suite_02_second);
+	MT_ADD_SUITE(mt, 03_third_some_desc, suite_03_third_some_desc);
+	MT_ADD_SUITE(mt, 04_fourth_segv, suite_04_fourth_segv);
 
 	mt_exec(mt);
 	return(0);

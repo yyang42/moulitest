@@ -41,6 +41,7 @@ char	*capture_stdout_get_buffer(t_cap_stdout *cap)
 	fflush(stdout);
 
 	capture_unblock_fd(cap->out_pipe[0]);
+	*(cap->buffer) = '\0';
 	ret = read(cap->out_pipe[0], cap->buffer, MAX_LEN); /* read from pipe into buffer */
 	cap->buffer[ret] = '\0';
 	return (cap->buffer);

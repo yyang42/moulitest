@@ -2,7 +2,9 @@
 
 static void todo(t_test *test)
 {
-	// negative octal
+	// error handling
 	assert_printf("%o", -42);
 	assert_printf("%O", LONG_MIN);
+	assert_printf("%u", -42);
+	assert_printf("%u", UINT_MAX + 1);
 }

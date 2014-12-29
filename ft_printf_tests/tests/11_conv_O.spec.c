@@ -27,7 +27,6 @@ static void test_many_long_octals_with_strings(t_test *test)
 		0, 55555, 100000);
 }
 
-
 static void test_octal_long_max(t_test *test)
 {
 	// debug_next_assert();

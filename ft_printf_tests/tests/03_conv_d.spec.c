@@ -1,4 +1,5 @@
 #include <project.h>
+#include <limits.h>
 
 static void test_digit(t_test *test)
 {
@@ -32,6 +33,18 @@ static void test_many_digits_width_strings(t_test *test)
 		1, -2, 3);
 }
 
+static void test_int_max(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%d", INT_MAX);
+}
+
+static void test_int_min(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%d", INT_MIN);
+}
+
 void	suite_03_conv_d(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_digit);
@@ -39,4 +52,6 @@ void	suite_03_conv_d(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_digit_with_strings);
 	SUITE_ADD_TEST(suite, test_many_digits);
 	SUITE_ADD_TEST(suite, test_many_digits_width_strings);
+	SUITE_ADD_TEST(suite, test_int_max);
+	SUITE_ADD_TEST(suite, test_int_min);
 }

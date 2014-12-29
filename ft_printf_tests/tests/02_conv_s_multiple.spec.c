@@ -23,7 +23,7 @@ static void test_only_string_conv(t_test *test)
 	// debug_off();
 }
 
-void	suite_02_modifier_s_multiple(t_suite *suite)
+void	suite_02_conv_s_multiple(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_2_strings);
 	SUITE_ADD_TEST(suite, test_more_strings);

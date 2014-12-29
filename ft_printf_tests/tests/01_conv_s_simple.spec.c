@@ -28,7 +28,7 @@ static void simple_convertion4(t_test *test)
 	// debug_off();
 }
 
-void	suite_01_modifier_s_simple(t_suite *suite)
+void	suite_01_conv_s_simple(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_convertion1);
 	SUITE_ADD_TEST(suite, simple_convertion2);

@@ -37,7 +37,7 @@ static void test_many_digits_width_strings(t_test *test)
 	// debug_off();
 }
 
-void	suite_03_modifier_d(t_suite *suite)
+void	suite_03_conv_d(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_digit);
 	SUITE_ADD_TEST(suite, test_digit_negative);

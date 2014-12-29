@@ -22,7 +22,7 @@ static void simple_newline(t_test *test)
 	assert_printf_noarg("\n");
 }
 
-void	suite_00_no_modifier(t_suite *suite)
+void	suite_00_no_conv(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_string);
 	SUITE_ADD_TEST(suite, simple_string_with_newline);

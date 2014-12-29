@@ -1,7 +1,8 @@
 NAME = ft_printf_test
 # INCLUDES = -I . -I ../testframework/v3/includes
 INCLUDES = -I ../testframework/v3/includes -I .
-FLAGS = -Werror -Wextra -Wall
+# FLAGS = -Werror -Wextra -Wall
+FLAGS = -g
 SOURCE = ../testframework/v3/mt_framework.a ./tests/*.spec.c main.c utils.c
 tests ?= spec.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
@@ -18,7 +19,7 @@ project:
 	make re -k -C ../testframework/v3/
 
 $(NAME): project
-	gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L$(RENDU_PATH)  -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L$(RENDU_PATH)  -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)

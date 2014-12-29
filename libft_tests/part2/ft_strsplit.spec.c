@@ -15,6 +15,13 @@ UT_TEST(ft_strsplit)
 	tt = ft_strsplit("coucou", '*');
 	UT_ASSERT_EQ(strcmp(tt[0], "coucou"), 0);
 	UT_ASSERT_EQ(tt[1], NULL);
+	tt = ft_strsplit("salut****", '*');
+	UT_ASSERT_EQ(strcmp(tt[0], "salut"), 0);
+	UT_ASSERT_EQ(tt[1], NULL);
+
+	tt = ft_strsplit("****salut", '*');
+	UT_ASSERT_EQ(strcmp(tt[0], "salut"), 0);
+	UT_ASSERT_EQ(tt[1], NULL);
 
 	tt = ft_strsplit("", '*');
 	UT_ASSERT(tt &&  tt[0] == NULL);

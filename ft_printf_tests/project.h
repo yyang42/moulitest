@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/29 13:50:00 by yyang            ###   ########.fr       */
+/*   Updated: 2014/12/29 19:34:22 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int printf_ret;
 char *ft_printf_out;
 int ft_printf_ret;
 
-#define debug_on() debug = 1;
+#define debug_next_assert() debug = 1;
 #define debug_off() debug = 0;
 
 #define assert_printf(arg1, ...) \
@@ -44,6 +44,7 @@ int ft_printf_ret;
 		printf("\n=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
 		printf(  "===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
 		printf(  "=========================\n"); \
+		debug_off(); \
 	} \
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	assert(printf_ret == ft_printf_ret); \
@@ -63,6 +64,7 @@ int ft_printf_ret;
 		printf("\n=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
 		printf(  "===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
 		printf(  "=========================\n"); \
+		debug_off(); \
 	} \
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	assert(printf_ret == ft_printf_ret); \

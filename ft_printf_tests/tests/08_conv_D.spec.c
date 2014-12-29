@@ -3,33 +3,29 @@
 
 static void test_simple(t_test *test)
 {
-	// debug_on();
+	// debug_next_assert();
 	assert_printf("%D", 0L);
 	assert_printf("%D", 1L);
 	assert_printf("%D", -1L);
 	assert_printf("%D", 42L);
-	// debug_off();
 }
 
 static void test_long_max(t_test *test)
 {
-	// debug_on();
+	// debug_next_assert();
 	assert_printf("%D", LONG_MAX);
-	// debug_off();
 }
 
 static void test_long_min(t_test *test)
 {
-	// debug_on();
+	// debug_next_assert();
 	assert_printf("%D", LONG_MIN);
-	// debug_off();
 }
 
 static void test_with_strings(t_test *test)
 {
-	// debug_on();
+	// debug_next_assert();
 	assert_printf("Coucou les %D!", 42);
-	// debug_off();
 }
 
 void	suite_08_conv_D(t_suite *suite)

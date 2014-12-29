@@ -5,16 +5,19 @@
 #include <test.h>
 #include <signal.h>
 #include <locale.h>
+#include "project.h"
 
 # define MT_ADD_PROTO(name)			void suite_ ## name(t_suite *suite)
 
 
 PROTOTYPES
 
+
 int main()
 {
 	t_mt	*mt = mt_create();
 
+	debug_off();
 	setbuf(stdout, NULL);
 	setlocale(LC_ALL, "en_US.UTF-8");
 

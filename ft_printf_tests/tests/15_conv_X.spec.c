@@ -2,7 +2,7 @@
 
 static void test_simple(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("%X", 42);
 }
 

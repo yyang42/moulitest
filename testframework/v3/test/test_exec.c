@@ -9,14 +9,27 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
-#include <setjmp.h>
+// #include <setjmp.h>
+// jmp_buf env_buffer;
 
-jmp_buf env_buffer;
+static int getset_signnum(int signum)
+{
+	static int	save;
+	int			tmp;
+
+	if (signum)
+	{
+		save = signum;
+		return (save);
+	}
+	tmp = save;
+	save = 0;
+	return (tmp);
+}
 
 static void sig_handler(int signum)
 {
-	longjmp(env_buffer, signum);
-	(void)signum;
+	getset_signnum(signum);
 }
 
 static void	test_exec_do(t_test	*test)
@@ -26,15 +39,14 @@ static void	test_exec_do(t_test	*test)
 	signal(SIGABRT, sig_handler);
 	signal(SIGSEGV, sig_handler);
 	signal(SIGBUS, sig_handler);
-	if ((sig = setjmp(env_buffer)))
+
+	test->fn(test);
+	test->is_fail = 0;
+
+	if ((sig = getset_signnum(0)))
 	{
 		test->is_fail = 1;
 		test->sig = sig;
-	}
-	else
-	{
-		test->fn(test);
-		test->is_fail = 0;
 	}
 }
 
@@ -45,5 +57,5 @@ void	test_exec(t_lst_elem *elem)
 	test = elem->data;
 	test_exec_do(test);
 	test_print(elem);
-  	// usleep(1000 * 1000);
+  	// usleep(300 * 1000);
 }

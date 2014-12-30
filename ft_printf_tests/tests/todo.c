@@ -8,4 +8,6 @@ static void todo(t_test *test)
 	assert_printf("%u", -42);
 	assert_printf("%u", UINT_MAX + 1);
 	assert_printf("%U", ULONG_MAX + 1);
+	assert_printf("%c", 200);
+
 }

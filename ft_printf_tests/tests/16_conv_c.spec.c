@@ -2,19 +2,19 @@
 
 static void test_simple_char(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("%c", 'c');
 }
 
 static void test_two_chars(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("%c%c", '4', '2');
 }
 
 static void test_ascii_printable_chars(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \
 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\
 %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",

@@ -74,6 +74,18 @@ static void test_lo_long_unsigned_max(t_test *test)
 	assert_printf("%lo, %lo", 0, ULONG_MAX);
 }
 
+static void test_lx_long_unsigned_max(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%lx, %lx", 0, ULONG_MAX);
+}
+
+static void test_lX_long_unsigned_max(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%lX, %lX", 0, ULONG_MAX);
+}
+
 void	suite_19_length_modif_h(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_ld_simple);
@@ -90,4 +102,6 @@ void	suite_19_length_modif_h(t_suite *suite)
 
 	SUITE_ADD_TEST(suite, test_lu_long_unsigned_max);
 	SUITE_ADD_TEST(suite, test_lo_long_unsigned_max);
+	SUITE_ADD_TEST(suite, test_lx_long_unsigned_max);
+	SUITE_ADD_TEST(suite, test_lX_long_unsigned_max);
 }

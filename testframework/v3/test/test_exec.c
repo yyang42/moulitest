@@ -45,5 +45,5 @@ void	test_exec(t_lst_elem *elem)
 	test = elem->data;
 	test_exec_do(test);
 	test_print(elem);
-  	// usleep(100 * 1000);
+  	// usleep(1000 * 1000);
 }

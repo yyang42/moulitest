@@ -13,7 +13,7 @@ static void		suite_print_prefix(t_suite *suite)
 	ut_len = 5;
 
 	printf("\r");
-	printf("%s", "["C_YELLOW"MT"C_CLEAR"] ");
+	printf("%s", ""C_YELLOW">>>> "C_CLEAR);
 	sprintf(suite_name, "%s%s %.*s",
 		suite->name,
 		file_suffix,
@@ -23,7 +23,6 @@ static void		suite_print_prefix(t_suite *suite)
 			- (int)strlen(file_suffix)
 			- 8),
 			"---------------------------------------------------------------------");
-
 	printf("%.*s", MAIN_COL_WIDTH - 12, suite_name);
 }
 

@@ -4,7 +4,13 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <malloc/malloc.h>
+
+#ifdef __gnu_linux__
+# include <malloc.h>
+#else
+# include <malloc/malloc.h>
+#endif
+
 #include <ctype.h>
 #include <math.h>
 

@@ -98,7 +98,7 @@ static void test_ls_wchar(t_test *test)
 	assert_printf("%ls, %ls", L"暖炉", L"لحم خنزير");
 }
 
-void	suite_19_length_modif_h(t_suite *suite)
+void	suite_40_length_modif_l(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_ld_simple);
 	SUITE_ADD_TEST(suite, test_ld_int_max_plus);

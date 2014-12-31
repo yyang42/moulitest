@@ -14,6 +14,8 @@ void	test_print(t_lst_elem *elem)
 		symbol = C_RED "S" C_CLEAR;
 	else if (test->sig == SIGBUS)
 		symbol = C_RED "B" C_CLEAR;
+	else if (test->sig == SIGALRM)
+		symbol = C_RED "T" C_CLEAR;
 	else
 		symbol = C_GREEN "." C_CLEAR;
 	printf(symbol);

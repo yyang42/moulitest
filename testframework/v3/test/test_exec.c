@@ -9,44 +9,65 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
-// #include <setjmp.h>
-// jmp_buf env_buffer;
+#include <setjmp.h>
+jmp_buf env_buffer;
 
-static int getset_signnum(int signum)
+// static int getset_signnum(int signum)
+// {
+// 	static int	save;
+// 	int			tmp;
+
+// 	if (signum)
+// 	{
+// 		save = signum;
+// 		return (save);
+// 	}
+// 	tmp = save;
+// 	save = 0;
+// 	return (tmp);
+// }
+
+// static void sig_handler(int signum)
+// {
+// 	getset_signnum(signum);
+// }
+// // static void raise_abord(int signum)
+// // {
+// // 	raise(SIGABRT);
+// // 	(void)signum;
+// // }
+
+#define TIMEOUT_DELAY 2
+
+static void sig_handler_jmp(int signum)
 {
-	static int	save;
-	int			tmp;
+	longjmp(env_buffer, signum);
+} 
 
-	if (signum)
-	{
-		save = signum;
-		return (save);
-	}
-	tmp = save;
-	save = 0;
-	return (tmp);
-}
-
-static void sig_handler(int signum)
-{
-	getset_signnum(signum);
-}
+#include <unistd.h>
+int saved_stdout = -1;
 
 static void	test_exec_do(t_test	*test)
 {
-	int sig;
+	signal(SIGABRT, sig_handler_jmp);
+	signal(SIGSEGV, sig_handler_jmp);
+	signal(SIGBUS, sig_handler_jmp);
+	signal(SIGALRM, sig_handler_jmp);
 
-	signal(SIGABRT, sig_handler);
-	signal(SIGSEGV, sig_handler);
-	signal(SIGBUS, sig_handler);
-
-	test->fn(test);
 	test->is_fail = 0;
-
-	if ((sig = getset_signnum(0)))
+	if ((test->sig = setjmp(env_buffer)))
 	{
 		test->is_fail = 1;
-		test->sig = sig;
+	}
+	else
+	{
+		alarm(TIMEOUT_DELAY);
+		test->fn(test);
+	}
+	if (saved_stdout != -1)
+	{
+		dup2(saved_stdout, 1);
+		saved_stdout = -1;
 	}
 }
 

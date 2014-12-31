@@ -10,9 +10,10 @@
 t_cap_stdout	*capture_stdout_create(int target_fd)
 {
 	t_cap_stdout *cap;
+	extern int saved_stdout;
 
 	cap = malloc(sizeof(t_cap_stdout));
-	cap->saved_fd = dup(cap->target_fd); /* save stdout for display later */
+	saved_stdout = dup(cap->target_fd); /* save stdout for display later */
 	cap->target_fd = target_fd;
 	*(cap->buffer) = '\0';
 	return (cap);
@@ -49,34 +50,8 @@ char	*capture_stdout_get_buffer(t_cap_stdout *cap)
 
 void			capture_stdout_destroy(t_cap_stdout *cap)
 {
-	dup2(cap->saved_fd, cap->target_fd);  /* reconnect stdout for testing */
+	extern int saved_stdout;
+
+	dup2(saved_stdout, cap->target_fd);  /* reconnect stdout for testing */
 	free(cap);
 }
-
-// int main (int argc, char* argv[])
-// {
-// 	t_cap_stdout *cap;
-
-// 	cap = capture_stdout_create(STDOUT_FILENO);
-// 	capture_stdout(cap);
-
-//   	printf("[stdout] printf\n");
-
-// 	fprintf(stderr, "%s", capture_stdout_get_buffer(cap));
-// 	// fprintf(stdout, "%s\n", capture_stdout_get_buffer(cap));
-
-//   	write(1, "[stdout] write1\n", 16);
-// 	fprintf(stderr, "%s", capture_stdout_get_buffer(cap));
-//   	write(1, "[stdout] write2\n", 16);
-// 	fprintf(stderr, "%s", capture_stdout_get_buffer(cap));
-//   	write(1, "[stdout] write3\n", 16);
-// 	fprintf(stderr, "%s", capture_stdout_get_buffer(cap));
-//   	write(1, "[stdout] write4\n", 16);
-// 	fprintf(stderr, "%s", capture_stdout_get_buffer(cap));
-
-// 	capture_stdout_destroy(cap);
-
-// 	printf("[stdout] restored\n");
-// 	return 0;
-// }
-

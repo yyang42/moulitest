@@ -67,6 +67,7 @@ static void	test_exec_do(t_test	*test)
 	if (saved_stdout != -1)
 	{
 		dup2(saved_stdout, 1);
+		close(saved_stdout); /* important ! */
 		saved_stdout = -1;
 	}
 }

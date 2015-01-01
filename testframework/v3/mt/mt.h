@@ -11,7 +11,7 @@ typedef struct				s_mt
 	t_lst					*suites;
 }							t_mt;
 
-t_mt			*mt_create(void);
+t_mt			*mt_create(char *name);
 void			mt_exec(t_mt *mt);
 size_t			mt_count_failed_suites(t_mt *mt);
 

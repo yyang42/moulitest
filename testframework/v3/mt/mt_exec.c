@@ -9,14 +9,19 @@ static void		mt_exec_suites(t_mt *mt)
 
 static void		mt_print_header(t_mt *mt)
 {
-	puts("");
-	printf("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
-	printf(" Legend:");
+	printf("\n--\n\n");
+	printf("[ "C_CYAN"============= %s ============="C_CLEAR" ]\n", mt->name);
+	// printf("=== Tests for %s ===\n", mt->name);
+	// printf("Test: %s\n", mt->name);
+	printf("Source: github.com/yyang42/moulitest\n");
+	printf("Legend:");
 	printf(" ("C_GREEN"."C_CLEAR") Ok");
 	printf(" / ("C_RED"F"C_CLEAR") Fail");
 	printf(" / ("C_RED"S"C_CLEAR") Segfault");
 	printf(" / ("C_RED"B"C_CLEAR") Bus error");
 	printf(" / ("C_RED"T"C_CLEAR") Timeout");
+	puts("\n");
+	printf("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
 	puts("");
 	(void)mt;
 }
@@ -41,7 +46,6 @@ static void		mt_print_footer(t_mt *mt)
 	puts("");
 	mt_print_result(mt);
 	puts("");
-	puts("Source: github.com/yyang42/moulitest");
 	(void)mt;
 }
 

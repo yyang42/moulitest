@@ -15,7 +15,7 @@ PROTOTYPES
 
 int main()
 {
-	t_mt	*mt = mt_create();
+	t_mt	*mt = mt_create("ft_printf");
 
 	debug_off();
 	setbuf(stdout, NULL);

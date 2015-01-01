@@ -23,7 +23,7 @@ static void test_many_percent(t_test *test)
 static void test_more_percent(t_test *test)
 {
 	// debug_next_assert();
-	assert_printf_noarg("many many percent :) .%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.%%.");
+	assert_printf_noarg(".%%.%%.%%.%%.%%.%%.%%.%%.");
 }
 
 void	suite_05_percent_escape(t_suite *suite)

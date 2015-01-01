@@ -11,4 +11,7 @@ static void todo(t_test *test)
 	assert_printf("%c", 200);
 	assert_printf("%lx, %lx", 0, ULONG_MAX * 0.75);
 	assert_printf("%hhd", SHRT_MAX);
+	assert_printf("%zi", LLONG_MIN);
+	assert_printf("%zd", LLONG_MIN);
+
 }

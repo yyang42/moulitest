@@ -73,10 +73,22 @@ static void test_x_incompatible_flags(t_test *test)
 	assert_printf("% x|%+x", 42, 42);
 }
 
+static void test_x_up_incompatible_flags(t_test *test)
+{
+	debug_next_assert();
+	assert_printf("% X|%+X", 42, 42);
+}
+
 static void test_p_incompatible_flags(t_test *test)
 {
 	// debug_next_assert();
 	assert_printf("% p|%+p", 42, 42);
+}
+
+static void test_u_incompatible_flags(t_test *test)
+{
+	debug_next_assert();
+	assert_printf("% u|%+u", 42, 42);
 }
 
 void	suite_20_forbidden_value(t_suite *suite)
@@ -93,7 +105,9 @@ void	suite_20_forbidden_value(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_zd);
 	SUITE_ADD_TEST(suite, test_o_incompatible_flags);
 	SUITE_ADD_TEST(suite, test_x_incompatible_flags);
+	SUITE_ADD_TEST(suite, test_x_up_incompatible_flags);
 	SUITE_ADD_TEST(suite, test_p_incompatible_flags);
+	SUITE_ADD_TEST(suite, test_u_incompatible_flags);
 }
 
 /*

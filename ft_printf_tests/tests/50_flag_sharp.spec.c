@@ -8,6 +8,12 @@ static void test_octal_simple(t_test *test)
 	assert_printf("%#o", 42);
 }
 
+static void test_octal_zero(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%#o", 0);
+}
+
 static void test_octal_max(t_test *test)
 {
 	// debug_next_assert();
@@ -18,6 +24,12 @@ static void test_hex_simple(t_test *test)
 {
 	// debug_next_assert();
 	assert_printf("%#x", 42);
+}
+
+static void test_hex_zero(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%#x", 0);
 }
 
 static void test_hex_max(t_test *test)
@@ -32,6 +44,12 @@ static void test_hex_uppercase_simple(t_test *test)
 	assert_printf("%#X", 42);
 }
 
+static void test_hex_uppercase_zero(t_test *test)
+{
+	// debug_next_assert();
+	assert_printf("%#X", 0);
+}
+
 static void test_hex_uppercase_max(t_test *test)
 {
 	// debug_next_assert();
@@ -41,9 +59,12 @@ static void test_hex_uppercase_max(t_test *test)
 void	suite_50_flag_sharp(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_octal_simple);
+	SUITE_ADD_TEST(suite, test_octal_zero);
 	SUITE_ADD_TEST(suite, test_octal_max);
 	SUITE_ADD_TEST(suite, test_hex_simple);
+	SUITE_ADD_TEST(suite, test_hex_zero);
 	SUITE_ADD_TEST(suite, test_hex_max);
 	SUITE_ADD_TEST(suite, test_hex_uppercase_simple);
+	SUITE_ADD_TEST(suite, test_hex_uppercase_zero);
 	SUITE_ADD_TEST(suite, test_hex_uppercase_max);
 }

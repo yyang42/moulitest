@@ -15,5 +15,6 @@ static void todo(t_test *test)
 	assert_printf("%zi", LLONG_MIN);
 	assert_printf("%zd", LLONG_MIN);
 	assert_printf("%+o", 42);
+	assert_printf("%#.o", 42);
 	assert_printf("%#+12.45llp", 42645454564);
 }

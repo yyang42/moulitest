@@ -34,6 +34,18 @@ UT_TEST(bonus_01_test_opt_d)
 	sandbox_cmd("mkdir ./mydir && touch ./mydir/{a,b,c}");
 	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
+	cmd = "-1d .";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+	cmd = "-1d";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+	cmd = "-ld .";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
+	cmd = "-ld";
+	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+
 	/*
 	printf("\n=====  ls  ========\n");
 	printf("%s", ls(cmd));

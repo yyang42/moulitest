@@ -39,7 +39,7 @@ project:
 part1: fclean project
 	$(eval ADD_TESTS = $(shell ls -1 $(PARTS_DIRS) | grep -v ':' | grep -e "$(tests)" | sed -E 's/(.*)\.spec\.c/ut_add_test\(\&ut_test_\1, \\\"\1\\\"\);/'))
 	$(eval DEFINES += -DADD_TESTS="$(ADD_TESTS)")
-	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(PARTS) -lft -L$(RENDU_PATH) $(SOURCE) -o $(NAME)
+	@gcc -g $(FLAGS) $(INCLUDES) $(DEFINES) $(PARTS) -L$(RENDU_PATH) $(SOURCE) -o $(NAME) -lft
 	@./$(NAME)
 
 clean:

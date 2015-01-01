@@ -75,7 +75,7 @@ static void test_x_incompatible_flags(t_test *test)
 
 static void test_x_up_incompatible_flags(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("% X|%+X", 42, 42);
 }
 
@@ -87,9 +87,10 @@ static void test_p_incompatible_flags(t_test *test)
 
 static void test_u_incompatible_flags(t_test *test)
 {
-	debug_next_assert();
+	// debug_next_assert();
 	assert_printf("% u|%+u", 42, 42);
 }
+
 
 void	suite_20_forbidden_value(t_suite *suite)
 {

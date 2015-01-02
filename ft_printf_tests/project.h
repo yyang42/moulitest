@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/02 16:29:37 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/02 17:47:11 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,18 @@ int ft_printf_ret;
 	capture_stdout(); \
   	printf_ret = printf(arg1, __VA_ARGS__); \
 	printf_out = strdup(capture_stdout_get_buffer()); \
+	if (test->debug) \
+	{ \
+		fprintf(stderr, "\n=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
+		fprintf(stderr,   "=========================\n"); \
+	} \
   	ft_printf_ret = ft_printf(arg1, __VA_ARGS__); \
 	ft_printf_out = strdup(capture_stdout_get_buffer()); \
 	capture_stdout_destroy(); \
 	if (test->debug) \
 	{ \
-		printf("\n=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
-		printf(  "=========================\n"); \
-		printf(  "\n===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
-		printf(  "=========================\n"); \
+		fprintf(stderr,   "\n===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
+		fprintf(stderr,   "=========================\n"); \
 	} \
 	assert(strcmp(printf_out, ft_printf_out) == 0); \
 	assert(printf_ret == ft_printf_ret); \

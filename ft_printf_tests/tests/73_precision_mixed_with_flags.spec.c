@@ -21,7 +21,7 @@ static void test_precision_p_zero(t_test *test)
 	assert_printf("%.p, %.0p", 0, 0);
 }
 
-void	suite_72_precision_mixed_with_flags(t_suite *suite)
+void	suite_73_precision_mixed_with_flags(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_precision_o_sharp_zero);
 	SUITE_ADD_TEST(suite, test_precision_x_sharp_zero);

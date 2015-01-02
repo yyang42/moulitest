@@ -92,7 +92,7 @@ static void test_u_incompatible_flags(t_test *test)
 }
 
 
-void	suite_20_forbidden_value(t_suite *suite)
+void	suite_90_incompatible_values_sdp(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_octal_neg);
 	SUITE_ADD_TEST(suite, test_octal_long_max);

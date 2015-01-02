@@ -56,6 +56,12 @@ static void test_hex_uppercase_max(t_test *test)
 	assert_printf("%#X", INT_MAX);
 }
 
+static void test_hex_c_zero(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%#c", 0);
+}
+
 void	suite_60_flag_sharp(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_octal_simple);
@@ -67,4 +73,5 @@ void	suite_60_flag_sharp(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_hex_uppercase_simple);
 	SUITE_ADD_TEST(suite, test_hex_uppercase_zero);
 	SUITE_ADD_TEST(suite, test_hex_uppercase_max);
+	SUITE_ADD_TEST(suite, test_hex_c_zero);
 }

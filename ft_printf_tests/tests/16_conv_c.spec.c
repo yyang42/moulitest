@@ -27,16 +27,16 @@ static void test_ascii_printable_chars(t_test *test)
 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');
 }
 
-static void test_zero(t_test *test)
-{
-	// test->debug = 1;
-	assert_printf("a%c \0", 0);
-}	
+// static void test_zero(t_test *test)
+// {
+// 	// test->debug = 1;
+// 	assert_printf("a%cb", 0);
+// }	
 
 void	suite_16_conv_c(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple_char);
 	SUITE_ADD_TEST(suite, test_two_chars);
 	SUITE_ADD_TEST(suite, test_ascii_printable_chars);
-	SUITE_ADD_TEST(suite, test_zero);
+	// SUITE_ADD_TEST(suite, test_zero);
 }

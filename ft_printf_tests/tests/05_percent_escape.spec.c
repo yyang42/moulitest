@@ -26,10 +26,17 @@ static void test_more_percent(t_test *test)
 	assert_printf_noarg(".%%.%%.%%.%%.%%.%%.%%.%%.");
 }
 
+static void test_modulo_without_valid_specifier(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf_noarg("%Zoooo");
+}
+
 void	suite_05_percent_escape(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_percent_alone);
 	SUITE_ADD_TEST(suite, test_percent_simple);
 	SUITE_ADD_TEST(suite, test_many_percent);
 	SUITE_ADD_TEST(suite, test_more_percent);
+	SUITE_ADD_TEST(suite, test_modulo_without_valid_specifier);
 }

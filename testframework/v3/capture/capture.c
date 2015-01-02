@@ -6,8 +6,8 @@
 #include <errno.h>
 #include <assert.h>
 
-#define BUF_SIZE 1024
-#define MAX_LEN 1024
+#define MAX_LEN 42000
+#define BUF_SIZE MAX_LEN + 1
 
 const int READ = 0;
 const int WRITE = 1;

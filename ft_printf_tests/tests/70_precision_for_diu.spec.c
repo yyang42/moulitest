@@ -26,6 +26,12 @@ static void test_precision_d_zero_value(t_test *test)
 	assert_printf("%.d, %.0d", 0, 0);
 }
 
+static void test_precision_d_negative_value(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%.10d", -42);
+}
+
 static void test_precision_i(t_test *test)
 {
 	// test->debug = 1;
@@ -80,6 +86,7 @@ void	suite_70_precision_for_diu(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_precision);
 	SUITE_ADD_TEST(suite, test_precision_d_zero_value);
+	SUITE_ADD_TEST(suite, test_precision_d_negative_value);
 	SUITE_ADD_TEST(suite, test_precision_i);
 	SUITE_ADD_TEST(suite, test_precision_i_higher_min_width);
 	SUITE_ADD_TEST(suite, test_precision_i_higher_precision);

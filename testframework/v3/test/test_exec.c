@@ -10,32 +10,9 @@
 #include <signal.h>
 #include <string.h>
 #include <setjmp.h>
+#include <capture.h>
+
 jmp_buf env_buffer;
-
-// static int getset_signnum(int signum)
-// {
-// 	static int	save;
-// 	int			tmp;
-
-// 	if (signum)
-// 	{
-// 		save = signum;
-// 		return (save);
-// 	}
-// 	tmp = save;
-// 	save = 0;
-// 	return (tmp);
-// }
-
-// static void sig_handler(int signum)
-// {
-// 	getset_signnum(signum);
-// }
-// // static void raise_abord(int signum)
-// // {
-// // 	raise(SIGABRT);
-// // 	(void)signum;
-// // }
 
 #define TIMEOUT_DELAY 2
 
@@ -61,13 +38,7 @@ static void	test_exec_do(t_test	*test)
 		alarm(TIMEOUT_DELAY);
 		test->fn(test);
 	}
-	// if (saved_stdout != -1)
-	// {
-	// 	fprintf(stderr, "== close %d ==\n", saved_stdout);
-	// 	dup2(saved_stdout, 1);
-	// 	close(saved_stdout); /* important ! */
-	// 	saved_stdout = -1;
-	// }
+	capture_close_saved_stdout();
 }
 
 void	test_exec(t_lst_elem *elem)

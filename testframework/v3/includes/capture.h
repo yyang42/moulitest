@@ -15,5 +15,6 @@ typedef struct s_cap_stdout
 void			capture_stdout(void);
 char			*capture_stdout_get_buffer(void);
 void			capture_stdout_destroy(void);
+void			capture_close_saved_stdout(void);
 
 #endif

@@ -30,7 +30,7 @@ char out_buffer[10 * 1000];
 #define NO_FD_OPENED -1
 int saved_stdout = NO_FD_OPENED;
 
-static void capture_close_saved(void)
+void capture_close_saved_stdout(void)
 {
 	extern int saved_stdout;
 
@@ -40,14 +40,14 @@ static void capture_close_saved(void)
 		dup2(saved_stdout, STDOUT_FILENO);
 		close(saved_stdout); /* important ! */
 		saved_stdout = NO_FD_OPENED;
-		close(out_pipe[WRITE]);
 		close(out_pipe[READ]);
+		close(out_pipe[WRITE]);
 	}
 }
 
 void	capture_stdout(void)
 {
-	capture_close_saved();
+	capture_close_saved_stdout();
 	if( pipe(out_pipe) != 0 ) {          /* make a pipe */
 		assert(0);
 	}
@@ -61,7 +61,6 @@ static void capture_unblock_fd(int fd)
 
 	int flags = fcntl(fd, F_GETFL, 0);
 	fcntl(fd, F_SETFL, flags | O_NONBLOCK);
-
 }
 
 char	*capture_stdout_get_buffer(void)
@@ -80,7 +79,7 @@ void			capture_stdout_destroy(void)
 {
 	extern int saved_stdout;
 	dup2(saved_stdout, STDOUT_FILENO);  /* reconnect stdout for testing */
-	capture_close_saved();
+	capture_close_saved_stdout();
 
 	// free(cap);
 }

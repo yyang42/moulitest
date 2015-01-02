@@ -17,7 +17,6 @@ int main()
 {
 	t_mt	*mt = mt_create("ft_printf");
 
-	debug_off();
 	setbuf(stdout, NULL);
 	setlocale(LC_ALL, "en_US.UTF-8");
 

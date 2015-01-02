@@ -4,7 +4,7 @@ static void test_int_pointer(t_test *test)
 {
 	int i;
 
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%p", &i);
 }
 
@@ -13,7 +13,7 @@ static void test_unsigned_long_pointer(t_test *test)
 {
 	unsigned long l;
 
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%p", &l);
 }
 
@@ -21,13 +21,13 @@ static void test_str_pointer(t_test *test)
 {
 	char *str;
 
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%p", &str);
 }
 
 static void test_function_pointer(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%p", &strlen);
 }
 

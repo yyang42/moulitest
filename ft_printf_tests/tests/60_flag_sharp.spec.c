@@ -4,55 +4,55 @@
 
 static void test_octal_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#o", 42);
 }
 
 static void test_octal_zero(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#o", 0);
 }
 
 static void test_octal_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#o", INT_MAX);
 }
 
 static void test_hex_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#x", 42);
 }
 
 static void test_hex_zero(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#x", 0);
 }
 
 static void test_hex_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#x", INT_MAX);
 }
 
 static void test_hex_uppercase_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#X", 42);
 }
 
 static void test_hex_uppercase_zero(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#X", 0);
 }
 
 static void test_hex_uppercase_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#X", INT_MAX);
 }
 

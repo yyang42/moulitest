@@ -2,32 +2,32 @@
 
 static void test_digit(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%i", 42);
 }
 
 static void test_digit_negative(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%i", -42);
 }
 
 static void test_digit_with_strings(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("before %i after", 42);
 }
 
 static void test_many_digits(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%i%i%i%i%i",
 		1, -2, 3, -4, 5);
 }
 
 static void test_many_digits_width_strings(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("a%ib%ic%id",
 		1, -2, 3);
 }

@@ -4,7 +4,7 @@
 
 static void ignore_length_modifiers_with_p_conv(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%lp", 42);
 }
 

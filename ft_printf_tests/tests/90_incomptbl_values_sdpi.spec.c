@@ -3,25 +3,25 @@
 
 static void test_hhd(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%hhd - %hhd", SHRT_MAX - 42,  SHRT_MAX - 4200);
 }
 
 static void test_zi(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zi", LLONG_MIN);
 }
 
 static void test_zd(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zd", LLONG_MIN);
 }
 
 static void test_p_incompatible_flags(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("% p|%+p", 42, 42);
 }
 

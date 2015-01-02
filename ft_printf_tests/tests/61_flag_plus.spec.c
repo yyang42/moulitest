@@ -4,25 +4,25 @@
 
 static void test_plus_d_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%+d", 42);
 }
 
 static void test_plus_d_simple_minus(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%+d", -42);
 }
 
 static void test_plus_i_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%+i", 42);
 }
 
 static void test_plus_i_simple_minus(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%+i", -42);
 }
 

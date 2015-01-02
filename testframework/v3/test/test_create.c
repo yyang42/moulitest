@@ -9,5 +9,6 @@ t_test						*test_create(char *name, t_test_fn *fn)
 	test->name = strdup(name);
 	test->sig = 0;
 	test->fn = fn;
+	test->debug = 0;
 	return (test);
 }

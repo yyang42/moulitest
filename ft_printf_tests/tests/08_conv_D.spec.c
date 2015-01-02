@@ -3,7 +3,7 @@
 
 static void test_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%D", 0L);
 	assert_printf("%D", 1L);
 	assert_printf("%D", -1L);
@@ -12,19 +12,19 @@ static void test_simple(t_test *test)
 
 static void test_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%D", LONG_MAX);
 }
 
 static void test_long_min(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%D", LONG_MIN);
 }
 
 static void test_with_strings(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("Coucou les %D!", 42);
 }
 

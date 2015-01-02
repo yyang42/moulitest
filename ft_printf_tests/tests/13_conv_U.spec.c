@@ -3,19 +3,19 @@
 
 static void test_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%U", 42);
 }
 
 static void test_ulong_max_half(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%U", ULONG_MAX / 2);
 }
 
 static void test_ulong_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%U", ULONG_MAX);
 }
 

@@ -3,42 +3,42 @@
 
 static void test_octal_neg(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%o, %ho, %hho", -42, -42, -42);
 }
 
 static void test_octal_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%o", LONG_MAX);
 }
 
 static void test_octal_up_long_min(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%O", LONG_MIN);
 }
 
 static void test_octal_space_plus(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("% o|%+o", 42, 42);
 }
 static void test_octal_sharp_precision(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%#.o", 42);
 }
 
 static void test_x_incompatible_flags(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("% x|%+x", 42, 42);
 }
 
 static void test_x_up_incompatible_flags(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("% X|%+X", 42, 42);
 }
 

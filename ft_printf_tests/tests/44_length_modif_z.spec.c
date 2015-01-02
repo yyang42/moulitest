@@ -4,49 +4,49 @@
 
 static void test_zd_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zd%zd", 0, 42);
 }
 
 static void test_zd_llong_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zd", LLONG_MAX);
 }
 
 static void test_zi_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zi%zi", 0, 42);
 }
 
 static void test_zi_llong_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zi", LLONG_MAX);
 }
 
 static void test_zu_unsign_long_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zu, %zu", 0, ULLONG_MAX);
 }
 
 static void test_zo_unsign_long_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zo, %zo", 0, ULLONG_MAX);
 }
 
 static void test_zx_unsign_long_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zx, %zx", 0, ULLONG_MAX);
 }
 
 static void test_zX_unsign_long_long_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%zX, %zX", 0, ULLONG_MAX);
 }
 

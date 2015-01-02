@@ -1,7 +1,7 @@
 NAME = ft_printf_test
 # INCLUDES = -I . -I ../testframework/v3/includes
 INCLUDES = -I ../testframework/v3/includes -I .
-FLAGS_DISABLE = -Wno-format-extra-args -Wno-error=format= -Wno-format
+FLAGS_DISABLE = -Wno-format -Wno-format-extra-args
 FLAGS = -ggdb -Werror -Wextra -Wall -p $(FLAGS_DISABLE)
 SOURCE = ../testframework/v3/mt_framework.a ./tests/*.spec.c main.c utils.c
 tests ?= spec.c$$

@@ -3,33 +3,33 @@
 
 static void test_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%u", 42);
 }
 
 static void test_uint_with_strings(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("before %u after", 42);
 }
 
 static void test_many_uints(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%u%u%u%u%u",
 		1, 100, 999, 42, 999988888);
 }
 
 static void test_many_uints_with_strings(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("a%ub%uc%ud",
 		0, 55555, 100000);
 }
 
 static void test_uints_max(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%u", UINT_MAX);
 }
 

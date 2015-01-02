@@ -4,25 +4,25 @@
 
 static void test_percent_alone(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf_noarg("%%");
 }
 
 static void test_percent_simple(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf_noarg("aa%%bb");
 }
 
 static void test_many_percent(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf_noarg("%%%%%%%%%%");
 }
 
 static void test_more_percent(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf_noarg(".%%.%%.%%.%%.%%.%%.%%.%%.");
 }
 

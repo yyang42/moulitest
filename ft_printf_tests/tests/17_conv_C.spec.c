@@ -2,7 +2,7 @@
 
 static void test_simple_char(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", 'c');
 }
 
@@ -14,7 +14,7 @@ static void test_two_chars(t_test *test)
 
 static void test_ascii_printable_chars(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C \
 %C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C\
 %C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C%C",
@@ -29,32 +29,32 @@ static void test_ascii_printable_chars(t_test *test)
 
 static void test_chinese(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", L'猫');
 }
 
 static void test_greek(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", L'δ');
 }
 
 
 static void test_korean(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", L'요');
 }
 
 static void test_japanese(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", L'莨');
 }
 
 static void test_arabic(t_test *test)
 {
-	// debug_next_assert();
+	// test->debug = 1;
 	assert_printf("%C", L'ي');
 }
 

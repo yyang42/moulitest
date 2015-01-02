@@ -22,7 +22,7 @@ static void min_width_larger_than_input(t_test *test)
 
 static void negative_width(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("{%10d}", -42);
 }
 

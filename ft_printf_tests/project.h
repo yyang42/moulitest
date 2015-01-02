@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/02 17:47:11 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/02 18:05:14 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int ft_printf_ret;
 	printf_out = strdup(capture_stdout_get_buffer()); \
 	if (test->debug) \
 	{ \
-		fprintf(stderr, "\n=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
+		fprintf(stderr, "\nTEST: %s\n", test->name); \
+		fprintf(stderr, "=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
 		fprintf(stderr,   "=========================\n"); \
 	} \
   	ft_printf_ret = ft_printf(arg1, __VA_ARGS__); \

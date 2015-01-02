@@ -2,5 +2,5 @@
 
 static void todo(t_test *test)
 {
-	assert_printf("a%cb", 0);
+	assert_printf("{% c}", 0);
 }

@@ -5,25 +5,25 @@
 static void test_space_d_simple(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("% d", 42);
+	assert_printf("% d", 9999);
 }
 
 static void test_space_d_simple_minus(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("% d", -42);
+	assert_printf("% d", -9999);
 }
 
 static void test_space_i_simple(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("% i", 42);
+	assert_printf("% i", 9999);
 }
 
 static void test_space_i_simple_minus(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("% i", -42);
+	assert_printf("% i", -9999);
 }
 
 static void test_space_c_zero(t_test *test)

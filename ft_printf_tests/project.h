@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/02 18:05:14 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/02 21:35:28 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int ft_printf_ret;
 		fprintf(stderr,   "\n===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
 		fprintf(stderr,   "=========================\n"); \
 	} \
-	assert(strcmp(printf_out, ft_printf_out) == 0); \
+	assert(memcmp(printf_out, ft_printf_out, strlen(printf_out) + 1) == 0); \
 	assert(printf_ret == ft_printf_ret); \
 	free(printf_out); \
 	free(ft_printf_out)

@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <capture.h>
 #include <errno.h>
+#include <assert.h>
 
 #define BUF_SIZE 1024
 #define MAX_LEN 1024
 
+const int READ = 0;
+const int WRITE = 1;
 // t_cap_stdout	*capture_stdout_create(int target_fd)
 // {
 // 	t_cap_stdout *cap;
@@ -23,16 +26,34 @@
 int	out_pipe[2];
 char out_buffer[10 * 1000];
 
-void	capture_stdout(int target_fd)
+#include <unistd.h>
+#define NO_FD_OPENED -1
+int saved_stdout = NO_FD_OPENED;
+
+static void capture_close_saved(void)
 {
 	extern int saved_stdout;
 
-	if( pipe(out_pipe) != 0 ) {          /* make a pipe */
-		exit(1);
+	if (saved_stdout != NO_FD_OPENED)
+	{
+		// fprintf(stderr, "== close %d ==\n", saved_stdout);
+		dup2(saved_stdout, STDOUT_FILENO);
+		close(saved_stdout); /* important ! */
+		saved_stdout = NO_FD_OPENED;
+		close(out_pipe[WRITE]);
+		close(out_pipe[READ]);
 	}
-	saved_stdout = dup(target_fd); /* save stdout for display later */
-	dup2(out_pipe[1], target_fd);   /* redirect stdout to the pipe */
-	close(out_pipe[1]);
+}
+
+void	capture_stdout(void)
+{
+	capture_close_saved();
+	if( pipe(out_pipe) != 0 ) {          /* make a pipe */
+		assert(0);
+	}
+	assert(saved_stdout < 100);
+	saved_stdout = dup(STDOUT_FILENO); /* save stdout for display later */
+	dup2(out_pipe[WRITE], STDOUT_FILENO);   /* redirect stdout to the pipe */
 }
 
 static void capture_unblock_fd(int fd)
@@ -50,7 +71,7 @@ char	*capture_stdout_get_buffer(void)
 
 	capture_unblock_fd(out_pipe[0]);
 	*(out_buffer) = '\0';
-	ret = read(out_pipe[0], out_buffer, MAX_LEN); /* read from pipe into buffer */
+	ret = read(out_pipe[READ], out_buffer, MAX_LEN); /* read from pipe into buffer */
 	out_buffer[ret] = '\0';
 	return (out_buffer);
 }
@@ -59,5 +80,7 @@ void			capture_stdout_destroy(void)
 {
 	extern int saved_stdout;
 	dup2(saved_stdout, STDOUT_FILENO);  /* reconnect stdout for testing */
+	capture_close_saved();
+
 	// free(cap);
 }

@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/31 19:02:39 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/02 14:08:41 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int ft_printf_ret;
 #define debug_off() debug = 0;
 
 #define assert_printf(arg1, ...) \
-	capture_stdout(STDOUT_FILENO); \
+	capture_stdout(); \
   	printf_ret = printf(arg1, __VA_ARGS__); \
 	printf_out = strdup(capture_stdout_get_buffer()); \
   	ft_printf_ret = ft_printf(arg1, __VA_ARGS__); \
@@ -52,7 +52,7 @@ int ft_printf_ret;
 	free(ft_printf_out)
 
 #define assert_printf_noarg(arg1) \
-	capture_stdout(STDOUT_FILENO); \
+	capture_stdout(); \
   	printf_ret = printf(arg1); \
 	printf_out = strdup(capture_stdout_get_buffer()); \
   	ft_printf_ret = ft_printf(arg1); \

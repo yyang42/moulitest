@@ -44,9 +44,6 @@ static void sig_handler_jmp(int signum)
 	longjmp(env_buffer, signum);
 } 
 
-#include <unistd.h>
-int saved_stdout = -1;
-
 static void	test_exec_do(t_test	*test)
 {
 	signal(SIGABRT, sig_handler_jmp);
@@ -64,12 +61,13 @@ static void	test_exec_do(t_test	*test)
 		alarm(TIMEOUT_DELAY);
 		test->fn(test);
 	}
-	if (saved_stdout != -1)
-	{
-		dup2(saved_stdout, 1);
-		close(saved_stdout); /* important ! */
-		saved_stdout = -1;
-	}
+	// if (saved_stdout != -1)
+	// {
+	// 	fprintf(stderr, "== close %d ==\n", saved_stdout);
+	// 	dup2(saved_stdout, 1);
+	// 	close(saved_stdout); /* important ! */
+	// 	saved_stdout = -1;
+	// }
 }
 
 void	test_exec(t_lst_elem *elem)

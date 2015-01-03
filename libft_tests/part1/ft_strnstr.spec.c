@@ -19,4 +19,7 @@ UT_TEST(ft_strnstr)
 	UT_ASSERT_EQ(strnstr(buf, "6", 10), ft_strnstr(buf, "6", 10));
 	buf[1] = 0;
 	UT_ASSERT_EQ(strnstr(buf, "deux", 10), ft_strnstr(buf, "deux", 10));
+
+	char	buf2[] = "ozarabozaraboze";
+	UT_ASSERT_EQ(strnstr(buf2, "ozaraboze", 15), ft_strnstr(buf2, "ozaraboze", 15));
 }

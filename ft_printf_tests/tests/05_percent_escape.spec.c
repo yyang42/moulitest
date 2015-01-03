@@ -32,6 +32,24 @@ static void test_modulo_without_valid_specifier(t_test *test)
 	assert_printf_noarg("%Zoooo");
 }
 
+static void percentSpaceZoo(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf_noarg("% Zoooo");
+}
+
+static void percentAlone(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf_noarg("%");
+}
+
+static void multiplePercent(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf_noarg("{% %}");
+}
+
 void	suite_05_percent_escape(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_percent_alone);
@@ -39,4 +57,7 @@ void	suite_05_percent_escape(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_many_percent);
 	SUITE_ADD_TEST(suite, test_more_percent);
 	SUITE_ADD_TEST(suite, test_modulo_without_valid_specifier);
+	SUITE_ADD_TEST(suite, percentSpaceZoo);
+	SUITE_ADD_TEST(suite, percentAlone);
+	SUITE_ADD_TEST(suite, multiplePercent);
 }

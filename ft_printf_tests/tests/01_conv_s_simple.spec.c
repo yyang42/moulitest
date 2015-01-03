@@ -27,7 +27,7 @@ static void simple_convertion4(t_test *test)
 static void null_string(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("%s", 0);
+	assert_printf("{%s}", 0);
 }
 
 void	suite_01_conv_s_simple(t_suite *suite)

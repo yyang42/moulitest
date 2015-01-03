@@ -4,13 +4,13 @@
 
 static void positiveDigit_flagsSpacePlus_spaceFirst(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("{% +d}", 42);
 }
 
 static void positiveDigit_flagsSpacePlus_plusFirst(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("{%+ d}", 42);
 }
 

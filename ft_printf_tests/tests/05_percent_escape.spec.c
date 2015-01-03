@@ -29,7 +29,7 @@ static void test_more_percent(t_test *test)
 static void test_modulo_without_valid_specifier(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("%Zoooo");
+	assert_printf_noarg("%");
 }
 
 static void percentSpaceZoo(t_test *test)
@@ -41,7 +41,7 @@ static void percentSpaceZoo(t_test *test)
 static void percentAlone(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("%");
+	assert_printf_noarg("{%}");
 }
 
 static void multiplePercent(t_test *test)

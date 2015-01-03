@@ -25,7 +25,7 @@ static void test_min_width_larger_than_input(t_test *test)
 	assert_printf("{%030d}", 10000);
 }
 
-void	suite_51_min_width_flag_zero(t_suite *suite)
+void	suite_52_min_width_flag_zero(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple);
 	SUITE_ADD_TEST(suite, test_negative_value);

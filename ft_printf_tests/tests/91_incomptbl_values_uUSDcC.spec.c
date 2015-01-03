@@ -31,6 +31,13 @@ static void test_u_incompatible_flags(t_test *test)
 	assert_printf("% u|%+u", 42, 42);
 }
 
+static void test_hhu(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhu / %hhu", SHRT_MAX - 42,  SHRT_MAX - 4200);
+}
+
+
 void	suite_91_incomptbl_values_uUSDcC(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_unsigned_neg);
@@ -38,4 +45,5 @@ void	suite_91_incomptbl_values_uUSDcC(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_unsigned_long_max_plus_one);
 	SUITE_ADD_TEST(suite, test_big_char);
 	SUITE_ADD_TEST(suite, test_u_incompatible_flags);
+	SUITE_ADD_TEST(suite, test_hhu);
 }

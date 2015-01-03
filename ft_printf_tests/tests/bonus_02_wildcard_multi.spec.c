@@ -4,7 +4,7 @@
 
 static void wildcard_for_min_width_positive(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("%*.*d", 0, 3, 0);
 }
 

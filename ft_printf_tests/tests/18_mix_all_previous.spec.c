@@ -18,5 +18,4 @@ void	suite_18_mix_all_previous(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple);
 	SUITE_ADD_TEST(suite, test_hard);
-
 }

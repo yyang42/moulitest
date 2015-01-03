@@ -21,7 +21,7 @@ static void digit_wildcard_and_min_width_value3(t_test *test)
 }
 
 
-void	suite_bonus_02_wildcard_flag_mix(t_suite *suite)
+void	suite_bonus_03_wildcard_flag_mix(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value1);
 	SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value2);

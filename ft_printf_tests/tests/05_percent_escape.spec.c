@@ -5,49 +5,49 @@
 static void test_percent_alone(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("%%");
+	assert_printf("%%");
 }
 
 static void test_percent_simple(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("aa%%bb");
+	assert_printf("aa%%bb");
 }
 
 static void test_many_percent(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("%%%%%%%%%%");
+	assert_printf("%%%%%%%%%%");
 }
 
 static void test_more_percent(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg(".%%.%%.%%.%%.%%.%%.%%.%%.");
+	assert_printf(".%%.%%.%%.%%.%%.%%.%%.%%.");
 }
 
 static void test_modulo_without_valid_specifier(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("%");
+	assert_printf("%");
 }
 
 static void percentSpaceZoo(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("% Zoooo");
+	assert_printf("% Zoooo");
 }
 
 static void percentAlone(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("{%}");
+	assert_printf("{%}");
 }
 
 static void multiplePercent(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("{% %}");
+	assert_printf("{% %}");
 }
 
 void	suite_05_percent_escape(t_suite *suite)

@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/04 13:02:31 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/04 13:12:09 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,5 @@ int				ft_printf_ret;
 	assert_msg(printf_ret == ft_printf_ret, PRINTF_CASE_MSG(#__VA_ARGS__)); \
 	free(printf_out); \
 	free(ft_printf_out)
-
-#define assert_printf_noarg(arg1) assert_printf(arg1)
 
 #endif

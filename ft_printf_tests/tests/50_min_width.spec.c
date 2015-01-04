@@ -47,7 +47,7 @@ static void pZero_minus15MinWidth(t_test *test)
 static void invalidConvSpec_withMinWith(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf_noarg("{%10R}");
+	assert_printf("{%10R}");
 }
 
 void	suite_50_min_width(t_suite *suite)

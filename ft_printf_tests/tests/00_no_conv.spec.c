@@ -2,24 +2,26 @@
 
 static void simple_string(t_test *test)
 {
-	assert_printf_noarg("This is a simple test.");
+	// test->debug = 1;
+	assert_printf("This is a simple test.");
 }
 
 static void simple_string_with_newline(t_test *test)
 {
-	assert_printf_noarg("This is a simple test.\n");
+	// test->debug = 1;
+	assert_printf("This is a simple test.\nSecond sentence.\n");
 }
 
 static void empty_string(t_test *test)
 {
-	char *str = "";
-
-	assert_printf_noarg(str);
+	// test->debug = 1;
+	assert_printf("");
 }
 
 static void simple_newline(t_test *test)
 {
-	assert_printf_noarg("\n");
+	// test->debug = 1;
+	assert_printf("\n");
 }
 
 void	suite_00_no_conv(t_suite *suite)

@@ -25,5 +25,6 @@ void			suite_add_test(t_suite *suite, t_test	*test);
 void			suite_exec(t_lst_elem *elem);
 size_t			suite_count_failed_tests(t_suite *suite);
 int				suite_filter_failed(t_suite	*suite);
+size_t			suite_count_tests(t_suite *suite);
 
 #endif

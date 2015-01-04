@@ -35,10 +35,15 @@ static void		mt_print_result(t_mt *mt)
 		color = C_RED;
 	else
 		color = C_GREEN;
-	printf("%s>>>> Result: %lu/%lu test suites passed."C_CLEAR"\n",
-		color,
+	printf(color);
+	printf(">>>> Result: %lu/%lu test suites passed.",
 		lst_len(mt->suites) - mt_count_failed_suites(mt)
 		, lst_len(mt->suites));
+
+	size_t total_tests = mt_count_tests(mt);
+	printf(" %lu/%lu tests passed (dots).", total_tests - mt_count_failed_tests(mt), total_tests);
+	printf(C_CLEAR);
+	puts("");
 }
 
 static void		mt_print_footer(t_mt *mt)
@@ -47,7 +52,6 @@ static void		mt_print_footer(t_mt *mt)
 	puts("");
 	mt_print_result(mt);
 	puts("");
-	(void)mt;
 }
 
 void			mt_exec(t_mt *mt)

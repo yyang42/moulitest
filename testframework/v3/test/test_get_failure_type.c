@@ -1,6 +1,7 @@
 #include <test.h>
 #include <stdio.h>
 #include <color.h>
+#include <signal.h>
 
 char	*test_get_failure_type(t_test *test)
 {

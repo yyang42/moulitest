@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/03 21:23:26 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/04 13:02:31 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int				printf_ret;
 char			*ft_printf_out;
 int				ft_printf_ret;
 
-#define assert_printf(arg1, ...) \
+#define PRINTF_CASE_MSG(msg) "printf("msg")"
+
+#define assert_printf(...) \
 	capture_stdout(); \
-  	printf_ret = printf(arg1, __VA_ARGS__); \
+  	printf_ret = printf(__VA_ARGS__); \
 	printf_out = strdup(capture_stdout_get_buffer()); \
 	if (test->debug) \
 	{ \
@@ -39,7 +41,7 @@ int				ft_printf_ret;
 		fprintf(stderr, "=====   printf_out  =====\nret: %d\n%s\n", printf_ret, printf_out); \
 		fprintf(stderr,   "=========================\n"); \
 	} \
-  	ft_printf_ret = ft_printf(arg1, __VA_ARGS__); \
+  	ft_printf_ret = ft_printf(__VA_ARGS__); \
 	ft_printf_out = strdup(capture_stdout_get_buffer()); \
 	capture_stdout_destroy(); \
 	if (test->debug) \
@@ -47,11 +49,11 @@ int				ft_printf_ret;
 		fprintf(stderr,   "\n===== ft_printf_out =====\nret: %d\n%s\n", ft_printf_ret, ft_printf_out); \
 		fprintf(stderr,   "=========================\n"); \
 	} \
-	assert(memcmp(printf_out, ft_printf_out, strlen(printf_out) + 1) == 0); \
-	assert(printf_ret == ft_printf_ret); \
+	assert_msg(memcmp(printf_out, ft_printf_out, strlen(printf_out) + 1) == 0, PRINTF_CASE_MSG(#__VA_ARGS__)); \
+	assert_msg(printf_ret == ft_printf_ret, PRINTF_CASE_MSG(#__VA_ARGS__)); \
 	free(printf_out); \
 	free(ft_printf_out)
 
-#define assert_printf_noarg(arg1) assert_printf(arg1, NULL)
+#define assert_printf_noarg(arg1) assert_printf(arg1)
 
 #endif

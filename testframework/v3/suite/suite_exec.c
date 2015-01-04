@@ -30,16 +30,22 @@ static void		suite_print_first_failure(t_suite *suite)
 {
 	t_test		*test;
 	t_lst_elem	*elem;
+	size_t		max_msg_length = 80;
 
 	elem = lst_find(suite->tests, (void *)test_filter_failed);
 	if (!elem)
 		return ;
 	test = elem->data;
-	printf(C_RED" [%s]"C_CLEAR, test_get_failure_type(test));
-	fprintf(stdout, C_RED" %s"C_CLEAR, test->name);
-	// fprintf(stdout, C_RED"%s -> \"%s\""C_CLEAR,
-	// 	test->name,
-	// 	test->last_assert_cond);
+	printf(C_RED);
+	printf(" [%s]", test_get_failure_type(test));
+	fprintf(stdout, " %s", test->name);
+	if (test->msg)
+	{
+		printf(" -> %.*s", (int)max_msg_length, test->msg);
+		if (strlen(test->msg) > max_msg_length)
+			printf("...");
+	}
+	printf(C_CLEAR);
 }
 
 static void		suite_print_suite_summary(t_suite *suite)

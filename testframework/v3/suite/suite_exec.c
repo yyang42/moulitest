@@ -31,6 +31,7 @@ static void		suite_print_first_failure(t_suite *suite)
 	t_test		*test;
 	t_lst_elem	*elem;
 	size_t		max_msg_length = 80;
+	char		*suffix;
 
 	elem = lst_find(suite->tests, (void *)test_filter_failed);
 	if (!elem)
@@ -40,11 +41,13 @@ static void		suite_print_first_failure(t_suite *suite)
 	printf(" [%s]", test_get_failure_type(test));
 	fprintf(stdout, " %s", test->name);
 	if (test->msg)
-	{
-		printf(" -> %.*s", (int)max_msg_length, test->msg);
-		if (strlen(test->msg) > max_msg_length)
-			printf("...");
-	}
+		suffix = test->msg;
+	else
+		suffix = test->last_assert_cond;
+
+	printf(" -> %.*s", (int)max_msg_length, suffix);
+	if (strlen(suffix) > max_msg_length)
+		printf("...");
 	printf(C_CLEAR);
 }
 

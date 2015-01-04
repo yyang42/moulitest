@@ -16,6 +16,7 @@ typedef struct				s_test
 	char					*msg;
 	t_test_fn				*fn;
 	int						is_fail;
+	int						expected_signum;
 	int						test_type;
 	int						sig;
 	int						debug;
@@ -25,7 +26,7 @@ t_test						*test_create(char *name, t_test_fn *fn);
 void						test_print(t_lst_elem *elem);
 void						test_exec(t_lst_elem *elem);
 void						test_assert(t_test	*test, int is_fail);
-void						test_assert_prep(t_test	*test, char *cond, char *msg);
+void						test_assert_prep(t_test	*test, char *cond, char *msg, int expected_signum);
 int							test_filter_failed(t_test *test);
 char						*test_get_failure_type(t_test *test);
 

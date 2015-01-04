@@ -20,6 +20,7 @@ static void		mt_print_header(t_mt *mt)
 	printf(" / ("C_RED"S"C_CLEAR") Segfault");
 	printf(" / ("C_RED"B"C_CLEAR") Bus error");
 	printf(" / ("C_RED"T"C_CLEAR") Timeout");
+	printf(" / ("C_RED"A"C_CLEAR") Abort");
 	puts("\n");
 	printf("[ "C_CYAN"-------STARTING ALL UNIT TESTS-------"C_CLEAR" ]");
 	puts("");

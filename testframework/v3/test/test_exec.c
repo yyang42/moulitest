@@ -23,21 +23,20 @@ static void sig_handler_jmp(int signum)
 
 static void	test_exec_do(t_test	*test)
 {
+	signal(SIGUSR1, sig_handler_jmp);
 	signal(SIGABRT, sig_handler_jmp);
 	signal(SIGSEGV, sig_handler_jmp);
 	signal(SIGBUS, sig_handler_jmp);
 	signal(SIGALRM, sig_handler_jmp);
 
 	test->is_fail = 0;
-	if ((test->sig = setjmp(env_buffer)))
-	{
-		test->is_fail = 1;
-	}
-	else
+	if (!(test->sig = setjmp(env_buffer)))
 	{
 		alarm(TIMEOUT_DELAY);
 		test->fn(test);
 	}
+	if (test->expected_signum != test->sig)
+		test->is_fail = 1;
 	capture_close_saved_stdout();
 }
 

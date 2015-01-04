@@ -1,6 +1,7 @@
 #include <test.h>
 #include <stdio.h>
 #include <color.h>
+#include <signal.h>
 
 void	test_print(t_lst_elem *elem)
 {

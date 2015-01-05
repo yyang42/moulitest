@@ -41,7 +41,7 @@ static void pZero_3MinWidth(t_test *test)
 static void pZero_minus15MinWidth(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%*p}", -15, 0);
+	assert_printf("{%-15p}", 0);
 }
 
 static void invalidConvSpec_withMinWith(t_test *test)

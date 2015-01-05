@@ -16,7 +16,7 @@ all: $(NAME)
 
 project:
 	make re -k -C $(RENDU_PATH)
-	make re -k -C ../testframework/v3/
+	make -k -C ../testframework/v3/
 
 $(NAME): project
 	gcc $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L$(RENDU_PATH)  -o $(NAME)
@@ -25,7 +25,8 @@ clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	make -C $(RENDU_PATH) fclean
+	make -k -C $(RENDU_PATH) fclean
+	make -k -C ../testframework/v3/ fclean
 	rm -f $(NAME)
 
 re: clean fclean all project

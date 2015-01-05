@@ -4,7 +4,7 @@ static void test_int_pointer(t_test *test)
 {
 	int i;
 
-	// test->debug = 1;
+	test->debug = 1;
 	assert_printf("%p", &i);
 }
 

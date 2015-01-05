@@ -34,14 +34,27 @@ static void min_width_c(t_test *test)
 
 static void pZero_5MinWidth(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("{%5p}", 0);
 }
 
 static void pZero_minus15MinWidth(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("{%-15p}", 0);
+}
+
+static void pZero_minus13MinWidth(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%-13p}", &strlen);
+}
+
+
+static void pZero_minus12MinWidth(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%-12p}", &strlen);
 }
 
 static void invalidConvSpec_withMinWith(t_test *test)
@@ -59,5 +72,7 @@ void	suite_50_min_width(t_suite *suite)
 	SUITE_ADD_TEST(suite, min_width_c);
 	SUITE_ADD_TEST(suite, pZero_5MinWidth);
 	SUITE_ADD_TEST(suite, pZero_minus15MinWidth);
+	SUITE_ADD_TEST(suite, pZero_minus13MinWidth);
+	SUITE_ADD_TEST(suite, pZero_minus12MinWidth);
 	SUITE_ADD_TEST(suite, invalidConvSpec_withMinWith);
 }

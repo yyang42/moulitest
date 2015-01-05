@@ -10,7 +10,7 @@ static void test_precision_o_sharp_zero(t_test *test)
 
 static void test_precision_x_sharp_zero(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	assert_printf("%#.x, %#.0x", 0, 0);
 }
 

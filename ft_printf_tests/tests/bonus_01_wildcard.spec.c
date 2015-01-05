@@ -73,6 +73,11 @@ static void sNullString_zeroMinWidth(t_test *test)
 	// test->debug = 1;
 	assert_printf("{%*s}", 5, 0);
 }
+static void pointer_wildcard(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%3*p}", 10, 0);
+}
 
 void	suite_bonus_01_wildcard(t_suite *suite)
 {
@@ -88,4 +93,5 @@ void	suite_bonus_01_wildcard(t_suite *suite)
 	SUITE_ADD_TEST(suite, wildcard_for_precision_string_negative);
 	SUITE_ADD_TEST(suite, wildcard_for_precision_string_zero);
 	SUITE_ADD_TEST(suite, sNullString_zeroMinWidth);
+	SUITE_ADD_TEST(suite, pointer_wildcard);
 }

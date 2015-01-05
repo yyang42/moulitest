@@ -5,7 +5,7 @@
 static void test(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%05.*d}", -15, 42);
+	assert_printf("Bla bla %03*.d", 10, -123);
 }
 
 void	suite_sandbox(t_suite *suite)

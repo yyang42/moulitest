@@ -26,13 +26,20 @@ static void mix_space_zero(t_test *test)
 	assert_printf("{% 03d}", 0);
 }
 
-static void test1(t_test *test)
+static void zeroFlag_minusMinWidth(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%0-3d}", 0);
+}
+
+
+static void zeroFlag_plusFlag_minWidth(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%+03d}", 12);
 }
 
-static void test2(t_test *test)
+static void zeroFlag_plusFlag_largeMinWidth(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%+03d}", 123456);
@@ -44,6 +51,7 @@ void	suite_69_flag_mix(t_suite *suite)
 	SUITE_ADD_TEST(suite, positiveDigit_flagsSpacePlus_plusFirst);
 	SUITE_ADD_TEST(suite, mix_plus_zero);
 	SUITE_ADD_TEST(suite, mix_space_zero);
-	SUITE_ADD_TEST(suite, test1);
-	SUITE_ADD_TEST(suite, test2);
+	SUITE_ADD_TEST(suite, zeroFlag_minusMinWidth);
+	SUITE_ADD_TEST(suite, zeroFlag_plusFlag_minWidth);
+	SUITE_ADD_TEST(suite, zeroFlag_plusFlag_largeMinWidth);
 }

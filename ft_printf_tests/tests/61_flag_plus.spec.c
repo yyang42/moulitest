@@ -44,6 +44,13 @@ static void sFakeNullString_plusFlag(t_test *test)
 	assert_printf("[%+s]", "(null)");
 }
 
+static void octalUppercase(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%+O", 1);
+}
+
+
 void	suite_61_flag_plus(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_plus_d_simple);
@@ -53,4 +60,5 @@ void	suite_61_flag_plus(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_plus_c_zero);
 	SUITE_ADD_TEST(suite, sNullString_plusFlag);
 	SUITE_ADD_TEST(suite, sFakeNullString_plusFlag);
+	SUITE_ADD_TEST(suite, octalUppercase);
 }

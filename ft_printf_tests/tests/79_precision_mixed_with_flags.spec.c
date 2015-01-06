@@ -26,10 +26,17 @@ static void char_precision_minwdith_and_flagZero(t_test *test)
 	assert_printf("{%05.c}", 0);
 }
 
+static void string_precision_minwdith_and_flagZero(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%05.s}", 0);
+}
+
 void	suite_79_precision_mixed_with_flags(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_precision_o_sharp_zero);
 	SUITE_ADD_TEST(suite, test_precision_x_sharp_zero);
 	SUITE_ADD_TEST(suite, test_precision_p_zero);
 	SUITE_ADD_TEST(suite, char_precision_minwdith_and_flagZero);
+	SUITE_ADD_TEST(suite, string_precision_minwdith_and_flagZero);
 }

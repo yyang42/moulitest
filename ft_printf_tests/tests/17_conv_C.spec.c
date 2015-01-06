@@ -58,6 +58,12 @@ static void test_arabic(t_test *test)
 	assert_printf("%C", L'ي');
 }
 
+static void test_nullChar(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%C", 0);
+}
+
 void	suite_17_conv_C(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple_char);
@@ -68,4 +74,5 @@ void	suite_17_conv_C(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_korean);
 	SUITE_ADD_TEST(suite, test_japanese);
 	SUITE_ADD_TEST(suite, test_arabic);
+	SUITE_ADD_TEST(suite, test_nullChar);
 }

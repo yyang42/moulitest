@@ -15,7 +15,8 @@ UT_TEST(ft_memset)
 	UT_ASSERT(memcmp(memset(strdup("abcd"), 'A', 5), ft_memset(strdup("abcd"), 'A', 5), 5) == 0);
 
 	/* test edge cases */
-	ft_memset(0, 0, 0);
+	/*ft_memset(0, 0, 0);
 	ft_memset(0, 'A', 0);
+	*/
 	UT_ASSERT(memcmp(memset(strdup("abcd"), 0, 0), ft_memset(strdup("abcd"), 0, 0), 5) == 0);
 }

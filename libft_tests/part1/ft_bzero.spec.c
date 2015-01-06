@@ -12,6 +12,6 @@ UT_TEST(ft_bzero)
 	UT_ASSERT_EQ(b1[0], 1);
 
 	/* test edge cases */
-	bzero(NULL, 0);
-	ft_bzero(NULL, 0);
+	/*bzero(NULL, 0);
+	ft_bzero(NULL, 0);*/
 }

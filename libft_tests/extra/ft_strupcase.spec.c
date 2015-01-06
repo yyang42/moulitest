@@ -2,7 +2,7 @@
 
 UT_TEST(ft_strupcase)
 {
-	ft_strupcase(NULL);
+	// ft_strupcase(NULL);
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("")), ""), 0);
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("aaa")), "AAA"), 0);
 	UT_ASSERT_EQ(strcmp(ft_strupcase(strdup("zzz")), "ZZZ"), 0);

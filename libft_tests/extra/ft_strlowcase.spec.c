@@ -1,4 +1,4 @@
-ft_strlowcase(NULL);
+// ft_strlowcase(NULL);
 UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("")), ""), 0);
 UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("aaa")), "aaa"), 0);
 UT_ASSERT_EQ(strcmp(ft_strlowcase(strdup("zzz")), "zzz"), 0);

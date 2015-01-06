@@ -56,6 +56,12 @@ static void octal_precision_and_flagSharp(t_test *test)
 	assert_printf("%#.3o", 1);
 }
 
+static void wideString_precisionMinWidth_flagZero(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%05.S}", L"42 c est cool");
+}
+
 void	suite_79_precision_mixed_with_flags(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_precision_o_sharp_zero);
@@ -67,4 +73,5 @@ void	suite_79_precision_mixed_with_flags(t_suite *suite)
 	SUITE_ADD_TEST(suite, nonValidConvSpec_precision_minwdith_and_flagZero);
 	SUITE_ADD_TEST(suite, hex_precision_and_flagSharp);
 	SUITE_ADD_TEST(suite, octal_precision_and_flagSharp);
+	SUITE_ADD_TEST(suite, wideString_precisionMinWidth_flagZero);
 }

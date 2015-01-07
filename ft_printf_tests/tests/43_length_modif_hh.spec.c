@@ -121,10 +121,23 @@ static void test_err_hhu_up_max(t_test *test)
 	// test->debug = 1;
 	assert_printf("%hhU, %hhU", 0, USHRT_MAX);
 }
+
 static void test_err_hhd_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%hhD, %hhD", 0, USHRT_MAX);
+}
+
+static void test_err_hhc_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhC, %hhC", 0, L'米');
+}
+
+static void test_err_hhs_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhS, %hhS", 0, L"米米");
 }
 
 void	suite_43_length_modif_hh(t_suite *suite)
@@ -153,4 +166,6 @@ void	suite_43_length_modif_hh(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_err_hho_up_max);
 	SUITE_ADD_TEST(suite, test_err_hhu_up_max);
 	SUITE_ADD_TEST(suite, test_err_hhd_up_max);
+	SUITE_ADD_TEST(suite, test_err_hhc_up_max);
+	SUITE_ADD_TEST(suite, test_err_hhs_up_max);
 }

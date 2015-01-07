@@ -1,4 +1,4 @@
-NAME = mt_framework.a
+NAME = libmt_framework.a
 INCLUDES = -I includes
 # SRCS = main.c **/*.c
 SRCS = **/*.c

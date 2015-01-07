@@ -19,7 +19,7 @@ project:
 	make -k -C ../testframework/v3/
 
 $(NAME): project
-	gcc $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -lftprintf -L$(RENDU_PATH)  -o $(NAME)
+	gcc $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -L../testframework/v3 -lmt_framework -lftprintf -L$(RENDU_PATH)  -o $(NAME)
 
 clean:
 	rm -f $(OBJECTS)

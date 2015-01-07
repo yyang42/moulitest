@@ -30,6 +30,12 @@ static void null_string(t_test *test)
 	assert_printf("{%s}", 0);
 }
 
+static void empty_string(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%s}", "");
+}
+
 void	suite_01_conv_s_simple(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_convertion1);
@@ -37,4 +43,5 @@ void	suite_01_conv_s_simple(t_suite *suite)
 	SUITE_ADD_TEST(suite, simple_convertion3);
 	SUITE_ADD_TEST(suite, simple_convertion4);
 	SUITE_ADD_TEST(suite, null_string);
+	SUITE_ADD_TEST(suite, empty_string);
 }

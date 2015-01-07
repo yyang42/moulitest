@@ -62,6 +62,23 @@ static void test_jX_unsign_long_long_max(t_test *test)
 	assert_printf("%jX, %jX", 0, ULLONG_MAX);
 }
 
+static void test_err_jo_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%jO, %jO", 0, USHRT_MAX);
+}
+
+static void test_err_ju_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%jU, %jU", 0, USHRT_MAX);
+}
+static void test_err_jd_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%jD, %jD", 0, USHRT_MAX);
+}
+
 void	suite_43_length_modif_j(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_jd_simple);
@@ -76,4 +93,8 @@ void	suite_43_length_modif_j(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_jo_unsign_long_long_max);
 	SUITE_ADD_TEST(suite, test_jx_unsign_long_long_max);
 	SUITE_ADD_TEST(suite, test_jX_unsign_long_long_max);
+
+	SUITE_ADD_TEST(suite, test_err_jo_up_max);
+	SUITE_ADD_TEST(suite, test_err_ju_up_max);
+	SUITE_ADD_TEST(suite, test_err_jd_up_max);
 }

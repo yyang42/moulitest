@@ -98,6 +98,23 @@ static void test_ls_wchar(t_test *test)
 	assert_printf("%ls, %ls", L"暖炉", L"لحم خنزير");
 }
 
+static void test_err_lo_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%lO, %lO", 0, USHRT_MAX);
+}
+
+static void test_err_lu_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%lU, %lU", 0, USHRT_MAX);
+}
+static void test_err_ld_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%lD, %lD", 0, USHRT_MAX);
+}
+
 void	suite_40_length_modif_l(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_ld_simple);
@@ -118,4 +135,8 @@ void	suite_40_length_modif_l(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_lX_long_unsigned_max);
 	SUITE_ADD_TEST(suite, test_lc_wchar);
 	SUITE_ADD_TEST(suite, test_ls_wchar);
+
+	SUITE_ADD_TEST(suite, test_err_lo_up_max);
+	SUITE_ADD_TEST(suite, test_err_lu_up_max);
+	SUITE_ADD_TEST(suite, test_err_ld_up_max);
 }

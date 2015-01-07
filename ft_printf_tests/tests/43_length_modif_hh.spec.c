@@ -110,6 +110,23 @@ static void test_hhX_max_plus(t_test *test)
 	assert_printf("%hhX, %hhX", 0, UCHAR_MAX + 42);
 }
 
+static void test_err_hho_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhO, %hhO", 0, USHRT_MAX);
+}
+
+static void test_err_hhu_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhU, %hhU", 0, USHRT_MAX);
+}
+static void test_err_hhd_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hhD, %hhD", 0, USHRT_MAX);
+}
+
 void	suite_43_length_modif_hh(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_hhd_simple);
@@ -132,4 +149,8 @@ void	suite_43_length_modif_hh(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_hho_max_plus);
 	SUITE_ADD_TEST(suite, test_hhx_max_plus);
 	SUITE_ADD_TEST(suite, test_hhX_max_plus);
+
+	SUITE_ADD_TEST(suite, test_err_hho_up_max);
+	SUITE_ADD_TEST(suite, test_err_hhu_up_max);
+	SUITE_ADD_TEST(suite, test_err_hhd_up_max);
 }

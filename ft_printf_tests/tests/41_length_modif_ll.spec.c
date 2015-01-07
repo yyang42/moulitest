@@ -62,6 +62,23 @@ static void test_llX_unsign_long_long_max(t_test *test)
 	assert_printf("%llX, %llX", 0, ULLONG_MAX);
 }
 
+static void test_err_llo_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%llO, %llO", 0, USHRT_MAX);
+}
+
+static void test_err_llu_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%llU, %llU", 0, USHRT_MAX);
+}
+static void test_err_lld_up_max(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%llD, %llD", 0, USHRT_MAX);
+}
+
 void	suite_41_length_modif_ll(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_lld_simple);
@@ -76,4 +93,8 @@ void	suite_41_length_modif_ll(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_llo_unsign_long_long_max);
 	SUITE_ADD_TEST(suite, test_llx_unsign_long_long_max);
 	SUITE_ADD_TEST(suite, test_llX_unsign_long_long_max);
+
+	SUITE_ADD_TEST(suite, test_err_llo_up_max);
+	SUITE_ADD_TEST(suite, test_err_llu_up_max);
+	SUITE_ADD_TEST(suite, test_err_lld_up_max);
 }

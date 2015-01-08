@@ -7,9 +7,9 @@
 #include "../lst/lst.h"
 # define MAX_TESTS_PER_SUITE 1000
 
-typedef struct s_suite t_suite;
+struct s_suite;
 
-typedef	void (t_suite_fn)(t_suite *);
+typedef	void (t_suite_fn)(struct s_suite *);
 
 typedef struct				s_suite
 {

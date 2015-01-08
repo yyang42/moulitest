@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include "../lst/lst.h"
 
-typedef struct s_test t_test;
+struct s_test;
 
-typedef	void (t_test_fn)(t_test *);
+typedef	void (t_test_fn)(struct s_test *);
 
 typedef struct				s_test
 {

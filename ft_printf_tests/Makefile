@@ -3,7 +3,7 @@ NAME = ft_printf_test
 INCLUDES = -I ../testframework/v3/includes -I .
 FLAGS_DISABLE = -Wno-format -Wno-format-extra-args
 FLAGS = -ggdb -Werror -Wextra -Wall -p $(FLAGS_DISABLE)
-SOURCE = ../testframework/v3/mt_framework.a ./tests/*.spec.c main.c utils.c
+SOURCE = ./tests/*.spec.c main.c utils.c
 tests ?= spec.c$$
 ADD_TESTS = $(shell ls -1 tests | grep -e "$(tests)" | \
 		sed -E "s/(.*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")

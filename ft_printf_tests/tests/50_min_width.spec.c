@@ -63,6 +63,18 @@ static void invalidConvSpec_withMinWith(t_test *test)
 	assert_printf("{%10R}");
 }
 
+static void wideString(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%30S}", L"我是一只猫。");
+}
+
+static void wideString_minusMinWidth(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{%-30S}", L"我是一只猫。");
+}
+
 void	suite_50_min_width(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple);
@@ -75,4 +87,6 @@ void	suite_50_min_width(t_suite *suite)
 	SUITE_ADD_TEST(suite, pZero_minus13MinWidth);
 	SUITE_ADD_TEST(suite, pZero_minus12MinWidth);
 	SUITE_ADD_TEST(suite, invalidConvSpec_withMinWith);
+	SUITE_ADD_TEST(suite, wideString);
+	SUITE_ADD_TEST(suite, wideString_minusMinWidth);
 }

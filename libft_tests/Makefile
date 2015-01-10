@@ -40,7 +40,7 @@ bonus_init:
 bonus: bonus_init exec_tests
 
 all_init:
-	$(eval POST_PATTERN = "")
+	$(eval POST_PATTERN = .*)
 all: all_init exec_tests
 
 clean:

@@ -8,11 +8,12 @@ DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 INCLUDES = -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I ../testframework/v2 -I.
 PARTS_DIRS = part1
 
+# @echo "\tmake extra\t--> Also runs part1, part2 and bonus (You need to set extra tests in config.ini)"
+# @echo "\nCorrection:\n\tmake check_forbidden_fn\n"
+
 all:
-	@echo "\nUsage:\n\tmake part1\n\tmake part2\t--> Also runs part1"
+	@echo "Usage:\n\tmake part1\n\tmake part2\t--> Also runs part1"
 	@echo "\tmake bonus\t--> Also runs part1 and part2"
-	# @echo "\tmake extra\t--> Also runs part1, part2 and bonus (You need to set extra tests in config.ini)"
-	@echo "\nCorrection:\n\tmake check_forbidden_fn\n"
 
 part2_def:
 	$(eval PARTS_DIRS += part2)

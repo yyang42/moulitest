@@ -10,7 +10,7 @@ static void		mt_exec_suites(t_mt *mt)
 static void		mt_print_header(t_mt *mt)
 {
 	printf("\n--\n\n");
-	printf(C_CYAN">>> Tests for %s"C_CLEAR"\n", mt->name);
+	printf(C_CYAN">>>> Tests for %s"C_CLEAR"\n", mt->name);
 	// printf("=== Tests for %s ===\n", mt->name);
 	// printf("Test: %s\n", mt->name);
 	printf("Source: github.com/yyang42/moulitest\n");

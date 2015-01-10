@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: juschaef <juschaef@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 09:41:52 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/28 12:37:31 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/07 18:26:09 by juschaef         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ void	lst_push(t_lst *lst, t_lst_elem *newelem)
 		tmpelem->next = newelem;
 		lst__link(tmpelem, tmpelem->next);
 	}
-
 }

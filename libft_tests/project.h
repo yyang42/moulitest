@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   project.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: celegran <celegran@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/05 18:58:31 by celegran          #+#    #+#             */
-/*   Updated: 2014/12/08 14:15:04 by celegran         ###   ########.fr       */
+/*   Updated: 2015/01/10 11:25:44 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROJECT_H
 # define PROJECT_H
 
-# include "testframework.h"
+# include <fw.h>
 # include <libft.h>
 # include <string.h>
 # include <ctype.h>

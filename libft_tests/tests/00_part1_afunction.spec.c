@@ -6,7 +6,7 @@ static void simple_string(t_test *test)
 	mt_assert(0);
 }
 
-void	suite_00_test(t_suite *suite)
+void	suite_00_part1_afunction(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_string);
 }

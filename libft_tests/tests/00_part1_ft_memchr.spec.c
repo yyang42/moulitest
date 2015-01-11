@@ -1,12 +1,13 @@
-#include "project.h"
+#include <project.h>
 
-UT_TEST(ft_memchr)
+static void unittest(t_test *test)
 {
-	UT_ASSERT_EQ(ft_memchr("abcdef", 'a', 5), memchr("abcdef", 'a', 5));
-	UT_ASSERT_EQ(ft_memchr("abcdef", 'c', 5), memchr("abcdef", 'c', 5));
-	UT_ASSERT_EQ(ft_memchr("abcdef", '\0', 7), memchr("abcdef", '\0', 7));
-	UT_ASSERT_EQ(ft_memchr("abcdef", 'z', 6), memchr("abcdef", 'z', 6));
-	UT_ASSERT_EQ(ft_memchr("abcdef", 999, 6), memchr("abcdef", 999, 6));
+
+	mt_assert(ft_memchr("abcdef", 'a', 5) == memchr("abcdef", 'a', 5));
+	mt_assert(ft_memchr("abcdef", 'c', 5) == memchr("abcdef", 'c', 5));
+	mt_assert(ft_memchr("abcdef", '\0', 7) == memchr("abcdef", '\0', 7));
+	mt_assert(ft_memchr("abcdef", 'z', 6) == memchr("abcdef", 'z', 6));
+	mt_assert(ft_memchr("abcdef", 999, 6) == memchr("abcdef", 999, 6));
 
 	/* Barbarian test from Qperez !! */
 	char			ctab[11];
@@ -31,7 +32,7 @@ UT_TEST(ft_memchr)
 			|| ((memchr(itab, i, sizeof(itab)) != ft_memchr(itab, i, sizeof(itab))))
 			|| (memchr(ltab, i, sizeof(ltab)) != ft_memchr(ltab, i, sizeof(ltab))))
 		{
-			UT_ASSERT(!"Unsigned char problem?");
+			mt_assert(!"Unsigned char problem?");
 			break;
 		}
 		++i;
@@ -41,4 +42,9 @@ UT_TEST(ft_memchr)
 	ft_memchr(NULL, 0, 10);
 	ft_memchr(NULL, -10, 10);
 */
+}
+
+void	suite_00_part1_ft_memchr(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, unittest);
 }

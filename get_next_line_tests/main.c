@@ -17,6 +17,7 @@ int main()
 {
 	t_mt	*mt = mt_create("get_next_line");
 
+	setbuf(stdout, NULL);
 
 	ADD_TESTS
 

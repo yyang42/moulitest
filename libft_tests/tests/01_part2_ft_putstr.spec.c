@@ -1,6 +1,6 @@
-#include "project.h"
+#include <project.h>
 
-UT_TEST(ft_putstr)
+static void simple_test(t_test *test)
 {
 	int		out;
 	int		p[2];
@@ -16,5 +16,10 @@ UT_TEST(ft_putstr)
 	close(p[0]);
 	close(p[1]);
 	close(out);
-	UT_ASSERT_EQ(strcmp(buf, "aaa"), 0);
+	mt_assert(strcmp(buf, "aaa") == 0);
+}
+
+void	suite_01_part2_ft_putstr(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_test);
 }

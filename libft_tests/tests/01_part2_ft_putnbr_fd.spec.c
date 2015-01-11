@@ -1,6 +1,6 @@
-#include "project.h"
+#include <project.h>
 
-UT_TEST(ft_putnbr_fd)
+static void simple_test(t_test *test)
 {
 	int		p[2];
 	char	buf[100];
@@ -17,5 +17,10 @@ UT_TEST(ft_putnbr_fd)
 	buf[read(p[0], buf, 100)] = 0;
 	close(p[0]);
 	close(p[1]);
-	UT_ASSERT_EQ(strcmp(buf, "01-156-1230102032147483647-2147483648"), 0);
+	mt_assert(strcmp(buf, "01-156-1230102032147483647-2147483648") == 0);
+}
+
+void	suite_01_part2_ft_putnbr_fd(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_test);
 }

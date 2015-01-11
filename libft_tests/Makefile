@@ -19,7 +19,7 @@ PROTOTYPES = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_PROTO\(\1\);
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 FRAMEWORK_LIB = -L../testframework/v3 -lmt_framework
 
-all:
+first:
 	@echo "Usage:"
 	@echo "\tmake part1"
 	@echo "\tmake part2\t--> Also runs part1"
@@ -32,19 +32,16 @@ exec_tests:
 	./$(NAME)
 
 part1_init:
-	$(eval POST_PATTERN = "^00_part1")
+	$(eval POST_PATTERN = "^00")
 part1: part1_init exec_tests
 
 part2_init:
-	$(eval POST_PATTERN = "^01_part2")
+	$(eval POST_PATTERN = "^0[01]")
 part2: part2_init exec_tests
 
 bonus_init:
-	$(eval POST_PATTERN = "^02_bonus")
+	$(eval POST_PATTERN = "^0[012]")
 bonus: bonus_init exec_tests
-
-all_init:
-	$(eval POST_PATTERN = .*)
 
 clean:
 	rm -f $(OBJECTS)

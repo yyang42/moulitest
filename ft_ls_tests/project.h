@@ -1,6 +1,8 @@
-#ifndef		PROJECT_H
-# define	PROJECT_H
-# include	<testframework.h>
+#ifndef	PROJECT_H
+# define PROJECT_H
+// # include <testframework.h>
+# include <fw.h>
+# include <regex.h>
 
 char	*get_cmd_out(const char *cmd);
 char	*sandbox_cmd(const char *cmd);

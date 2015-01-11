@@ -1,37 +1,59 @@
 #include <project.h>
 
-UT_TEST(09_test_opt_l)
+static void simple_test_0(t_test *test)
 {
-
 	char *cmd = "-l";
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c");
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
+
+static void simple_test_1(t_test *test)
+{
+		char *cmd = "-l";
+
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c && echo 'coucou' > a &&  echo 'hello world' > b");
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
+
+static void simple_test_2(t_test *test)
+{
+	char *cmd = "-l";
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c && echo 'coucou' > a &&  echo 'hello world' > b");
 	sandbox_cmd("mkdir 111 222 333 444 && touch 111/{a,b,c} && echo 'eat pizza' > 111/a");
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
 
+static void simple_test_3(t_test *test)
+{
+	char *cmd = "-l";
+	
 	reset_sandbox();
 	sandbox_cmd("touch .a");
 	sandbox_cmd("dd bs=2 count=14450 if=/dev/random of=.a  >/dev/null 2>&1");
 	sandbox_cmd("ln -s .a b");
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
 
+static void simple_test_4(t_test *test)
+{
+	char *cmd = "-l";
 
 	reset_sandbox();
 	cmd = "-la dir";
 	sandbox_cmd("mkdir -p dir/.hdir");
 	sandbox_cmd("touch dir/.hdir/file");
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
 
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
+static void simple_test_5(t_test *test)
+{
+	char *cmd = "-l";
 
 	reset_sandbox();
 	cmd = "-l dir";
@@ -48,14 +70,15 @@ UT_TEST(09_test_opt_l)
 	sandbox_cmd("ln dir/.file sym8");
 	sandbox_cmd("ln dir/.file sym9");
 	sandbox_cmd("ln dir/.file sym10");
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
 
-	UT_ASSERT(strcmp(ls(cmd), ft_ls(cmd)) == 0);
-
-	/*
-	printf("\n=====  ls  ========\n");
-	printf("%s", ls(cmd));
-	printf("===== ft ls =======\n");
-	printf("%s", ft_ls(cmd));
-	printf("==================\n");
-	*/
+void	suite_08_test_opt_l(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_test_0);
+	SUITE_ADD_TEST(suite, simple_test_1);
+	SUITE_ADD_TEST(suite, simple_test_2);
+	SUITE_ADD_TEST(suite, simple_test_3);
+	SUITE_ADD_TEST(suite, simple_test_4);
+	SUITE_ADD_TEST(suite, simple_test_5);
 }

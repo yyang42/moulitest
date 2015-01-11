@@ -1,9 +1,9 @@
 #include <project.h>
 
-#define mt_test_atoi(test_name, tested_str)										\
-	static void test_## test_name(t_test *test)								\
-	{																		\
-		mt_assert(ft_atoi(tested_str) == atoi(tested_str));								\
+#define mt_test_atoi(test_name, tested_str) \
+	static void test_## test_name(t_test *test) \
+	{ \
+		mt_assert(ft_atoi(tested_str) == atoi(tested_str)); \
 	}
 
 mt_test_atoi(num1, " -sfecf");

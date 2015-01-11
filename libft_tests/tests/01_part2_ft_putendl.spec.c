@@ -1,7 +1,8 @@
-#include "project.h"
+#include <project.h>
 
-UT_TEST(ft_putendl)
+static void simple_test(t_test *test)
 {
+
 	int		out;
 	int		p[2];
 	char	buf[4];
@@ -16,5 +17,10 @@ UT_TEST(ft_putendl)
 	close(p[0]);
 	close(p[1]);
 	close(out);
-	UT_ASSERT_EQ(strcmp(buf, "aa\n"), 0);
+	mt_assert(strcmp(buf, "aa\n") == 0);
+}
+
+void	suite_01_part2_ft_putendl(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_test);
 }

@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(11_test_few_lines_of_16)
+static void simple_string(t_test *test)
 {
 	char 	*line;
 	int		out;
@@ -23,19 +23,24 @@ UT_TEST(11_test_few_lines_of_16)
 	close(p[1]);
 	dup2(out, fd);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "abcdefghijklmnop"));
+	mt_assert(strcmp(line, "abcdefghijklmnop") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "qrstuvwxyzabcdef"));
+	mt_assert(strcmp(line, "qrstuvwxyzabcdef") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "ghijklmnopqrstuv"));
+	mt_assert(strcmp(line, "ghijklmnopqrstuv") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "wxyzabcdefghijkl"));
+	mt_assert(strcmp(line, "wxyzabcdefghijkl") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "mnopqrstuvwxyzab"));
+	mt_assert(strcmp(line, "mnopqrstuvwxyzab") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "cdefghijklmnopqr"));
+	mt_assert(strcmp(line, "cdefghijklmnopqr") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "stuvwxzabcdefghi"));
+	mt_assert(strcmp(line, "stuvwxzabcdefghi") == 0);
 	ret = get_next_line(p[0], &line);
-	UT_ASSERT(ret == 0);
+	mt_assert(ret == 0);
+}
+
+void	suite_11_test_few_lines_of_16(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

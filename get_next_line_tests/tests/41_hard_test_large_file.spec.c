@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(41_hard_test_large_file)
+static void simple_string(t_test *test)
 {
 	system("mkdir -p sandbox");
 	system("openssl rand -out sandbox/large_file.txt -base64 $((2**19 * 3/4))");
@@ -30,5 +30,10 @@ UT_TEST(41_hard_test_large_file)
 	diff_file_size = read(fd3, NULL, 10);
 	close(fd3);
 
-	UT_ASSERT(diff_file_size == 0);
+	mt_assert(diff_file_size == 0);
+}
+
+void	suite_41_hard_test_large_file(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

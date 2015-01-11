@@ -1,6 +1,6 @@
 #ifndef		PROJECT_H
 # define	PROJECT_H
-# include <testframework.h>
+# include <fw.h>
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
@@ -12,6 +12,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <regex.h>
+# include <assert.h>
 
 
 char	*get_cmd_out(const char *cmd);

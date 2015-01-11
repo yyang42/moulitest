@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(03_test_medium_string)
+static void simple_string(t_test *test)
 {
 	char 	*line;
 	int		out;
@@ -21,6 +21,11 @@ UT_TEST(03_test_medium_string)
 	close(p[1]);
 	dup2(out, 1);
 	gnl_ret = get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, str));
-	UT_ASSERT(gnl_ret == 0 || gnl_ret == 1);
+	mt_assert(strcmp(line, str) == 0);
+	mt_assert(gnl_ret == 0 || gnl_ret == 1);
+}
+
+void	suite_03_test_medium_string(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

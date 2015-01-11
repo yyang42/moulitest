@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(30_bonus_multiple_fd)
+static void simple_string(t_test *test)
 {
 	char 	*line0;
 	int		p0[2];
@@ -39,26 +39,31 @@ UT_TEST(30_bonus_multiple_fd)
 	dup2(out_fd3, fd3);
 
 	get_next_line(p0[0], &line0);
-	UT_ASSERT(strequ(line0, "aaa"));
+	mt_assert(strcmp(line0, "aaa") == 0);
 
 	get_next_line(p_fd1[0], &line_fd1);
-	UT_ASSERT(strequ(line_fd1, "111"));
+	mt_assert(strcmp(line_fd1, "111") == 0);
 
 	get_next_line(p_fd2[0], &line_fd2);
-	UT_ASSERT(strequ(line_fd2, "www"));
+	mt_assert(strcmp(line_fd2, "www") == 0);
 
 	get_next_line(p_fd3[0], &line_fd3);
-	UT_ASSERT(strequ(line_fd3, "888"));
+	mt_assert(strcmp(line_fd3, "888") == 0);
 
 	get_next_line(p0[0], &line0);
-	UT_ASSERT(strequ(line0, "bbb"));
+	mt_assert(strcmp(line0, "bbb") == 0);
 
 	get_next_line(p_fd1[0], &line_fd1);
-	UT_ASSERT(strequ(line_fd1, "222"));
+	mt_assert(strcmp(line_fd1, "222") == 0);
 
 	get_next_line(p_fd2[0], &line_fd2);
-	UT_ASSERT(strequ(line_fd2, "zzz"));
+	mt_assert(strcmp(line_fd2, "zzz") == 0);
 
 	get_next_line(p_fd3[0], &line_fd3);
-	UT_ASSERT(strequ(line_fd3, "999"));
+	mt_assert(strcmp(line_fd3, "999") == 0);
+}
+
+void	suite_30_bonus_multiple_fd(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

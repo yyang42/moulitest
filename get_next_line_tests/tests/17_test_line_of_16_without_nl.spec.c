@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(17_test_line_of_16_without_nl)
+static void simple_string(t_test *test)
 {
 	char 	*line;
 	int		out;
@@ -16,5 +16,10 @@ UT_TEST(17_test_line_of_16_without_nl)
 	close(p[1]);
 	dup2(out, fd);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "mnopqrstuvwxyzab"));
+	mt_assert(strcmp(line, "mnopqrstuvwxyzab") == 0);
+}
+
+void	suite_17_test_line_of_16_without_nl(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

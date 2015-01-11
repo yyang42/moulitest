@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(14_test_few_lines_of_4)
+static void simple_string(t_test *test)
 {
 	char 	*line;
 	int		out;
@@ -23,19 +23,24 @@ UT_TEST(14_test_few_lines_of_4)
 	close(p[1]);
 	dup2(out, fd);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "abcd"));
+	mt_assert(strcmp(line, "abcd") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "efgh"));
+	mt_assert(strcmp(line, "efgh") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "ijkl"));
+	mt_assert(strcmp(line, "ijkl") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "mnop"));
+	mt_assert(strcmp(line, "mnop") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "qrst"));
+	mt_assert(strcmp(line, "qrst") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "uvwx"));
+	mt_assert(strcmp(line, "uvwx") == 0);
 	get_next_line(p[0], &line);
-	UT_ASSERT(strequ(line, "yzab"));
+	mt_assert(strcmp(line, "yzab") == 0);
 	ret = get_next_line(p[0], &line);
-	UT_ASSERT(ret == 0);
+	mt_assert(ret == 0);
+}
+
+void	suite_14_test_few_lines_of_4(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

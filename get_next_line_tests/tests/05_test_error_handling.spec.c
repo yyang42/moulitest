@@ -1,17 +1,22 @@
 #include <project.h>
 
-UT_TEST(05_test_error_handling)
+static void simple_string(t_test *test)
 {
-	UT_ASSERT_EQ(get_next_line(-99, NULL), -1);
-	UT_ASSERT_EQ(get_next_line(-1, NULL), -1);
-	UT_ASSERT_EQ(get_next_line(1, NULL), -1);
-	UT_ASSERT_EQ(get_next_line(99, NULL), -1);
+	mt_assert(get_next_line(-99, NULL) == -1);
+	mt_assert(get_next_line(-1, NULL) == -1);
+	mt_assert(get_next_line(1, NULL) == -1);
+	mt_assert(get_next_line(99, NULL) == -1);
 
 	char 	*line = NULL;
-	UT_ASSERT_EQ(get_next_line(-99, &line), -1);
-	UT_ASSERT_EQ(get_next_line(-1, &line), -1);
+	mt_assert(get_next_line(-99, &line) == -1);
+	mt_assert(get_next_line(-1, &line) == -1);
 	// UT_ASSERT_NEQ(get_next_line(0, &line), -1);
 
 	/* Not opened fd */
-	UT_ASSERT_EQ(get_next_line(42, &line), -1);
+	mt_assert(get_next_line(42, &line) == -1);
+}
+
+void	suite_05_test_error_handling(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

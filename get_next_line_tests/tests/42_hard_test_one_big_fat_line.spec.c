@@ -1,6 +1,6 @@
 #include <project.h>
 
-UT_TEST(42_hard_test_one_big_fat_line)
+static void simple_string(t_test *test)
 {
 	system("mkdir -p sandbox");
 	system("openssl rand -base64 $((2**15 * 3/4)) | tr -d '\n' | tr -d '\r' > sandbox/one_big_fat_line.txt");
@@ -31,5 +31,10 @@ UT_TEST(42_hard_test_one_big_fat_line)
 	diff_file_size = read(fd3, NULL, 10);
 	close(fd3);
 
-	UT_ASSERT(diff_file_size == 0);
+	mt_assert(diff_file_size == 0);
+}
+
+void	suite_42_hard_test_one_big_fat_line(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, simple_string);
 }

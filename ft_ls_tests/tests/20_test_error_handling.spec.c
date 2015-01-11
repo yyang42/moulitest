@@ -71,7 +71,7 @@ static void unitTest_08(t_test *test)
 	cmd = "-lZWYX243";
 	ft_ls_out_str = strip_illegal_opt_err(ft_ls(cmd));
 	ls_out_str = strip_illegal_opt_err(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));	
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);	
 }
 
 
@@ -80,7 +80,7 @@ static void unitTest_09(t_test *test)
 	cmd = "--a";
 	ft_ls_out_str = strip_illegal_opt_err(ft_ls(cmd));
 	ls_out_str = strip_illegal_opt_err(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 
 	reset_sandbox();
 }
@@ -90,7 +90,7 @@ static void unitTest_10(t_test *test)
 	cmd = "a b";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
 static void unitTest_11(t_test *test) 
@@ -100,7 +100,7 @@ static void unitTest_11(t_test *test)
 	cmd = "-1 a b";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
 static void unitTest_12(t_test *test) 
@@ -115,7 +115,7 @@ static void unitTest_12(t_test *test)
 	cmd = "-1 adir zdir aNotExist zNotExistB afile zfile asymdir zsymdir asymfile zsymfile";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
 
@@ -126,7 +126,7 @@ static void unitTest_13(t_test *test)
 	cmd = "-1r a c b l K j";
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	mt_assert(strcmp(ls_out_str, ft_ls_out_str));
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
 void	suite_20_test_error_handling(t_suite *suite)

@@ -9,7 +9,7 @@ POST_PATTERN = "^01_part2"
 # COMMON
 #===============================================================================
 RENDU_PATH = $(shell grep $(CONFIG_RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
-INCLUDES = -I ../testframework/v3/includes -I . -I $(RENDU_PATH)/includes
+INCLUDES = -I ../testframework/v3/includes -I . -I $(RENDU_PATH)/includes -I $(RENDU_PATH)
 FLAGS = -g -Werror -Wextra -Wall
 SOURCE = ./tests/*.spec.c main.c utils.c
 pattern ?= spec.c$$

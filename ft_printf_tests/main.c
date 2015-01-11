@@ -9,9 +9,7 @@
 
 # define MT_ADD_PROTO(name)			void suite_ ## name(t_suite *suite)
 
-
 PROTOTYPES
-
 
 int main()
 {

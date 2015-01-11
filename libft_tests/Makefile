@@ -19,7 +19,11 @@ PROTOTYPES = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_PROTO\(\1\);
 DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 FRAMEWORK_LIB = -L../testframework/v3 -lmt_framework
 
-$(NAME):
+all:
+	@echo "Usage:"
+	@echo "\tmake part1"
+	@echo "\tmake part2\t--> Also runs part1"
+	@echo "\tmake bonus\t--> Also runs part1 and part2"
 
 exec_tests:
 	make re -k -C $(RENDU_PATH)
@@ -41,7 +45,6 @@ bonus: bonus_init exec_tests
 
 all_init:
 	$(eval POST_PATTERN = .*)
-all: all_init exec_tests
 
 clean:
 	rm -f $(OBJECTS)

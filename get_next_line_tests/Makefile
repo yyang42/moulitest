@@ -11,6 +11,7 @@ DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="
 
 
 all: project
+	make -k -C $(RENDU_PATH)/libft/
 	gcc $(FLAGS) $(INCLUDES) $(DEFINES) $(SOURCE) -L../testframework/v3 -lmt_framework -L$(RENDU_PATH)  -o $(NAME)
 	./$(NAME)
 

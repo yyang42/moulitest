@@ -11,6 +11,7 @@ t_mt			*mt_create(char *name)
 
 	mt = (t_mt *)malloc(sizeof(t_mt));
 	mt->name = name;
+	mt->desc = NULL;
 	mt->suites = lst_init();
 	return (mt);
 }

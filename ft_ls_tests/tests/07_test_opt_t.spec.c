@@ -6,6 +6,7 @@ static void simple_test_0(t_test *test)
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c d e && touch -t 201212101830.55 c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -15,6 +16,7 @@ static void simple_test_1(t_test *test)
 
 	reset_sandbox();
 	sandbox_cmd("touch -t 201312101830.55 a && touch -t 201212101830.55 b && touch -t 201412101830.55 c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -24,6 +26,7 @@ static void simple_test_2(t_test *test)
 
 	reset_sandbox();
 	sandbox_cmd("touch fileA{1..5} fileB{1..5} fileC{1..5} && touch -t 200012101830.55 fileA{1..5}");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

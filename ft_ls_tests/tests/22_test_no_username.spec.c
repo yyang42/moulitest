@@ -6,6 +6,7 @@ static void unitTest_00(t_test *test)
 
 	reset_sandbox();
 	cmd = "-l /usr/local/bin/node";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

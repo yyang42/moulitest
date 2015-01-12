@@ -26,6 +26,7 @@ PROTOTYPES
 int main()
 {
 	t_mt	*mt = mt_create("ft_ls");
+	// mt->desc = "ft_ls description";
 
 	setbuf(stdout, NULL);
 

@@ -14,6 +14,7 @@ static void unitTest_00(t_test *test)
 
 	cmd = "-lR .";
 
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

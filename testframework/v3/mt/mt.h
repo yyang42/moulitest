@@ -8,6 +8,7 @@
 typedef struct				s_mt
 {
 	char					*name;
+	char					*desc;
 	t_lst					*suites;
 }							t_mt;
 

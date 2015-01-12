@@ -7,6 +7,7 @@ static void simple_test_0(t_test *test)
 	cmd = "-lRa";
 	reset_sandbox();
 	sandbox_cmd("mkdir .hdir");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

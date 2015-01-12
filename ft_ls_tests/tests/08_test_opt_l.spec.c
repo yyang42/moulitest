@@ -6,6 +6,7 @@ static void simple_test_0(t_test *test)
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -16,6 +17,7 @@ static void simple_test_1(t_test *test)
 
 	reset_sandbox();
 	sandbox_cmd("touch a b c && echo 'coucou' > a &&  echo 'hello world' > b");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -26,6 +28,7 @@ static void simple_test_2(t_test *test)
 	reset_sandbox();
 	sandbox_cmd("touch a b c && echo 'coucou' > a &&  echo 'hello world' > b");
 	sandbox_cmd("mkdir 111 222 333 444 && touch 111/{a,b,c} && echo 'eat pizza' > 111/a");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -37,6 +40,7 @@ static void simple_test_3(t_test *test)
 	sandbox_cmd("touch .a");
 	sandbox_cmd("dd bs=2 count=14450 if=/dev/random of=.a  >/dev/null 2>&1");
 	sandbox_cmd("ln -s .a b");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

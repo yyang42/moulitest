@@ -10,12 +10,15 @@ static void unitTest_00(t_test *test)
 	sandbox_cmd("touch - file");
 
 	cmd = "-1";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 --";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -25,6 +28,7 @@ static void unitTest_01(t_test *test)
 	sandbox_cmd("touch -");
 
 	cmd = "-1 -- -";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -34,13 +38,16 @@ static void unitTest_02(t_test *test)
 	sandbox_cmd("touch - -- ---");
 
 	cmd = "-1 -- --";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- ---";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- .";
 
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -50,13 +57,16 @@ static void unitTest_03(t_test *test)
 	sandbox_cmd("mkdir -- -file --file ---file");
 
 	cmd = "-1 -- -file";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- --file";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- ---file";
 
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -66,9 +76,11 @@ static void unitTest_04(t_test *test)
 	sandbox_cmd("mkdir -");
 
 	cmd = "-1";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -78,6 +90,7 @@ static void unitTest_05(t_test *test)
 	sandbox_cmd("mkdir -");
 
 	cmd = "-1 -- -";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -87,12 +100,15 @@ static void unitTest_06(t_test *test)
 	sandbox_cmd("mkdir - -- ---");
 
 	cmd = "-1 -- --";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- ---";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- .";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -102,12 +118,15 @@ static void unitTest_07(t_test *test)
 	sandbox_cmd("mkdir -- -dir --dir ---dir");
 
 	cmd = "-1 -- -dir";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- --dir";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 
 	cmd = "-1 -- ---dir";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 	
 }

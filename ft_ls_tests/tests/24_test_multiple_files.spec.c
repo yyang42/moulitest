@@ -6,6 +6,7 @@ static void unitTest_00(t_test *test)
 
 	reset_sandbox();
 	cmd = "-1 . .";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -16,6 +17,7 @@ static void unitTest_01(t_test *test)
 	reset_sandbox();
 	sandbox_cmd("touch a b C D");
 	cmd = "-1 ./ .";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);;
 }
 
@@ -28,6 +30,7 @@ static void unitTest_02(t_test *test)
 	sandbox_cmd("mkdir b d");
 	sandbox_cmd("ln -s a e && ln -s a f");
 	cmd = "-1 z b a c d f e";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

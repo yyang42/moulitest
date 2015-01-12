@@ -2,23 +2,31 @@
 
 static void unitTest_00(t_test *test) 
 {
+	char *cmd = "-lR /usr/bin";
 	reset_sandbox();
-	mt_assert(strcmp(ls("-lR /usr/bin"), ft_ls("-lR /usr/bin")) == 0);
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_01(t_test *test) 
 {
-	mt_assert(strcmp(ls("-l /usr"), ft_ls("-l /usr")) == 0);
+	char *cmd = "-l /usr";
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_02(t_test *test) 
 {
-	mt_assert(strcmp(ls("-1t /usr"), ft_ls("-1t /usr")) == 0);
+	char *cmd = "-1t /usr";
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_03(t_test *test) 
 {
-	mt_assert(strcmp(ls("-tl /usr"), ft_ls("-tl /usr")) == 0);
+	char *cmd = "-tl /usr";
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 void	suite_50_hard_test_user_bin(t_suite *suite)

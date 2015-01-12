@@ -11,6 +11,7 @@ static void simple_test_0(t_test *test)
 	sandbox_cmd("chmod 755 b");
 	sandbox_cmd("chmod 311 c");
 
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -24,6 +25,7 @@ static void simple_test_1(t_test *test)
 	sandbox_cmd("chmod 644 a");
 	sandbox_cmd("chmod 755 b");
 	sandbox_cmd("chmod 311 c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

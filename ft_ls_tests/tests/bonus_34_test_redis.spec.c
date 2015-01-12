@@ -8,7 +8,7 @@ static void unitTest_00(t_test *test)
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
-void	suite_bonus_34_test_wtf(t_suite *suite)
+void	suite_bonus_34_test_redis(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unitTest_00);
 }

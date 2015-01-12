@@ -31,6 +31,11 @@ static void test_function_pointer(t_test *test)
 	assert_printf("%p", &strlen);
 }
 
+static void test_zero(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%p", 0);
+}
 
 void	suite_04_conv_p(t_suite *suite)
 {
@@ -38,4 +43,5 @@ void	suite_04_conv_p(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_unsigned_long_pointer);
 	SUITE_ADD_TEST(suite, test_str_pointer);
 	SUITE_ADD_TEST(suite, test_function_pointer);
+	SUITE_ADD_TEST(suite, test_zero);
 }

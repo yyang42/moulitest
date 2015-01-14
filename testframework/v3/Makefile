@@ -4,7 +4,7 @@ INCLUDES = -I includes
 SRCS = **/*.c
 FLAGS = -Wall -Werror -Wextra -ggdb
 
-all:
+all: clean
 	gcc $(FLAGS) $(INCLUDES) -c $(SRCS)
 	ar rc $(NAME) *.o
 

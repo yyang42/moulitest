@@ -3,7 +3,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include "../lst/lst.h"
+#include <lst.h>
 
 struct s_test;
 

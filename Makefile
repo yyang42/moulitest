@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juschaef <juschaef@student.42.fr>          +#+  +:+       +#+         #
+#    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2014/12/10 20:06:12 by juschaef         ###   ########.fr        #
+#    Updated: 2015/01/14 15:19:24 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,11 @@ ft_ls:
 
 ft_printf:
 	@make -C ft_printf_tests
+
+update_deps:
+	rm -rf testframework/v3/lst
+	mkdir -p testframework/v3/lst
+	cp ../projects/common/libft/srcs/lst/* testframework/v3/lst
+	cp ../projects/common/libft/headers/lst.h testframework/v3/includes/lst.h
 
 .PHONY: help libft_part1 libft_part2 libft_bonus get_next_line gnl ft_ls ft_printf

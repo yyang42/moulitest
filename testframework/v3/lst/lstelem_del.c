@@ -6,14 +6,12 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 16:52:50 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/09 15:18:49 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/12 17:41:59 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lst.h"
 #include <stdlib.h>
-
-#include <stdio.h>
 
 void	lstelem_del(t_lst_elem *elem, void (*delfn)())
 {

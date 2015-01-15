@@ -56,6 +56,42 @@ static void sFakeNullString_spaceFlag(t_test *test)
 	assert_printf("{% s}", "(null)");
 }
 
+static void sEmptyString_spaceFlag(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% s}", "");
+}
+
+static void test_space_C_zero(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% C}", 0);
+}
+
+static void CValidChar_spaceFlag(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% C}", L'a');
+}
+
+static void SNullString_spaceFlag(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% S}", NULL);
+}
+
+static void SFakeNullString_spaceFlag(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% S}", L"(null)");
+}
+
+static void SEmptyString_spaceFlag(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("{% S}", L"");
+}
+
 void	suite_62_flag_space(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_space_d_simple);
@@ -67,4 +103,10 @@ void	suite_62_flag_space(t_suite *suite)
 	SUITE_ADD_TEST(suite, cValidChar_spaceFlag);
 	SUITE_ADD_TEST(suite, sNullString_spaceFlag);
 	SUITE_ADD_TEST(suite, sFakeNullString_spaceFlag);
+	SUITE_ADD_TEST(suite, sEmptyString_spaceFlag);
+	SUITE_ADD_TEST(suite, test_space_C_zero);
+	SUITE_ADD_TEST(suite, CValidChar_spaceFlag);
+	SUITE_ADD_TEST(suite, SNullString_spaceFlag);
+	SUITE_ADD_TEST(suite, SFakeNullString_spaceFlag);
+	SUITE_ADD_TEST(suite, SEmptyString_spaceFlag);
 }

@@ -199,7 +199,7 @@ static void unitTest_19(t_test *test)
 	reset_sandbox();
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	print_ls_debug(cmd);
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
@@ -209,7 +209,7 @@ static void unitTest_20(t_test *test)
 	reset_sandbox();
 	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
 	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	print_ls_debug(cmd);
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 

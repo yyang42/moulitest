@@ -9,7 +9,7 @@ static void unitTest_00(t_test *test)
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
-void	suite_54_hard_test_var_run(t_suite *suite)
+void	suite_sys_04_test_var_run(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unitTest_00);
 }

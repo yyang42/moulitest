@@ -21,7 +21,7 @@ static void unitTest_02(t_test *test)
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
-void	suite_51_hard_test_dev(t_suite *suite)
+void	suite_sys_01_test_dev(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unitTest_00);
 	SUITE_ADD_TEST(suite, unitTest_01);

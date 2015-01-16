@@ -146,6 +146,7 @@ char *strip_illegal_opt_err(char *str)
 char *strip_no_such_file_or_dir(char *str)
 {
 	str = re_replace(str, "[^\n]*ls: ", "XXXXls: ");
+	str = re_replace(str, "fts_open", "open");
 	return (str);
 }
 

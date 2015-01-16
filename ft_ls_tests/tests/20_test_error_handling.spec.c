@@ -143,6 +143,116 @@ static void unitTest_13(t_test *test)
 	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 
+static void unitTest_14(t_test *test)
+{
+	cmd = "-1 \"\"";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_15(t_test *test)
+{
+	cmd = "-l \\\"\\\"";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_16(t_test *test)
+{
+	cmd = "-l ''";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_17(t_test *test)
+{
+	cmd = "-l \"\" -R";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_18(t_test *test)
+{
+	cmd = "-lR . \"\" .";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_19(t_test *test)
+{
+	cmd = "-~ \"\"";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_20(t_test *test)
+{
+	cmd = "\"\" -~";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_21(t_test *test)
+{
+	cmd = "aa \"\" bb";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_22(t_test *test)
+{
+	cmd = "\"\" aa bb";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_23(t_test *test)
+{
+	cmd = "aa bb \"\"";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
+static void unitTest_24(t_test *test)
+{
+	cmd = "a \"\" b";
+	reset_sandbox();
+	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
+	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
+}
+
 void	suite_20_test_error_handling(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unitTest_00);
@@ -159,4 +269,15 @@ void	suite_20_test_error_handling(t_suite *suite)
 	SUITE_ADD_TEST(suite, unitTest_11);
 	SUITE_ADD_TEST(suite, unitTest_12);
 	SUITE_ADD_TEST(suite, unitTest_13);	
+	SUITE_ADD_TEST(suite, unitTest_14);	
+	SUITE_ADD_TEST(suite, unitTest_15);	
+	SUITE_ADD_TEST(suite, unitTest_16);	
+	SUITE_ADD_TEST(suite, unitTest_17);	
+	SUITE_ADD_TEST(suite, unitTest_18);	
+	SUITE_ADD_TEST(suite, unitTest_19);	
+	SUITE_ADD_TEST(suite, unitTest_20);	
+	SUITE_ADD_TEST(suite, unitTest_21);	
+	SUITE_ADD_TEST(suite, unitTest_22);	
+	SUITE_ADD_TEST(suite, unitTest_23);	
+	SUITE_ADD_TEST(suite, unitTest_24);	
 }

@@ -197,9 +197,9 @@ static void unitTest_19(t_test *test)
 {
 	cmd = "-~ \"\"";
 	reset_sandbox();
-	ft_ls_out_str = strip_no_such_file_or_dir(ft_ls(cmd));
-	ls_out_str = strip_no_such_file_or_dir(ls(cmd));
-	// print_ls_debug(cmd);
+	ft_ls_out_str = strip_illegal_opt_err(ft_ls(cmd));
+	ls_out_str = strip_illegal_opt_err(ls(cmd));
+	print_ls_debug(cmd);
 	mt_assert(strcmp(ls_out_str, ft_ls_out_str) == 0);
 }
 

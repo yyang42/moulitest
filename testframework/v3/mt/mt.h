@@ -4,6 +4,7 @@
 # include <stdio.h>
 # include <suite.h>
 # define MAIN_COL_WIDTH 41
+# define DEFAULT_TIMEOUT_UTIME 2 * 1000 * 1000
 
 typedef struct				s_mt
 {

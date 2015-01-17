@@ -12,9 +12,9 @@
 #include <setjmp.h>
 #include <capture.h>
 
-jmp_buf env_buffer;
+# define DEFAULT_TIMEOUT_UINTERVAL 1 * 1000 * 1000
 
-#define TIMEOUT_DELAY 2
+jmp_buf env_buffer;
 
 static void sig_handler_jmp(int signum)
 {
@@ -32,7 +32,7 @@ static void	test_exec_do(t_test	*test)
 	test->is_fail = 0;
 	if (!(test->sig = setjmp(env_buffer)))
 	{
-		alarm(TIMEOUT_DELAY);
+		ualarm(test->timeout, DEFAULT_TIMEOUT_UINTERVAL);
 		test->fn(test);
 	}
 	if (test->expected_signum != test->sig)

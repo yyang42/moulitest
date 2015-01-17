@@ -46,7 +46,7 @@ static void		suite_print_first_failure(t_suite *suite)
 		suffix = test->last_assert_cond;
 
 	printf(" -> %.*s", (int)max_msg_length, suffix);
-	if (strlen(suffix) > max_msg_length)
+	if (suffix && (strlen(suffix) > max_msg_length))
 		printf("...");
 	printf(C_CLEAR);
 }

@@ -1,6 +1,6 @@
 #include <project.h>
 
-static void simple_string(t_test *test)
+static void test01(t_test *test)
 {
 	char *line;
 	int fd;
@@ -34,5 +34,5 @@ static void simple_string(t_test *test)
 
 void	suite_41_hard_test_large_file(t_suite *suite)
 {
-	SUITE_ADD_TEST(suite, simple_string);
+	SUITE_ADD_TEST_TIMEOUT(suite, test01, 5 * 1000000);
 }

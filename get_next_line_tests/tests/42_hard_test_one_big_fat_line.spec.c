@@ -1,7 +1,9 @@
 #include <project.h>
 
-static void simple_string(t_test *test)
+static void test01(t_test *test)
 {
+	test->timeout = 1;
+
 	char *line;
 	int fd;
 	int fd2;
@@ -35,5 +37,5 @@ static void simple_string(t_test *test)
 
 void	suite_42_hard_test_one_big_fat_line(t_suite *suite)
 {
-	SUITE_ADD_TEST(suite, simple_string);
+	SUITE_ADD_TEST_TIMEOUT(suite, test01, 5 * 1000000);
 }

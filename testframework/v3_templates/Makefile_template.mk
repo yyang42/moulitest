@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/18 11:11:48 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/18 18:46:08 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,10 @@ CC_FRAMEWORK_LIB = -L../testframework/v3 -lmt_framework
 exec_tests:
 ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	make re -k -C $(RENDU_PATH)
+else
+ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
+	make re -k -C $(RENDU_PATH)/libft
+endif
 endif
 	make -k -C ../testframework/v3/
 	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(CC_LIBS) $(CC_FRAMEWORK_LIB) -o $(NAME)

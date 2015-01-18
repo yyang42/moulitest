@@ -1,0 +1,2 @@
+NAME = ft_ls_test
+RENDU_PATH_KEY = FT_LS_PATH

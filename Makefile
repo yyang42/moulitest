@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2015/01/14 15:55:10 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/19 11:03:31 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ libft_bonus:
 	@make -C libft_tests bonus
 
 get_next_line:
-	@make re -C get_next_line_tests
+	@make -C get_next_line_tests
 
 gnl: get_next_line
 

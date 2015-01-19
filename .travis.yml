@@ -1,4 +1,4 @@
 language: c
 compiler: gcc
 script:
-	- ls fail_test
+- ls fail_test

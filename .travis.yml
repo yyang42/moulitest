@@ -1,4 +1,4 @@
 language: c
 compiler: gcc
 script:
-- ls fail_test
+- echo "test script -> should pass"

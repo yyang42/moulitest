@@ -153,8 +153,8 @@ char *strip_no_such_file_or_dir(char *str)
 void print_ls_debug(const char *cmd)
 {
 	printf("\n=====  ls  ========\n");
-	printf(ls(cmd));
+	printf("%s", ls(cmd));
 	printf("===== ft_ls =======\n");
-	printf(ft_ls(cmd));
+	printf("%s", ft_ls(cmd));
 	printf("==================\n");
 }

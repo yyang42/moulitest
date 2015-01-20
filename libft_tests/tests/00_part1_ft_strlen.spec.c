@@ -14,9 +14,9 @@ static void test_10_million_chars_string(t_test *test)
 {
 	int test_len = 10 * 1000 * 1000;
 	char str[test_len];
-	memset(str, 'a', test_len);
 
-	str[test_len - 1] = '0';
+	memset(str, 'a', test_len);
+	str[test_len - 1] = '\0';
 	mt_assert(ft_strlen(str) == strlen(str));
 }
 void	suite_00_part1_ft_strlen(t_suite *suite)

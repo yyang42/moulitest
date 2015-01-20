@@ -19,7 +19,7 @@ jmp_buf env_buffer;
 static void sig_handler_jmp(int signum)
 {
 	longjmp(env_buffer, signum);
-} 
+}
 
 static void	test_exec_do(t_test	*test)
 {

@@ -37,7 +37,7 @@ static void		mt_print_result(t_mt *mt)
 		color = C_RED;
 	else
 		color = C_GREEN;
-	printf(color);
+	printf("%s", color);
 	printf(">>>> Result: %lu/%lu test suites passed.",
 		lst_len(mt->suites) - mt_count_failed_suites(mt)
 		, lst_len(mt->suites));

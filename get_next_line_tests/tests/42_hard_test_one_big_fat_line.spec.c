@@ -11,7 +11,7 @@ static void test01(t_test *test)
 	int	diff_file_size;
     
     system("mkdir -p sandbox");
-	system("openssl rand -base64 $(($(echo '2^15' | bc) * 3/4)) | tr -d '\n' | tr -d '\r' > sandbox/one_big_fat_line.txt");
+	system("openssl rand -base64 $((30 * 1000 * 3/4)) | tr -d '\n' | tr -d '\r' > sandbox/one_big_fat_line.txt");
 	system("echo '\n' >> sandbox/one_big_fat_line.txt");
 
 	fd = open("sandbox/one_big_fat_line.txt", O_RDONLY);

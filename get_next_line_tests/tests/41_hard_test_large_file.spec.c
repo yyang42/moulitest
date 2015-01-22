@@ -9,7 +9,7 @@ static void test01(t_test *test)
 	int	diff_file_size;
     
     system("mkdir -p sandbox");
-	system("openssl rand -out sandbox/large_file.txt -base64 $(($(echo '2^19' | bc) * 3/4)) 2> /dev/null");
+	system("openssl rand -out sandbox/large_file.txt -base64 $((50 * 1000 * 3/4)) 2> /dev/null");
 
 	fd = open("sandbox/large_file.txt", O_RDONLY);
 	fd2 = open("sandbox/large_file.txt.mine", O_CREAT | O_RDWR | O_TRUNC, 0755);

@@ -3,7 +3,7 @@ os:
 env:
   # global will stay the same across all matrix possibilities (will not create additional combinations to run)
   global:
-    - FAKE_RENDU_PATH=$(pwd)/testframework/fake_rendu
+    - FAKE_RENDU_PATH="$(pwd)/testframework/fake_rendu"
 
 language: c
 compiler: gcc

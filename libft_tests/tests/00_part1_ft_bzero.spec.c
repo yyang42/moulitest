@@ -23,8 +23,19 @@ static void test_only_bzero_first_x_chars(t_test *test)
 	mt_assert(memcmp(subject, control, 10) == 0);
 }
 
+static void test_zero_case(t_test *test)
+{
+	char	control[] = "123456789";
+	char	subject[] = "123456789";
+
+	bzero(control, 0);
+	ft_bzero(subject, 0);
+	mt_assert(memcmp(subject, control, 10) == 0);
+}
+
 void	suite_00_part1_ft_bzero(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_string);
 	SUITE_ADD_TEST(suite, test_only_bzero_first_x_chars);
+	SUITE_ADD_TEST(suite, test_zero_case);
 }

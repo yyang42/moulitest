@@ -4,4 +4,5 @@ language: c
 compiler: gcc
 script:
 - RENDU_PATH=$(pwd)/testframework/fake_rendu/get_next_line make gnl
+- RENDU_PATH=$(pwd)/testframework/fake_rendu/get_next_line_with_libft make gnl
 

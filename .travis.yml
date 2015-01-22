@@ -10,7 +10,7 @@ compiler: gcc
 script:
 - RENDU_PATH=$FAKE_RENDU_PATH/get_next_line make gnl
 - RENDU_PATH=$FAKE_RENDU_PATH/get_next_line_with_libft make gnl
-- RENDU_PATH=$FAKE_RENDU_PATH/libft make libft_bonus
+- RENDU_PATH=$FAKE_RENDU_PATH/libft make part2
 - RENDU_PATH=$FAKE_RENDU_PATH/ft_printf make ft_printf
 - RENDU_PATH=$FAKE_RENDU_PATH/ft_ls make ft_ls
 

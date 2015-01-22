@@ -1,5 +1,5 @@
 os:
-	- osx
+- osx
 language: c
 compiler: gcc
 script:

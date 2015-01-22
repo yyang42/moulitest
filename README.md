@@ -29,9 +29,9 @@ Run tests
 ## Advanced use
 Run only some tests
 
-	make ft_ls tests=<regexp>
-	# e.g. To launch only the test 05 you can use
-	make ft_ls tests=^05
+	make ft_ls PATTERN=<regexp>
+	# e.g. To run only the tests starting with "05" you can use
+	make ft_ls PATTERN=^05
 
 Notes
 ---

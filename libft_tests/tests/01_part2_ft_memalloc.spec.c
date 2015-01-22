@@ -10,7 +10,7 @@ static void simple_test(t_test *test)
 	mem2 = ft_memalloc(100);
 
 	mt_assert(!!mem1 && !!mem2);
-	mt_assert(memcmp(mem1, mem2, 100) == 0);
+	mt_assert(mem1 && mem2 && memcmp(mem1, mem2, 100) == 0);
 }
 
 static void test_too_big_size(t_test *test)

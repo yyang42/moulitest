@@ -4,5 +4,6 @@ int				get_next_line(int const fd, char **line)
 {
 	(void)fd;
 	(void)line;
+	*line = strdup("");
 	return (0);
 }

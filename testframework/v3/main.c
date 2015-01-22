@@ -6,10 +6,10 @@
 #include <signal.h>
 
 // #define assert(cond) test_assert_prep(test, #cond); test_assert(test, (cond))
-// #define MT_ADD_SUITE(mt, suite_fn) lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
-// #define SUITE_ADD_TEST(suite, test_fn) lst_push(suite->tests, test_create(#test_fn, test_fn))
-// #define MT_ADD_SUITE(mt, name, suite_fn) lst_push(mt->suites, lst_create_elem(mt->suites, suite_create(#name, suite_fn)))
-// #define SUITE_ADD_TEST(suite, test_fn) lst_push(suite->tests, lst_create_elem(mt->suites, test_create(#test_fn, test_fn)))
+// #define MT_ADD_SUITE(mt, suite_fn) mt_lst_push(mt->suites, suite_create(#suite_fn, suite_fn))
+// #define SUITE_ADD_TEST(suite, test_fn) mt_lst_push(suite->tests, test_create(#test_fn, test_fn))
+// #define MT_ADD_SUITE(mt, name, suite_fn) mt_lst_push(mt->suites, mt_lst_create_elem(mt->suites, suite_create(#name, suite_fn)))
+// #define SUITE_ADD_TEST(suite, test_fn) mt_lst_push(suite->tests, mt_lst_create_elem(mt->suites, test_create(#test_fn, test_fn)))
 
 // static test_01_abc(t_suite *suite)
 // {

@@ -15,14 +15,14 @@ typedef struct				s_suite
 {
 	char					*name;
 	t_suite_fn				*fn;
-	t_lst					*tests;
+	t_mt_lst					*tests;
 	int						x_success_count;
 	int						x_warning_count;
 }							t_suite;
 
 t_suite			*suite_create(char *name, t_suite_fn *fn);
 void			suite_add_test(t_suite *suite, t_test	*test);
-void			suite_exec(t_lst_elem *elem);
+void			suite_exec(t_mt_lst_elem *elem);
 size_t			suite_count_failed_tests(t_suite *suite);
 int				suite_filter_failed(t_suite	*suite);
 size_t			suite_count_tests(t_suite *suite);

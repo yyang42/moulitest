@@ -3,7 +3,7 @@
 #include <color.h>
 #include <signal.h>
 
-void	test_print(t_lst_elem *elem)
+void	test_print(t_mt_lst_elem *elem)
 {
 	char *symbol;
 	t_test	*test;

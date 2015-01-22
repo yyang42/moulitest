@@ -24,8 +24,8 @@ typedef struct				s_test
 }							t_test;
 
 t_test						*test_create(char *name, t_test_fn *fn, int timeout);
-void						test_print(t_lst_elem *elem);
-void						test_exec(t_lst_elem *elem);
+void						test_print(t_mt_lst_elem *elem);
+void						test_exec(t_mt_lst_elem *elem);
 void						test_assert(t_test	*test, int is_fail);
 void						test_assert_prep(t_test	*test, char *cond, char *msg, int expected_signum);
 int							test_filter_failed(t_test *test);

@@ -40,7 +40,7 @@ static void	test_exec_do(t_test	*test)
 	capture_close_saved_stdout();
 }
 
-void	test_exec(t_lst_elem *elem)
+void	test_exec(t_mt_lst_elem *elem)
 {
 	t_test	*test;
 

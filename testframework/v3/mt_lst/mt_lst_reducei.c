@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_reduce.c                                       :+:      :+:    :+:   */
+/*   mt_lst_reducei.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 23:25:47 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/02 23:45:46 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/04 19:35:01 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mt_lst.h>
 
-void					*lst_reduce(t_lst *lst, void *(*fn)(t_lst_elem *elem,
-							void *memo), void *context)
+int mt_lst_reducei(t_mt_lst *lst, int (*fn)(t_mt_lst_elem *elem, int memo), int memo)
 {
-	t_lst_elem	*elem;
+	t_mt_lst_elem	*elem;
 
 	elem = lst->elems;
 	while (elem)
 	{
-		context = fn(elem, context);
+		memo = fn(elem, memo);
 		elem = elem->next;
 	}
-	return (context);
+	return (memo);
 }

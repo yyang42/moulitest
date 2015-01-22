@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_count.c                                        :+:      :+:    :+:   */
+/*   mt_lst_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juschaef <juschaef@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/07 09:17:53 by juschaef          #+#    #+#             */
-/*   Updated: 2015/01/07 18:25:55 by juschaef         ###   ########.fr       */
+/*   Created: 2014/12/12 09:45:21 by yyang             #+#    #+#             */
+/*   Updated: 2014/12/12 10:15:16 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mt_lst.h>
+#include <stdlib.h>
 
-size_t		lst_count(t_lst *lst, void *(*f)(void *))
+t_mt_lst	*mt_lst_init(void)
 {
-	int			len;
-	t_lst_elem	*elem;
+	t_mt_lst	*lst;
 
-	len = 0;
-	elem = lst->elems;
-	while (elem)
-	{
-		if (f(elem->data))
-			len++;
-		elem = elem->next;
-	}
-	return (len);
+	lst = (t_mt_lst *)malloc(sizeof(t_mt_lst));
+	lst->len = 0;
+	lst->elems = NULL;
+	return (lst);
 }

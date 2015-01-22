@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/22 17:26:30 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/22 20:20:23 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ POST_PATTERN =
 CC_DEBUG = -g
 CC_FLAGS = -Werror -Wextra -Wall
 FRAMEWORK_PATH = ../testframework/v3/
+RENDU_MAKE_ARG = re
 define FIRST_RULE
 	make exec_tests
 endef
@@ -62,10 +63,10 @@ CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
 
 exec_tests:
 ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
-	make re -k -C $(RENDU_PATH)
+	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH)
 else
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
-	make re -k -C $(RENDU_PATH)/libft
+	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH)/libft
 endif
 endif
 	make -k -C $(FRAMEWORK_PATH)

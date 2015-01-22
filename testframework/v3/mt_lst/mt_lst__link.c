@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_sort.c                                         :+:      :+:    :+:   */
+/*   mt_lst__link.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/11 22:24:18 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/28 09:52:13 by yyang            ###   ########.fr       */
+/*   Created: 2014/12/12 17:50:11 by yyang             #+#    #+#             */
+/*   Updated: 2015/01/09 16:03:53 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mt_lst.h>
 
-void	ft_lstsort(t_lst *lst, int (*f)(t_lst *lst1, t_lst *lst2))
+void	mt_lst__link(t_mt_lst_elem *elem1, t_mt_lst_elem *elem2)
 {
-	(void)lst;
-	(void)f;
+	if (elem1)
+		elem1->next = elem2;
+	if (elem2)
+		elem2->prev = elem1;
 }

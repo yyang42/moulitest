@@ -39,8 +39,8 @@ static void		mt_print_result(t_mt *mt)
 		color = C_GREEN;
 	printf("%s", color);
 	printf(">>>> Result: %lu/%lu test suites passed.",
-		lst_len(mt->suites) - mt_count_failed_suites(mt)
-		, lst_len(mt->suites));
+		mt_lst_len(mt->suites) - mt_count_failed_suites(mt)
+		, mt_lst_len(mt->suites));
 
 	size_t total_tests = mt_count_tests(mt);
 	printf(" %lu/%lu tests passed (dots).", total_tests - mt_count_failed_tests(mt), total_tests);

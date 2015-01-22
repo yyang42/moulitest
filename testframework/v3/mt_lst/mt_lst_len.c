@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_unshift.c                                      :+:      :+:    :+:   */
+/*   mt_lst_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/12 09:29:17 by yyang             #+#    #+#             */
-/*   Updated: 2014/12/28 09:48:02 by yyang            ###   ########.fr       */
+/*   Created: 2014/12/11 22:24:18 by yyang             #+#    #+#             */
+/*   Updated: 2014/12/28 09:48:55 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mt_lst.h>
 
-void	lst_unshift(t_lst *lst, t_lst_elem *elem)
+size_t	mt_lst_len(t_mt_lst *lst)
 {
-	lst__link(elem, lst->elems);
-	lst->elems = elem;
+	int			len;
+	t_mt_lst_elem	*elem;
+
+	elem = lst->elems;
+	len = 0;
+	while (elem)
+	{
+		elem = elem->next;
+		len++;
+	}
+	return (len);
 }

@@ -7,7 +7,7 @@ t_suite			*suite_create(char *name, t_suite_fn *fn)
 	suite = (t_suite *)malloc(sizeof(t_suite));
 	suite->name = strdup(name);
 
-	suite->tests = lst_init();
+	suite->tests = mt_lst_init();
 	suite->fn = fn;
 	return (suite);
 }

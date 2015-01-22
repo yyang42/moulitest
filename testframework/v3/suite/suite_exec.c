@@ -29,11 +29,11 @@ static void		suite_print_prefix(t_suite *suite)
 static void		suite_print_first_failure(t_suite *suite)
 {
 	t_test		*test;
-	t_lst_elem	*elem;
+	t_mt_lst_elem	*elem;
 	size_t		max_msg_length = 80;
 	char		*suffix;
 
-	elem = lst_find(suite->tests, (void *)test_filter_failed);
+	elem = mt_lst_find(suite->tests, (void *)test_filter_failed);
 	if (!elem)
 		return ;
 	test = elem->data;
@@ -53,7 +53,7 @@ static void		suite_print_first_failure(t_suite *suite)
 
 static void		suite_print_suite_summary(t_suite *suite)
 {
-	if (!lst_len(suite->tests))
+	if (!mt_lst_len(suite->tests))
 		fprintf(stdout, "[\?\?\?\?]");
 	else if (suite_count_failed_tests(suite))
 		fprintf(stdout, C_RED"[FAIL]"C_CLEAR);
@@ -71,7 +71,7 @@ static void		suite_print_result(t_suite *suite)
 	suite_print_first_failure(suite);
 }
 
-void			suite_exec(t_lst_elem *elem)
+void			suite_exec(t_mt_lst_elem *elem)
 {
 	t_suite *suite;
 

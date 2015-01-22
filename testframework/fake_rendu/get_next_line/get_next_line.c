@@ -1,9 +1,10 @@
 #include "get_next_line.h"
 #include <stdlib.h>
+#include <stdlib.h>
 
 static char		*ft_strchr_nl(const char *s)
 {
-	return (s);
+	return ((char *)s);
 }
 
 static int		ft_read_buffer(int fd, char **s_str, char **line)

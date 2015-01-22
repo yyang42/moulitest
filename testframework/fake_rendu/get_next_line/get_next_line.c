@@ -3,7 +3,7 @@
 
 static char		*ft_strchr_nl(const char *s)
 {
-	return ("");
+	return (s);
 }
 
 static int		ft_read_buffer(int fd, char **s_str, char **line)

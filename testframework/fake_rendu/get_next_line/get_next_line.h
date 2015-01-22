@@ -6,7 +6,7 @@
 # define MAX_PARALLEL_FILES 10000
 
 # include <unistd.h>
-# include <strings.h>
+# include <string.h>
 
 int get_next_line(int const fd, char **line);
 

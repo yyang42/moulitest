@@ -1,4 +1,6 @@
 language: c
 compiler: gcc
 script:
-- echo "test script -> should pass"
+- echo "RENDU_PATH=testframework/fake_rendu_get_next_line"
+- make gnl
+

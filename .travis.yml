@@ -4,4 +4,4 @@ os:
 language: c
 compiler: gcc
 script:
-  make test_fw
+  - make test_fw

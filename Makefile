@@ -6,13 +6,9 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2015/01/22 22:54:05 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/22 23:22:13 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-tests ?= spec.c$$
-
-export tests
 
 help:
 	@echo "Usage :\n"
@@ -56,7 +52,5 @@ test_fw:
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/get_next_line_with_libft make -k gnl
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_ls make -k ft_ls
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_printf make -k ft_printf
-
-
 
 .PHONY: help libft_part1 libft_part2 libft_bonus get_next_line gnl ft_ls ft_printf

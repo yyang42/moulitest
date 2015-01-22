@@ -9,7 +9,7 @@ Tested 42 projects:
 * libft
 * get_next_line
 * ft_ls
-* ft_printf (new)
+* ft_printf
 
 Feedbacks, github issues and pull requests are welcome.
 

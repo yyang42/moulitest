@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/22 15:58:37 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/22 17:26:30 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 endif
 endif
 	make -k -C $(FRAMEWORK_PATH)
-	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(CC_LIBS) $(CC_FRAMEWORK_LIB) -o $(NAME)
+	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	./$(NAME)
 
 clean:

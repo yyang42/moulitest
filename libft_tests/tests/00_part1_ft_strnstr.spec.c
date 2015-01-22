@@ -1,4 +1,5 @@
 #include <project.h>
+#include <string.h>
 
 static void unittest1(t_test *test)
 {
@@ -6,11 +7,11 @@ static void unittest1(t_test *test)
 
 	bzero(buf, 10);
 	strcpy(buf, "un deux 9");
-	mt_assert(strnstr(buf, "deux", 10) == ft_strnstr(buf, "deux", 10));
+	mt_assert(ft_strcmp(strnstr(buf, "deux", 10),  ft_strnstr(buf, "deux", 10)) == 0);
 	mt_assert(strnstr(buf, "9", 3) == ft_strnstr(buf, "9", 3));
-	mt_assert(ft_strnstr(buf, "", 6) == buf);
+	mt_assert(ft_strcmp(ft_strnstr(buf, "", 6), buf) == 0);
 	mt_assert(ft_strnstr(buf, "deux", 5) == strnstr(buf, "deux", 5));
-	mt_assert(ft_strnstr(buf, "9", 10) == strnstr(buf, "9", 10));
+	mt_assert(ft_strcmp(ft_strnstr(buf, "9", 10), strnstr(buf, "9", 10)) == 0);
 	mt_assert(ft_strnstr(buf, "9", 8) == strnstr(buf, "9", 8));
 }
 
@@ -21,10 +22,10 @@ static void unittest2(t_test *test)
 	bzero(buf, 10);
 	strcpy(buf, "un deux 9");
 	buf[9] = '6';
+	mt_assert(ft_strcmp(strnstr(buf, "deux", 10), ft_strnstr(buf, "deux", 10)) == 0);
 	mt_assert(strnstr(buf, "cinq", 10) == ft_strnstr(buf, "cinq", 10));
-	mt_assert(strnstr(buf, "deux", 10) == ft_strnstr(buf, "deux", 10));
 	mt_assert(strnstr(buf, "9682", 10) == ft_strnstr(buf, "9682", 10));
-	mt_assert(strnstr(buf, "6", 10) == ft_strnstr(buf, "6", 10));
+	mt_assert(ft_strcmp(strnstr(buf, "6", 10), ft_strnstr(buf, "6", 10)) == 0);
 }
 
 static void unittest3(t_test *test)

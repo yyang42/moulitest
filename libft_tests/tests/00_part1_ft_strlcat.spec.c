@@ -1,4 +1,5 @@
 #include <project.h>
+#include <string.h>
 
 static void unittest1(t_test *test)
 {
@@ -33,22 +34,26 @@ static void unittest3(t_test *test)
 
 static void unittest4(t_test *test)
 {
-	mt_assert(ft_strlcat(strdup("abc\0\0\0"), "ccc", 0) == strlcat(strdup("abc\0\0\0"), "ccc", 0));
+	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 0)
+		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 0));
 }
 
 static void unittest5(t_test *test)
 {
-	mt_assert(ft_strlcat(strdup("abc\0\0\0"), "ccc", 1) == strlcat(strdup("abc\0\0\0"), "ccc", 1));
+	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 1)
+		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 1));
 }
 
 static void unittest6(t_test *test)
 {
-	mt_assert(ft_strlcat(strdup("abc\0\0\0"), "ccc", 6) == strlcat(strdup("abc\0\0\0"), "ccc", 6));
+	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 6)
+		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 6));
 }
 
 static void unittest7(t_test *test)
 {
-	mt_assert(ft_strlcat(strdup("abc\0\0\0"), "ccc", 10) == strlcat(strdup("abc\0\0\0"), "ccc", 10));
+	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 10)
+		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 10));
 }
 
 void	suite_00_part1_ft_strlcat(t_suite *suite)

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 void	ft_lstsort(t_lst *lst, int (*f)(t_lst *lst1, t_lst *lst2))
 {

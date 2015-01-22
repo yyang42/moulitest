@@ -1,7 +1,7 @@
 #include <mt.h>
 #include <test.h>
 #include <stdio.h>
-#include <lst.h>
+#include <mt_lst.h>
 #include <color.h>
 
 static void		suite_print_prefix(t_suite *suite)
@@ -67,7 +67,7 @@ static void		suite_print_result(t_suite *suite)
 	fprintf(stdout, " ");
 	suite_print_suite_summary(suite);
 	fprintf(stdout, " ");
-	lst_iter(suite->tests, (void *)test_print);
+	mt_lst_iter(suite->tests, (void *)test_print);
 	suite_print_first_failure(suite);
 }
 
@@ -78,7 +78,7 @@ void			suite_exec(t_lst_elem *elem)
 	suite = elem->data;
 	suite_print_result(suite);
 	suite->fn(suite);
-	lst_iter(suite->tests, (void *)test_exec);
+	mt_lst_iter(suite->tests, (void *)test_exec);
 	suite_print_result(suite);
 	puts("");
 }

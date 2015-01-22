@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 #include <stdlib.h>
 
 t_lst	*lst_init(void)

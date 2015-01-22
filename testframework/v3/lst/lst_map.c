@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 t_lst		*lst_map(t_lst *lst, t_lst_elem *(*fn)(t_lst_elem *elem))
 {

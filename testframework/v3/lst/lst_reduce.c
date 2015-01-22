@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 void					*lst_reduce(t_lst *lst, void *(*fn)(t_lst_elem *elem,
 							void *memo), void *context)

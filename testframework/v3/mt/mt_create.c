@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <lst.h>
+#include <mt_lst.h>
 
 t_mt			*mt_create(char *name)
 {

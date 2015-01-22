@@ -4,7 +4,7 @@
 
 static void		mt_exec_suites(t_mt *mt)
 {
-	lst_iter(mt->suites, (void *)suite_exec);
+	mt_lst_iter(mt->suites, (void *)suite_exec);
 }
 
 static void		mt_print_header(t_mt *mt)

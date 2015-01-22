@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: annguyen <annguyen@student.42.fr>          +#+  +:+       +#+         #
+#    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/20 21:03:03 by annguyen         ###   ########.fr        #
+#    Updated: 2015/01/22 14:16:28 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,10 @@ define FIRST_RULE
 	make exec_tests
 endef
 
+ifeq ("$(RENDU_PATH)", "")
+	RENDU_PATH = $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
+endif
+
 all:
 	$(FIRST_RULE)
 
@@ -40,9 +44,6 @@ include Makefile_cfg.mk
 #===============================================================================
 # COMMON
 #===============================================================================
-ifeq ("$(RENDU_PATH)", "")
-	RENDU_PATH = $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
-endif
 
 LIBFT_HEADER_PATH = $(shell find $(RENDU_PATH) -name "libft.h")
 

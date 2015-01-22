@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 size_t		lst_count(t_lst *lst, void *(*f)(void *))
 {

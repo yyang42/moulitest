@@ -3,7 +3,7 @@
 
 # include <string.h>
 # include <stdlib.h>
-# include <lst.h>
+# include <mt_lst.h>
 
 struct s_test;
 

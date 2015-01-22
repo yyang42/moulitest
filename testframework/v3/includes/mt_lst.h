@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst.h                                              :+:      :+:    :+:   */
+/*   mt_lst.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
+/*   By: annguyen <annguyen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 19:33:34 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/12 17:06:40 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/20 22:42:54 by annguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_lst_elem				*lst_get(t_lst *lst, size_t index);
 void					lst_unshift(t_lst *lst, t_lst_elem *elem);
 t_lst					*lst_map(t_lst *lst,
 										t_lst_elem *(*f)(t_lst_elem *elem));
-void					lst_iter(t_lst *lst, void (*f)(t_lst_elem	*elem));
+void					mt_lst_iter(t_lst *lst, void (*f)(t_lst_elem	*elem));
 void					lst_del(t_lst *lst, void (*delfn)());
 void					lst_del_elem(t_lst *lst, t_lst_elem *elem,
 															void (*delfn)());

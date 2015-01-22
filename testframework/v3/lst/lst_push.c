@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 void	lst_push(t_lst *lst, t_lst_elem *newelem)
 {

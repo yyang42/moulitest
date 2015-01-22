@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 #include <stdlib.h>
 
 void	lst_pop(t_lst *lst)

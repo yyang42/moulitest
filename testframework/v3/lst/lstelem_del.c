@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 #include <stdlib.h>
 
 void	lstelem_del(t_lst_elem *elem, void (*delfn)())

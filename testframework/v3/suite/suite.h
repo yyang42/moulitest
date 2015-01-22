@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <test.h>
-#include <lst.h>
+#include <mt_lst.h>
 # define MAX_TESTS_PER_SUITE 1000
 
 struct s_suite;

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 int lst_reducei(t_lst *lst, int (*fn)(t_lst_elem *elem, int memo), int memo)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 void	lst__link(t_lst_elem *elem1, t_lst_elem *elem2)
 {

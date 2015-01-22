@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 t_lst_elem	*lst_get(t_lst *lst, size_t index)
 {

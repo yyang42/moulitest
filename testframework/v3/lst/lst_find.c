@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lst.h"
+#include <mt_lst.h>
 
 t_lst_elem		*lst_find(t_lst *lst, void *(*f)(void *))
 {

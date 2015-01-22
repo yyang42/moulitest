@@ -7,6 +7,7 @@ static void test1(t_test *test)
 
 	ft = 42;
 	list = ft_lstnew(&ft, sizeof(int));
+	mt_assert(!!list);
 	mt_assert((*(int*)(list->content)) == 42);
 	list = ft_lstnew(NULL, 386);
 	mt_assert((list->content_size) == 0);

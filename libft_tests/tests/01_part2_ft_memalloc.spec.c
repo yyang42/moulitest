@@ -9,6 +9,7 @@ static void simple_test(t_test *test)
 	bzero(mem1, 100);
 	mem2 = ft_memalloc(100);
 
+	mt_assert(!!mem1 && !!mem2);
 	mt_assert(memcmp(mem1, mem2, 100) == 0);
 }
 

@@ -25,6 +25,7 @@ static void test1(t_test *test)
 	map = ft_lstmap(list, lstmap_test_fn);
 	mt_assert(list->content_size == 21);
 	mt_assert(list->next->content_size == 100);
+	mt_assert(!!map);
 	mt_assert(map->content_size == 42);
 	mt_assert(map->next->content_size == 200);
 }

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#ifdef __gnu_linux__
+#ifdef __linux
 # include <malloc.h>
 #else
 # include <malloc/malloc.h>

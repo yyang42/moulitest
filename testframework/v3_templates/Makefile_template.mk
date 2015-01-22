@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/22 20:20:23 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/22 23:16:34 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,13 @@ CC_DEBUG = -g
 CC_FLAGS = -Werror -Wextra -Wall
 FRAMEWORK_PATH = ../testframework/v3/
 RENDU_MAKE_ARG = re
+PATTERN ?= spec.c$$
 define FIRST_RULE
 	make exec_tests
 endef
 
 ifeq ("$(RENDU_PATH)", "")
-	RENDU_PATH = $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
+	RENDU_PATH ?= $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
 endif
 
 all:
@@ -54,8 +55,7 @@ endif
 
 CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes $(LIBFT_HEADER_INCLUDE) -I $(RENDU_PATH) -I$(RENDU_PATH)/libft/includes
 CC_SOURCE = ./tests/*.spec.c main.c utils.c $(CC_SOURCE_EXTRA)
-pattern ?= spec.c$$
-TEST_FILES = ls -1 tests | grep -e "$(pattern)" | grep -e "$(POST_PATTERN)"
+TEST_FILES = ls -1 tests | grep -e "$(PATTERN)" | grep -e "$(POST_PATTERN)"
 ADD_TESTS = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
 PROTOTYPES = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_PROTO\(\1\);/g")
 CC_DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""

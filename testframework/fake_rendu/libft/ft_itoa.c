@@ -1,5 +1,6 @@
+#include <libft.h>
 char		*ft_itoa(int n)
 {
-	void (n);
-	return ("");
+	(void)n;
+	return (ft_strdup(""));
 }

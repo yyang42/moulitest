@@ -1,6 +1,5 @@
 language: c
 compiler: gcc
 script:
-- echo "RENDU_PATH=testframework/fake_rendu/get_next_line"
-- make gnl
+- RENDU_PATH=$(pwd)/testframework/fake_rendu/get_next_line make gnl
 

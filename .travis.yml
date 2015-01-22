@@ -5,5 +5,3 @@ language: c
 compiler: gcc
 script:
   - make test_fw
-  - git status
-  - git push

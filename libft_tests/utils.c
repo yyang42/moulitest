@@ -4,13 +4,6 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-#ifdef __linux
-# include <malloc.h>
-#else
-# include <malloc/malloc.h>
-#endif
-
 #include <ctype.h>
 #include <math.h>
 

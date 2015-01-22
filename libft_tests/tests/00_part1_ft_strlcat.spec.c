@@ -35,25 +35,25 @@ static void unittest3(t_test *test)
 static void unittest4(t_test *test)
 {
 	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 0)
-		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 0));
+		== 3);
 }
 
 static void unittest5(t_test *test)
 {
 	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 1)
-		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 1));
+		== 4);
 }
 
 static void unittest6(t_test *test)
 {
 	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 6)
-		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 6));
+		== 6);
 }
 
 static void unittest7(t_test *test)
 {
 	mt_assert((unsigned int)ft_strlcat(strdup("abc\0\0\0"), "ccc", 10)
-		== (unsigned int)strlcat(strdup("abc\0\0\0"), "ccc", 10));
+		== 6);
 }
 
 void	suite_00_part1_ft_strlcat(t_suite *suite)

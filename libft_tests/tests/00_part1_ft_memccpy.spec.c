@@ -9,6 +9,9 @@
 		bzero(memccpy_buf, size); \
 		ft_memccpy_ret = ft_memccpy(ft_memccpy_buf, src, c, size); \
 		memccpy_ret = memccpy(memccpy_buf, src, c, size); \
+		mt_assert((!!ft_memccpy_ret == !!memccpy_ret)); \
+		if (!!ft_memccpy_ret && !!memccpy_ret) \
+			mt_assert(memcmp(ft_memccpy_ret, memccpy_ret, size) == 0); \
 		mt_assert((!!ft_memccpy_ret == !!memccpy_ret) || (memcmp(ft_memccpy_ret, memccpy_ret, size) == 0)); \
 		mt_assert(memcmp(ft_memccpy_buf, memccpy_buf, size) == 0); \
 	}

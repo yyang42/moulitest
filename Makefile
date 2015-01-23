@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2015/01/22 23:46:16 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/23 20:39:43 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ update_deps:
 	cp ../projects/common/libft/includes/lst.h testframework/v3/includes/lst.h
 
 test_fw:
-	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft make -k libft_part1
+	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft make -k libft_bonus
+	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft_part1 make -k libft_part1
+	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft_part2 make -k libft_part2
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft make -k libft_part2
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/get_next_line make -k gnl
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/get_next_line_with_libft make -k gnl

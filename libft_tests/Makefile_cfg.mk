@@ -14,13 +14,13 @@ usage:
 	@echo "\tmake bonus\t--> Also runs part1 and part2"
 
 part1_init:
-	$(eval POST_PATTERN = "^00")
+	$(eval POST_PATTERN = "00_part1")
 part1: part1_init exec_tests
 
 part2_init:
-	$(eval POST_PATTERN = "^0[01]")
+	$(eval POST_PATTERN = "\(00_part1\)\|\(01_part2\)")
 part2: part2_init exec_tests
 
 bonus_init:
-	$(eval POST_PATTERN = "^0[012]")
+	$(eval POST_PATTERN = "")
 bonus: bonus_init exec_tests

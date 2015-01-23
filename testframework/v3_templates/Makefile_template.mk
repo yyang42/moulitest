@@ -47,7 +47,6 @@ include Makefile_cfg.mk
 #===============================================================================
 # COMMON
 #===============================================================================
-# <<<<<<< HEAD
 TESTS_PATH = tests
 CC_LIBFT_LIB_DEFAULT = -L $(LIBFT_PATH) -lft
 CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
@@ -60,16 +59,13 @@ PROTOTYPES = $(shell echo "$(TEST_FILES)" | sed -E "s/$(TESTS_PATH)\/([^ ]*)\.sp
 CC_DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
 exec_tests:
-	echo "$(RENDU_PATH)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
-	$(eval CC_LIBFT_LIB = CC_FRAMEWORK_LIB_DEFAULT)
+	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))
 endif
-	echo "$(RENDU_PATH)"
 ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
-	echo "$(RENDU_PATH)"
 	make -k -C $(FRAMEWORK_PATH)
 	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	./$(NAME)

@@ -1,7 +1,6 @@
 NAME = libft_tests
 RENDU_PATH_KEY = LIBFT_PATH
-CC_LIBS = -lft -L $(RENDU_PATH)
-LIBFT_HEADER_INCLUDE = -I $(RENDU_PATH) -I $(RENDU_PATH)/includes
+CC_LIBS = -lft -L $(RENDU_PATH) -I $(RENDU_PATH) -I $(RENDU_PATH)/includes
 
 override define FIRST_RULE
 	@make usage

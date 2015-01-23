@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/18 18:46:08 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/23 16:20:40 by jgigault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@
 # REQUIRED CONFIGS
 #===============================================================================
 
-# NAME = 
-# RENDU_PATH_KEY = 
+# NAME =
+# RENDU_PATH_KEY =
 
 #===============================================================================
 # DEFAULTS
 #===============================================================================
-POST_PATTERN = 
+POST_PATTERN =
 CC_DEBUG = -g
 CC_FLAGS = -Werror -Wextra -Wall
 define FIRST_RULE
@@ -40,6 +40,7 @@ include Makefile_cfg.mk
 # COMMON
 #===============================================================================
 RENDU_PATH = $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
+LIBFT_PATH = $(shell find $(RENDU_PATH) -name "libft" -type d)
 
 LIBFT_HEADER_PATH = $(shell find $(RENDU_PATH) -name "libft.h")
 ifneq ("$(wildcard $(LIBFT_HEADER_PATH))","")
@@ -60,10 +61,11 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 else
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make re -k -C $(RENDU_PATH)/libft
+	CC_LIBFT_LIB=-L $(LIBFT_PATH) -lft
 endif
 endif
 	make -k -C ../testframework/v3/
-	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(CC_LIBS) $(CC_FRAMEWORK_LIB) -o $(NAME)
+	gcc $(CC_LIBFT_LIB) $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(CC_LIBS) $(CC_FRAMEWORK_LIB) -o $(NAME)
 	./$(NAME)
 
 clean:

@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/22 14:47:06 by yyang             #+#    #+#              #
-#    Updated: 2015/01/22 16:01:45 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/23 21:33:28 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ ifeq ($(OUTPUT_TYPE), exec)
 	@gcc $(FLAGS) *.o -o $@
 endif
 	@echo "$(COL_GREEN)$(NAME)$(COL_RESET)"
-
 
 clean:
 	rm -rf *.o

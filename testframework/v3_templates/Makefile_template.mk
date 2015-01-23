@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/22 23:16:34 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/23 16:16:16 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,12 @@ endif
 all:
 	$(FIRST_RULE)
 
+# LIBFT_HEADER_PATH = $(shell find $(RENDU_PATH) -name "libft.h")
+
+# ifneq ("$(wildcard $(LIBFT_HEADER_PATH))","")
+# 	LIBFT_HEADER_INCLUDE = -I $(shell dirname $(LIBFT_HEADER_PATH))
+# endif
+
 #===============================================================================
 # INCLUDES
 #===============================================================================
@@ -46,18 +52,13 @@ include Makefile_cfg.mk
 #===============================================================================
 # COMMON
 #===============================================================================
-
-LIBFT_HEADER_PATH = $(shell find $(RENDU_PATH) -name "libft.h")
-
-ifneq ("$(wildcard $(LIBFT_HEADER_PATH))","")
-	LIBFT_HEADER_INCLUDE = -I $(shell dirname $(LIBFT_HEADER_PATH))
-endif
-
+TESTS_PATH = tests
 CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes $(LIBFT_HEADER_INCLUDE) -I $(RENDU_PATH) -I$(RENDU_PATH)/libft/includes
-CC_SOURCE = ./tests/*.spec.c main.c utils.c $(CC_SOURCE_EXTRA)
-TEST_FILES = ls -1 tests | grep -e "$(PATTERN)" | grep -e "$(POST_PATTERN)"
-ADD_TESTS = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
-PROTOTYPES = $(shell $(TEST_FILES) | sed -E "s/(.*)\.spec\.c/MT_ADD_PROTO\(\1\);/g")
+CC_SOURCE = $(TESTS_PATH)/*.spec.c main.c utils.c $(CC_SOURCE_EXTRA)
+TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print)
+
+ADD_TESTS = $(shell echo "$(TEST_FILES)" | sed -E "s/$(TESTS_PATH)\/([^ ]*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
+PROTOTYPES = $(shell echo "$(TEST_FILES)" | sed -E "s/$(TESTS_PATH)\/([^ ]*)\.spec\.c/MT_ADD_PROTO\(\1\);/g")
 CC_DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
 

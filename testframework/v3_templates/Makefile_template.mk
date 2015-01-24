@@ -34,7 +34,7 @@ define FIRST_RULE
 endef
 
 ifeq ("$(RENDU_PATH)", "")
-	RENDU_PATH ?= $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2)
+	RENDU_PATH ?= $(shell grep $(RENDU_PATH_KEY) ../config.ini | cut -d '=' -f 2 | sed 's/ *$$//')
 endif
 
 all:

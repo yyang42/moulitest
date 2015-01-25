@@ -1,6 +1,7 @@
 os:
 - osx
-
+before_install:
+  - brew update
 language: c
 compiler: gcc
 script:

@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/25 13:59:01 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/25 18:15:17 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                                                        #
@@ -57,11 +57,12 @@ CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PAT
 TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print | grep -e $(PATTERN) | grep -e $(POST_PATTERN))
 CC_SOURCE = $(TEST_FILES) main.c utils.c $(CC_SOURCE_EXTRA)
 LIBFT_PATH = $(RENDU_PATH)/libft
-ADD_TESTS = $(shell echo "$(TEST_FILES)" | sed -E "s/$(TESTS_PATH)\/([^ ]*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1);/g")
-PROTOTYPES = $(shell echo "$(TEST_FILES)" | sed -E "s/$(TESTS_PATH)\/([^ ]*)\.spec\.c/MT_ADD_PROTO\(\1\);/g")
+ADD_TESTS = $(shell echo "$(TEST_FILES)" | perl -pe "s/.*?\/([^\/ ]*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1); /g")
+PROTOTYPES = $(shell echo "$(TEST_FILES)" | perl -pe "s/.*?\/([^\/ ]*)\.spec\.c/MT_ADD_PROTO\(\1\); /g")
 CC_DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
 exec_tests:
+	echo "$(TEST_FILES)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
 	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))

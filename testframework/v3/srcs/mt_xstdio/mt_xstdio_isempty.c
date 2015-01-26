@@ -6,13 +6,13 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/25 22:16:18 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/25 22:17:31 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 10:28:47 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int mt_xstdio_isempty(const char *path)
+int mt_isemptyfile(const char *path)
 {
 	FILE *fp;
 

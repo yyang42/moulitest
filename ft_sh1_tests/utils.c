@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/26 15:40:41 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 15:46:16 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static void print_debug(char *generate_raw_cmd, char *stdout_filter, char *stder
 	printf("%s\n", stdout_filter);
 	printf(C_YELLOW"[debug] stderr_filter\n"C_CLEAR);
 	printf("%s\n", stderr_filter);
-	printf(C_YELLOW"[debug] raw_output content (%s)"C_CLEAR"\n", RAW_OUTPUT_PATH);
-	system("cat "RAW_OUTPUT_PATH);
+	printf(C_YELLOW"[debug] raw_output content (%s)"C_CLEAR"\n", STDOUT_FILE);
+	system("cat "STDOUT_FILE);
 	printf(C_YELLOW"=========================================\n"C_CLEAR);
 }
 
@@ -55,7 +55,6 @@ static void generate_files(char *commands)
 	char final_cmd[MT_MAX_CMD_LENGTH];
 
 	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/ft_sh1  1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
-	printf("%s\n", final_cmd);
 	system(final_cmd);
 }
 
@@ -64,17 +63,17 @@ void mt_assert_output(t_test *test, char *file, char *filter)
 	char cmd[MT_MAX_CMD_LENGTH];
 	char filter_file[MT_MAX_CMD_LENGTH];
 
-
 	sprintf(filter_file, "%s.filtered", file);
-	printf("%s\n", filter_file);
-	printf("%s\n", filter_file);
 	sprintf(cmd, "cat %s | %s > %s", file, filter, filter_file);
-	// (void)filter;
-	// mt_assert(!mt_isemptyfile(filter_file));
-	mt_assert(0);
-	(void)test;
-	(void)file;
-	(void)filter;
+	system(cmd);
+	if (filter)
+	{
+		mt_assert(!mt_isemptyfile(filter_file));
+	}
+	else
+	{
+		mt_assert(mt_isemptyfile(filter_file));
+	}
 }
 
 void mt_assert_sh(t_test *test, char *commands, char *stdout_filter, char *stderr_filter)
@@ -84,7 +83,7 @@ void mt_assert_sh(t_test *test, char *commands, char *stdout_filter, char *stder
 	if (test->debug)
 		print_debug(commands, stdout_filter, stderr_filter);
 	mt_assert_output(test, STDOUT_FILE, stdout_filter);
-	// mt_assert_output(test, STDERR_FILE, stderr_filter);
+	mt_assert_output(test, STDERR_FILE, stderr_filter);
 	(void)stderr_filter;
 }
 

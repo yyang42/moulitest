@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/26 14:33:17 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 15:40:41 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,40 +24,71 @@
 #define SANDBOX_PATH "sandbox"
 #define OUTPUT_AFTER_FILTER_FILE_PATH SANDBOX_PATH"/output_test"
 #define RAW_OUTPUT_PATH SANDBOX_PATH"/output_raw"
+#define STDOUT_FILE SANDBOX_PATH"/stdout.output"
+#define STDERR_FILE SANDBOX_PATH"/stderr.output"
 
-static void mt_assert_sh_base(t_test *test, char *commands, char *assert_filter, int fd)
+
+static void print_debug(char *generate_raw_cmd, char *stdout_filter, char *stderr_filter)
 {
-	char generate_raw_cmd[MT_MAX_CMD_LENGTH];
-	char filter_cmd[MT_MAX_CMD_LENGTH];
+	printf("\n");
+	printf(C_YELLOW"=========================================\n"C_CLEAR);
+	printf(C_YELLOW"[debug] cmd passed to ft_sh\n"C_CLEAR);
+	printf("%s\n", generate_raw_cmd);
+	printf(C_YELLOW"[debug] stdout_filter\n"C_CLEAR);
+	printf("%s\n", stdout_filter);
+	printf(C_YELLOW"[debug] stderr_filter\n"C_CLEAR);
+	printf("%s\n", stderr_filter);
+	printf(C_YELLOW"[debug] raw_output content (%s)"C_CLEAR"\n", RAW_OUTPUT_PATH);
+	system("cat "RAW_OUTPUT_PATH);
+	printf(C_YELLOW"=========================================\n"C_CLEAR);
+}
 
+static void clear_sandbox()
+{
 	if (SANDBOX_PATH)
 		system("rm -rf "SANDBOX_PATH);
 	system("mkdir -p "SANDBOX_PATH);
-	sprintf(generate_raw_cmd, "printf '%s' | "RENDU_PATH"/ft_sh1  %d> "RAW_OUTPUT_PATH" | tee > /dev/null 2>&1", commands, fd);
-	sprintf(filter_cmd, "cat "RAW_OUTPUT_PATH" | %s > "OUTPUT_AFTER_FILTER_FILE_PATH, assert_filter);
-	system(generate_raw_cmd);
-	system(filter_cmd);
+}
+
+static void generate_files(char *commands)
+{
+	char final_cmd[MT_MAX_CMD_LENGTH];
+
+	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/ft_sh1  1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
+	printf("%s\n", final_cmd);
+	system(final_cmd);
+}
+
+void mt_assert_output(t_test *test, char *file, char *filter)
+{
+	char cmd[MT_MAX_CMD_LENGTH];
+	char filter_file[MT_MAX_CMD_LENGTH];
+
+
+	sprintf(filter_file, "%s.filtered", file);
+	printf("%s\n", filter_file);
+	printf("%s\n", filter_file);
+	sprintf(cmd, "cat %s | %s > %s", file, filter, filter_file);
+	// (void)filter;
+	// mt_assert(!mt_isemptyfile(filter_file));
+	mt_assert(0);
+	(void)test;
+	(void)file;
+	(void)filter;
+}
+
+void mt_assert_sh(t_test *test, char *commands, char *stdout_filter, char *stderr_filter)
+{
+	clear_sandbox();
+	generate_files(commands);
 	if (test->debug)
-	{
-		printf("\n");
-		printf(C_YELLOW"=========================================\n"C_CLEAR);
-		printf(C_YELLOW"[debug] cmd passed to ft_sh\n"C_CLEAR);
-		printf("%s\n", generate_raw_cmd);
-		printf(C_YELLOW"[debug] test filter\n"C_CLEAR);
-		printf("%s\n", filter_cmd);
-		printf(C_YELLOW"[debug] raw_output content (%s)"C_CLEAR"\n", RAW_OUTPUT_PATH);
-		system("cat "RAW_OUTPUT_PATH);
-		printf(C_YELLOW"=========================================\n"C_CLEAR);
-	}
-	mt_assert(!mt_isemptyfile(OUTPUT_AFTER_FILTER_FILE_PATH));
+		print_debug(commands, stdout_filter, stderr_filter);
+	mt_assert_output(test, STDOUT_FILE, stdout_filter);
+	// mt_assert_output(test, STDERR_FILE, stderr_filter);
+	(void)stderr_filter;
 }
 
-void mt_assert_sh(t_test *test, char *commands, char *assert_filter)
-{
-	mt_assert_sh_base(test, commands, assert_filter, STDOUT_FILENO);
-}
-
-void mt_assert_sh_stderr(t_test *test, char *commands, char *assert_filter)
-{
-	mt_assert_sh_base(test, commands, assert_filter, STDERR_FILENO);
-}
+// void mt_assert_sh_stderr(t_test *test, char *commands, char *assert_filter)
+// {
+// 	mt_assert_sh_base(test, commands, assert_filter, STDERR_FILENO);
+// }

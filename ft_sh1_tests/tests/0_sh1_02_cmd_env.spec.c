@@ -17,6 +17,7 @@ static void assert_term_exist(t_test *test)
 	// test->debug = 1;
 	mt_assert_sh_stdout(test, "env\n" "exit\n", "grep '^TERM='");
 }
+
 static void test_too_many_args(t_test *test)
 {
 	// test->debug = 1;

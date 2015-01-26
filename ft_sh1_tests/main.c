@@ -8,7 +8,7 @@ PROTOTYPES
 
 int main()
 {
-	t_mt	*mt = mt_create("ft_sh1");
+	t_mt	*mt = mt_create("ft_sh1 (beta, not complete)");
 
 	ADD_TESTS
 

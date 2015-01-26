@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2015/01/23 21:47:00 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/26 21:49:53 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,9 @@ ft_ls:
 
 ft_printf:
 	@make -C ft_printf_tests
+
+ft_sh1:
+	@make -C ft_sh1_tests
 
 update_deps:
 	rm -rf testframework/v3/lst

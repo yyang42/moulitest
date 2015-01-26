@@ -24,7 +24,7 @@ static void cd_should_ignore_extra_args(t_test *test)
 						"exit\n", "grep /usr");
 }
 
-void	suite_0_sh1_00_cmd_cd(t_suite *suite)
+void	suite_0_sh1_01_cmd_cd(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, cd_to_home);
 	SUITE_ADD_TEST(suite, cd_to_path_simple);

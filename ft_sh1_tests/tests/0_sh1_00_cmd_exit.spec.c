@@ -2,7 +2,7 @@
 
 static void simple_exit_test(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	mt_assert_sh(test, "exit\n", "grep exit");
 }
 

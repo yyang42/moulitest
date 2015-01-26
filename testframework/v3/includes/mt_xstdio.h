@@ -13,6 +13,6 @@
 #ifndef MT_XSTDIO
 #define MT_XSTDIO
 
-int mt_xstdio_isempty(const char *path);
+int mt_isemptyfile(const char *path);
 
 #endif

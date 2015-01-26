@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/26 16:24:20 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 17:19:37 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void print_debug(char *generate_raw_cmd)
 {
 	printf("\n");
 	printf(C_YELLOW"=========================================\n"C_CLEAR);
-	printf(C_YELLOW"[debug] cmd passed to ft_sh\n"C_CLEAR);
+	printf(C_YELLOW"[debug] cmd passed to the tested shell\n"C_CLEAR);
 	printf("%s\n", generate_raw_cmd);
 	printf(C_YELLOW"[debug] raw stdout (%s)"C_CLEAR"\n", STDOUT_FILE);
 	system("cat "STDOUT_FILE);

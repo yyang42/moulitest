@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/26 15:08:45 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 16:16:29 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 # include <fw.h>
 
-void mt_assert_sh(t_test *test, char *commands, char *assert_stdout_filter, char *assert_stderr_filter);
+void mt_assert_sh_stdout(t_test *test, char *commands, char *stdout_filter);
+void mt_assert_sh_stderr_not_empty(t_test *test, char *commands);
+void mt_assert_sh_stdout_not_contains(t_test *test, char *commands, char *filter);
 
 #endif

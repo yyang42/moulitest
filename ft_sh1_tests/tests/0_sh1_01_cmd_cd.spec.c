@@ -3,15 +3,14 @@
 static void cd_to_home(t_test *test)
 {
 	// test->debug = 1;
-	mt_assert_sh(test,  "cd\n"
-						"pwd\n"
-						"exit\n", "grep `whoami`$");
+	mt_assert_sh_stdout(test,  "cd\npwd\nexit\n",
+						"grep `whoami`$");
 }
 
 static void cd_to_path_simple(t_test *test)
 {
 	// test->debug = 1;
-	mt_assert_sh(test,  "cd /usr\n"
+	mt_assert_sh_stdout(test,  "cd /usr\n"
 						"pwd\n"
 						"exit\n", "grep /usr");
 }
@@ -19,7 +18,7 @@ static void cd_to_path_simple(t_test *test)
 static void cd_should_ignore_extra_args(t_test *test)
 {
 	// test->debug = 1;
-	mt_assert_sh(test,  "cd /usr arg2\n"
+	mt_assert_sh_stdout(test,  "cd /usr arg2\n"
 						"pwd\n"
 						"exit\n", "grep /usr");
 }

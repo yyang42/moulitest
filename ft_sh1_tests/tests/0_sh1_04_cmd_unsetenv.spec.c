@@ -16,7 +16,7 @@ static void test_not_existing_key(t_test *test)
 
 static void unset_multiple_envs(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	mt_assert_sh_stdout_not_contains(test,
 		"setenv MTENV_A\nsetenv MTENV_B\nsetenv MTENV_C\nunsetenv MTENV_A MTENV_B MTENV_C\nenv\nexit\n",
 		"grep 'MTENV_A\\|MTENV_B\\|MTENV_C'");

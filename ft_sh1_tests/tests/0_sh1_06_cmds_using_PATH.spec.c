@@ -22,7 +22,7 @@ static void test_echo_cmd(t_test *test)
 {
 	// test->debug = 1;
 	mt_assert_sh_stdout(test,
-		"/bin/echo 'MOULITEST'\n"
+		"echo 'MOULITEST'\n"
 		"exit\n",
 		"grep 'MOULITEST'");
 }

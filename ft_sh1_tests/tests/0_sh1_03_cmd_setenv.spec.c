@@ -18,9 +18,16 @@ static void simple_setenv_too_many_args(t_test *test)
 	mt_assert_sh_stderr(test, "setenv aaa bbb ccc\nenv\nexit\n", "grep '.*'");
 }
 
+static void simple_setenv_no_arg(t_test *test)
+{
+	// test->debug = 1;
+	mt_assert_sh(test, "setenv\nexit\n", "grep '^HOME='");
+}
+
 void	suite_0_sh1_03_cmd_setenv(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_setenv_test);
 	SUITE_ADD_TEST(suite, simple_setenv_empty);
 	SUITE_ADD_TEST(suite, simple_setenv_too_many_args);
+	SUITE_ADD_TEST(suite, simple_setenv_no_arg);
 }

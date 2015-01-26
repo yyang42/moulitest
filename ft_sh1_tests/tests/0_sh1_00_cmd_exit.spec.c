@@ -2,8 +2,8 @@
 
 static void simple_exit_test(t_test *test)
 {
-	// test->debug = 1;
-	mt_assert_sh(test, "exit\n", "grep exit");
+	test->debug = 1;
+	mt_assert_sh(test, "exit\n", "grep exit", NULL);
 }
 
 void	suite_0_sh1_00_cmd_exit(t_suite *suite)

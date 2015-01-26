@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/26 16:16:56 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/26 16:24:20 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,16 @@
 #define STDERR_FILTERED_FILE STDERR_FILE".filtered"
 
 
-static void print_debug(char *generate_raw_cmd, char *stdout_filter, char *stderr_filter)
+static void print_debug(char *generate_raw_cmd)
 {
 	printf("\n");
 	printf(C_YELLOW"=========================================\n"C_CLEAR);
 	printf(C_YELLOW"[debug] cmd passed to ft_sh\n"C_CLEAR);
 	printf("%s\n", generate_raw_cmd);
-	printf(C_YELLOW"[debug] stdout_filter\n"C_CLEAR);
-	printf("%s\n", stdout_filter);
-	printf(C_YELLOW"[debug] stderr_filter\n"C_CLEAR);
-	printf("%s\n", stderr_filter);
-	printf(C_YELLOW"[debug] raw_output content (%s)"C_CLEAR"\n", STDOUT_FILE);
+	printf(C_YELLOW"[debug] raw stdout (%s)"C_CLEAR"\n", STDOUT_FILE);
 	system("cat "STDOUT_FILE);
+	printf(C_YELLOW"[debug] raw stderr (%s)"C_CLEAR"\n", STDERR_FILE);
+	system("cat "STDERR_FILE);
 	printf(C_YELLOW"=========================================\n"C_CLEAR);
 }
 
@@ -78,10 +76,10 @@ void mt_assert_sh_base(t_test *test, char *commands, char *stdout_filter, char *
 {
 	clear_sandbox();
 	generate_files(commands);
-	if (test->debug)
-		print_debug(commands, stdout_filter, stderr_filter);
 	mt_assert_output(test, STDOUT_FILE, stdout_filter);
 	mt_assert_output(test, STDERR_FILE, stderr_filter);
+	if (test->debug)
+		print_debug(commands);
 	(void)test;
 }
 
@@ -95,6 +93,12 @@ void mt_assert_sh_stderr_not_empty(t_test *test, char *commands)
 {
 	mt_assert_sh_base(test, commands, "grep ''", "grep ''");
 	mt_assert(!mt_isemptyfile(STDERR_FILTERED_FILE));
+}
+
+void mt_assert_sh_stderr_is_empty(t_test *test, char *commands)
+{
+	mt_assert_sh_base(test, commands, "grep ''", "grep ''");
+	mt_assert(mt_isemptyfile(STDERR_FILTERED_FILE));
 }
 
 void mt_assert_sh_stdout_not_contains(t_test *test, char *commands, char *filter)

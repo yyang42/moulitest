@@ -6,19 +6,20 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2015/01/23 21:47:00 by yyang            ###   ########.fr        #
+#    Updated: 2015/01/26 21:55:14 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 help:
-	@echo "Usage :\n"
+	@echo "Usage :"
 	@echo "\tmake libft_part1"
 	@echo "\tmake libft_part2    // Includes part1"
-	@echo "\tmake libft_bonus    // Includes part2 and part1\n"
-	@echo "\tmake get_next_line"
-	@echo "\tmake gnl            // Alias for get_next_line\n"
-	@echo "\tmake ft_ls\n"
-	@echo "\tmake ft_printf\n"
+	@echo "\tmake libft_bonus    // Includes part2 and part1"
+	@echo "\tmake get_next_line or gnl"
+	@echo "\tmake ft_ls"
+	@echo "\tmake ft_printf"
+	@echo "\tmake ft_sh1"
+	@echo ""
 
 libft_part1:
 	@make -C libft_tests part1
@@ -39,6 +40,9 @@ ft_ls:
 
 ft_printf:
 	@make -C ft_printf_tests
+
+ft_sh1:
+	@make -C ft_sh1_tests
 
 update_deps:
 	rm -rf testframework/v3/lst

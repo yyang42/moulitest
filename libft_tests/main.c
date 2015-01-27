@@ -14,6 +14,7 @@ int main()
 {
 	t_mt	*mt = mt_create("libft");
 
+	mt->desc = "Errors should never pass silently! (That's why we don't handle NULL cases.)";
 	setbuf(stdout, NULL);
 
 	ADD_TESTS

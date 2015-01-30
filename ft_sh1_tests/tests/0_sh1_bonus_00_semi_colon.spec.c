@@ -11,7 +11,7 @@ static void simple_semi_colon_test(t_test *test)
 
 static void test_semi_colon_with_errors(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	char cmd[] = "echo cerisier; notexistingcmd\nexit\n";
 
 	mt_assert_sh_stdout(test, cmd,

@@ -24,7 +24,7 @@ static void test_too_many_args(t_test *test)
 	mt_assert_sh_stderr_not_empty(test, "env invalid_arg\n" "exit\n");
 }
 
-void	suite_0_sh1_02_cmd_env(t_suite *suite)
+void	suite_sh1_02_cmd_env(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, assert_home_exist);
 	SUITE_ADD_TEST(suite, assert_path_exist);

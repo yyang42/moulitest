@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/31 11:05:51 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/31 14:28:03 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,7 @@
 #include <stdbool.h>
 #include <color.h>
 #include <unistd.h>
-
-#define MT_MAX_CMD_LENGTH 100 * 1000
-#define SANDBOX_PATH "sandbox"
-#define OUTPUT_AFTER_FILTER_FILE_PATH SANDBOX_PATH"/output_test"
-#define RAW_OUTPUT_PATH SANDBOX_PATH"/output_raw"
-#define STDOUT_FILE SANDBOX_PATH"/stdout.output"
-#define STDOUT_FILTERED_FILE STDOUT_FILE".filtered"
-#define STDERR_FILE SANDBOX_PATH"/stderr.output"
-#define STDERR_FILTERED_FILE STDERR_FILE".filtered"
-#define EXECUTABLE_NAME "ft_minishell1"
-
+#include <project.h>
 
 static void print_debug(char *generate_raw_cmd)
 {

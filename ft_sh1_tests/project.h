@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/26 16:20:19 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/30 13:50:54 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 # define PROJECT_H
 
 # include <fw.h>
+
+#define MT_MAX_CMD_LENGTH 100 * 1000
+#define SANDBOX_PATH "sandbox"
+#define OUTPUT_AFTER_FILTER_FILE_PATH SANDBOX_PATH"/output_test"
+#define RAW_OUTPUT_PATH SANDBOX_PATH"/output_raw"
+#define STDOUT_FILE SANDBOX_PATH"/stdout.output"
+#define STDOUT_FILTERED_FILE STDOUT_FILE".filtered"
+#define STDERR_FILE SANDBOX_PATH"/stderr.output"
+#define STDERR_FILTERED_FILE STDERR_FILE".filtered"
 
 void mt_assert_sh_stdout(t_test *test, char *commands, char *stdout_filter);
 void mt_assert_sh_stderr_not_empty(t_test *test, char *commands);

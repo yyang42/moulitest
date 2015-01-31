@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/31 11:02:15 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/31 11:05:51 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #define STDOUT_FILTERED_FILE STDOUT_FILE".filtered"
 #define STDERR_FILE SANDBOX_PATH"/stderr.output"
 #define STDERR_FILTERED_FILE STDERR_FILE".filtered"
+#define EXECUTABLE_NAME "ft_minishell1"
 
 
 static void print_debug(char *generate_raw_cmd)
@@ -54,7 +55,7 @@ static void generate_files(char *commands)
 {
 	char final_cmd[MT_MAX_CMD_LENGTH];
 
-	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/ft_minishell1 1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
+	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/"EXECUTABLE_NAME" 1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
 	system(final_cmd);
 }
 

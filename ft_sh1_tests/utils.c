@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/01/26 17:19:37 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/31 11:02:15 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void generate_files(char *commands)
 {
 	char final_cmd[MT_MAX_CMD_LENGTH];
 
-	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/ft_sh1  1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
+	sprintf(final_cmd, "printf '%s' | "RENDU_PATH"/ft_minishell1 1> "STDOUT_FILE" 2> "STDERR_FILE, commands);
 	system(final_cmd);
 }
 

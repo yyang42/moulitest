@@ -44,7 +44,7 @@ static void simple_test_3(t_test *test)
 	sandbox_cmd("touch -t 201409221830.55 f");
 	sandbox_cmd("touch -t 202007221830.55 g");
 	sandbox_cmd("touch -t 300012101830.55 h");
-
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -60,6 +60,7 @@ static void simple_test_4(t_test *test)
 	sandbox_cmd("ln -s c e");
 	sandbox_cmd("ln -s a f");
 	sandbox_cmd("touch -t 300012101830.55 c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -72,8 +73,24 @@ static void simple_test_5(t_test *test)
 
 	sandbox_cmd("touch -t 201312101830.55 B");
 	sandbox_cmd("touch -t 201312101830.55 a");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
+
+static void simple_test_6(t_test *test)
+{
+	char *cmd = "-1t";
+
+	cmd = "-1t a C B sbox sbox1";
+	reset_sandbox();
+
+	sandbox_cmd("touch C && touch -t 201212101830.55 c && mkdir -p sbox sbox1");
+	sandbox_cmd("touch -t 201312101830.55 B");
+	sandbox_cmd("touch -t 201312101830.55 a");
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
+
 
 void	suite_07_test_opt_t(t_suite *suite)
 {
@@ -83,4 +100,5 @@ void	suite_07_test_opt_t(t_suite *suite)
 	SUITE_ADD_TEST(suite, simple_test_3);
 	SUITE_ADD_TEST(suite, simple_test_4);
 	SUITE_ADD_TEST(suite, simple_test_5);
+	SUITE_ADD_TEST(suite, simple_test_6);
 }

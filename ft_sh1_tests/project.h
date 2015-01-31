@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 00:54:40 by celegran          #+#    #+#             */
-/*   Updated: 2015/01/30 13:50:54 by yyang            ###   ########.fr       */
+/*   Updated: 2015/01/31 21:24:07 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 #define STDOUT_FILTERED_FILE STDOUT_FILE".filtered"
 #define STDERR_FILE SANDBOX_PATH"/stderr.output"
 #define STDERR_FILTERED_FILE STDERR_FILE".filtered"
+#define EXECUTABLE_NAME "ft_minishell1"
 
 void mt_assert_sh_stdout(t_test *test, char *commands, char *stdout_filter);
 void mt_assert_sh_stderr_not_empty(t_test *test, char *commands);

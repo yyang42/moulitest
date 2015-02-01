@@ -34,7 +34,6 @@ static void simple_test_3(t_test *test)
 {
 	char *cmd = "-1t";
 
-	cmd = "-1lt";
 	reset_sandbox();
 	sandbox_cmd("touch -t 201312101830.55 a");
 	sandbox_cmd("touch -t 201212101830.55 b");
@@ -52,7 +51,6 @@ static void simple_test_4(t_test *test)
 {
 	char *cmd = "-1t";
 
-	cmd = "-1lt";
 	reset_sandbox();
 	sandbox_cmd("touch -t 200012101830.55 a");
 	sandbox_cmd("touch -t 201412101830.55 b");
@@ -68,7 +66,6 @@ static void simple_test_5(t_test *test)
 {
 	char *cmd = "-1t";
 
-	cmd = "-1lt";
 	reset_sandbox();
 
 	sandbox_cmd("touch -t 201312101830.55 B");

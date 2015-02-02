@@ -13,6 +13,8 @@ Tested 42 projects:
 
 Feedbacks, github issues and pull requests are welcome.
 
+**Note: the moulitest is a test made by humans and may report false positive or false negative. Be critical.**
+
 ## Quick Start
 Create the config file
 

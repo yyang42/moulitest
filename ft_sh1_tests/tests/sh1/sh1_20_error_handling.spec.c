@@ -41,7 +41,7 @@ static void empty_line_with_blank_chars(t_test *test)
 		"exit\n");
 }
 
-void	suite_0_sh1_20_error_handling(t_suite *suite)
+void	suite_sh1_20_error_handling(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, cmd_does_not_exist);
 	SUITE_ADD_TEST(suite, cmd_exist_but_not_in_path);

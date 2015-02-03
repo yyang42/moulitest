@@ -22,7 +22,7 @@ static void unset_multiple_envs(t_test *test)
 		"grep 'MTENV_A\\|MTENV_B\\|MTENV_C'");
 }
 
-void	suite_0_sh1_04_cmd_unsetenv(t_suite *suite)
+void	suite_sh1_04_cmd_unsetenv(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_unsetenv_test);
 	SUITE_ADD_TEST(suite, test_not_existing_key);

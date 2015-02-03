@@ -6,7 +6,7 @@ static void simple_exit_test(t_test *test)
 	mt_assert_sh_stdout(test, "exit\n", "grep exit");
 }
 
-void	suite_0_sh1_00_cmd_exit(t_suite *suite)
+void	suite_sh1_00_cmd_exit(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_exit_test);
 }

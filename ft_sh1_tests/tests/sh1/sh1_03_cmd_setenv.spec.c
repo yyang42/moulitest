@@ -30,7 +30,7 @@ static void does_it_really_modified_envs(t_test *test)
 	mt_assert_sh_stdout(test, "setenv MTENV\n/usr/bin/env\nexit\n", "grep '^MTENV='");
 }
 
-void	suite_0_sh1_03_cmd_setenv(t_suite *suite)
+void	suite_sh1_03_cmd_setenv(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_setenv_test);
 	SUITE_ADD_TEST(suite, simple_setenv_empty);

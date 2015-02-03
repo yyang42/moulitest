@@ -19,7 +19,7 @@ static void test_semi_colon_with_errors(t_test *test)
 	mt_assert_sh_stderr_not_empty(test, cmd);
 }
 
-void	suite_0_sh1_bonus_00_semi_colon(t_suite *suite)
+void	suite_sh2_00_semi_colon(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_semi_colon_test);
 	SUITE_ADD_TEST(suite, test_semi_colon_with_errors);

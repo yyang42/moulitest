@@ -3,4 +3,4 @@ os:
 language: c
 compiler: gcc
 script:
-  - make test_fw
+  - make check

@@ -4,18 +4,21 @@ static	char *cmd;
 static void unitTest_00(t_test *test) 
 {
 	cmd = "-lU /usr";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_01(t_test *test) 
 {
 	cmd = "-1tU /usr";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_02(t_test *test) 
 {
 	cmd = "-1tlU /usr";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

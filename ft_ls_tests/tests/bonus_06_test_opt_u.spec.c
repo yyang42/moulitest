@@ -11,6 +11,7 @@ static void unitTest_00(t_test *test)
 {
 	reset_sandbox();
 	sandbox_cmd("touch a b c d e && touch -at 201212101830.55 c");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
@@ -31,6 +32,7 @@ static void unitTest_03(t_test *test)
 
 static void unitTest_04(t_test *test) 
 {
+	// print_ls_debug(mix_cmd1);
 	mt_assert(strcmp(ls(mix_cmd1), ft_ls(mix_cmd1)) == 0);
 }
 

@@ -6,42 +6,49 @@ static void unitTest_00(t_test *test)
 {
 	reset_sandbox();
 	cmd = "-1tc /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_01(t_test *test) 
 {
 	cmd = "-1tcr /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_02(t_test *test) 
 {
 	cmd = "-1ltc /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_03(t_test *test) 
 {
 	cmd = "-1lcr /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_04(t_test *test) 
 {
 	cmd = "-1lUr /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_05(t_test *test) 
 {
 	cmd = "-1tu /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
 static void unitTest_06(t_test *test) 
 {
 	cmd = "-1turl /usr/share";
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

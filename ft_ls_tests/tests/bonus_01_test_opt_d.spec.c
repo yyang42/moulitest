@@ -7,6 +7,7 @@ static void unitTest_00(t_test *test)
 	cmd = "-1d mydir mydir2";
 	reset_sandbox();
 	sandbox_cmd("mkdir mydir mydir2 && touch mydir/{aaa,bbb,ccc} && touch mydir2/{111,222,333}");
+	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 

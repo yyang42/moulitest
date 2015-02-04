@@ -70,7 +70,7 @@ static void simple_test_6(t_test *test)
 	reset_sandbox();
 	sandbox_cmd("mkdir A");
 	sandbox_cmd("touch A/file rootfile");
-	cmd = "-1R A a rootfile";
+	cmd = "-1R A a rootfile rootfile";
 	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }

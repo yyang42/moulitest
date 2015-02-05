@@ -17,9 +17,9 @@ static void unittest1(t_test *test)
 
 static void unittest2(t_test *test)
 {
-	char	buf[10];
+	char	buf[11];
 
-	bzero(buf, 10);
+	bzero(buf, 11);
 	strcpy(buf, "un deux 9");
 	buf[9] = '6';
 	mt_assert(strcmp(ft_strnstr(buf, "deux", 10), "deux 96") == 0);

@@ -19,8 +19,7 @@ static void test01(t_test *test)
 	    write(fd2, line, strlen(line));
 	    write(fd2, "\n", 1);
 	}
-	if (line)
-		write(fd2, line, strlen(line));
+	
 	close(fd);
 	close(fd2);
 

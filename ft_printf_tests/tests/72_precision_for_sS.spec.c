@@ -8,6 +8,12 @@ static void test_precision_s(t_test *test)
 	assert_printf("%.4s", "42");
 }
 
+static void test_precision_s_prec_smaller_than_s_len(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%.4s", "42 is the answer");
+}
+
 static void test_precision_s_higher_min_width(t_test *test)
 {
 	// test->debug = 1;
@@ -59,6 +65,7 @@ static void test_precision_S_higher_precision_ascii(t_test *test)
 void	suite_72_precision_for_sS(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_precision_s);
+	SUITE_ADD_TEST(suite, test_precision_s_prec_smaller_than_s_len);
 	SUITE_ADD_TEST(suite, test_precision_s_higher_min_width);
 	SUITE_ADD_TEST(suite, test_precision_s_higher_precision);
 	SUITE_ADD_TEST(suite, test_precision_s_implicit_precision);

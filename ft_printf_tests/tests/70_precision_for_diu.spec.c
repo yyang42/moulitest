@@ -190,6 +190,9 @@ void	suite_70_precision_for_diu(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width_len_between_width_prec);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width_len_higher_width);
+	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width_neg);
+	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width_len_between_width_prec_neg);
+	SUITE_ADD_TEST(suite, test_precision_d_higher_min_width_len_higher_width_neg);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_precision);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_precision_len_between_width_prec);
 	SUITE_ADD_TEST(suite, test_precision_d_higher_precision_len_higher_prec);
@@ -209,6 +212,6 @@ void	suite_70_precision_for_diu(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_precision_u_higher_min_width_len_higher_width);
 	SUITE_ADD_TEST(suite, test_precision_u_higher_precision);
 	SUITE_ADD_TEST(suite, test_precision_u_higher_precision_len_between_width_prec);
-	SUITE_ADD_TEST(suite, test_precision_u_higher_precision_len_higher_width);
+	SUITE_ADD_TEST(suite, test_precision_u_higher_precision_len_higher_prec);
 	SUITE_ADD_TEST(suite, test_precision_u_zero_value);
 }

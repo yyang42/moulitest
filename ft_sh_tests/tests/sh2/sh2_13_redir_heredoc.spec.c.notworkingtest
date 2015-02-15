@@ -1,0 +1,16 @@
+#include <project.h>
+
+static void test_redir_heredoc(t_test *test)
+{
+	test->debug = 1;
+	mt_assert_sh_stdout(test,
+		"cat << truc\n"
+		"exit\n"
+		,
+		"grep 84");
+}
+
+void	suite_sh2_13_redir_heredoc(t_suite *suite)
+{
+	SUITE_ADD_TEST(suite, test_redir_heredoc);
+}

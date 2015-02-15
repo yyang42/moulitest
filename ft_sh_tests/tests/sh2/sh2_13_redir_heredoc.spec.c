@@ -2,12 +2,11 @@
 
 static void test_redir_heredoc(t_test *test)
 {
-	test->debug = 1;
+	// test->debug = 1;
 	mt_assert_sh_stdout(test,
-		"cat << truc\n"
-		"exit\n"
+		"cat << EOF\nexit\naa\nbb\ncc\nEOF\nexit\n"
 		,
-		"grep 84");
+		"tr -d '\n' | grep aabbcc");
 }
 
 void	suite_sh2_13_redir_heredoc(t_suite *suite)

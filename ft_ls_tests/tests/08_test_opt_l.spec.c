@@ -77,6 +77,16 @@ static void simple_test_5(t_test *test)
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }
 
+static void simple_test_6(t_test *test)
+{
+	char *cmd = "-lt";
+
+	reset_sandbox();
+	sandbox_cmd("touch -t 999912312459 future");
+	// print_ls_debug(cmd);
+	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
+}
+
 void	suite_08_test_opt_l(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_test_0);
@@ -85,4 +95,5 @@ void	suite_08_test_opt_l(t_suite *suite)
 	SUITE_ADD_TEST(suite, simple_test_3);
 	SUITE_ADD_TEST(suite, simple_test_4);
 	SUITE_ADD_TEST(suite, simple_test_5);
+	SUITE_ADD_TEST(suite, simple_test_6);
 }

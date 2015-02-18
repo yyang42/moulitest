@@ -5,4 +5,3 @@ NAME = ft_sh1_tests.out
 
 RENDU_PATH_KEY = FT_SH1_PATH
 RENDU_MAKE_ARG = re
-CC_DEFINES_EXTRA = -DEXECUTABLE_NAME="\"ft_minishell1\""

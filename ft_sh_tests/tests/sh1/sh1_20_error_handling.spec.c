@@ -12,7 +12,7 @@ static void cmd_exist_but_not_in_path(t_test *test)
 {
 	// test->debug = 1;
 	mt_assert_sh_stderr_not_empty(test,
-		"unsetenv PATH\nls\n"
+		"setenv PATH NOTHING\nls\n"
 		"exit\n");
 }
 

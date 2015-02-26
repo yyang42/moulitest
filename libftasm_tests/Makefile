@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/25 18:15:17 by yyang            ###   ########.fr        #
+#    Updated: 2015/02/26 20:59:11 by yyang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                                                        #
@@ -24,7 +24,7 @@
 #===============================================================================
 POST_PATTERN = ""
 CC_DEBUG = -g
-CC_FLAGS = -Werror -Wextra -Wall
+CC_FLAGS = 
 
 FRAMEWORK_PATH = ../testframework/v3/
 RENDU_MAKE_ARG = re

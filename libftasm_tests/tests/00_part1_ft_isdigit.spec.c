@@ -1,7 +1,5 @@
 #include <project.h>
 
-int		ft_isdigit(int i);
-
 #define mt_test_isdigit(test_name, tested_char)								\
 	static void test_## test_name(t_test *test)								\
 	{																		\

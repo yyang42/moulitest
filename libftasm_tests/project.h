@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/05 18:58:31 by celegran          #+#    #+#             */
-/*   Updated: 2015/02/26 20:33:52 by yyang            ###   ########.fr       */
+/*   Updated: 2015/02/26 20:48:14 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,20 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	map_test(char c);
-char	mapi_test(unsigned int i, char c);
-void	it_test(char *c);
-void	iti_test(unsigned int i, char *c);
-
-# ifdef BONUS
-void	del_test(void *data, size_t i);
-void	lstiter_test(t_list *ppp);
-t_list	*lstmap_test(t_list *list);
-# endif
+int		ft_strlen(char *s);
+int		ft_isascii(int i);
+int		ft_isdigit(int i);
+int		ft_isalpha(int i);
+int		ft_isalnum(int i);
+int		ft_isprint(int i);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+char	*ft_strcat(char *s1, char *s2);
+void	ft_bzero(void *s, int n);
+void	ft_memset(void *s, int c, int n);
+void	*ft_memcpy(void *dst, void *src, size_t n);
+char	*ft_strdup(char *s);
+void	ft_cat(int fd);
+int		ft_puts(const char *s);;
 
 #endif

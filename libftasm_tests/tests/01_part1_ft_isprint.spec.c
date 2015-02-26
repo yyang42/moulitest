@@ -25,6 +25,11 @@ mt_test_isprint(num16, '\n');
 mt_test_isprint(num17, '\v');
 mt_test_isprint(num18, '\b');
 mt_test_isprint(num19, 7);
+mt_test_isprint(num20, '0');
+mt_test_isprint(num21, '0' - 1);
+mt_test_isprint(num22, '9');
+mt_test_isprint(num23, '9' + 1);
+mt_test_isprint(num24, -1);
 
 void	suite_01_part1_ft_isprint(t_suite *suite)
 {
@@ -47,5 +52,10 @@ void	suite_01_part1_ft_isprint(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num17);
 	SUITE_ADD_TEST(suite, test_num18);
 	SUITE_ADD_TEST(suite, test_num19);
+	SUITE_ADD_TEST(suite, test_num20);
+	SUITE_ADD_TEST(suite, test_num21);
+	SUITE_ADD_TEST(suite, test_num22);
+	SUITE_ADD_TEST(suite, test_num23);
+	SUITE_ADD_TEST(suite, test_num24);
 
 }

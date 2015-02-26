@@ -23,7 +23,7 @@ static void unittest3(t_test *test)
 	mt_assert(memcmp(memset(strdup("abcd"), 0, 0), ft_memset(strdup("abcd"), 0, 0), 5) == 0);
 }
 
-void	suite_00_part2_ft_memset(t_suite *suite)
+void	suite_02_part2_ft_memset(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unittest1);
 	SUITE_ADD_TEST(suite, unittest2);

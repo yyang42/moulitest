@@ -14,7 +14,7 @@ static void unittest1(t_test *test)
 	mt_assert(buf == ft_strcat(buf, ""));
 }
 
-void	suite_00_part2_ft_strcat(t_suite *suite)
+void	suite_02_part2_ft_strcat(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unittest1);
 }

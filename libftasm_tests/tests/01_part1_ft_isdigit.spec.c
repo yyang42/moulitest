@@ -31,7 +31,7 @@ mt_test_isdigit(num22, '9');
 mt_test_isdigit(num23, '9' + 1);
 mt_test_isdigit(num24, -1);
 
-void	suite_00_part1_ft_isdigit(t_suite *suite)
+void	suite_01_part1_ft_isdigit(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
 	SUITE_ADD_TEST(suite, test_num2);

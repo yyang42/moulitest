@@ -19,7 +19,7 @@ static void test_10_million_chars_string(t_test *test)
 	str[test_len - 1] = '\0';
 	mt_assert(ft_strlen(str) == strlen(str));
 }
-void	suite_00_part2_ft_strlen(t_suite *suite)
+void	suite_02_part2_ft_strlen(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unittest1);
 	SUITE_ADD_TEST(suite, unittest2);

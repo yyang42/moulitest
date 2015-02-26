@@ -33,7 +33,7 @@ static void test_zero_case(t_test *test)
 	mt_assert(memcmp(subject, control, 10) == 0);
 }
 
-void	suite_00_part1_ft_bzero(t_suite *suite)
+void	suite_01_part1_ft_bzero(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_string);
 	SUITE_ADD_TEST(suite, test_only_bzero_first_x_chars);

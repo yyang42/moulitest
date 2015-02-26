@@ -1,32 +1,32 @@
 #include <project.h>
 
-#define mt_test_isascii(test_name, tested_char)								\
+#define mt_test_isprint(test_name, tested_char)								\
 	static void test_## test_name(t_test *test)								\
 	{																		\
-		mt_assert(ft_isascii(tested_char) == isascii(tested_char));			\
+		mt_assert(ft_isprint(tested_char) == isprint(tested_char));			\
 	}
 
-mt_test_isascii(num1, 'a');
-mt_test_isascii(num2, 'a' + 0x100);
-mt_test_isascii(num3, '2');
-mt_test_isascii(num4, 'Z');
-mt_test_isascii(num5, 't');
-mt_test_isascii(num6, 0);
-mt_test_isascii(num7, 1);
-mt_test_isascii(num8, 9999);
-mt_test_isascii(num9, '1');
-mt_test_isascii(num10, '2');
-mt_test_isascii(num11, 'A');
-mt_test_isascii(num12, 'Z');
-mt_test_isascii(num13, ' ');
-mt_test_isascii(num14, '%');
-mt_test_isascii(num15, '\t');
-mt_test_isascii(num16, '\n');
-mt_test_isascii(num17, '\v');
-mt_test_isascii(num18, '\b');
-mt_test_isascii(num19, 7);
+mt_test_isprint(num1, 'a');
+mt_test_isprint(num2, 'a' + 0x100);
+mt_test_isprint(num3, '2');
+mt_test_isprint(num4, 'Z');
+mt_test_isprint(num5, 't');
+mt_test_isprint(num6, 0);
+mt_test_isprint(num7, 1);
+mt_test_isprint(num8, 9999);
+mt_test_isprint(num9, '1');
+mt_test_isprint(num10, '2');
+mt_test_isprint(num11, 'A');
+mt_test_isprint(num12, 'Z');
+mt_test_isprint(num13, ' ');
+mt_test_isprint(num14, '%');
+mt_test_isprint(num15, '\t');
+mt_test_isprint(num16, '\n');
+mt_test_isprint(num17, '\v');
+mt_test_isprint(num18, '\b');
+mt_test_isprint(num19, 7);
 
-void	suite_00_part1_ft_isascii(t_suite *suite)
+void	suite_01_part1_ft_isprint(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
 	SUITE_ADD_TEST(suite, test_num2);

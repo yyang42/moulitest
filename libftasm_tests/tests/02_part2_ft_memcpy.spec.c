@@ -12,7 +12,7 @@ static void unittest1(t_test *test)
 	mt_assert(ft_memcpy(b1, b2, 0) == b1);
 }
 
-void	suite_00_part2_ft_memcpy(t_suite *suite)
+void	suite_02_part2_ft_memcpy(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unittest1);
 }

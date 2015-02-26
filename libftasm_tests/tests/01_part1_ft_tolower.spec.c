@@ -26,7 +26,7 @@ mt_test_tolower(num17, '\v');
 mt_test_tolower(num18, '\b');
 mt_test_tolower(num19, 7);
 
-void	suite_00_part1_ft_tolower(t_suite *suite)
+void	suite_01_part1_ft_tolower(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
 	SUITE_ADD_TEST(suite, test_num2);

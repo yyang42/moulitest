@@ -6,7 +6,7 @@
 /*   By: yyang <yyang@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/26 10:22:27 by yyang             #+#    #+#             */
-/*   Updated: 2015/02/15 11:22:10 by yyang            ###   ########.fr       */
+/*   Updated: 2015/02/25 20:48:36 by yyang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,12 @@ void mt_assert_sh_stderr_is_empty(t_test *test, char *commands)
 {
 	mt_assert_sh_base(test, commands, "grep ''", "grep ''");
 	mt_assert(mt_isemptyfile(STDERR_FILTERED_FILE));
+}
+
+void mt_assert_sh_stdout_is_empty(t_test *test, char *commands)
+{
+	mt_assert_sh_base(test, commands, "grep ''", "grep ''");
+	mt_assert(mt_isemptyfile(STDOUT_FILTERED_FILE));
 }
 
 void mt_assert_sh_stdout_not_contains(t_test *test, char *commands, char *filter)

@@ -29,3 +29,4 @@ testframework/v3/libmt_framework.a
 testframework/fake_rendu/ft_ls/ft_ls
 template_tests/sample_tests*
 ft_sh2_tests.out*
+libfts_tests*

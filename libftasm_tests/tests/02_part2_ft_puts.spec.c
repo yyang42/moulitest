@@ -25,7 +25,7 @@ static void simple_test(t_test *test)
 	mt_assert(strcmp(buf, "aaa\n(null)\n") == 0);
 }
 
-void	suite_01_part2_ft_puts(t_suite *suite)
+void	suite_02_part2_ft_puts(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_test);
 }

@@ -12,10 +12,12 @@ static void unittest2(t_test *test)
 
 static void unittest3(t_test *test)
 {
-	char	*c;
+	char *s1;
+	char *s2;
 
-	c = "AbC";
-	mt_assert(c != ft_strdup(c));
+	s1 = "aaa";
+	s2 = ft_strdup(s1);
+	mt_assert(s1 != s2);
 }
 
 void	suite_02_part2_ft_strdup(t_suite *suite)

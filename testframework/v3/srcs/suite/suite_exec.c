@@ -12,7 +12,7 @@ static void		suite_print_prefix(t_suite *suite)
 
 	ut_len = 5;
 
-	printf("\r");
+	// printf("\r");
 	printf("%s", ""C_YELLOW">>>> "C_CLEAR);
 	sprintf(suite_name, "%s%s %.*s",
 		suite->name,
@@ -76,7 +76,7 @@ void			suite_exec(t_mt_lst_elem *elem)
 	t_suite *suite;
 
 	suite = elem->data;
-	suite_print_result(suite);
+	// suite_print_result(suite);
 	suite->fn(suite);
 	mt_lst_iter(suite->tests, (void *)test_exec);
 	suite_print_result(suite);

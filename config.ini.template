@@ -9,3 +9,4 @@ LIBFT_PATH = /path/to/libft
 FT_PRINTF_PATH = /path/to/printf
 FT_SH1_PATH = /path
 FT_SH2_PATH = /path
+LIBFTASM_PATH = /path

@@ -1,4 +1,4 @@
-# Moulitest ![travis](https://travis-ci.org/yyang42/moulitest_42projects.svg)
+# Moulitest ![travis](https://travis-ci.org/yyang42/moulitest.svg)
 
 <img align="right" height="230" src="http://i.imgur.com/3p0Xg7Z.png">
 

@@ -1,1 +1,0 @@
-../ft_sh_tests/main.c

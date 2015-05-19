@@ -10,6 +10,7 @@ Tested 42 projects:
 * get_next_line
 * ft_ls
 * ft_printf
+* libftasm
 
 Feedbacks, github issues and pull requests are welcome.
 

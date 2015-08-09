@@ -6,12 +6,12 @@ static void simple_test_0(t_test *test)
 
 	cmd = "-1tR";
 	reset_sandbox();
-	
-	sandbox_cmd("mkdir -p sbox/level1_{1..2}/level2_{1..2}/level3_{1..2}");
-	sandbox_cmd("mkdir -p sbox1/level1_{1..2}/level2_{1..2}/level3_{1..2}");
+
+	sandbox_cmd("mkdir -p sbox/lvl1_{1..2}/lvl2_{1..2}/lvl3_{1..2}");
+	sandbox_cmd("mkdir -p sbox1/lvl1_{1..2}/lvl2_{1..2}/lvl3_{1..2}");
 	sandbox_cmd("touch -t 201212101830.55 sbox/c_lvl1");
-	sandbox_cmd("touch -t 201212101830.55 sbox/level1_1/c_lvl2");
-	sandbox_cmd("touch -t 201212101830.55 sbox/level1_1/level2_1/c_lvl3");
+	sandbox_cmd("touch -t 201212101830.55 sbox/lvl1_1/c_lvl2");
+	sandbox_cmd("touch -t 201212101830.55 sbox/lvl1_1/lvl2_1/c_lvl3");
 	// print_ls_debug(cmd);
 	mt_assert(strcmp(ls(cmd), ft_ls(cmd)) == 0);
 }

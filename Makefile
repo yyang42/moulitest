@@ -53,7 +53,7 @@ check:
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/libft make -k libft_part2
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/get_next_line make -k gnl
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/get_next_line_with_libft make -k gnl
-	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_ls make -k ft_ls
+	# RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_ls make -k ft_ls
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_printf make -k ft_printf
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_printf_with_libft make -k ft_printf
 	RENDU_PATH=$(shell pwd)/testframework/fake_rendu/ft_printf make -k ft_printf PATTERN=01

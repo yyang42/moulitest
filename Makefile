@@ -18,7 +18,6 @@ help:
 	@echo "\tmake get_next_line or gnl"
 	@echo "\tmake ft_ls"
 	@echo "\tmake ft_printf"
-	@echo "\tmake ft_sh1"
 	@echo ""
 
 libft_part1:
@@ -40,12 +39,6 @@ ft_ls:
 
 ft_printf:
 	@make -C ft_printf_tests
-
-ft_sh1:
-	@make -C $@_tests
-
-ft_sh2:
-	@make -C $@_tests
 
 update_deps:
 	rm -rf testframework/v3/lst

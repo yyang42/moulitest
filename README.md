@@ -14,8 +14,6 @@ Tested 42 projects:
 
 Feedbacks, github issues and pull requests are welcome.
 
-**Note: the moulitest is a test made by humans and may report false positive or false negative. Use it with caution.**
-
 ## Quick Start
 Create the config file
 
@@ -45,7 +43,5 @@ GNL
 Credits
 ---
 
-The test framework and many libft tests are based on the work done by Maxime Bacoux (mbacoux). 
-Here is the original repository: https://github.com/Nax/libft-test.  
-Thanks to [lefta](https://github.com/lefta) (aka celegran) for his work, especially on the v2.
-
+The test framework and some libft tests are based on the work done by mbacoux.
+Thanks to all contributors.

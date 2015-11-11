@@ -3,7 +3,7 @@
 #define mt_test_isprint(test_name, tested_char)								\
 	static void test_## test_name(t_test *test)								\
 	{																		\
-		mt_assert(ft_isprint(tested_char) == isprint(tested_char));			\
+		mt_assert((ft_isprint(tested_char) && 1) == (isprint(tested_char) && 1));			\
 	}
 
 mt_test_isprint(num1, 'a');

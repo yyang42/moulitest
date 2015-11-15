@@ -3,7 +3,7 @@
 #define mt_test_isalnum(test_name, tested_char)										\
 	static void test_## test_name(t_test *test)										\
 	{																				\
-		mt_assert((ft_isalnum(tested_char) && 1) == (isalnum(tested_char) && 1));	\
+		mt_assert((ft_isalnum(tested_char) != 0) == (isalnum(tested_char) != 0));	\
 	}
 
 mt_test_isalnum(num1, 'a');

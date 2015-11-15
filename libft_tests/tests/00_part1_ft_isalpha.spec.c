@@ -3,7 +3,7 @@
 #define mt_test_isalpha(test_name, tested_char)												\
 	static void test_## test_name(t_test *test)												\
 	{																						\
-		mt_assert((ft_isalpha(tested_char) && 1) == (isalpha(tested_char) && 1));			\
+		mt_assert((ft_isalpha(tested_char) != 0) == (isalpha(tested_char) != 0));			\
 	}
 
 mt_test_isalpha(num1, 'a');

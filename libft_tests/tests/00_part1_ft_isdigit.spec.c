@@ -3,7 +3,7 @@
 #define mt_test_isdigit(test_name, tested_char)												\
 	static void test_## test_name(t_test *test)												\
 	{																						\
-		mt_assert((ft_isdigit(tested_char) && 1) == (isdigit(tested_char) && 1));			\
+		mt_assert((ft_isdigit(tested_char) != 0) == (isdigit(tested_char) != 0));			\
 	}
 
 mt_test_isdigit(num1, 'a');

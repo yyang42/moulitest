@@ -3,7 +3,7 @@
 #define mt_test_isascii(test_name, tested_char)												\
 	static void test_## test_name(t_test *test)												\
 	{																						\
-		mt_assert((ft_isascii(tested_char) && 1) == (isascii(tested_char) && 1));			\
+		mt_assert((ft_isascii(tested_char) != 0) == (isascii(tested_char) != 0));			\
 	}
 
 mt_test_isascii(num1, 'a');

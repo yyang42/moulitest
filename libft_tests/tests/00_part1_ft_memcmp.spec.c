@@ -2,7 +2,7 @@
 
 static void unittest1(t_test *test)
 {
-	mt_assert(ft_memcmp(ft_strdup("ab\0ab"), ft_strdup("ab\0ab"), 5) == 0);
+	mt_assert(ft_memcmp(ft_strdup("ab\0ab"), ft_strdup("ab\0ab"), 3) == 0);
 
 }
 

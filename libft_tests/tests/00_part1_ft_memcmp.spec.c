@@ -2,13 +2,12 @@
 
 static void unittest1(t_test *test)
 {
-	mt_assert(ft_memcmp(ft_strdup("ab\0ab"), ft_strdup("ab\0ab"), 5) == 0);
-
+	mt_assert(ft_memcmp("ab\0ab", "ab\0ab", 6) == 0);
 }
 
 static void unittest2(t_test *test)
 {
-	mt_assert(ft_memcmp(ft_strdup("ab\0ab"), "abcab", 5) != 0);
+	mt_assert(ft_memcmp("ab\0ab", "ab\0ac", 6) != 0);
 }
 
 static void unittest3(t_test *test)

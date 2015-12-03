@@ -25,6 +25,7 @@ mt_test_isascii(num16, '\n');
 mt_test_isascii(num17, '\v');
 mt_test_isascii(num18, '\b');
 mt_test_isascii(num19, 7);
+mt_test_isascii(num20, -42);
 
 void	suite_00_part1_ft_isascii(t_suite *suite)
 {
@@ -47,5 +48,5 @@ void	suite_00_part1_ft_isascii(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num17);
 	SUITE_ADD_TEST(suite, test_num18);
 	SUITE_ADD_TEST(suite, test_num19);
-
+	SUITE_ADD_TEST(suite, test_num20);
 }

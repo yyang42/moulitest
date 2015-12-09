@@ -56,9 +56,10 @@ static void		mt_print_footer(t_mt *mt)
 	puts("");
 }
 
-void			mt_exec(t_mt *mt)
+int					mt_exec(t_mt *mt)
 {
 	mt_print_header(mt);
 	mt_exec_suites(mt);
 	mt_print_footer(mt);
+	return (mt_count_failed_suites(mt) ? 1 : 0);
 }

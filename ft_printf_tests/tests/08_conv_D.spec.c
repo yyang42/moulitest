@@ -28,10 +28,24 @@ static void test_with_strings(t_test *test)
 	assert_printf("Coucou les %D!", 42);
 }
 
+static void test_long_max_plus(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%D", LONG_MAX + 1);
+}
+
+static void test_long_min_less(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%D", LONG_MIN - 1);
+}
+
 void	suite_08_conv_D(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple);
 	SUITE_ADD_TEST(suite, test_long_max);
 	SUITE_ADD_TEST(suite, test_long_min);
 	SUITE_ADD_TEST(suite, test_with_strings);
+	SUITE_ADD_TEST(suite, test_long_max_plus);
+	SUITE_ADD_TEST(suite, test_long_min_less);
 }

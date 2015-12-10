@@ -26,10 +26,17 @@ static void test_many_octals_with_strings(t_test *test)
 		0, 55555, 100000);
 }
 
+static void test_octal_negative(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%o", -1);
+}
+
 void	suite_10_conv_o(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple);
 	SUITE_ADD_TEST(suite, test_octal_with_strings);
 	SUITE_ADD_TEST(suite, test_many_octals);
 	SUITE_ADD_TEST(suite, test_many_octals_with_strings);
+	SUITE_ADD_TEST(suite, test_octal_negative);
 }

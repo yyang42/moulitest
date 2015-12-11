@@ -4,6 +4,7 @@ static void unittest1(t_test *test)
 {
 	char	buf[20];
 
+	strcpy(buf, "xxxxxxxxxxxxxxxxxxx");
 	strcpy(buf, "To be ");
 	ft_strncat(buf, "or not to be", 6);
 	mt_assert(strcmp(buf, "To be or not") == 0);

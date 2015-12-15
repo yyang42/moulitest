@@ -72,7 +72,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 endif
 	make -k -C $(FRAMEWORK_PATH)
 	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(RENDU_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
-	./$(NAME)
+	$(shell pwd)/$(NAME)
 
 clean:
 	rm -f $(OBJECTS)

@@ -17,7 +17,7 @@ t_mt_lst_elem	*mt_lst_create_elem(void *data)
 {
 	t_mt_lst_elem *elem;
 
-	elem = (t_mt_lst_elem *)malloc(sizeof(t_mt_lst_elem));
+	elem = malloc(sizeof(t_mt_lst_elem));
 	elem->data = data;
 	elem->next = NULL;
 	elem->prev = NULL;

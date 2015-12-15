@@ -16,12 +16,14 @@
 void	mt_lst_del(t_mt_lst *lst, void (*delfn)(void *))
 {
 	t_mt_lst_elem *elem;
+	t_mt_lst_elem *next;
 
 	elem = lst->elems;
 	while (elem)
 	{
+		next = elem->next;
 		mt_lstelem_del(elem, delfn);
-		elem = elem->next;
+		elem = next;
 	}
 	free(lst);
 }

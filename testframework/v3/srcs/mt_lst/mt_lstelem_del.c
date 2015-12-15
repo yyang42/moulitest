@@ -15,7 +15,9 @@
 
 void	mt_lstelem_del(t_mt_lst_elem *elem, void (*delfn)())
 {
-	delfn(elem->data);
+	if (delfn)
+		delfn(elem->data);
+	(void)delfn;
 	if (elem->key)
 		free(elem->key);
 	elem->data = NULL;

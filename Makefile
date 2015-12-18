@@ -10,7 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-MAKE ?= /usr/bin/make
+# Allow the usage of platform-specific tools through environment variables.
+MAKE ?= make
+CC ?= gcc
+
 
 help:
 	@echo "Usage :"

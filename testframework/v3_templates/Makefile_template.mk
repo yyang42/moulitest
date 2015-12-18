@@ -71,7 +71,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	$(MAKE) $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
 	$(MAKE) -k -C $(FRAMEWORK_PATH)
-	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(RENDU_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
+	$(CC) $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(RENDU_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	$(shell pwd)/$(NAME)
 
 clean:

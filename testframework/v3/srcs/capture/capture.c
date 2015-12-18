@@ -48,7 +48,7 @@ void capture_close_saved_stdout(void)
 void	capture_stdout(void)
 {
 	capture_close_saved_stdout();
-	if( pipe(out_pipe) != 0 ) {          /* make a pipe */
+	if( pipe(out_pipe) != 0 ) {          /* $(MAKE) a pipe */
 		assert(0);
 	}
 	assert(saved_stdout < 100);

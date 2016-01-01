@@ -24,5 +24,5 @@ char	map_test(char c)
 
 char	mapi_test(unsigned int i, char c)
 {
-	return (c + i);
+	return (c - i);
 }

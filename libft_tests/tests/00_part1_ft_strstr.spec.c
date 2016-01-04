@@ -18,6 +18,7 @@ mt_test_strstr(num6, buf2, "ozaraboze");
 mt_test_strstr(num7, buf, "BWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 mt_test_strstr(num8, "", "");
 mt_test_strstr(num9, buf, "une");
+mt_test_strstr(num10, "J'ai fait pipapipapou en LV2", "pipapou");
 
 void	suite_00_part1_ft_strstr(t_suite *suite)
 {
@@ -30,4 +31,5 @@ void	suite_00_part1_ft_strstr(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num7);
 	SUITE_ADD_TEST(suite, test_num8);
 	SUITE_ADD_TEST(suite, test_num9);
+	SUITE_ADD_TEST(suite, test_num10);
 }

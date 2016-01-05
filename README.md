@@ -25,14 +25,14 @@ Edit the config file
 
 Run tests
 	
-	$(MAKE)
+	make
 
 ## Advanced use
 Run only some tests
 
-	$(MAKE) ft_ls PATTERN=<regexp>
+	make ft_ls PATTERN=<regexp>
 	# e.g. To run only the tests starting with "05" you can use
-	$(MAKE) ft_ls PATTERN=^05
+	make ft_ls PATTERN=^05
 
 Notes
 ---

@@ -75,7 +75,7 @@ C_DIRS = $(shell find $(C_DIR) -type d -follow -print)
 H_FILES = $(shell find $(RENDU_PATH)/includes -type f -follow -print | grep ".*\.h$$")
 O_DIRS = $(C_DIRS:$(C_DIR)%=$(O_DIR)%)
 O_FILES = $(C_FILES:$(C_DIR)%.c=$(O_DIR)%.o)
-CC_OPTIONS = -D__MOULITEST__ $(CC_FLAGS) $(CC_HEADERS) $(CC_FLAGS_EXTRA)
+CC_OPTIONS = -D__MOULITEST__ -g $(CC_HEADERS) $(CC_FLAGS_EXTRA)
 
 $(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
 	@mkdir -p $(O_DIRS) $(O_DIR)

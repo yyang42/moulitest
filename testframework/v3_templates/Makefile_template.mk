@@ -24,7 +24,7 @@
 #===============================================================================
 POST_PATTERN = ""
 CC_DEBUG = -g
-CC_FLAGS = -Werror -Wextra -Wall
+CC_FLAGS = -Wextra -Wall
 
 FRAMEWORK_PATH = ../testframework/v3/
 RENDU_MAKE_ARG = re
@@ -65,7 +65,6 @@ CC_DEFINES = -D__MOULITEST__ -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TES
 C_DIR = $(RENDU_PATH)/srcs
 O_DIR = .tmp/objects
 
-CC_FLAGS = -g -Wall -Wextra -Werror
 CC_HEADERS = $(CC_INCLUDES)
 CC_DEBUG =
 

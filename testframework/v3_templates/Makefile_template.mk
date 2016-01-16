@@ -53,7 +53,7 @@ include Makefile_cfg.mk
 TESTS_PATH = tests
 CC_LIBFT_LIB_DEFAULT = -L $(LIBFT_PATH) -lft
 CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
-CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I $(RENDU_PATH)/libft/includes
+CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I $(RENDU_PATH)/includes/builtin -I $(RENDU_PATH)/libs/libtowel/includes
 TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print | grep -e $(PATTERN) | grep -e $(POST_PATTERN))
 CC_SOURCE = $(TEST_FILES) main.c utils.c $(CC_SOURCE_EXTRA)
 LIBFT_PATH = $(RENDU_PATH)/libft
@@ -61,7 +61,28 @@ ADD_TESTS = $(shell echo "$(TEST_FILES)" | perl -pe "s/.*?\/([^\/ ]*)\.spec\.c/M
 PROTOTYPES = $(shell echo "$(TEST_FILES)" | perl -pe "s/.*?\/([^\/ ]*)\.spec\.c/MT_ADD_PROTO\(\1\); /g")
 CC_DEFINES = -D__MOULITEST__ -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PATH="\"$(RENDU_PATH)\""
 
-exec_tests:
+
+C_DIR = $(RENDU_PATH)/srcs
+O_DIR = .tmp/objects
+
+CC_FLAGS = -g -Wall -Wextra -Werror
+CC_HEADERS = $(CC_INCLUDES)
+CC_DEBUG =
+
+C_FILES = $(shell find $(C_DIR) -type f -follow -print | grep ".*\.c$$" | grep -v "\.spec\.c")
+C_DIRS = $(shell find $(C_DIR) -type d -follow -print)
+
+H_FILES = $(shell find $(RENDU_PATH)/includes -type f -follow -print | grep ".*\.h$$")
+O_DIRS = $(C_DIRS:$(C_DIR)%=$(O_DIR)%)
+O_FILES = $(C_FILES:$(C_DIR)%.c=$(O_DIR)%.o)
+CC_OPTIONS = -D__MOULITEST__ $(CC_FLAGS) $(CC_HEADERS) $(CC_FLAGS_EXTRA)
+
+$(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
+	@mkdir -p $(O_DIRS) $(O_DIR)
+	@gcc $(CC_OPTIONS) $(CONFIG_EXTRA_H) $(LIB_TOWEL_INCLUDES) $(CC_DEBUG) -o $@ -c $< \
+		&& printf "."
+
+exec_tests: $(O_FILES)
 	echo "$(TEST_FILES)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
@@ -71,7 +92,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
 	make -k -C $(FRAMEWORK_PATH)
-	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $(RENDU_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
+	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	$(shell pwd)/$(NAME)
 
 clean:

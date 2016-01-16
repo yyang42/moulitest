@@ -23,8 +23,7 @@
 # DEFAULTS
 #===============================================================================
 POST_PATTERN = ""
-CC_DEBUG = -g
-CC_FLAGS = -Wextra -Wall
+CC_FLAGS = -g
 
 FRAMEWORK_PATH = ../testframework/v3/
 RENDU_MAKE_ARG = re
@@ -66,7 +65,6 @@ C_DIR = $(RENDU_PATH)/srcs
 O_DIR = .tmp/objects
 
 CC_HEADERS = $(CC_INCLUDES)
-CC_DEBUG =
 
 C_FILES = $(shell find $(C_DIR) -type f -follow -print | grep ".*\.c$$" | grep -v "\.spec\.c")
 C_DIRS = $(shell find $(C_DIR) -type d -follow -print)
@@ -78,7 +76,7 @@ CC_OPTIONS = -D__MOULITEST__ -g $(CC_HEADERS) $(CC_FLAGS_EXTRA)
 
 $(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
 	@mkdir -p $(O_DIRS) $(O_DIR)
-	@gcc $(CC_OPTIONS) $(CONFIG_EXTRA_H) $(LIB_TOWEL_INCLUDES) $(CC_DEBUG) -o $@ -c $< \
+	@gcc $(CC_OPTIONS) $(CONFIG_EXTRA_H) $(LIB_TOWEL_INCLUDES) -o $@ -c $< \
 		&& printf "."
 
 exec_tests: $(O_FILES)
@@ -91,7 +89,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
 	make -k -C $(FRAMEWORK_PATH)
-	gcc $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
+	gcc $(CC_FLAGS) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	$(shell pwd)/$(NAME)
 
 clean:

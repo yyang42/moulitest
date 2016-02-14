@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/18 09:55:13 by yyang             #+#    #+#              #
-#    Updated: 2015/01/25 18:15:17 by yyang            ###   ########.fr        #
+#*   Updated: 2016/01/19 00:16:54 by mtassett         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
                                                        #
@@ -52,7 +52,7 @@ include Makefile_cfg.mk
 TESTS_PATH = tests
 CC_LIBFT_LIB_DEFAULT = -L $(LIBFT_PATH) -lft
 CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
-CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I $(RENDU_PATH)/includes/builtin -I $(RENDU_PATH)/libs/libtowel/includes
+CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I $(RENDU_PATH)/includes/builtin -I $(RENDU_PATH)/libs/libtowel/includes -I $(RENDU_PATH)/libft/includes
 TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print | grep -e $(PATTERN) | grep -e $(POST_PATTERN))
 CC_SOURCE = $(TEST_FILES) main.c utils.c $(CC_SOURCE_EXTRA)
 LIBFT_PATH = $(RENDU_PATH)/libft

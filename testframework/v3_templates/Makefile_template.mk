@@ -30,7 +30,7 @@ RENDU_MAKE_ARG = re
 CONFIG_INI_PATH = ../config.ini
 PATTERN ?= spec.c$$
 define FIRST_RULE
-	make exec_tests
+	$(MAKE) exec_tests
 endef
 
 ifeq ("$(RENDU_PATH)", "")
@@ -82,22 +82,22 @@ $(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
 exec_tests: $(O_FILES)
 	echo "$(TEST_FILES)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
-	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
+	$(MAKE) $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
 	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))
 endif
 ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
-	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
+	$(MAKE) $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
-	make -k -C $(FRAMEWORK_PATH)
-	gcc $(CC_FLAGS) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
+	$(MAKE) -k -C $(FRAMEWORK_PATH)
+	$(CC) $(CC_FLAGS) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	$(shell pwd)/$(NAME)
 
 clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	make -k -C $(RENDU_PATH) fclean
-	make -k -C $(FRAMEWORK_PATH) fclean
+	$(MAKE) -k -C $(RENDU_PATH) fclean
+	$(MAKE) -k -C $(FRAMEWORK_PATH) fclean
 	rm -f $(NAME)
 
 re: clean fclean all project

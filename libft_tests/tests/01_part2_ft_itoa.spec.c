@@ -28,7 +28,7 @@ static void	malloc_test(t_test *test)
 	free(tmp);
 	tmp = ft_itoa(-2147483648);
 	free(tmp);
-	ft_itoa(2147483647);
+	tmp = ft_itoa(2147483647);
 	free(tmp);
 	mt_assert(1);
 }

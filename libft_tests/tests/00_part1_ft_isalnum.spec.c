@@ -26,6 +26,16 @@ mt_test_isalnum(num17, '\v');
 mt_test_isalnum(num18, '\b');
 mt_test_isalnum(num19, 7);
 
+static void	big_test(t_test *test)
+{
+	int	i;
+
+	i = -300;
+	while (!ft_isalnum(i) == !isalnum(i) && i < 255)
+		i++;
+	mt_assert(i == 255);
+}
+
 void	suite_00_part1_ft_isalnum(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
@@ -47,4 +57,5 @@ void	suite_00_part1_ft_isalnum(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num17);
 	SUITE_ADD_TEST(suite, test_num18);
 	SUITE_ADD_TEST(suite, test_num19);
+	SUITE_ADD_TEST(suite, big_test);
 }

@@ -27,6 +27,16 @@ mt_test_isascii(num18, '\b');
 mt_test_isascii(num19, 7);
 mt_test_isascii(num20, -42);
 
+static void	big_test(t_test *test)
+{
+	int i;
+
+	i = -300;
+	while (!ft_isascii(i) == !isascii(i) && i < 255)
+		++i;
+	mt_assert(i == 255);
+}
+
 void	suite_00_part1_ft_isascii(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
@@ -49,4 +59,5 @@ void	suite_00_part1_ft_isascii(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num18);
 	SUITE_ADD_TEST(suite, test_num19);
 	SUITE_ADD_TEST(suite, test_num20);
+	SUITE_ADD_TEST(suite, big_test);
 }

@@ -25,6 +25,12 @@ static void unittest5(t_test *test)
 	mt_assert(ft_strcmp("a", "abcde") != 0);
 }
 
+static void	unittest6(t_test *test)
+{
+	mt_assert(ft_strcmp("aaa", "") > 0);
+	mt_assert(ft_strcmp("", "aaa") < 0);
+}
+
 void	suite_00_part1_ft_strcmp(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, unittest1);
@@ -32,4 +38,5 @@ void	suite_00_part1_ft_strcmp(t_suite *suite)
 	SUITE_ADD_TEST(suite, unittest3);
 	SUITE_ADD_TEST(suite, unittest4);
 	SUITE_ADD_TEST(suite, unittest5);
+	SUITE_ADD_TEST(suite, unittest6);
 }

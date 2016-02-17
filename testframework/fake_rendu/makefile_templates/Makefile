@@ -18,12 +18,12 @@ FLAGS = -I includes -I .
 all: $(NAME)
 
 $(NAME):
-	gcc $(FLAGS) -c *.c
+	$(CC) $(FLAGS) -c *.c
 ifeq ($(OUTPUT_TYPE), lib)
 	ar rcs $(NAME) *.o
 endif
 ifeq ($(OUTPUT_TYPE), exec)
-	@gcc $(FLAGS) *.o -o $@
+	@$(CC) $(FLAGS) *.o -o $@
 endif
 	@echo "$(COL_GREEN)$(NAME)$(COL_RESET)"
 

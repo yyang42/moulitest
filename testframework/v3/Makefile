@@ -11,7 +11,7 @@ FLAGS = -Wall -Werror -Wextra -ggdb
 # C_DIRS = $(shell find $(C_DIR) -type d -follow -print)
 
 all: clean
-	gcc $(FLAGS) $(INCLUDES) -c $(SRCS)
+	$(CC) $(FLAGS) $(INCLUDES) -c $(SRCS)
 	ar rc $(NAME) *.o
 
 clean:
@@ -23,5 +23,5 @@ fclean: clean
 re: fclean all
 
 # run: re
-# 	# gcc $(NAME) main.c -I includes
+# 	# $(CC) $(NAME) main.c -I includes
 # 	./a.out

@@ -17,12 +17,13 @@ CC ?= gcc
 
 help:
 	@echo "Usage :"
-	@echo "\t$(MAKE) libft_part1"
-	@echo "\t$(MAKE) libft_part2    // Includes part1"
-	@echo "\t$(MAKE) libft_bonus    // Includes part2 and part1"
-	@echo "\t$(MAKE) get_next_line or gnl"
-	@echo "\t$(MAKE) ft_ls"
-	@echo "\t$(MAKE) ft_printf"
+	@echo "\tmake libft_part1"
+	@echo "\tmake libft_part2    // Includes part1"
+	@echo "\tmake libft_bonus    // Includes part2 and part1"
+	@echo "\tmake get_next_line or gnl"
+	@echo "\tmake ft_ls"
+	@echo "\tmake ft_printf"
+	@echo "\tmake fillit"
 	@echo ""
 
 libft_part1:
@@ -44,6 +45,9 @@ ft_ls:
 
 ft_printf:
 	@$(MAKE) -C ft_printf_tests
+
+fillit:
+	@$(MAKE) -C fillit_tests
 
 update_deps:
 	rm -rf testframework/v3/lst

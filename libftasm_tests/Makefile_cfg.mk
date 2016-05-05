@@ -3,14 +3,14 @@ RENDU_PATH_KEY = LIBFTASM_PATH
 CC_LIBS = -lfts -L $(RENDU_PATH)
 
 override define FIRST_RULE
-	@$(MAKE) usage
+	@make usage
 endef
 
 usage:
 	@echo "Usage:"
-	@echo "\t$(MAKE) part1"
-	@echo "\t$(MAKE) part2\t--> Also runs part1"
-	@echo "\t$(MAKE) part3\t--> Also runs part1 and part2"
+	@echo "\tmake part1"
+	@echo "\tmake part2\t--> Also runs part1"
+	@echo "\tmake part3\t--> Also runs part1 and part2"
 
 part1_init:
 	$(eval POST_PATTERN = "01_part1")

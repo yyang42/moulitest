@@ -31,7 +31,7 @@ RENDU_MAKE_ARG = re
 CONFIG_INI_PATH = ../config.ini
 PATTERN ?= spec.c$$
 define FIRST_RULE
-	$(MAKE) exec_tests
+	make exec_tests
 endef
 
 ifeq ("$(RENDU_PATH)", "")
@@ -54,7 +54,7 @@ TESTS_PATH = tests
 CC_LIBFT_LIB_DEFAULT = -L $(LIBFT_PATH) -lft
 CC_FRAMEWORK_LIB = -L$(FRAMEWORK_PATH) -lmt_framework
 CC_INCLUDES = -I . -I $(FRAMEWORK_PATH)/includes -I $(RENDU_PATH) -I $(RENDU_PATH)/includes -I $(RENDU_PATH)/libft/includes
-TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print | grep -e $(PATTERN) | grep -e $(POST_PATTERN))
+TEST_FILES = $(shell find tests -name "*.spec.c" -type f -follow -print | grep $(PATTERN))
 CC_SOURCE = $(TEST_FILES) main.c utils.c $(CC_SOURCE_EXTRA)
 LIBFT_PATH = $(RENDU_PATH)/libft
 ADD_TESTS = $(shell echo "$(TEST_FILES)" | perl -pe "s/.*?\/([^\/ ]*)\.spec\.c/MT_ADD_SUITE\(mt, \1, suite_\1); /g")
@@ -64,13 +64,13 @@ CC_DEFINES = -DPROTOTYPES="$(PROTOTYPES)" -DADD_TESTS="$(ADD_TESTS)" -DRENDU_PAT
 exec_tests:
 	echo "$(TEST_FILES)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
-	$(MAKE) $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
+	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
 	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))
 endif
 ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
-	$(MAKE) $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
+	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
-	$(MAKE) -k -C $(FRAMEWORK_PATH)
+	make -k -C $(FRAMEWORK_PATH)
 	$(CC) $(CC_FLAGS) $(CC_DEBUG) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
 	./$(NAME)
 
@@ -78,8 +78,8 @@ clean:
 	rm -f $(OBJECTS)
 
 fclean: clean
-	$(MAKE) -k -C $(RENDU_PATH) fclean
-	$(MAKE) -k -C $(FRAMEWORK_PATH) fclean
+	make -k -C $(RENDU_PATH) fclean
+	make -k -C $(FRAMEWORK_PATH) fclean
 	rm -f $(NAME)
 
 re: clean fclean all project

@@ -24,25 +24,25 @@ static void simple_string(t_test *test)
 
 	pipe(p_fd0);
 	dup2(p_fd0[1], fd0);
-	write(fd0, "aaa\nbbb\n", 12);
+	write(fd0, "aaa\nbbb\n", 8);
 	dup2(out_fd0, fd0);
 	close(p_fd0[1]);
 
 	pipe(p_fd1);
 	dup2(p_fd1[1], fd1);
-	write(fd1, "111\n222\n", 12);
+	write(fd1, "111\n222\n", 8);
 	dup2(out_fd1, fd1);
 	close(p_fd1[1]);
 
 	pipe(p_fd2);
 	dup2(p_fd2[1], fd2);
-	write(fd2, "www\nzzz\n", 12);
+	write(fd2, "www\nzzz\n", 8);
 	dup2(out_fd2, fd2);
 	close(p_fd2[1]);
 
 	pipe(p_fd3);
 	dup2(p_fd3[1], fd3);
-	write(fd3, "888\n999\n", 12);
+	write(fd3, "888\n999\n", 8);
 	dup2(out_fd3, fd3);
 	close(p_fd3[1]);
 

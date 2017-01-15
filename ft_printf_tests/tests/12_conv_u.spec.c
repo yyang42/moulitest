@@ -33,6 +33,12 @@ static void test_uints_max(t_test *test)
 	assert_printf("%u", UINT_MAX);
 }
 
+static void test_uint_negative(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%u", -1);
+}
+
 void	suite_12_conv_u(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_simple);
@@ -40,4 +46,5 @@ void	suite_12_conv_u(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_many_uints);
 	SUITE_ADD_TEST(suite, test_many_uints_with_strings);
 	SUITE_ADD_TEST(suite, test_uints_max);
+	SUITE_ADD_TEST(suite, test_uint_negative);
 }

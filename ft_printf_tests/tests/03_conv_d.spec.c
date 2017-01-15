@@ -45,6 +45,18 @@ static void test_int_min(t_test *test)
 	assert_printf("%d", INT_MIN);
 }
 
+static void test_int_max_plus(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%d", INT_MAX + 1);
+}
+
+static void test_int_min_less(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%d", INT_MIN - 1);
+}
+
 void	suite_03_conv_d(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_digit);
@@ -54,4 +66,6 @@ void	suite_03_conv_d(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_many_digits_width_strings);
 	SUITE_ADD_TEST(suite, test_int_max);
 	SUITE_ADD_TEST(suite, test_int_min);
+	SUITE_ADD_TEST(suite, test_int_max_plus);
+	SUITE_ADD_TEST(suite, test_int_min_less);
 }

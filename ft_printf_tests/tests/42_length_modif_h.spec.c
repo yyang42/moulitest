@@ -14,6 +14,12 @@ static void test_hd_max(t_test *test)
 	assert_printf("%hd", SHRT_MAX);
 }
 
+static void test_hd_max_plus(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hd", SHRT_MAX + 1);
+}
+
 static void test_hd_min(t_test *test)
 {
 	// test->debug = 1;
@@ -32,6 +38,12 @@ static void test_hi_max(t_test *test)
 	assert_printf("%hi", SHRT_MAX);
 }
 
+static void test_hi_max_plus(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hi", SHRT_MAX + 1);
+}
+
 static void test_hi_min(t_test *test)
 {
 	// test->debug = 1;
@@ -42,6 +54,12 @@ static void test_hu_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%hu, %hu", 0, USHRT_MAX);
+}
+
+static void test_hu_max_plus(t_test *test)
+{
+	// test->debug = 1;
+	assert_printf("%hu, %hu", 0, USHRT_MAX + 1);
 }
 
 static void test_ho_max(t_test *test)
@@ -83,13 +101,16 @@ void	suite_42_length_modif_h(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_hd_simple);
 	SUITE_ADD_TEST(suite, test_hd_max);
+	SUITE_ADD_TEST(suite, test_hd_max_plus);
 	SUITE_ADD_TEST(suite, test_hd_min);
 
 	SUITE_ADD_TEST(suite, test_hi_simple);
 	SUITE_ADD_TEST(suite, test_hi_max);
+	SUITE_ADD_TEST(suite, test_hi_max_plus);
 	SUITE_ADD_TEST(suite, test_hi_min);
 
 	SUITE_ADD_TEST(suite, test_hu_max);
+	SUITE_ADD_TEST(suite, test_hu_max_plus);
 	SUITE_ADD_TEST(suite, test_ho_max);
 	SUITE_ADD_TEST(suite, test_hx_max);
 	SUITE_ADD_TEST(suite, test_hX_max);

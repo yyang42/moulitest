@@ -26,6 +26,16 @@ mt_test_isprint(num17, '\v');
 mt_test_isprint(num18, '\b');
 mt_test_isprint(num19, 7);
 
+static void	big_test(t_test *test)
+{
+	int i;
+
+	i = -300;
+	while (!ft_isprint(i) == !isprint(i) && i < 255)
+		++i;
+	mt_assert(i == 255);
+}
+
 void	suite_00_part1_ft_isprint(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_num1);
@@ -47,5 +57,6 @@ void	suite_00_part1_ft_isprint(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_num17);
 	SUITE_ADD_TEST(suite, test_num18);
 	SUITE_ADD_TEST(suite, test_num19);
+	SUITE_ADD_TEST(suite, big_test);
 
 }

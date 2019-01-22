@@ -89,7 +89,7 @@ ifneq ("$(wildcard $(RENDU_PATH)/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(RENDU_PATH) $(CC_LIBFT_LIB)
 endif
 	make -k -C $(FRAMEWORK_PATH)
-	$(CC) $(CC_FLAGS) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) $^ -o $(NAME) $(CC_FRAMEWORK_LIB) $(CC_LIBS)
+	$(CC) $(CC_FLAGS) $(CC_INCLUDES) $(CC_DEFINES) $(CC_SOURCE) -o $(NAME) $(CC_FRAMEWORK_LIB) $(LIBFT_PATH)/libft.a
 	$(shell pwd)/$(NAME)
 
 clean:

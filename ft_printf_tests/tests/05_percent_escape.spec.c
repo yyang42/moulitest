@@ -32,17 +32,21 @@ static void test_modulo_without_valid_specifier(t_test *test)
 	assert_printf("%");
 }
 
+/*
+//Gavin: Disabling this test because Z does not appear in the man pages on the US campus. Unknown specifier.
 static void percentSpaceZoo(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("% Zoooo");
 }
 
+//Gavin: Disabling this test because it's not a part of the printf specification and you can't test undefined behavior
 static void percentAlone(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%}");
 }
+*/
 
 static void multiplePercent(t_test *test)
 {
@@ -57,7 +61,7 @@ void	suite_05_percent_escape(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_many_percent);
 	SUITE_ADD_TEST(suite, test_more_percent);
 	SUITE_ADD_TEST(suite, test_modulo_without_valid_specifier);
-	SUITE_ADD_TEST(suite, percentSpaceZoo);
-	SUITE_ADD_TEST(suite, percentAlone);
+	//SUITE_ADD_TEST(suite, percentSpaceZoo); //Unknown specifier and/or no longer mandatory
+	//SUITE_ADD_TEST(suite, percentAlone);
 	SUITE_ADD_TEST(suite, multiplePercent);
 }

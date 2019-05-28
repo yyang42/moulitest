@@ -20,29 +20,33 @@ static void test_precision_p_zero(t_test *test)
 	assert_printf("%.p, %.0p", 0, 0);
 }
 
+/*
+//Gavin: Disabling this test because -Wformat says undefined behavior
 static void char_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.c}", 0);
 }
 
+//Gavin: Disabling this test because -Wformat says undefined behavior
 static void string_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.s}", 0);
 }
-
+//Gavin: Disabling this test because you can't test undefined behavior
 static void percent_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.%}", 0);
 }
-
+//Gavin: Disabling this test because you can't test undefined behavior
 static void nonValidConvSpec_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.Z}", 0);
 }
+*/
 
 static void hex_precision_and_flagSharp(t_test *test)
 {
@@ -56,22 +60,25 @@ static void octal_precision_and_flagSharp(t_test *test)
 	assert_printf("%#.3o", 1);
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
+/*
 static void wideString_precisionMinWidth_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.S}", L"42 c est cool");
 }
+*/
 
 void	suite_79_precision_mixed_with_flags(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_precision_o_sharp_zero);
 	SUITE_ADD_TEST(suite, test_precision_x_sharp_zero);
 	SUITE_ADD_TEST(suite, test_precision_p_zero);
-	SUITE_ADD_TEST(suite, char_precision_minwdith_and_flagZero);
-	SUITE_ADD_TEST(suite, string_precision_minwdith_and_flagZero);
-	SUITE_ADD_TEST(suite, percent_precision_minwdith_and_flagZero);
-	SUITE_ADD_TEST(suite, nonValidConvSpec_precision_minwdith_and_flagZero);
+	//SUITE_ADD_TEST(suite, char_precision_minwdith_and_flagZero);
+	//SUITE_ADD_TEST(suite, string_precision_minwdith_and_flagZero);
+	//SUITE_ADD_TEST(suite, percent_precision_minwdith_and_flagZero);
+	//SUITE_ADD_TEST(suite, nonValidConvSpec_precision_minwdith_and_flagZero);
 	SUITE_ADD_TEST(suite, hex_precision_and_flagSharp);
 	SUITE_ADD_TEST(suite, octal_precision_and_flagSharp);
-	SUITE_ADD_TEST(suite, wideString_precisionMinWidth_flagZero);
+	//SUITE_ADD_TEST(suite, wideString_precisionMinWidth_flagZero);
 }

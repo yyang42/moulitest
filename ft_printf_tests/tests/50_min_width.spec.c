@@ -57,23 +57,28 @@ static void pZero_minus12MinWidth(t_test *test)
 	assert_printf("{%-12p}", &strlen);
 }
 
+/*
+//Gavin: Disabling this test because you can't test undefined behavior
 static void invalidConvSpec_withMinWith(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%10R}");
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
 static void wideString(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%30S}", L"我是一只猫。");
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
 static void wideString_minusMinWidth(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%-30S}", L"我是一只猫。");
 }
+*/
 
 void	suite_50_min_width(t_suite *suite)
 {
@@ -86,7 +91,7 @@ void	suite_50_min_width(t_suite *suite)
 	SUITE_ADD_TEST(suite, pZero_minus15MinWidth);
 	SUITE_ADD_TEST(suite, pZero_minus13MinWidth);
 	SUITE_ADD_TEST(suite, pZero_minus12MinWidth);
-	SUITE_ADD_TEST(suite, invalidConvSpec_withMinWith);
-	SUITE_ADD_TEST(suite, wideString);
-	SUITE_ADD_TEST(suite, wideString_minusMinWidth);
+	//SUITE_ADD_TEST(suite, invalidConvSpec_withMinWith);
+	//SUITE_ADD_TEST(suite, wideString);
+	//SUITE_ADD_TEST(suite, wideString_minusMinWidth);
 }

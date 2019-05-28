@@ -37,23 +37,28 @@ static void test_min_width_with_hexa_caps(t_test *test)
 	assert_printf("{%030X}", 0xFFFF);
 }
 
+/*
+//Gavin: Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
 static void char_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%03c}", 0);
 }
 
+//Gavin: Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
 static void str_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05s}", "abc");
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
 static void wide_str_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%030S}", L"我是一只猫。");
 }
+*/
 
 static void pointer_posMinWidth_zeroFlag(t_test *test)
 {
@@ -75,9 +80,9 @@ void	suite_52_min_width_flag_zero(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_min_width_larger_than_input);
 	SUITE_ADD_TEST(suite, test_min_width_with_hexa);
 	SUITE_ADD_TEST(suite, test_min_width_with_hexa_caps);
-	SUITE_ADD_TEST(suite, char_posMinWidth_zeroFlag);
-	SUITE_ADD_TEST(suite, str_posMinWidth_zeroFlag);
-	SUITE_ADD_TEST(suite, wide_str_posMinWidth_zeroFlag);
+	//SUITE_ADD_TEST(suite, char_posMinWidth_zeroFlag);
+	//SUITE_ADD_TEST(suite, str_posMinWidth_zeroFlag);
+	//SUITE_ADD_TEST(suite, wide_str_posMinWidth_zeroFlag);
 	SUITE_ADD_TEST(suite, pointer_posMinWidth_zeroFlag);
 	SUITE_ADD_TEST(suite, pointer_valueLargerThanMinWidth_zeroFlag);
 }

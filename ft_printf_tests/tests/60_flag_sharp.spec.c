@@ -20,11 +20,14 @@ static void test_octal_max(t_test *test)
 	assert_printf("%#o", INT_MAX);
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
+/*
 static void test_octalUppercase_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%#O", 1);
 }
+*/
 
 static void test_hex_simple(t_test *test)
 {
@@ -73,7 +76,7 @@ void	suite_60_flag_sharp(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_octal_simple);
 	SUITE_ADD_TEST(suite, test_octal_zero);
 	SUITE_ADD_TEST(suite, test_octal_max);
-	SUITE_ADD_TEST(suite, test_octalUppercase_max);
+	//SUITE_ADD_TEST(suite, test_octalUppercase_max);
 	SUITE_ADD_TEST(suite, test_hex_simple);
 	SUITE_ADD_TEST(suite, test_hex_zero);
 	SUITE_ADD_TEST(suite, test_hex_max);

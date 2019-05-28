@@ -28,10 +28,11 @@ static void test_with_strings(t_test *test)
 	assert_printf("Coucou les %D!", 42);
 }
 
+//Gavin: I am disabling all of these tests because they are no longer mandatory
 void	suite_08_conv_D(t_suite *suite)
 {
-	SUITE_ADD_TEST(suite, test_simple);
-	SUITE_ADD_TEST(suite, test_long_max);
-	SUITE_ADD_TEST(suite, test_long_min);
-	SUITE_ADD_TEST(suite, test_with_strings);
+	//SUITE_ADD_TEST(suite, test_simple);
+	//SUITE_ADD_TEST(suite, test_long_max);
+	//SUITE_ADD_TEST(suite, test_long_min);
+	//SUITE_ADD_TEST(suite, test_with_strings);
 }

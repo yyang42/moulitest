@@ -110,6 +110,8 @@ static void test_hhX_max_plus(t_test *test)
 	assert_printf("%hhX, %hhX", 0, UCHAR_MAX + 42);
 }
 
+//Gavin: Disabling all the following tests because they are no longer mandatory
+/*
 static void test_err_hho_up_max(t_test *test)
 {
 	// test->debug = 1;
@@ -139,6 +141,7 @@ static void test_err_hhs_up_max(t_test *test)
 	// test->debug = 1;
 	assert_printf("%hhS, %hhS", 0, L"米米");
 }
+*/
 
 void	suite_43_length_modif_hh(t_suite *suite)
 {
@@ -163,9 +166,9 @@ void	suite_43_length_modif_hh(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_hhx_max_plus);
 	SUITE_ADD_TEST(suite, test_hhX_max_plus);
 
-	SUITE_ADD_TEST(suite, test_err_hho_up_max);
-	SUITE_ADD_TEST(suite, test_err_hhu_up_max);
-	SUITE_ADD_TEST(suite, test_err_hhd_up_max);
-	SUITE_ADD_TEST(suite, test_err_hhc_up_max);
-	SUITE_ADD_TEST(suite, test_err_hhs_up_max);
+	//SUITE_ADD_TEST(suite, test_err_hho_up_max);
+	//SUITE_ADD_TEST(suite, test_err_hhu_up_max);
+	//SUITE_ADD_TEST(suite, test_err_hhd_up_max);
+	//SUITE_ADD_TEST(suite, test_err_hhc_up_max);
+	//SUITE_ADD_TEST(suite, test_err_hhs_up_max);
 }

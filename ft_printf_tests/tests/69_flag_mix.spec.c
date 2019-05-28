@@ -51,11 +51,14 @@ static void mix_zeroFlag_minWidth_precision(t_test *test)
 	assert_printf("{%03.2d}", 0);
 }
 
+//Gavin: Disabling this test because it is no longer mandatory
+/*
 static void octalUppercase_precision_sharpFlag_zeroValue(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%#.O", 0);
 }
+*/
 
 void	suite_69_flag_mix(t_suite *suite)
 {
@@ -67,5 +70,5 @@ void	suite_69_flag_mix(t_suite *suite)
 	SUITE_ADD_TEST(suite, zeroFlag_plusFlag_minWidth);
 	SUITE_ADD_TEST(suite, zeroFlag_plusFlag_largeMinWidth);
 	SUITE_ADD_TEST(suite, mix_zeroFlag_minWidth_precision);
-	SUITE_ADD_TEST(suite, octalUppercase_precision_sharpFlag_zeroValue);
+	//SUITE_ADD_TEST(suite, octalUppercase_precision_sharpFlag_zeroValue);
 }

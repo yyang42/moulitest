@@ -64,8 +64,10 @@ static void test_nullChar(t_test *test)
 	assert_printf("%C", 0);
 }
 
+//Gavin: I am disabling all of these tests because they are no longer mandatory
 void	suite_17_conv_C(t_suite *suite)
 {
+	/*
 	SUITE_ADD_TEST(suite, test_simple_char);
 	SUITE_ADD_TEST(suite, test_two_chars);
 	SUITE_ADD_TEST(suite, test_ascii_printable_chars);
@@ -75,4 +77,5 @@ void	suite_17_conv_C(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_japanese);
 	SUITE_ADD_TEST(suite, test_arabic);
 	SUITE_ADD_TEST(suite, test_nullChar);
+	*/
 }

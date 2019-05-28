@@ -33,11 +33,12 @@ static void test_octal_long_max(t_test *test)
 	assert_printf("%O", LONG_MAX);
 }
 
+//Gavin: I am disabling all of these tests because they are no longer mandatory
 void	suite_11_conv_O(t_suite *suite)
 {
-	SUITE_ADD_TEST(suite, test_simple);
-	SUITE_ADD_TEST(suite, test_long_octal_with_strings);
-	SUITE_ADD_TEST(suite, test_many_long_octals);
-	SUITE_ADD_TEST(suite, test_many_long_octals_with_strings);
-	SUITE_ADD_TEST(suite, test_octal_long_max);
+	//SUITE_ADD_TEST(suite, test_simple);
+	//SUITE_ADD_TEST(suite, test_long_octal_with_strings);
+	//SUITE_ADD_TEST(suite, test_many_long_octals);
+	//SUITE_ADD_TEST(suite, test_many_long_octals_with_strings);
+	//SUITE_ADD_TEST(suite, test_octal_long_max);
 }

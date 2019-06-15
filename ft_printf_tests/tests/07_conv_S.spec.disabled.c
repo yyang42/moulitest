@@ -38,7 +38,7 @@ void	suite_07_conv_S(t_suite *suite)
 	//SUITE_ADD_TEST(suite, test_simple);
 	//SUITE_ADD_TEST(suite, test_multiple_wchars);
 	//SUITE_ADD_TEST(suite, test_greek_alphabet_wchars);
-	// // SUITE_ADD_TEST(suite, test_new);
+	// SUITE_ADD_TEST(suite, test_new);
 	//SUITE_ADD_TEST(suite, test_mix);
 	//SUITE_ADD_TEST(suite, nullWideString);
 }

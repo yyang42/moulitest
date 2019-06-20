@@ -19,7 +19,7 @@ static void test_ulong_max(t_test *test)
 	assert_printf("%U", ULONG_MAX);
 }
 
-//Gavin: I am disabling all of these tests because they are no longer mandatory
+//I am disabling all of these tests because they are no longer mandatory
 void	suite_13_conv_U(t_suite *suite)
 {
 	//SUITE_ADD_TEST(suite, test_simple);

@@ -110,7 +110,7 @@ static void test_hhX_max_plus(t_test *test)
 	assert_printf("%hhX, %hhX", 0, UCHAR_MAX + 42);
 }
 
-//Gavin: Disabling all the following tests because they are no longer mandatory
+//Disabling all the following tests because they are no longer mandatory
 /*
 static void test_err_hho_up_max(t_test *test)
 {

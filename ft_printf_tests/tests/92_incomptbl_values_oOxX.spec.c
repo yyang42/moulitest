@@ -14,14 +14,14 @@ static void test_octal_long_max(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_octal_up_long_min(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%O", LONG_MIN);
 }
 
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_octal_space_plus(t_test *test)
 {
 	// test->debug = 1;
@@ -36,13 +36,13 @@ static void test_octal_sharp_precision(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_x_incompatible_flags(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("% x|%+x", 42, 42);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_x_up_incompatible_flags(t_test *test)
 {
 	// test->debug = 1;

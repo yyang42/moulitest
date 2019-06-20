@@ -87,35 +87,35 @@ static void test_lX_long_unsigned_max(t_test *test)
 }
 
 /*
-//Gavin: disabling this test because it is no longer mandatory
+//disabling this test because it is no longer mandatory
 static void test_lc_wchar(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%lc, %lc", L'暖', L'ح');
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_ls_wchar(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%ls, %ls", L"暖炉", L"لحم خنزير");
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_lo_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%lO, %lO", 0, USHRT_MAX);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_lu_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%lU, %lU", 0, USHRT_MAX);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_ld_up_max(t_test *test)
 {
 	// test->debug = 1;

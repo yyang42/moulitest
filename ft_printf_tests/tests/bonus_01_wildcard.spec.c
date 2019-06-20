@@ -74,7 +74,7 @@ static void sNullString_zeroMinWidth(t_test *test)
 	assert_printf("{%*s}", 5, 0);
 }
 
-//Gavin: fixed invalid conversion specifier
+//fixed invalid conversion specifier
 static void pointer_wildcard(t_test *test)
 {
 	// test->debug = 1;

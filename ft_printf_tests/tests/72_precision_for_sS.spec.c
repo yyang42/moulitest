@@ -56,7 +56,7 @@ static void test_precision_s_implicit_precision(t_test *test)
 	assert_printf("%4.s", "42");
 }
 
-//Gavin: Disabling wide string tests because they are no longer mandatory
+//Disabling wide string tests because they are no longer mandatory
 /*
 static void test_precision_S(t_test *test)
 {

@@ -13,7 +13,7 @@ static void test_unsigned_max_plus_one(t_test *test)
 	assert_printf("%u", UINT_MAX + 1);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 /*
 static void test_unsigned_long_max_plus_one(t_test *test)
 {
@@ -28,7 +28,7 @@ static void test_big_char(t_test *test)
 	assert_printf("%c", 200);
 }
 
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 /*
 static void test_u_incompatible_flags(t_test *test)
 {

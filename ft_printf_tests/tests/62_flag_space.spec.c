@@ -27,67 +27,67 @@ static void test_space_i_simple_minus(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_space_u_simple(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("% u", 9999);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_space_c_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% c}", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void cValidChar_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% c}", 'a');
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void sNullString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% s}", NULL);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void sFakeNullString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% s}", "(null)");
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void sEmptyString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% s}", "");
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; Also C no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; Also C no longer mandatory
 static void test_space_C_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% C}", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; Also C no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; Also C no longer mandatory
 static void CValidChar_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% C}", L'a');
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
 static void SNullString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% S}", NULL);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
 static void SFakeNullString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{% S}", L"(null)");
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; Also S no longer mandatory
 static void SEmptyString_spaceFlag(t_test *test)
 {
 	// test->debug = 1;

@@ -63,20 +63,20 @@ static void test_hX_max(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_ho_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%hO, %hO", 0, USHRT_MAX);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 
 static void test_err_hu_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%hU, %hU", 0, USHRT_MAX);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_hd_up_max(t_test *test)
 {
 	// test->debug = 1;

@@ -20,7 +20,7 @@ static void test_octal_max(t_test *test)
 	assert_printf("%#o", INT_MAX);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 /*
 static void test_octalUppercase_max(t_test *test)
 {

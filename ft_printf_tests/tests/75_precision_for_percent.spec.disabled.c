@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <signal.h>
 
-//Gavin: Disabling this test because it has no defined behavior in printf(3)
+//Disabling this test because it has no defined behavior in printf(3)
 static void percent_point3precision(t_test *test)
 {
 	// test->debug = 1;

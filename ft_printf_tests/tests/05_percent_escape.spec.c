@@ -33,14 +33,14 @@ static void test_modulo_without_valid_specifier(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because Z does not appear in the man pages on the US campus. Unknown specifier.
+//Disabling this test because Z does not appear in the man pages on the US campus. Unknown specifier.
 static void percentSpaceZoo(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("% Zoooo");
 }
 
-//Gavin: Disabling this test because it's not a part of the printf specification and you can't test undefined behavior
+//Disabling this test because it's not a part of the printf specification and you can't test undefined behavior
 static void percentAlone(t_test *test)
 {
 	// test->debug = 1;

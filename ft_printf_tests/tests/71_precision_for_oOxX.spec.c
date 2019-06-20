@@ -57,25 +57,25 @@ static void test_precision_o_zero_value(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_precision_o_up(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%.4O", 42);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_precision_o_up_higher_min_width(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%15.4O", 42);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_precision_o_up_higher_precision(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%4.15O", 42);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_precision_o_up_zero_value(t_test *test)
 {
 	// test->debug = 1;

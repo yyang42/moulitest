@@ -32,7 +32,7 @@ static void nullWideString(t_test *test)
 	assert_printf("{%S}", NULL);
 }
 
-//Gavin: I am disabling all of these tests because they are no longer mandatory
+//I am disabling all of these tests because they are no longer mandatory
 void	suite_07_conv_S(t_suite *suite)
 {
 	//SUITE_ADD_TEST(suite, test_simple);

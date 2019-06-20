@@ -58,21 +58,21 @@ static void pZero_minus12MinWidth(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because you can't test undefined behavior
+//Disabling this test because you can't test undefined behavior
 static void invalidConvSpec_withMinWith(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%10R}");
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void wideString(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%30S}", L"我是一只猫。");
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void wideString_minusMinWidth(t_test *test)
 {
 	// test->debug = 1;

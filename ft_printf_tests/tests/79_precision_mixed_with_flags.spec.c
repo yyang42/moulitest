@@ -21,26 +21,26 @@ static void test_precision_p_zero(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void char_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.c}", 0);
 }
 
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void string_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.s}", 0);
 }
-//Gavin: Disabling this test because you can't test undefined behavior
+//Disabling this test because you can't test undefined behavior
 static void percent_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05.%}", 0);
 }
-//Gavin: Disabling this test because you can't test undefined behavior
+//Disabling this test because you can't test undefined behavior
 static void nonValidConvSpec_precision_minwdith_and_flagZero(t_test *test)
 {
 	// test->debug = 1;
@@ -60,7 +60,7 @@ static void octal_precision_and_flagSharp(t_test *test)
 	assert_printf("%#.3o", 1);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 /*
 static void wideString_precisionMinWidth_flagZero(t_test *test)
 {

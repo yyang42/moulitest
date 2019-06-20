@@ -63,19 +63,19 @@ static void test_llX_unsign_long_long_max(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_llo_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%llO, %llO", 0, USHRT_MAX);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_llu_up_max(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%llU, %llU", 0, USHRT_MAX);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_err_lld_up_max(t_test *test)
 {
 	// test->debug = 1;

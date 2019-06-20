@@ -38,21 +38,21 @@ static void test_min_width_with_hexa_caps(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
+//Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
 static void char_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%03c}", 0);
 }
 
-//Gavin: Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
+//Disabling this test because -Wformat says '0' flag has undefined behavior with %s.
 static void str_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("{%05s}", "abc");
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void wide_str_posMinWidth_zeroFlag(t_test *test)
 {
 	// test->debug = 1;

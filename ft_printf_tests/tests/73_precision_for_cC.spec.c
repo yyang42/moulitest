@@ -21,20 +21,20 @@ static void cPositiveValue_positivePrecision(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer necessary
+//Disabling this test because it is no longer necessary
 static void cUpperNullChar(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%.C", 0);
 }
 
-//Gavin: Disabling this test because it is no longer necessary
+//Disabling this test because it is no longer necessary
 static void cUpperNullChar_positivePrecision(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%.5C", 0);
 }
-//Gavin: Disabling this test because it is no longer necessary
+//Disabling this test because it is no longer necessary
 static void cUpperPositiveValue_positivePrecision(t_test *test)
 {
 	// test->debug = 1;

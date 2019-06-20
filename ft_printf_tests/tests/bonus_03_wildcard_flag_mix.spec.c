@@ -3,7 +3,7 @@
 #include <signal.h>
 
 
-//Gavin: Disabling these two tests because both are presently invalid conversion specifiers as per -Wformat and the original intent is unclear
+//Disabling these two tests because both are presently invalid conversion specifiers as per -Wformat and the original intent is unclear
 /*
 static void digit_wildcard_and_min_width_value1(t_test *test)
 {

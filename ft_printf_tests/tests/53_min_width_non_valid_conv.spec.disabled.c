@@ -2,7 +2,7 @@
 #include <limits.h>
 #include <signal.h>
 
-//Gavin: Disabling this test beacuse you can't test undefined behavior
+//Disabling this test beacuse you can't test undefined behavior
 static void nonValidConv_negativeMinWidth(t_test *test)
 {
 	// test->debug = 1;

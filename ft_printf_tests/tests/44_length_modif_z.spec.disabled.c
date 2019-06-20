@@ -67,7 +67,7 @@ static void test_err_zd_up_max(t_test *test)
 	assert_printf("%zD, %zD", 0, USHRT_MAX);
 }
 
-//Gavin: Disabling all z tests because z is no longer mandatory
+//Disabling all z tests because z is no longer mandatory
 void	suite_44_length_modif_z(t_suite *suite)
 {
 	/*

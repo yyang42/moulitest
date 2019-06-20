@@ -51,7 +51,7 @@ static void mix_zeroFlag_minWidth_precision(t_test *test)
 	assert_printf("{%03.2d}", 0);
 }
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 /*
 static void octalUppercase_precision_sharpFlag_zeroValue(t_test *test)
 {

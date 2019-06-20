@@ -8,19 +8,19 @@ static void test_hhd(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_zi(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%zi", LLONG_MIN);
 }
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 static void test_zd(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%zd", LLONG_MIN);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_p_incompatible_flags(t_test *test)
 {
 	// test->debug = 1;
@@ -28,7 +28,7 @@ static void test_p_incompatible_flags(t_test *test)
 }
 */
 
-//Gavin: Disabling this test because it is no longer mandatory
+//Disabling this test because it is no longer mandatory
 void	suite_90_incomptbl_values_sdpi(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, test_hhd);

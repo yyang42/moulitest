@@ -27,55 +27,55 @@ static void test_plus_i_simple_minus(t_test *test)
 }
 
 /*
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_plus_c_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+c", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; also C no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; also C no longer mandatory
 static void test_plus_c_up_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+C", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_plus_o_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+o", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void test_plus_o_42(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+o", 42);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
 static void test_plus_o_up_zero(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+O", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
 static void test_plus_o_up_42(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("%+O", 42);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void sNullString_plusFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("[%+s]", 0);
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior
+//Disabling this test because -Wformat says undefined behavior
 static void sFakeNullString_plusFlag(t_test *test)
 {
 	// test->debug = 1;
 	assert_printf("[%+s]", "(null)");
 }
-//Gavin: Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
+//Disabling this test because -Wformat says undefined behavior; also O no longer mandatory
 static void octalUppercase(t_test *test)
 {
 	// test->debug = 1;

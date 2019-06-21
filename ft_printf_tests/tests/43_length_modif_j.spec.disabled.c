@@ -79,8 +79,10 @@ static void test_err_jd_up_max(t_test *test)
 	assert_printf("%jD, %jD", 0, USHRT_MAX);
 }
 
+//Disabling all of these tests because they are no longer mandatory
 void	suite_43_length_modif_j(t_suite *suite)
 {
+	/*
 	SUITE_ADD_TEST(suite, test_jd_simple);
 	SUITE_ADD_TEST(suite, test_jd_llong_max);
 	SUITE_ADD_TEST(suite, test_jd_llong_min);
@@ -97,4 +99,5 @@ void	suite_43_length_modif_j(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_err_jo_up_max);
 	SUITE_ADD_TEST(suite, test_err_ju_up_max);
 	SUITE_ADD_TEST(suite, test_err_jd_up_max);
+	*/
 }

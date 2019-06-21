@@ -2,6 +2,9 @@
 #include <limits.h>
 #include <signal.h>
 
+
+//Disabling these two tests because both are presently invalid conversion specifiers as per -Wformat and the original intent is unclear
+/*
 static void digit_wildcard_and_min_width_value1(t_test *test)
 {
 	// test->debug = 1;
@@ -13,6 +16,7 @@ static void digit_wildcard_and_min_width_value2(t_test *test)
 	// test->debug = 1;
 	assert_printf("{%*3d}", 0, 0);
 }
+*/
 
 static void digit_wildcard_and_min_width_value3(t_test *test)
 {
@@ -27,8 +31,8 @@ static void digit_wildcard_negativePrecision(t_test *test)
 
 void	suite_bonus_03_wildcard_flag_mix(t_suite *suite)
 {
-	SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value1);
-	SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value2);
+	//SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value1);
+	//SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value2);
 	SUITE_ADD_TEST(suite, digit_wildcard_and_min_width_value3);
 	SUITE_ADD_TEST(suite, digit_wildcard_negativePrecision);
 }

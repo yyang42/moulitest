@@ -67,8 +67,10 @@ static void test_err_zd_up_max(t_test *test)
 	assert_printf("%zD, %zD", 0, USHRT_MAX);
 }
 
+//Disabling all z tests because z is no longer mandatory
 void	suite_44_length_modif_z(t_suite *suite)
 {
+	/*
 	SUITE_ADD_TEST(suite, test_zd_simple);
 	SUITE_ADD_TEST(suite, test_zd_llong_max);
 
@@ -83,4 +85,5 @@ void	suite_44_length_modif_z(t_suite *suite)
 	SUITE_ADD_TEST(suite, test_err_zo_up_max);
 	SUITE_ADD_TEST(suite, test_err_zu_up_max);
 	SUITE_ADD_TEST(suite, test_err_zd_up_max);
+	*/
 }

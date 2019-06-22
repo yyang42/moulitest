@@ -5,25 +5,25 @@
 static void simple_small_nbr(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%f}{%lf}", 1.42, 1.42l);
+	assert_printf("{%f}{%Lf}", 1.42, 1.42l);
 }
 
 static void simple_negative_small_nbr(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%f}{%lf}", -1.42, -1.42l);
+	assert_printf("{%f}{%Lf}", -1.42, -1.42l);
 }
 
 static void simple_large_nbr(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%f}{%lf}", 1444565444646.6465424242242, 1444565444646.6465424242242l);
+	assert_printf("{%f}{%Lf}", 1444565444646.6465424242242, 1444565444646.6465424242242l);
 }
 
 static void simple_negative_large_nbr(t_test *test)
 {
 	// test->debug = 1;
-	assert_printf("{%f}{%lf}", -1444565444646.6465424242242454654, -1444565444646.6465424242242454654l);
+	assert_printf("{%f}{%Lf}", -1444565444646.6465424242242454654, -1444565444646.6465424242242454654l);
 }
 
 void	suite_93_conv_f(t_suite *suite)

@@ -58,7 +58,6 @@ static void wide_str_posMinWidth_zeroFlag(t_test *test)
 	// test->debug = 1;
 	assert_printf("{%030S}", L"我是一只猫。");
 }
-*/
 
 static void pointer_posMinWidth_zeroFlag(t_test *test)
 {
@@ -71,6 +70,7 @@ static void pointer_valueLargerThanMinWidth_zeroFlag(t_test *test)
 	// test->debug = 1;
 	assert_printf("{%05p}", &pointer_valueLargerThanMinWidth_zeroFlag);
 }
+*/
 
 void	suite_52_min_width_flag_zero(t_suite *suite)
 {
@@ -83,6 +83,6 @@ void	suite_52_min_width_flag_zero(t_suite *suite)
 	//SUITE_ADD_TEST(suite, char_posMinWidth_zeroFlag);
 	//SUITE_ADD_TEST(suite, str_posMinWidth_zeroFlag);
 	//SUITE_ADD_TEST(suite, wide_str_posMinWidth_zeroFlag);
-	SUITE_ADD_TEST(suite, pointer_posMinWidth_zeroFlag);
-	SUITE_ADD_TEST(suite, pointer_valueLargerThanMinWidth_zeroFlag);
+	//SUITE_ADD_TEST(suite, pointer_posMinWidth_zeroFlag);
+	//SUITE_ADD_TEST(suite, pointer_valueLargerThanMinWidth_zeroFlag);
 }

@@ -23,6 +23,7 @@ static void simple_string(t_test *test)
 	gnl_ret = get_next_line(p[0], &line);
 	mt_assert(strcmp(line, str) == 0);
 	mt_assert(gnl_ret == 0 || gnl_ret == 1);
+	close(p[0]);
 }
 
 void	suite_03_test_medium_string(t_suite *suite)

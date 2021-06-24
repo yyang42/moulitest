@@ -23,6 +23,7 @@ static void simple_string(t_test *test)
 	mt_assert(strcmp(line, "ccc") == 0);
 	get_next_line(p[0], &line);
 	mt_assert(strcmp(line, "ddd") == 0);
+	close(p[0]);
 }
 
 void	suite_01_test_simple(t_suite *suite)

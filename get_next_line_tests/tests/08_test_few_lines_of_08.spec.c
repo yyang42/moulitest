@@ -35,6 +35,7 @@ static void simple_string(t_test *test)
 	mt_assert(strcmp(line, "opqrstuv") == 0);
 	get_next_line(p[0], &line);
 	mt_assert(strcmp(line, "wxyzabcd") == 0);
+	close(p[0]);
 }
 
 void	suite_08_test_few_lines_of_08(t_suite *suite)

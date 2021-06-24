@@ -69,6 +69,11 @@ static void simple_string(t_test *test)
 
 	get_next_line(p_fd3[0], &line_fd3);
 	mt_assert(strcmp(line_fd3, "999") == 0);
+
+	close(p_fd0[0]);
+	close(p_fd1[0]);
+	close(p_fd2[0]);
+	close(p_fd3[0]);
 }
 
 void	suite_30_bonus_multiple_fd(t_suite *suite)

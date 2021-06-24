@@ -38,6 +38,7 @@ static void simple_string(t_test *test)
 	mt_assert(strcmp(line, "yzab") == 0);
 	ret = get_next_line(p[0], &line);
 	mt_assert(ret == 0);
+	close(p[0]);
 }
 
 void	suite_14_test_few_lines_of_4(t_suite *suite)

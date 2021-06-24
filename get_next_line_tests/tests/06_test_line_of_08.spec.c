@@ -17,6 +17,7 @@ static void simple_string(t_test *test)
 	dup2(out, fd);
 	get_next_line(p[0], &line);
 	mt_assert(strcmp(line, "oiuytrew") == 0);
+	close(p[0]);
 }
 
 void	suite_06_test_line_of_08(t_suite *suite)

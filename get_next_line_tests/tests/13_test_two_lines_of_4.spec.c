@@ -23,6 +23,7 @@ static void simple_string(t_test *test)
 	mt_assert(strcmp(line, "efgh") == 0);
 	ret = get_next_line(p[0], &line);
 	mt_assert(ret == 0);
+	close(p[0]);
 }
 
 void	suite_13_test_two_lines_of_4(t_suite *suite)

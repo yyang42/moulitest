@@ -24,6 +24,7 @@ static void test01(t_test *test)
 	dup2(out, 1);
 	get_next_line(p[0], &line);
 	mt_assert(strcmp(line, str) == 0);
+	close(p[0]);
 }
 
 void	suite_40_hard_test_medium_string(t_suite *suite)

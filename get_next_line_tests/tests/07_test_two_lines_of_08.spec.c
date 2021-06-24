@@ -20,6 +20,7 @@ static void simple_string(t_test *test)
 	mt_assert(strcmp(line, "abcdefgh") == 0);
 	get_next_line(p[0], &line);
 	mt_assert(strcmp(line, "ijklmnop") == 0);
+	close(p[0]);
 }
 
 void	suite_07_test_two_lines_of_08(t_suite *suite)
